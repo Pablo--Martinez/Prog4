@@ -40,8 +40,11 @@ Paga Paga::a_dolar(){
 	if(this->moneda == us){
 		p.moneda = usd;
 		p.monto = Cambio::a_dolar(this->monto);
+		return p;
 	}
-	return p;
+	else{
+		return *this;
+	}
 };
 
 Paga Paga::a_peso(){
@@ -49,8 +52,11 @@ Paga Paga::a_peso(){
 	if(this->moneda == usd){
 		p.moneda = us;
 		p.monto = Cambio::a_peso(this->monto);
+		return p;
 	}
-	return p;
+	else{
+		return *this;
+	}
 }
 
 Paga Paga::operator =(const Paga &p1){

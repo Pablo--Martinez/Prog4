@@ -11,17 +11,16 @@
 
 using namespace std;
 
-int main(int argc, char* argv[])
-{
-    //system("cls");
-    char comando[20];
-    float monto;
-    char moneda[5];
-    
-	cout << "Comandos"<< endl;
+int main(){
+	
+	char* comando = new char;
+ 
+	cout << "COMANDOS"<< endl;
 	cout << "-->\tcrearPaga monto moneda"<< endl;
 	cout << "-->\tsumarPagas monto1 moneda1 monto2 moneda2 "<< endl;
 	cout << "-->\tproductoPaga monto moneda cantidad"<< endl;
+	cout << "-->\taDolar monto moneda" << endl;
+	cout << "-->\taPeso monto moneda" << endl;
 	cout << "-->\tsalir"<< endl << endl;
 	cout << ">> ";
      
@@ -35,8 +34,13 @@ int main(int argc, char* argv[])
 		
 		//Crear paga
 		else if(!strcmp(comando,"crearPaga")){
+			float monto;
+			char* moneda = new char;
+			
 			cin >> monto;
 			cin >> moneda;
+			
+			//Intento crear la paga solicitada
 			try{
 				if(!strcmp(moneda,"us")){
 					Paga p(monto,us);
@@ -51,49 +55,57 @@ int main(int argc, char* argv[])
 			catch(std::invalid_argument){
 				cout << "Argumento invalido!" << endl;
 			}
+			
+			delete moneda;
 		}
 		
 		//Sumar pagas
 		else if(!strcmp(comando,"sumarPagas")){
 			Paga p1,p2,p;
+			float monto1, monto2;
+			char* moneda1 = new char;
+			char* moneda2 = new char;
 			
-			cin >> monto;
-			cin >> moneda;
+			cin >> monto1 >> moneda1 >> monto2 >> moneda2;
 			try{
-				if(!strcmp(moneda,"us")){
-					p1 = Paga(monto,us);
-					cout << "Paga: " << p1 << endl;
+				//Creo la primer paga
+				if(!strcmp(moneda1,"us")){
+					p1 = Paga(monto1,us);
+					cout << "1er paga: " << p1 << endl;
 				}
 				else{
-					p1 = Paga(monto,usd);
-					cout << "Paga: " << p1 << endl;
-				}					
-			}
-			catch(std::invalid_argument){
-				cout << "Argumento invalido!" << endl;
-			}
-			
-			cin >> monto;
-			cin >> moneda;
-			try{
-				if(!strcmp(moneda,"us")){
-					p2 = Paga(monto,us);
-					cout << "Paga: " << p2 << endl;
+					p1 = Paga(monto1,usd);
+					cout << "1er paga: " << p1 << endl;
 				}
-				else{
-					p2 = Paga(monto,usd);
-					cout << "Paga: " << p2 << endl;
-				}					
+				
+				//Creo la segunda paga
+				try{
+					if(!strcmp(moneda2,"us")){
+						p2 = Paga(monto2,us);
+						cout << "2da paga: " << p2 << endl;
+					}
+					else{
+						p2 = Paga(monto2,usd);
+						cout << "2da paga: " << p2 << endl;
+					}
+				}
+				catch(std::invalid_argument){
+					cout << "Argumento invalido!" << endl;
+				}
+				
+				//Sumo ambas pagas
+				try{
+					p = p1 + p2;
+					cout << "Suma total: " << p << endl;
+				}
+				catch(std::invalid_argument){
+					cout << "Argumento invalido!" << endl;
+				}
+				
+				delete moneda1;
+				delete moneda2;
+				
 			}
-			catch(std::invalid_argument){
-				cout << "Argumento invalido!" << endl;
-			}
-			
-			try{
-				p = p1 + p2;
-				cout << "Suma: " << p << endl;
-			}
-			
 			catch(std::invalid_argument){
 				cout << "Argumento invalido!" << endl;
 			}
@@ -103,11 +115,14 @@ int main(int argc, char* argv[])
 		else if(!strcmp(comando,"productoPaga")){
 			Paga p;
 			int cantidad;
+			float monto;
+			char* moneda = new char;
 			
 			cin >> monto;
 			cin >> moneda;
 			cin >> cantidad;
 			
+			//Creo la paga
 			try{
 				if(!strcmp(moneda,"us")){
 					p = Paga(monto,us);
@@ -116,20 +131,76 @@ int main(int argc, char* argv[])
 				else{
 					p = Paga(monto,usd);
 					cout << "Paga: " << p << endl;
-				}					
+				}	
+				
+				//Realizo la operacion
+				try{
+					p = p * cantidad;
+					cout << "Producto: " << p << endl;
+				}
+				catch(std::invalid_argument){
+					cout << "Argumento invalido!" << endl;
+				}				
 			}
 			catch(std::invalid_argument){
 				cout << "Argumento invalido!" << endl;
 			}
 			
+			delete moneda;
+	
+		}
+		
+		//Convertir paga a dolares
+		else if(!strcmp(comando,"aDolar")){
+			Paga p;
+			float monto;
+			char * moneda = new char;
 			try{
-				p = p * cantidad;
-				cout << "Producto: " << p << endl;
+				cin >> monto >> moneda;
+				if(!strcmp(moneda,"us")){
+					p = Paga(monto,us);
+					cout << "Paga: " << p << endl;
+				}
+				else{
+					p = Paga(monto,usd);
+					cout << "Paga: " << p << endl;
+				}
+				
+				p = p.a_dolar();
+				cout << "Paga en dolares: " << p << endl;
 			}
-			
 			catch(std::invalid_argument){
 				cout << "Argumento invalido!" << endl;
 			}
+			
+			delete moneda;
+			
+		}
+		
+		//Convertir paga a pesos
+		else if(!strcmp(comando,"aPeso")){
+			Paga p;
+			float monto;
+			char * moneda = new char;
+			try{
+				cin >> monto >> moneda;
+				if(!strcmp(moneda,"us")){
+					p = Paga(monto,us);
+					cout << "Paga: " << p << endl;
+				}
+				else{
+					p = Paga(monto,usd);
+					cout << "Paga: " << p << endl;
+				}
+				
+				p = p.a_peso();
+				cout << "Paga en pesos: " << p << endl;
+			}
+			catch(std::invalid_argument){
+				cout << "Argumento invalido!" << endl;
+			}
+			
+			delete moneda;
 		}
 		
 		//Comando invalido
@@ -140,7 +211,7 @@ int main(int argc, char* argv[])
 		cout << ">> ";	
     }
     
-    printf ("Termina %s \n","");
-    
+    cout << "Termina" << endl;
+    delete comando;
     return 0;
 }
