@@ -131,6 +131,12 @@ int main(int argc, char* argv[])
 				cout << "Argumento invalido!" << endl;
 			}
 		}
+		
+		//Comando invalido
+		else{
+			cout << "Comando invalido!" << endl;
+		}
+			
 		cout << ">> ";	
     }
     
