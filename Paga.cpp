@@ -24,11 +24,11 @@ Paga::Paga(float monto, Moneda moneda){
 		this->monto = monto;
 	}
 	else{
-		throw std::invalid_argument("");
+		throw std::invalid_argument("Monto incorrecto");
 	}
 	
 	if(moneda != us && moneda != usd){
-		throw std::invalid_argument("");
+		throw std::invalid_argument("Moneda incorrecta");
 	}
 	else{
 		this->moneda = moneda;
@@ -73,7 +73,7 @@ Paga Paga::operator *(float cant){
 		return p;
 	}
 	else{
-		throw std::invalid_argument("");
+		throw std::invalid_argument("Producto negativo");
 	}
 }
 
@@ -85,7 +85,7 @@ Paga Paga::operator +(const Paga &p1){
 		return p;
 	}
 	else{
-		throw std::invalid_argument("");
+		throw std::invalid_argument("Tipos de monedas incompatibles");
 	}
 }
 

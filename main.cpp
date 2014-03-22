@@ -46,14 +46,17 @@ int main(){
 					Paga p(monto,us);
 					cout << "Paga: " << p << endl;
 				}
-				else{
+				else if(!strcmp(moneda,"usd")){
 					Paga p(monto,usd);
 					cout << "Paga: " << p << endl;
-				}	
+				}
+				else{
+					cout << "Argumento ivalido: Moneda incorrecta" << endl;
+				}
 							
 			}
-			catch(std::invalid_argument){
-				cout << "Argumento invalido!" << endl;
+			catch (const std::invalid_argument& e) {
+				std::cerr << "Argumento invalido: " << e.what() << endl;
 			}
 			
 			delete moneda;
@@ -88,26 +91,28 @@ int main(){
 						p2 = Paga(monto2,usd);
 						cout << "2da paga: " << p2 << endl;
 					}
+					
+					//Sumo ambas pagas
+					try{
+						p = p1 + p2;
+						cout << "Suma total: " << p << endl;
+					}
+					catch (const std::invalid_argument& e) {
+						std::cerr << "Argumento invalido: " << e.what() << endl;
+					}
 				}
-				catch(std::invalid_argument){
-					cout << "Argumento invalido!" << endl;
+				catch (const std::invalid_argument& e) {
+					std::cerr << "Argumento invalido: " << e.what() << endl;
 				}
 				
-				//Sumo ambas pagas
-				try{
-					p = p1 + p2;
-					cout << "Suma total: " << p << endl;
-				}
-				catch(std::invalid_argument){
-					cout << "Argumento invalido!" << endl;
-				}
+				
 				
 				delete moneda1;
 				delete moneda2;
 				
 			}
-			catch(std::invalid_argument){
-				cout << "Argumento invalido!" << endl;
+			catch (const std::invalid_argument& e) {
+				std::cerr << "Argumento invalido: " << e.what() << endl;
 			}
 		}
 		
@@ -138,12 +143,12 @@ int main(){
 					p = p * cantidad;
 					cout << "Producto: " << p << endl;
 				}
-				catch(std::invalid_argument){
-					cout << "Argumento invalido!" << endl;
+				catch (const std::invalid_argument& e) {
+					std::cerr << "Argumento invalido: " << e.what() << endl;
 				}				
 			}
-			catch(std::invalid_argument){
-				cout << "Argumento invalido!" << endl;
+			catch (const std::invalid_argument& e) {
+				std::cerr << "Argumento invalido: " << e.what() << endl;
 			}
 			
 			delete moneda;
@@ -169,8 +174,8 @@ int main(){
 				p = p.a_dolar();
 				cout << "Paga en dolares: " << p << endl;
 			}
-			catch(std::invalid_argument){
-				cout << "Argumento invalido!" << endl;
+			catch (const std::invalid_argument& e) {
+				std::cerr << "Argumento invalido: " << e.what() << endl;
 			}
 			
 			delete moneda;
@@ -196,8 +201,8 @@ int main(){
 				p = p.a_peso();
 				cout << "Paga en pesos: " << p << endl;
 			}
-			catch(std::invalid_argument){
-				cout << "Argumento invalido!" << endl;
+			catch (const std::invalid_argument& e) {
+				std::cerr << "Argumento invalido: " << e.what() << endl;
 			}
 			
 			delete moneda;
