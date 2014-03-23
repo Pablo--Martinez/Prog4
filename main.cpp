@@ -76,9 +76,12 @@ int main(){
 					p1 = Paga(monto1,us);
 					cout << "1er paga: " << p1 << endl;
 				}
-				else{
+				else if(!strcmp(moneda1,"usd")){
 					p1 = Paga(monto1,usd);
 					cout << "1er paga: " << p1 << endl;
+				}
+				else{
+					cout << "Argumento ivalido: Moneda incorrecta" << endl;
 				}
 				
 				//Creo la segunda paga
@@ -87,9 +90,12 @@ int main(){
 						p2 = Paga(monto2,us);
 						cout << "2da paga: " << p2 << endl;
 					}
-					else{
+					else if(!strcmp(moneda2,"usd")){
 						p2 = Paga(monto2,usd);
 						cout << "2da paga: " << p2 << endl;
+					}
+					else{
+						cout << "Argumento ivalido: Moneda incorrecta" << endl;
 					}
 					
 					//Sumo ambas pagas
@@ -104,8 +110,6 @@ int main(){
 				catch (const std::invalid_argument& e) {
 					std::cerr << "Argumento invalido: " << e.what() << endl;
 				}
-				
-				
 				
 				delete moneda1;
 				delete moneda2;
@@ -133,10 +137,13 @@ int main(){
 					p = Paga(monto,us);
 					cout << "Paga: " << p << endl;
 				}
-				else{
+				else if(!strcmp(moneda,"usd")){
 					p = Paga(monto,usd);
 					cout << "Paga: " << p << endl;
 				}	
+				else{
+					cout << "Argumento ivalido: Moneda incorrecta" << endl;
+				}
 				
 				//Realizo la operacion
 				try{
@@ -166,9 +173,12 @@ int main(){
 					p = Paga(monto,us);
 					cout << "Paga: " << p << endl;
 				}
-				else{
+				else if(!strcmp(moneda,"usd")){
 					p = Paga(monto,usd);
 					cout << "Paga: " << p << endl;
+				}
+				else{
+					cout << "Argumento ivalido: Moneda incorrecta" << endl;
 				}
 				
 				p = p.a_dolar();
@@ -193,9 +203,12 @@ int main(){
 					p = Paga(monto,us);
 					cout << "Paga: " << p << endl;
 				}
-				else{
+				else if(!strcmp(moneda,"usd")){
 					p = Paga(monto,usd);
 					cout << "Paga: " << p << endl;
+				}
+				else{
+					cout << "Argumento ivalido: Moneda incorrecta" << endl;
 				}
 				
 				p = p.a_peso();
