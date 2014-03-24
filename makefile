@@ -1,11 +1,11 @@
-mian: Paga.o Cambio.o
-	g++ -Wall -Werror -g -o main main.cpp Cambio.o Paga.o
+mian:  Paga.o Cambio.o
+	g++ -Wall -Werror -o main main.cpp Cambio.o Paga.o
 	
 Cambio.o:
-	g++ -Wall -Werror -g -c Cambio.h Cambio.cpp
+	g++ -Wall -Werror -c Cambio.h Cambio.cpp
 	
 Paga.o:
-	g++ -Wall -Werror -g -c Paga.h Paga.cpp
+	g++ -Wall -Werror -c Paga.h Paga.cpp
 	
 Empresa.o:
 	g++ -Wall -Werror -c Empresa.h Empresa.cpp Paga.o

@@ -2,7 +2,9 @@
 #include "Cambio.h"
 #include <iostream>
 #include <stdexcept>
-#include <iomanip>
+//#include <iomanip>
+#include <stdio.h>
+#include <string.h>
 
 using namespace std;
 
@@ -90,21 +92,34 @@ Paga Paga::operator +(const Paga &p1){
 }
 
 ostream& operator<<(ostream &o, Paga &p){
-    if(p.getMonto() >= 1000){
-		if(p.getMoneda() == us){
-			o << (int)(p.getMonto() / 1000) << "." << setw(3) << setfill('0') << ((int)p.getMonto() % 1000) << " us";
+	char* valor = new char;
+	sprintf(valor,"%.2f",p.getMonto());
+    int largo = strlen(valor);
+    int i = 0;
+    int sobran = largo%3;
+    bool flag=false;
+    
+    if (sobran == 0) flag=true;
+    
+    while(i < largo) {
+		if(valor[i] == '.'){
+			o << ",";
+			flag = true;
 		}
-		else{
-			o << (int)(p.getMonto() / 1000) << "." << setw(3) << setfill('0') << ((int)p.getMonto() % 1000) << " usd";
-		}
+        else if ((i%3) == sobran && !flag) {
+            o << "." << valor[i];
+        }
+        else {
+            flag=false;
+            o << valor[i];
+        }
+        i++;    
+    }
+    if(p.getMoneda() == us){
+		o << " us";
 	}
 	else{
-		if(p.getMoneda() == us){
-			o << p.getMonto() << " us";
-		}
-		else{
-			o << p.getMonto() << " usd";
-		}
+		o << " usd";
 	}
 	return o;
 }
