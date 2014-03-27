@@ -38,8 +38,8 @@ Paga::Paga(float monto, Moneda moneda){
 }
 
 Paga Paga::a_dolar(){
-	Paga p;
 	if(this->moneda == us){
+		Paga p;
 		p.moneda = usd;
 		p.monto = Cambio::a_dolar(this->monto);
 		return p;
@@ -50,8 +50,8 @@ Paga Paga::a_dolar(){
 };
 
 Paga Paga::a_peso(){
-	Paga p;
 	if(this->moneda == usd){
+		Paga p;
 		p.moneda = us;
 		p.monto = Cambio::a_peso(this->monto);
 		return p;
@@ -80,8 +80,8 @@ Paga Paga::operator *(float cant){
 }
 
 Paga Paga::operator +(const Paga &p1){
-	Paga p;
 	if(p1.moneda == this->moneda){
+		Paga p;
 		p.moneda = p1.moneda;
 		p.monto = p1.monto + this->monto;
 		return p;
@@ -121,5 +121,6 @@ ostream& operator<<(ostream &o, Paga &p){
 	else{
 		o << " usd";
 	}
+	delete valor;
 	return o;
 }

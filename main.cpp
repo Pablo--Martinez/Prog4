@@ -1,26 +1,41 @@
 #include <iostream>
 #include <string.h>
-#include <sstream>
-#include <stdio.h>
-#include <stdlib.h>
+//#include <sstream>
+//#include <stdio.h>
+//#include <stdlib.h>
 #include <stdexcept>
 
 #include "Moneda.h"
 #include "Cambio.h"
 #include "Paga.h"
+#include "Empleado.h"
+#include "Jornalero.h"
+#include "Fijo.h"
+#include "Empresa.h"
 
 using namespace std;
 
 int main(){
 	
 	char* comando = new char;
+	Empresa* empresa = NULL;
+    Jornalero* j = NULL;
+    Fijo* f = NULL;
  
-	cout << "COMANDOS"<< endl;
+	cout << "COMANDOS PAGA"<< endl;
 	cout << "-->\tcrearPaga monto moneda"<< endl;
 	cout << "-->\tsumarPagas monto1 moneda1 monto2 moneda2 "<< endl;
 	cout << "-->\tproductoPaga monto moneda cantidad"<< endl;
 	cout << "-->\taDolar monto moneda" << endl;
-	cout << "-->\taPeso monto moneda" << endl;
+	cout << "-->\taPeso monto moneda" << endl << endl;
+	
+	cout << "COMANDOS EMPRESA"<< endl;
+	cout << "-->\tcrearEmpresa nombre nombre_legal rut" << endl;
+	cout << "-->\tagregarJornalero nombre ci edad monto_hora moneda_hora horas" << endl;
+	cout << "-->\tagregarFijo nombre ci edad monto_hora moneda_hora" << endl;
+	cout << "-->\tcalcularSueldoDolar" << endl;
+	cout << "-->\tcalcularSueldoPeso" << endl;
+	cout << "-->\tdatosEmpresa" << endl;
 	cout << "-->\tsalir"<< endl << endl;
 	cout << ">> ";
      
@@ -221,15 +236,166 @@ int main(){
 			delete moneda;
 		}
 		
+		//Crear Empresa "-->crearEmpresa nombre nombre_legal rut"
+		else if(!strcmp(comando,"crearEmpresa")) {
+			char* nombre = new char;
+			char* nombre_legal = new char;
+			int rut;
+			
+			cin >> nombre >> nombre_legal >> rut;
+			
+			//Intento crear la empresa
+			if(empresa == NULL){
+				try{
+					empresa = new Empresa(nombre,nombre_legal,rut);
+					cout << *empresa << endl;
+				}
+				catch (const std::invalid_argument& e) {
+					std::cerr << "Argumento invalido: " << e.what() << endl;
+				}
+			}
+			else{
+				cout << "La empresa ya existe" << endl;
+			}
+                        
+			delete nombre;
+			delete nombre_legal;
+		}
+		
+		//Agregar Jornalero "-->agregarJornalero nombre ci edad monto_hora moneda_hora horas"
+		else if(!strcmp(comando,"agregarJornalero")) {
+			char* nombre = new char;
+			char* ci = new char;
+			int edad;
+			float monto_hora;
+			char* moneda_hora = new char;
+			int horas;
+			
+			cin >> nombre >> ci >> edad >> monto_hora >> moneda_hora >> horas;
+			
+			//Intento crear la paga solicitada
+			Paga paga;
+			try{
+				if(!strcmp(moneda_hora,"us")){
+					paga = Paga(monto_hora,us);
+					try{
+						j = new Jornalero(nombre,ci,edad,paga,horas,empresa);
+						cout << *j << endl;
+						empresa->agregar_empleado(j);
+					}
+					catch (const std::invalid_argument& e) {
+						std::cerr << "Argumento invalido: " << e.what() << endl;
+					}		
+				}
+				
+				else if(!strcmp(moneda_hora,"usd")){
+					paga = Paga(monto_hora,usd);
+					try{
+						j = new Jornalero(nombre,ci,edad,paga,horas,empresa);
+						cout << *j << endl;
+						empresa->agregar_empleado(j);
+					}
+					catch (const std::invalid_argument& e) {
+						std::cerr << "Argumento invalido: " << e.what() << endl;
+					}
+				}
+				
+				else{
+					cout << "Argumento ivalido: Moneda incorrecta" << endl;
+				}
+			}
+			
+			catch (const std::invalid_argument& e) {
+				std::cerr << "Argumento invalido: " << e.what() << endl;
+			}
+						
+			delete nombre;
+			delete ci;
+			delete moneda_hora;	
+		}
+		
+		//Agregar Fijo "-->agregarFijo nombre ci edad monto_hora moneda_hora"
+		else if(!strcmp(comando,"agregarFijo")) {
+			char* nombre = new char;
+			char* ci = new char;
+			int edad;
+			float monto_hora;
+			char* moneda_hora = new char;
+			
+			cin >> nombre >> ci >> edad >> monto_hora >> moneda_hora;
+			
+			//Intento crear la paga solicitada
+			Paga paga;
+			try{
+				if(!strcmp(moneda_hora,"us")){
+					paga = Paga(monto_hora,us);
+					try{
+						f = new Fijo(nombre,ci,edad,paga,empresa);
+						cout << *f << endl;
+						empresa->agregar_empleado(f);
+					}
+					catch (const std::invalid_argument& e) {
+						std::cerr << "Argumento invalido: " << e.what() << endl;
+					}
+				}		
+				
+				else if(!strcmp(moneda_hora,"usd")){
+					paga = Paga(monto_hora,usd);
+					try{
+						f = new Fijo(nombre,ci,edad,paga,empresa);
+						cout << *f << endl;
+						empresa->agregar_empleado(f);
+					}
+					catch (const std::invalid_argument& e) {
+						std::cerr << "Argumento invalido: " << e.what() << endl;
+					}
+				}
+				
+				else{
+					cout << "Argumento ivalido: Moneda incorrecta" << endl;
+				}
+			}
+			catch (const std::invalid_argument& e) {
+				std::cerr << "Argumento invalido: " << e.what() << endl;
+			}
+						
+			delete nombre;
+			delete ci;
+			delete moneda_hora;	
+		}
+		
+		else if(!strcmp(comando,"calcularSueldoDolar")){
+			Paga p = empresa->total_sueldo_dolar();
+			cout << "Total: " << p << endl;
+		}
+		
+		else if(!strcmp(comando,"calcularSueldoPeso")){
+			Paga p = empresa->total_sueldo_peso();
+			cout << "Total: " << p << endl;
+		}
+		
+		else if(!strcmp(comando,"datosEmpresa")){
+			if(empresa != NULL){
+				cout << *empresa << endl;
+				empresa->imprimir_empleados();
+			}
+			else{
+				cout << "ERROR: Empresa inexistente"<< endl;
+			}
+		}
+		
 		//Comando invalido
 		else{
 			cout << "Comando invalido!" << endl;
 		}
-			
+
 		cout << ">> ";	
     }
     
     cout << "Termina" << endl;
     delete comando;
+    if (j != NULL) delete j;
+    if (f != NULL) delete f;
+    if (empresa != NULL) delete empresa;
     return 0;
 }
