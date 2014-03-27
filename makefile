@@ -1,4 +1,4 @@
-mian:Paga.o Cambio.o Empleado.o Jornalero.o Fijo.o Empresa.o
+1mian:Paga.o Cambio.o Empleado.o Jornalero.o Fijo.o Empresa.o
 	g++ -Wall -Werror -o main main.cpp Cambio.o Paga.o Empleado.o Fijo.o Jornalero.o Empresa.o
 
 Cambio.o:
