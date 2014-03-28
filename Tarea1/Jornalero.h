@@ -17,14 +17,12 @@ class Jornalero: public Empleado {
 	public:
 		Jornalero();
 	    Jornalero(char* nombre, char* ci, int edad, Paga valor_hora, int horas, Empresa* e);
-	    //Jornalero(Jornalero&);
 	    ~Jornalero();
 	    int get_horas();
+	    virtual void imprimir();
 	    virtual Paga get_sueldo_peso();
 	    virtual Paga get_sueldo_dolar();
 };
-
-ostream& operator<<(ostream &o, Jornalero &j);
 
 #include "Empresa.h"
 

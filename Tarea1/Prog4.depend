@@ -4,10 +4,10 @@
 
 1394993954 /home/pablo/Escritorio/Fing/Prog4/Tarea1/Cambio.h
 
-1395958662 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/Empleado.cpp
+1396044652 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/Empleado.cpp
 	"Empleado.h"
 
-1395958655 /home/pablo/Escritorio/Fing/Prog4/Tarea1/Empleado.h
+1396045489 /home/pablo/Escritorio/Fing/Prog4/Tarea1/Empleado.h
 	"Paga.h"
 	<string>
 	<iostream>
@@ -30,26 +30,26 @@
 	"Jornalero.h"
 	"Fijo.h"
 
-1395958678 /home/pablo/Escritorio/Fing/Prog4/Tarea1/Jornalero.h
+1396045389 /home/pablo/Escritorio/Fing/Prog4/Tarea1/Jornalero.h
 	"Paga.h"
 	"Empleado.h"
 	<iostream>
 	<stdexcept>
 	"Empresa.h"
 
-1395958671 /home/pablo/Escritorio/Fing/Prog4/Tarea1/Fijo.h
+1396045394 /home/pablo/Escritorio/Fing/Prog4/Tarea1/Fijo.h
 	"Empleado.h"
 	"Paga.h"
 	<iostream>
 	"Empresa.h"
 
-1395976381 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/Empresa.cpp
+1396045278 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/Empresa.cpp
 	"Empresa.h"
 
-1395958669 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/Fijo.cpp
+1396045314 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/Fijo.cpp
 	"Fijo.h"
 
-1395958675 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/Jornalero.cpp
+1396045583 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/Jornalero.cpp
 	"Jornalero.h"
 
 1395959452 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/Paga.cpp
@@ -60,7 +60,7 @@
 	<stdio.h>
 	<string.h>
 
-1395976020 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/main.cpp
+1396045460 source:/home/pablo/Escritorio/Fing/Prog4/Tarea1/main.cpp
 	<iostream>
 	<string.h>
 	<stdexcept>

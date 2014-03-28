@@ -24,20 +24,9 @@ Empleado::Empleado(char* nombre, char* ci, int edad, Paga valor_hora, Empresa* e
 	}
 }
 
-/*
-Empleado::Empleado(const Empleado &e){
-	this->nombre = new char;
-	this->ci = new char;
-	strcpy(this->nombre,e.nombre);
-    strcpy(this->ci,e.ci);
-    this->edad = e.edad;
-    this->valor_hora = e.valor_hora;
-    this->empresa = e.empresa;
-}
-*/
 Empleado::~Empleado(){
 	delete nombre;
-	delete ci; 
+	delete ci;
 }
 
 char* Empleado::get_nombre(){

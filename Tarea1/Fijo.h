@@ -7,7 +7,6 @@
 
 using namespace std;
 
-//class Empleado;
 class Empresa;
 
 class Fijo: public Empleado {
@@ -16,13 +15,11 @@ class Fijo: public Empleado {
 	public:
 		Fijo();
 	    Fijo(char* nombre, char*ci, int edad, Paga valor_hora, Empresa* e);
-	    //Fijo(const Fijo&);
 	    ~Fijo();
+	    virtual void imprimir();
 	    virtual Paga get_sueldo_peso();
 	    virtual Paga get_sueldo_dolar();
 };
-
-ostream& operator<<(ostream &o, Fijo &f);
 
 #include "Empresa.h"
 #endif

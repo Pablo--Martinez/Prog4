@@ -19,13 +19,13 @@ class Empleado{
 	public:
 		Empleado();
 	    Empleado(char* nombre, char* ci, int edad, Paga valor_hora, Empresa* e);
-	    //Empleado(const Empleado&);
-	    ~Empleado();
+	    virtual ~Empleado();
 	    char* get_nombre();
 	    char* get_ci();
 	    int get_edad();
 	    Paga get_valor_hora();
 	    Empresa* get_empresa();
+	    virtual void imprimir()=0;
 	    virtual Paga get_sueldo_peso()=0;
 	    virtual Paga get_sueldo_dolar()=0;
 };

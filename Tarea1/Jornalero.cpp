@@ -16,11 +16,8 @@ Jornalero::Jornalero(char* nombre, char* ci, int edad, Paga valor_hora, int hora
 	}
 }
 
-/*Jornalero::Jornalero(Jornalero &j):Empleado(&j){
-	this->horas = j.horas;
-}*/
-
-Jornalero::~Jornalero(){}
+Jornalero::~Jornalero(){
+}
 
 int Jornalero::get_horas()
 {
@@ -44,13 +41,12 @@ Paga Jornalero::get_sueldo_dolar()
     return calculoPaga().a_dolar();
 }
 
-ostream& operator<<(ostream &o, Jornalero &j){
-	o << "Empleado jornalero: " << endl;
-	o << "\tNombre: " << j.get_nombre() << endl;
-	o << "\tCI: " << j.get_ci() << endl;
-	o << "\tEdad: " << j.get_edad() << endl;
-	Paga p = j.get_valor_hora();
-	o << "\tPaga por hora: " << p << endl;
-	o << "\tHoras trabajadas: " << j.get_horas();
-	return o;
+void Jornalero::imprimir() {
+	cout << "Empleado jornalero: " << endl;
+	cout << "\tNombre: " << this->get_nombre() << endl;
+	cout << "\tCI: " << this->get_ci() << endl;
+	cout << "\tEdad: " << this->get_edad() << endl;
+	Paga p = this->get_valor_hora();
+	cout << "\tPaga por hora: " << p << endl;
+	cout << "\tHoras trabajadas: " << this->get_horas() << endl;
 }

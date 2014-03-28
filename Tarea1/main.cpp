@@ -277,7 +277,7 @@ int main(){
 					paga = Paga(monto_hora,us);
 					try{
 						j = new Jornalero(nombre,ci,edad,paga,horas,empresa);
-						cout << *j << endl;
+						j->imprimir();
 						empresa->agregar_empleado(j);
 					}
 					catch (const std::invalid_argument& e) {
@@ -289,7 +289,7 @@ int main(){
 					paga = Paga(monto_hora,usd);
 					try{
 						j = new Jornalero(nombre,ci,edad,paga,horas,empresa);
-						cout << *j << endl;
+						j->imprimir();
 						empresa->agregar_empleado(j);
 					}
 					catch (const std::invalid_argument& e) {
@@ -328,7 +328,7 @@ int main(){
 					paga = Paga(monto_hora,us);
 					try{
 						f = new Fijo(nombre,ci,edad,paga,empresa);
-						cout << *f << endl;
+						f->imprimir();
 						empresa->agregar_empleado(f);
 					}
 					catch (const std::invalid_argument& e) {
@@ -340,7 +340,7 @@ int main(){
 					paga = Paga(monto_hora,usd);
 					try{
 						f = new Fijo(nombre,ci,edad,paga,empresa);
-						cout << *f << endl;
+						f->imprimir();
 						empresa->agregar_empleado(f);
 					}
 					catch (const std::invalid_argument& e) {
@@ -391,8 +391,6 @@ int main(){
 
     cout << "Termina" << endl;
     delete comando;
-    if (j != NULL) delete j;
-    if (f != NULL) delete f;
     if (empresa != NULL) delete empresa;
     return 0;
 }

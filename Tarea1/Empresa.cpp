@@ -21,6 +21,11 @@ Empresa::Empresa(char* nombre, char* nombre_legal, int rut) {
 }
 
 Empresa::~Empresa() {
+    for(int i=0;i<MAX_EMPLEADO;i++){
+        if(this->empleados[i] != NULL){
+            delete this->empleados[i];
+        }
+    }
 	delete[] this->empleados;
     delete this->nombre;
     delete this->nombre_legal;
@@ -78,7 +83,7 @@ void Empresa::imprimir_empleados() {
     cout << "Empleados: " << endl;
 	for (i = 0; i<MAX_EMPLEADO; i++) {
 		if (this->empleados[i] != NULL) {
-			cout << this->empleados[i] << endl;
+			this->empleados[i]->imprimir();
 			cout << "--------------------------" << endl;
 		}
 	}
