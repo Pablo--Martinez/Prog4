@@ -3,17 +3,17 @@
 using namespace std;
 
 Empresa::Empresa(char* nombre, char* nombre_legal, int rut) {
-    
+
 	this->nombre = new char;
 	this->nombre_legal = new char;
-    
+
 	strcpy(this->nombre,nombre);
 	strcpy(this->nombre_legal,nombre_legal);
 	if(rut >= 0)
 		this->rut = rut;
 	else
 		throw std::invalid_argument("RUT invalido");
-		
+
 	this->empleados = new Empleado*[MAX_EMPLEADO];
 
 	for (int i=0; i<MAX_EMPLEADO; i++)
@@ -48,30 +48,17 @@ Paga Empresa::total_sueldo_peso() {
 		}
 	}
 	return p;
-
-    /*Paga tot;
-    tot := tot.a_peso;
-    
-    para cada e in empleados:
-        tot := tot + e.get_sueldo_peso();*/
-    
 }
 
 Paga Empresa::total_sueldo_dolar() {
 	Paga p;
+	p = p.a_dolar();
 	for(int i=0;i<MAX_EMPLEADO;i++){
 		if(this->empleados[i] != NULL){
 			p = p + this->empleados[i]->get_sueldo_dolar();
 		}
 	}
 	return p;
-    
-    /*Paga tot;
-    tot := tot.a_dolar;
-    
-    para cada e in empleados:
-        tot := tot + e.get_sueldo_dolar();*/
-    
 }
 
 /*
@@ -90,7 +77,7 @@ void Empresa::agregar_empleado(Empleado* e) {
 	if (i == MAX_EMPLEADO) {
 		throw std::invalid_argument("Max empleados completo");
 	}
-	
+
 }
 
 void Empresa::imprimir_empleados() {
