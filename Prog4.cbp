@@ -31,6 +31,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Cambio.cpp" />
+		<Unit filename="Cambio.h" />
+		<Unit filename="Empleado.cpp" />
+		<Unit filename="Empleado.h" />
+		<Unit filename="Empresa.cpp" />
+		<Unit filename="Empresa.h" />
+		<Unit filename="Fijo.cpp" />
+		<Unit filename="Fijo.h" />
+		<Unit filename="Jornalero.cpp" />
+		<Unit filename="Jornalero.h" />
+		<Unit filename="Moneda.h" />
+		<Unit filename="Paga.cpp" />
+		<Unit filename="Paga.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="makefile" />
 		<Extensions>
 			<code_completion />
 			<debugger />

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="Cambio.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="55" topLine="0" />
+	</File>
+	<File name="Empleado.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="796" topLine="36" />
+	</File>
+	<File name="Empleado.h" open="1" top="0" tabpos="8">
+		<Cursor position="0" topLine="7" />
+	</File>
+	<File name="Empresa.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="1062" topLine="43" />
+	</File>
+	<File name="Empresa.h" open="1" top="1" tabpos="9">
+		<Cursor position="243" topLine="0" />
+	</File>
+	<File name="Fijo.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="299" topLine="0" />
+	</File>
+	<File name="Jornalero.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="849" topLine="28" />
+	</File>
+	<File name="Paga.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="1634" topLine="72" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="9633" topLine="368" />
+	</File>
+</CodeBlocks_layout_file>
