@@ -5,27 +5,33 @@
 		<Cursor position="55" topLine="0" />
 	</File>
 	<File name="Empleado.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="796" topLine="36" />
+		<Cursor position="512" topLine="15" />
 	</File>
-	<File name="Empleado.h" open="0" top="0" tabpos="8">
-		<Cursor position="0" topLine="7" />
+	<File name="Empleado.h" open="1" top="0" tabpos="8">
+		<Cursor position="356" topLine="7" />
 	</File>
 	<File name="Empresa.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="571" topLine="9" />
+		<Cursor position="1763" topLine="0" />
 	</File>
 	<File name="Empresa.h" open="0" top="0" tabpos="9">
 		<Cursor position="243" topLine="15" />
 	</File>
 	<File name="Fijo.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="251" topLine="0" />
+		<Cursor position="197" topLine="0" />
+	</File>
+	<File name="Fijo.h" open="1" top="0" tabpos="10">
+		<Cursor position="110" topLine="0" />
 	</File>
 	<File name="Jornalero.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="467" topLine="15" />
+		<Cursor position="837" topLine="24" />
+	</File>
+	<File name="Jornalero.h" open="1" top="0" tabpos="9">
+		<Cursor position="368" topLine="1" />
 	</File>
 	<File name="Paga.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="1634" topLine="78" />
+		<Cursor position="1223" topLine="50" />
 	</File>
 	<File name="main.cpp" open="1" top="1" tabpos="5">
-		<Cursor position="1935" topLine="370" />
+		<Cursor position="8433" topLine="269" />
 	</File>
 </CodeBlocks_layout_file>

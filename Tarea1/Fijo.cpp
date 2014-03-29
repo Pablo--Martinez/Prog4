@@ -26,7 +26,7 @@ Paga Fijo::get_sueldo_dolar()
     return calculoPaga().a_dolar();
 }
 void Fijo::imprimir() {
-	cout << "Fijo: " << endl;
+	//cout << "Fijo: " << endl;
 	cout << "\tNombre: " << this->get_nombre() << endl;
 	cout << "\tCI: " << this->get_ci() << endl;
 	cout << "\tEdad: " << this->get_edad() << endl;

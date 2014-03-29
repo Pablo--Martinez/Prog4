@@ -10,11 +10,16 @@ Empleado::Empleado()
 
 Empleado::Empleado(char* nombre, char* ci, int edad, Paga valor_hora, Empresa* e)
 {
-	this->nombre = new char;
-	this->ci = new char;
+	this->nombre = new char[50];
+	this->ci = new char[50];
     strcpy(this->nombre,nombre);
     strcpy(this->ci,ci);
-    this->edad = edad;
+    if(edad > 0){
+		this->edad = edad;
+	}
+	else{
+		throw std::invalid_argument("Edad incorrecta");
+	}
     this->valor_hora = valor_hora;
     if(e != NULL){
 		this->empresa = e;

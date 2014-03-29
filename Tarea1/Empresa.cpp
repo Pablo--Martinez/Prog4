@@ -4,8 +4,8 @@ using namespace std;
 
 Empresa::Empresa(char* nombre, char* nombre_legal, int rut) {
 
-	this->nombre = new char;
-	this->nombre_legal = new char;
+	this->nombre = new char[50];
+	this->nombre_legal = new char[50];
 
 	strcpy(this->nombre,nombre);
 	strcpy(this->nombre_legal,nombre_legal);

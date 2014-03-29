@@ -42,7 +42,7 @@ Paga Jornalero::get_sueldo_dolar()
 }
 
 void Jornalero::imprimir() {
-	cout << "Empleado jornalero: " << endl;
+	//cout << "Jornalero: " << endl;
 	cout << "\tNombre: " << this->get_nombre() << endl;
 	cout << "\tCI: " << this->get_ci() << endl;
 	cout << "\tEdad: " << this->get_edad() << endl;
