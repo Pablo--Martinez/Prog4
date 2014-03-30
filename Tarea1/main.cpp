@@ -16,8 +16,8 @@ int main(){
 
 	char* comando = new char[50];
 	Empresa* empresa = NULL;
-    Jornalero* j = NULL;
-    Fijo* f = NULL;
+	Jornalero* j = NULL;
+	Fijo* f = NULL;
 
 	cout << "COMANDOS PAGA"<< endl;
 	cout << "-->\tcrearPaga monto moneda"<< endl;
@@ -83,36 +83,35 @@ int main(){
 
 			cin >> monto1 >> moneda1 >> monto2 >> moneda2;
 			try{
+			  
+			   if (((strcmp(moneda1,"us"))&&(strcmp(moneda1,"usd")))||((strcmp(moneda2,"us"))&&(strcmp(moneda2,"usd")))){
+			     
+				  cout << "Argumento ivalido: Moneda incorrecta" << endl;
+			     
+			   } else{
+			     
 				//Creo la primer paga
 				if(!strcmp(moneda1,"us")){
-					p1 = Paga(monto1,us);
-					cout << "1er paga: " << p1 << endl;
+					p1 = Paga(monto1,us);				
 				}
 				else if(!strcmp(moneda1,"usd")){
-					p1 = Paga(monto1,usd);
-					cout << "1er paga: " << p1 << endl;
+					p1 = Paga(monto1,usd);				
 				}
-				else{
-					cout << "Argumento ivalido: Moneda incorrecta" << endl;
-				}
-
+				
 				//Creo la segunda paga
 				try{
 					if(!strcmp(moneda2,"us")){
-						p2 = Paga(monto2,us);
-						cout << "2da paga: " << p2 << endl;
+						p2 = Paga(monto2,us);						
 					}
 					else if(!strcmp(moneda2,"usd")){
-						p2 = Paga(monto2,usd);
-						cout << "2da paga: " << p2 << endl;
-					}
-					else{
-						cout << "Argumento ivalido: Moneda incorrecta" << endl;
-					}
+						p2 = Paga(monto2,usd);						
+					}					
 
 					//Sumo ambas pagas
 					try{
 						p = p1 + p2;
+						cout << "1er paga: " << p1 << endl;
+						cout << "2da paga: " << p2 << endl;
 						cout << "Suma total: " << p << endl;
 					}
 					catch (const std::invalid_argument& e) {
@@ -121,15 +120,15 @@ int main(){
 				}
 				catch (const std::invalid_argument& e) {
 					std::cerr << "Argumento invalido: " << e.what() << endl;
-				}
-
-				delete moneda1;
-				delete moneda2;
-
+				}			
+			   }			  
 			}
-			catch (const std::invalid_argument& e) {
+			catch (const std::invalid_argument& e){
 				std::cerr << "Argumento invalido: " << e.what() << endl;
-			}
+			}	
+			
+			delete moneda1;
+			delete moneda2;	
 		}
 
 		//Producto de paga por entero
@@ -143,35 +142,40 @@ int main(){
 			cin >> moneda;
 			cin >> cantidad;
 
-			//Creo la paga
-			try{
-				if(!strcmp(moneda,"us")){
-					p = Paga(monto,us);
-					cout << "Paga: " << p << endl;
-				}
-				else if(!strcmp(moneda,"usd")){
-					p = Paga(monto,usd);
-					cout << "Paga: " << p << endl;
-				}
-				else{
-					cout << "Argumento ivalido: Moneda incorrecta" << endl;
-				}
+			 if ((strcmp(moneda,"us"))&&(strcmp(moneda,"usd"))){
+			     
+				  cout << "Argumento ivalido: Moneda incorrecta" << endl;
+			     
+			 } else{
+				    
+				    //Creo la paga
+				  try{
+					  
+					  if(!strcmp(moneda,"us")){
+						  p = Paga(monto,us);						
+					  }
+					  else if(!strcmp(moneda,"usd")){
+						  p = Paga(monto,usd);						
+					  }					  
 
-				//Realizo la operacion
-				try{
-					p = p * cantidad;
-					cout << "Producto: " << p << endl;
-				}
-				catch (const std::invalid_argument& e) {
-					std::cerr << "Argumento invalido: " << e.what() << endl;
-				}
-			}
-			catch (const std::invalid_argument& e) {
-				std::cerr << "Argumento invalido: " << e.what() << endl;
-			}
+					  //Realizo la operacion
+					  try{
+						  
+						  cout << "Paga: " << p << endl;
+						  p = p * cantidad;
+						  cout << "Producto: " << p << endl;
+					  }
+					  catch (const std::invalid_argument& e) {
+						  std::cerr << "Argumento invalido: " << e.what() << endl;
+					  }
+				  }
+				  catch (const std::invalid_argument& e) {
+					  std::cerr << "Argumento invalido: " << e.what() << endl;
+				  }
 
-			delete moneda;
-
+				  delete moneda;
+			   
+			 }			   			
 		}
 
 		//Convertir paga a dolares
@@ -179,22 +183,25 @@ int main(){
 			Paga p;
 			float monto;
 			char * moneda = new char[10];
-			try{
-				cin >> monto >> moneda;
+			
+			cin >> monto >> moneda;
+			try{		
 				if(!strcmp(moneda,"us")){
-					p = Paga(monto,us);
+					p = Paga(monto,us);										
 					cout << "Paga: " << p << endl;
+					
+					p = p.a_dolar();
+					cout << "Paga en dolares: " << p << endl;
 				}
 				else if(!strcmp(moneda,"usd")){
 					p = Paga(monto,usd);
 					cout << "Paga: " << p << endl;
+									
+					cout << "Paga en dolares: " << p << endl;
 				}
 				else{
 					cout << "Argumento ivalido: Moneda incorrecta" << endl;
 				}
-
-				p = p.a_dolar();
-				cout << "Paga en dolares: " << p << endl;
 			}
 			catch (const std::invalid_argument& e) {
 				std::cerr << "Argumento invalido: " << e.what() << endl;
@@ -205,32 +212,45 @@ int main(){
 		}
 
 		//Convertir paga a pesos
-		else if(!strcmp(comando,"aPeso")){
-			Paga p;
+		else if(!strcmp(comando,"aPeso")){			
+		  	Paga p;
 			float monto;
 			char * moneda = new char[10];
+			
+			cin >> monto;
+			cin >> moneda;
+			
 			try{
-				cin >> monto >> moneda;
-				if(!strcmp(moneda,"us")){
-					p = Paga(monto,us);
+			    if(!strcmp(moneda,"us")){				  	
+				    p = Paga(monto,us);
+				    try{					
 					cout << "Paga: " << p << endl;
-				}
-				else if(!strcmp(moneda,"usd")){
-					p = Paga(monto,usd);
+					cout << "Paga en pesos: " << p << endl;
+				    }
+				    catch (const std::invalid_argument& e) {
+					std::cerr << "Argumento invalido: " << e.what() << endl;
+				    }					
+			    }
+			    else{ 
+			      if(!strcmp(moneda,"usd")){
+				    p = Paga(monto,usd);
+				    
+				    try{					
 					cout << "Paga: " << p << endl;
-				}
-				else{
-					cout << "Argumento ivalido: Moneda incorrecta" << endl;
-				}
-
-				p = p.a_peso();
-				cout << "Paga en pesos: " << p << endl;
-			}
+					p = p.a_peso();		
+					cout << "Paga en pesos: " << p << endl;
+				    }
+				    catch (const std::invalid_argument& e) {
+					std::cerr << "Argumento invalido: " << e.what() << endl;
+				    }
+			      }else{
+				    cout << "Moneda incorrecta" << endl;
+			      }
+			    }
+			}    
 			catch (const std::invalid_argument& e) {
 				std::cerr << "Argumento invalido: " << e.what() << endl;
-			}
-
-			delete moneda;
+			}														delete moneda;
 		}
 
 		//Crear Empresa "-->crearEmpresa nombre nombre_legal rut"
@@ -362,13 +382,25 @@ int main(){
 		}
 
 		else if(!strcmp(comando,"calcularSueldoDolar")){
-			Paga p = empresa->total_sueldo_dolar();
-			cout << "Total: " << p << endl;
+			if(empresa != NULL){
+			    Paga p = empresa->total_sueldo_dolar();
+			    cout << "Total: " << p << endl;
+			}
+			else{
+			    cout << "ERROR: Empresa inexistente"<< endl;
+			}			
 		}
 
 		else if(!strcmp(comando,"calcularSueldoPeso")){
-			Paga p = empresa->total_sueldo_peso();
-			cout << "Total: " << p << endl;
+		  
+			if(empresa != NULL){
+			    Paga p = empresa->total_sueldo_peso();
+			    cout << "Total: " << p << endl;
+			}
+			else{
+			    cout << "ERROR: Empresa inexistente"<< endl;
+			}			
+			
 		}
 
 		else if(!strcmp(comando,"datosEmpresa")){
@@ -383,7 +415,9 @@ int main(){
 
 		//Comando invalido
 		else{
-			cout << "Comando invalido!" << endl;
+		  		  	
+			cin.ignore(256, '\n');			
+			cout << "Comando invalido!" << endl;			
 		}
 
 		cout << ">> ";
