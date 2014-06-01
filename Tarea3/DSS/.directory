@@ -2,5 +2,8 @@
 PreviewsShown=true
 SortOrder=1
 SortRole=type
-Timestamp=2014,5,9,17,8,55
+Timestamp=2014,5,11,21,52,47
 Version=3
+
+[Settings]
+HiddenFilesShown=true
