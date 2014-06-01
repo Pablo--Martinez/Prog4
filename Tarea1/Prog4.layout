@@ -1,37 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Cambio.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="55" topLine="0" />
+	<File name="Empresa.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="Empleado.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="512" topLine="15" />
+	<File name="Paga.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="Empleado.h" open="1" top="0" tabpos="8">
-		<Cursor position="356" topLine="7" />
+	<File name="Empleado.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="Empresa.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="1763" topLine="0" />
+	<File name="Empresa.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="Empresa.h" open="0" top="0" tabpos="9">
-		<Cursor position="243" topLine="15" />
+	<File name="main.cpp" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="Fijo.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="197" topLine="0" />
+	<File name="Jornalero.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="Fijo.h" open="1" top="0" tabpos="10">
-		<Cursor position="110" topLine="0" />
+	<File name="Fijo.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="Jornalero.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="837" topLine="24" />
+	<File name="Jornalero.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="Jornalero.h" open="1" top="0" tabpos="9">
-		<Cursor position="368" topLine="1" />
+	<File name="Fijo.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="Paga.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="1223" topLine="50" />
+	<File name="Empleado.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="5">
-		<Cursor position="8433" topLine="269" />
+	<File name="Cambio.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
