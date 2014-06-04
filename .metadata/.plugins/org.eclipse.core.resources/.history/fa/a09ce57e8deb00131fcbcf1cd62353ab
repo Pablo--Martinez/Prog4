@@ -1,0 +1,30 @@
+#include <ManejadorMedicamentos.h>
+
+ManejadorMedicamentos* ManejadorMedicamentos::instancia = NULL;
+
+ManejadorMedicamentos::ManejadorMedicamentos(){
+	medicamentos = NULL;
+}
+
+static ManejadorMedicamentos* ManejadorMedicamentos::getInstance(){
+	if (instancia == NULL)
+		instancia = new ManejadorMedicamentos();
+	return instancia;
+}
+
+//~ManejadorMedicamentos();
+
+void ManejadorMedicamentos::agregarMedicamento(string nombre){
+	Medicamento* m = new Medicamento(nombre);
+	this->medicamentos.insert(m);
+}
+
+Medicamento* find(string nombre){
+	//Medicamento* m = new Medicamento(nombre);
+	Medicamento m = Medicamento(nombre);
+	std::set<int>::iterator it;
+	it = this->medicamentos.find(&m);
+
+}
+
+

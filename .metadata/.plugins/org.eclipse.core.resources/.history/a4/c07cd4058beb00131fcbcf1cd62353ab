@@ -1,0 +1,15 @@
+#ifndef MANEJADORMEDICAMENTOS
+#define MANEJADORMEDICAMENTOS
+
+class Singleton
+{
+	private:
+       Singleton();
+       static Singleton* instance;
+	public:
+		static Singleton* getInstance( );
+		~Singleton();
+
+};
+
+#endif
