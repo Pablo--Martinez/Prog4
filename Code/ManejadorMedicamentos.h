@@ -1,5 +1,5 @@
-#ifndef MANEJADORMEDICAMENTOS
-#define MANEJADORMEDICAMENTOS
+#ifndef MANEJADORMEDICAMENTOS_H_
+#define MANEJADORMEDICAMENTOS_H_
 
 #include <string>
 #include <set>
@@ -22,4 +22,4 @@ class ManejadorMedicamentos
 		void show();
 };
 
-#endif
+#endif /* MANEJADORMEDICAMENTOS_H_ */

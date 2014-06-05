@@ -1,0 +1,15 @@
+#include "ManejadorMedicamentos.h"
+
+int main(){
+	ManejadorMedicamentos* mm = ManejadorMedicamentos::getInstance();
+
+	mm->show();
+	mm->agregarMedicamento("Diazepan");
+	mm->agregarMedicamento("Aspirina");
+
+	mm->show();
+
+	return 0;
+}
+
+

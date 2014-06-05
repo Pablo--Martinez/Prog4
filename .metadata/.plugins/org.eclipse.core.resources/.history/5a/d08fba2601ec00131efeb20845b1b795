@@ -1,0 +1,20 @@
+#ifndef MANEJADORMEDICOS_H_
+#define MANEJADORMEDICOS_H_
+
+#include <set>
+#include "Rol.h"
+
+class ManejadorMedicos{
+	private:
+       ManejadorMedicos();
+       static ManejadorMedicos* instancia;
+       set<Medicos*> medicamentos;
+	public:
+		static ManejadorMedicos* getInstance();
+		//~ManejadorMedicamentos();
+		void agregarMedico(string);
+		Medico* find(int);
+		void show();
+};
+
+#endif /* MANEJADORMEDICOS_H_ */

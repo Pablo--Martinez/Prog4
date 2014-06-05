@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include <list>
+#include <set>
 #include "Fecha.h"
 
 using namespace std;
@@ -20,11 +20,11 @@ class Usuario{
 		Fecha nacimiento;
 		Sexo sexo;
 		bool estado;
-		list<Rol*> roles;
+		set<Rol*> roles;
 	
 	public:
 		Usuario();
-		Usuario(int,string,string,Sexo,bool,Fecha,list<Rol*>);
+		Usuario(int,string,string,Sexo,bool,Fecha);
 		int getCI();
 		string getNombre();
 		string getApellido();
@@ -32,6 +32,7 @@ class Usuario{
 		Sexo getSexo();
 		bool getEstado();
 		int getEdad(Fecha);
+		void agregarRol(Rol*);
 		void show();	
 };
 

@@ -1,19 +1,19 @@
-23:26:06 **** Incremental Build of configuration Debug for project Code ****
+16:27:25 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Rol.cpp
+Building file: ../ControladorDiagnosticos.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Rol.d" -MT"Rol.d" -o "Rol.o" "../Rol.cpp"
-In file included from ../Diagnostico.h:29:0,
-                 from ../Consulta.h:49,
-                 from ../Rol.h:6,
-                 from ../Rol.cpp:1:
-../Tratamiento.h:25:3: error: ‘Medico’ does not name a type
-   Medico* cirujano;
-   ^
-../Tratamiento.h:28:27: error: ‘Medico’ has not been declared
-   Quirurjico(string,Fecha,Medico*);
-                           ^
-../Tratamiento.h:30:3: error: ‘Medico’ does not name a type
-   Medico* getCirujano();
-   ^
-make: *** [Rol.o] Error 1
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorDiagnosticos.d" -MT"ControladorDiagnosticos.d" -o "ControladorDiagnosticos.o" "../ControladorDiagnosticos.cpp"
+../ControladorDiagnosticos.cpp: In member function ‘std::set<std::basic_string<char> > ControladorDiagnosticos::obtenerCategorias()’:
+../ControladorDiagnosticos.cpp:15:58: warning: no return statement in function returning non-void [-Wreturn-type]
+ set<string> ControladorDiagnosticos::obtenerCategorias(){}
+                                                          ^
+Finished building: ../ControladorDiagnosticos.cpp
+ 
+Building target: Code
+Invoking: Cross G++ Linker
+g++  -o "Code"  ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./Diagnostico.o ./Fecha.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorSocios.o ./Medicamento.o ./Rol.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testTratamiento.o   
+Finished building target: Code
+ 
+16:27:30 **** Incremental Build of configuration Debug for project Code ****
+make all 
+make: No se hace nada para «all».

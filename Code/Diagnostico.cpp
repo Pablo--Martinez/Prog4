@@ -8,6 +8,8 @@ Diagnostico::Diagnostico(string codigo, string etiqueta, string descripcion){
 	this->descripcion = descripcion;
 }
 
+Diagnostico::~Diagnostico(){}
+
 string Diagnostico::getCodigo(){
 	return this->codigo;
 }
@@ -21,25 +23,27 @@ string Diagnostico::getDescripcion(){
 }
 
 void Diagnostico::agregarTratamiento(Tratamiento* tratamiento){
-	this->tratamientos.push_back(tratamiento);
+	this->tratamientos.insert(tratamiento);
 }
 
-list<Tratamiento*> Diagnostico::getTratamientos(){
+set<Tratamiento*> Diagnostico::getTratamientos(){
 	return this->tratamientos;
 }
 
 void Diagnostico::show(){
-	cout << "Representación: " << this->codigo << this->etiqueta << endl;
-	cout << "Descripcion: " << this->descripcion << endl;
+	if(this != NULL){
+		cout << "Representación: " << this->codigo << this->etiqueta << endl;
+		cout << "Descripcion: " << this->descripcion << endl;
 	
-	list<Tratamiento*>::iterator pos;
-	pos = this->tratamientos.begin();
-	int i=0;
-	while(pos != this->tratamientos.end()){
-		cout << "Tratamiento" << i << ": " << endl;
-		(*pos)->show();
-		pos++;
-		i++;
-	};
+		set<Tratamiento*>::iterator pos;
+		pos = this->tratamientos.begin();
+		int i=0;
+		while(pos != this->tratamientos.end()){
+			cout << "Tratamiento" << i << ": " << endl;
+			(*pos)->show();
+			pos++;
+			i++;
+		}
+	}
 }
 

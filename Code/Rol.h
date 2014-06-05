@@ -15,6 +15,7 @@ class Rol{
 	public:
 		Rol();
 		Rol(Usuario*);
+		virtual ~Rol()=0;
 		Usuario* getUsuario();
 		virtual void show()=0;
 };
@@ -25,6 +26,7 @@ class Administrador: public Rol{
 	public:
 		Administrador();
 		Administrador(Usuario*);
+		~Administrador();
 		set<Usuario*> getUsuariosAlta();
 		void show();
 };
@@ -35,6 +37,7 @@ class Medico: public Rol{
 	public:
 		Medico();
 		Medico(Usuario*);
+		~Medico();
 		set<Consulta*> getConsultasAtiende();
 		void show();
 };
@@ -45,6 +48,7 @@ class Socio: public Rol{
 	public:
 		Socio();
 		Socio(Usuario*);
+		~Socio();
 		set<Consulta*> getConsultasSolicitadas();
 		void show();
 };

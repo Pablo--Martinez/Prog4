@@ -1,0 +1,30 @@
+#include <set>
+#include <string>
+#include "Usuario.h"
+
+using namespace std;
+
+enum TSesion {PV, CM, APD};
+
+class ControladorUsuarios{
+	private:
+		ControladorUsuarios();
+		static ControladorUsuarios* instancia;
+		set<Usuario*> usuarios;
+		Usuario* logueado;
+		Usuario* a_tratar;//?
+
+	public:
+		ControladorUsuarios* getInstance();
+		TSesion iniciarSesion(int);
+		bool esCorrecta(string);
+		void asignarSesion();
+		void reactivarUsuario(string);
+		void cerrarSesion();
+		bool usuarioLogueado();
+
+
+};
+
+
+

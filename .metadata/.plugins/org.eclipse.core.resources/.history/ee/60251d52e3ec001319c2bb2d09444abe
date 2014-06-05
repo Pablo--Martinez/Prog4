@@ -1,0 +1,28 @@
+#ifndef CONTROLADORCONSULTAS_H_
+#define CONTROLADORCONSULTAS_H_
+
+#include <set>
+#include "Fecha.h"
+#include "Consulta.h"
+
+class ControladorConsultas{
+	private:
+		static ControladorConsultas* instancia;
+		ControladorConsultas();
+		set<Consulta*> consultas;
+		//set<DataConsultas> data_consultas;
+
+	public:
+		ControladorConsultas* getInstance();
+		void registroReserva(int,int,Fecha,Fecha);
+		void registroEmergencia(int,int,string,Fecha);
+		//set<DataConsulta> consultasActivas();
+		void devolverConsulta(Fecha);
+		//set<DataConsulta> consultasDelDia();
+		void seleccionarConsultaCI(int);
+};
+
+
+
+
+#endif /* CONTROLADORCONSULTAS_H_ */

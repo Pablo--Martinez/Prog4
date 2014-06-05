@@ -4,21 +4,34 @@
 int main(){
 	Diagnostico d;
 	Farmacologico t1, t2;
+	Medicamento* m;
 	
 	d = Diagnostico("A","01","Dolor de espalda");
 	t1 = Farmacologico("Prueba de motivo1");
 	t2 = Farmacologico("Prueba de motivo2");
 	
-	t1.agregarMedicamento("Perifar");
-	t1.agregarMedicamento("Redoxon");
-	t1.agregarMedicamento("Novemina");
-	t1.agregarMedicamento("Refrom");
+	m = new Medicamento("Perifar");
+	t1.agregarMedicamento(m);
+
+	m = new Medicamento("Redoxon");
+	t1.agregarMedicamento(m);
+
+	m = new Medicamento("Novemina");
+	t1.agregarMedicamento(m);
+
+	m = new Medicamento("Domper");
+	t1.agregarMedicamento(m);
+
 	d.agregarTratamiento(&t1);
 	
-	t2.agregarMedicamento("Diazepan");
-	t2.agregarMedicamento("Aspirina");
+	m = new Medicamento("Diazepan");
+	t2.agregarMedicamento(m);
+
+	m = new Medicamento("Aspirina");
+	t2.agregarMedicamento(m);
 	d.agregarTratamiento(&t2);
 	
 	d.show();
 	return 0;
-}*/
+}
+*/

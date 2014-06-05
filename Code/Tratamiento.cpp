@@ -6,16 +6,22 @@ Tratamiento::Tratamiento(string descripcion){
 	this->descripcion = descripcion;
 }
 
+Tratamiento::~Tratamiento(){}
+
 string Tratamiento::getDescripcion(){
 	return this->descripcion;
 }
 
-Quirurjico::Quirurjico(){}
+Quirurjico::Quirurjico(){
+	this->cirujano = NULL;
+}
 
 Quirurjico::Quirurjico(string descripcion,Fecha operacion,Medico* medico):Tratamiento(descripcion){
 	this->fecha = operacion;
 	this->cirujano = medico;
 }
+
+Quirurjico::~Quirurjico(){}
 
 Fecha Quirurjico::getFechaOperacion(){
 	return this->fecha;
@@ -35,6 +41,8 @@ Farmacologico::Farmacologico(){}
 
 Farmacologico::Farmacologico(string descripcion):Tratamiento(descripcion){}
 
+Farmacologico::~Farmacologico(){}
+
 void Farmacologico::agregarMedicamento(Medicamento* m){
 	this->medicamentos.insert(m);
 }
@@ -44,12 +52,14 @@ set<Medicamento*> Farmacologico::getMedicamentos(){
 }
 
 void Farmacologico::show(){
-	cout << "Descripcion: " << this->getDescripcion() << endl;
+	if(this != NULL){
+		cout << "Descripcion: " << this->getDescripcion() << endl;
 
-	int i=0;
-	for (set<Medicamento*>::iterator it=this->medicamentos.begin(); it!=this->medicamentos.end(); ++it){
-		cout << "Medicamento" << i << ": " << endl;
-		(*it)->show();
-		i++;
+		int i=0;
+		for (set<Medicamento*>::iterator it=this->medicamentos.begin(); it!=this->medicamentos.end(); ++it){
+			cout << "Medicamento" << i << ": " << endl;
+			(*it)->show();
+			i++;
+		}
 	}
 }

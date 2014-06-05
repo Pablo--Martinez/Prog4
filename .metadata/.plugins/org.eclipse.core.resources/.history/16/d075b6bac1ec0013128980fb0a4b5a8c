@@ -1,0 +1,15 @@
+#include "ControladorUsuarios.h"
+
+ControladorUsuarios* ControladorUsuarios::instancia = NULL;
+
+ControladorUsuarios::ControladorUsuarios(){
+	this->logueado = NULL;
+	this->a_tratar = NULL;
+}
+
+ManejadorMedicos* ManejadorMedicos::getInstance(){
+	if (instancia == NULL)
+		instancia = new ControladorUsuarios();
+	return instancia;
+}
+

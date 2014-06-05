@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include <list>
+#include <set>
 #include "Fecha.h"
 
 using namespace std;
@@ -13,14 +13,14 @@ class Diagnostico;
 class Consulta{
 	private:
 		Fecha fecha_consulta;
-	protected:
-		list<Diagnostico*> diagnosticos;
+		set<Diagnostico*> diagnosticos;
 	public:
 		Consulta();
 		Consulta(Fecha);
+		virtual ~Consulta()=0;
 		Fecha getFechaConsulta();
 		void agregarDiagnostico(Diagnostico*);
-		list<Diagnostico*> getDiagnosticos();
+		set<Diagnostico*> getDiagnosticos();
 		virtual void show()=0;
 };
 
@@ -30,6 +30,7 @@ class Emergencia: public Consulta{
 	public:
 		Emergencia();
 		Emergencia(Fecha,string);
+		~Emergencia();
 		string getMotivo();
 		void show();
 };
@@ -41,6 +42,7 @@ class ConReserva: public Consulta{
 	public:
 		ConReserva();
 		ConReserva(Fecha,Fecha);
+		~ConReserva();
 		Fecha getFechaReserva();
 		bool getAsiste();
 		void show();

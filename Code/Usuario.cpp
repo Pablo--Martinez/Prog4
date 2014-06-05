@@ -2,14 +2,14 @@
 
 Usuario::Usuario(){}
 
-Usuario::Usuario(int ci, string nombre, string apellido, Sexo sexo, bool estado, Fecha nacimiento, list<Rol*> roles){
+Usuario::Usuario(int ci, string nombre, string apellido, Sexo sexo, bool estado, Fecha nacimiento){
 	this->ci = ci;
 	this->nombre = nombre;
 	this->apellido = apellido;
 	this->sexo = sexo;
 	this->estado = estado;
 	this->nacimiento = nacimiento;
-	this->roles = roles;
+	//this->roles = NULL;
 }
 
 int Usuario::getCI(){
@@ -40,9 +40,21 @@ int Usuario::getEdad(Fecha actual){
 	return edad;
 }
 
+void Usuario::agregarRol(Rol* r){
+	this->roles.insert(r);
+}
+
  void Usuario::show(){
-	cout << "CI: " << this->ci << endl;
-	cout << "Nombre: " << this->nombre << endl;
-	cout << "Apellido: " << this->apellido << endl;
-	cout << "Nacimiento: " << this->nacimiento.getDia() << "-" << this->nacimiento.getMes() << "-" << this->nacimiento.getAnio() << endl;
+	 if(this !=  NULL){
+		 cout << "CI: " << this->ci << endl;
+		 cout << "Nombre: " << this->nombre << endl;
+		 cout << "Apellido: " << this->apellido << endl;
+		 if(this->sexo == F){
+			 cout << "Sexo: Femenino" << endl;
+		 }
+		 else{
+			 cout << "Sexo: Masculino" << endl;
+		 }
+		 cout << "Nacimiento: " << this->nacimiento.getDia() << "-" << this->nacimiento.getMes() << "-" << this->nacimiento.getAnio() << endl;
+	 }
 }

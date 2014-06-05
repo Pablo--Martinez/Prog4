@@ -5,9 +5,15 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../Consulta.cpp \
+../ControladorConsultas.cpp \
+../ControladorDiagnosticos.cpp \
+../ControladorTratamientos.cpp \
+../ControladorUsuarios.cpp \
 ../Diagnostico.cpp \
 ../Fecha.cpp \
 ../ManejadorMedicamentos.cpp \
+../ManejadorMedicos.cpp \
+../ManejadorSocios.cpp \
 ../Medicamento.cpp \
 ../Rol.cpp \
 ../Tratamiento.cpp \
@@ -15,13 +21,21 @@ CPP_SRCS += \
 ../testConsulta.cpp \
 ../testDiagnostico.cpp \
 ../testMMedicamentos.cpp \
+../testMMedicos.cpp \
+../testMSocios.cpp \
 ../testTratamiento.cpp 
 
 OBJS += \
 ./Consulta.o \
+./ControladorConsultas.o \
+./ControladorDiagnosticos.o \
+./ControladorTratamientos.o \
+./ControladorUsuarios.o \
 ./Diagnostico.o \
 ./Fecha.o \
 ./ManejadorMedicamentos.o \
+./ManejadorMedicos.o \
+./ManejadorSocios.o \
 ./Medicamento.o \
 ./Rol.o \
 ./Tratamiento.o \
@@ -29,13 +43,21 @@ OBJS += \
 ./testConsulta.o \
 ./testDiagnostico.o \
 ./testMMedicamentos.o \
+./testMMedicos.o \
+./testMSocios.o \
 ./testTratamiento.o 
 
 CPP_DEPS += \
 ./Consulta.d \
+./ControladorConsultas.d \
+./ControladorDiagnosticos.d \
+./ControladorTratamientos.d \
+./ControladorUsuarios.d \
 ./Diagnostico.d \
 ./Fecha.d \
 ./ManejadorMedicamentos.d \
+./ManejadorMedicos.d \
+./ManejadorSocios.d \
 ./Medicamento.d \
 ./Rol.d \
 ./Tratamiento.d \
@@ -43,6 +65,8 @@ CPP_DEPS += \
 ./testConsulta.d \
 ./testDiagnostico.d \
 ./testMMedicamentos.d \
+./testMMedicos.d \
+./testMSocios.d \
 ./testTratamiento.d 
 
 

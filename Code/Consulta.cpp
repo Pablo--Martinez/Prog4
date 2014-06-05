@@ -6,14 +6,16 @@ Consulta::Consulta(Fecha fecha_consulta){
 	this->fecha_consulta = fecha_consulta;
 }
 
+Consulta::~Consulta(){}
+
 Fecha Consulta::getFechaConsulta(){
 	return this->fecha_consulta;
 }
 void Consulta::agregarDiagnostico(Diagnostico* diagnostico){
-	this->diagnosticos.push_back(diagnostico);
+	this->diagnosticos.insert(diagnostico);
 }
 
-list<Diagnostico*> Consulta::getDiagnosticos(){
+set<Diagnostico*> Consulta::getDiagnosticos(){
 	return this->diagnosticos;
 }
 
@@ -23,13 +25,16 @@ Emergencia::Emergencia(Fecha fecha_consulta,string motivo):Consulta(fecha_consul
 	this->motivo = motivo;
 }
 
+Emergencia::~Emergencia(){}
+
 string Emergencia::getMotivo(){
 	return this->motivo;
 }
 
 void Emergencia::show(){
+	cout << "Consulta de emergecia: " << endl;
 	cout << "Fecha de consulta: "; this->getFechaConsulta().show();
-	list<Diagnostico*>::iterator pos;
+	set<Diagnostico*>::iterator pos;
 	pos = this->getDiagnosticos().begin();
 	int i=0;
 
@@ -48,6 +53,8 @@ ConReserva::ConReserva(Fecha fecha_consulta,Fecha fecha_reserva):Consulta(fecha_
 	this->asiste = false;
 }
 
+ConReserva::~ConReserva(){}
+
 Fecha ConReserva::getFechaReserva(){
 	return this->fecha_reserva;
 }
@@ -57,16 +64,19 @@ bool ConReserva::getAsiste(){
 }
 
 void ConReserva::show(){
-	cout << "Fecha de consulta: "; this->getFechaConsulta().show();
-	cout << "Fecha de reserva: "; this->getFechaReserva().show();
-	list<Diagnostico*>::iterator pos;
-	pos = this->diagnosticos.begin();
-	int i=0;
+	if(this != NULL){
+		cout << "Conuslta con reserva:" << endl;
+		cout << "Fecha de consulta: "; this->getFechaConsulta().show();
+		cout << "Fecha de reserva: "; this->getFechaReserva().show();
+		set<Diagnostico*>::iterator pos;
+		pos = this->getDiagnosticos().begin();
+		int i=0;
 
-	while(pos != this->diagnosticos.end()){
-		cout << "Diagnostico" << i << ": " << endl;
-		(*pos)->show();
-		pos++;
-		i++;
+		while(pos != this->getDiagnosticos().end()){
+			cout << "Diagnostico" << i << ": " << endl;
+			(*pos)->show();
+			pos++;
+			i++;
+		}
 	}
 }

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include <list>
+#include <set>
 
 using namespace std;
 
@@ -14,15 +14,16 @@ class Diagnostico{
 		string codigo;
 		string etiqueta;
 		string descripcion;
-		list<Tratamiento*> tratamientos;
+		set<Tratamiento*> tratamientos;
 	public:
 		Diagnostico();
 		Diagnostico(string,string,string);
+		~Diagnostico();
 		string getCodigo();
 		string getEtiqueta();
 		string getDescripcion();
 		void agregarTratamiento(Tratamiento*);
-		list<Tratamiento*> getTratamientos();
+		set<Tratamiento*> getTratamientos();
 		void show();
 };
 

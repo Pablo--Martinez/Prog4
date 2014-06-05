@@ -4,10 +4,15 @@
 #include <string>
 #include <set>
 #include "Fecha.h"
-#include "Rol.h"
+//#include "Rol.h"
 #include "Medicamento.h"
 
 using namespace std;
+
+class Rol;
+class Administrador;
+class Socio;
+class Medico;
 
 class Tratamiento{
 	private:
@@ -15,6 +20,7 @@ class Tratamiento{
 	public:
 		Tratamiento();
 		Tratamiento(string);
+		virtual ~Tratamiento()=0;
 		string getDescripcion();
 		virtual void show()=0;
 };
@@ -26,6 +32,7 @@ class Quirurjico: public Tratamiento{
 	public:
 		Quirurjico();
 		Quirurjico(string,Fecha,Medico*);
+		~Quirurjico();
 		Fecha getFechaOperacion();
 		Medico* getCirujano();
 		void show();
@@ -37,9 +44,11 @@ class Farmacologico: public Tratamiento{
 	public:
 		Farmacologico();
 		Farmacologico(string);
+		~Farmacologico();
 		void agregarMedicamento(Medicamento*);
 		set<Medicamento*> getMedicamentos();
 		void show();
 };
 
+#include "Rol.h"
 #endif

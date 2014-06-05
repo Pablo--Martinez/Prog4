@@ -1,5 +1,5 @@
 Diagnostico.d: ../Diagnostico.cpp ../Diagnostico.h ../Tratamiento.h \
- ../Fecha.h ../Rol.h ../Consulta.h ../Usuario.h ../Medicamento.h
+ ../Fecha.h ../Medicamento.h ../Rol.h ../Consulta.h ../Usuario.h
 
 ../Diagnostico.h:
 
@@ -7,10 +7,10 @@ Diagnostico.d: ../Diagnostico.cpp ../Diagnostico.h ../Tratamiento.h \
 
 ../Fecha.h:
 
+../Medicamento.h:
+
 ../Rol.h:
 
 ../Consulta.h:
 
 ../Usuario.h:
-
-../Medicamento.h:
