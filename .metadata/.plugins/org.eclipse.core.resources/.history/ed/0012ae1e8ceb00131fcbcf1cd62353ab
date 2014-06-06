@@ -1,6 +1,0 @@
-static ManejadorMedicamentos* getInstance();
-//~ManejadorMedicamentos();
-void agregarMedicamento(string);
-void find(string);
-
-

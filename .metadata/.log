@@ -1,9 +1,0 @@
-!SESSION 2014-06-03 22:40:56.450 -----------------------------------------------
-eclipse.buildId=debbuild
-java.version=1.7.0_55
-java.vendor=Oracle Corporation
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_UY
-Command-line arguments:  -data /home/pablo/Escritorio/Fing/Prog4/ -os linux -ws gtk -arch x86_64
-
-!ENTRY org.eclipse.cdt.core 1 0 2014-06-03 22:44:30.256
-!MESSAGE Indexed 'Code' (10 sources, 115 headers) in 11,67 sec: 9.846 declarations; 17.786 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0,01%)
