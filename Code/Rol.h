@@ -49,6 +49,8 @@ class Socio: public Rol{
 		Socio();
 		Socio(Usuario*);
 		~Socio();
+		void agregarConsulta(Consulta*);
+		void devolverReserva(Fecha);
 		set<Consulta*> getConsultasSolicitadas();
 		void show();
 };

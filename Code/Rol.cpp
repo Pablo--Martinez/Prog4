@@ -64,6 +64,14 @@ Socio::Socio(Usuario* u): Rol(u){}
 
 Socio::~Socio(){}
 
+void Socio::agregarConsulta(Consulta* c){
+	this->solicita.insert(c);
+}
+
+void Socio::devolverReserva(Fecha fecha_consulta){
+
+}
+
 set<Consulta*> Socio::getConsultasSolicitadas(){
 	return this->solicita;
 }

@@ -9,16 +9,20 @@
 using namespace std;
 
 class Diagnostico;
+//class Rol;
+class Medico;
 
 class Consulta{
 	private:
 		Fecha fecha_consulta;
+		Medico* atiende;
 		set<Diagnostico*> diagnosticos;
 	public:
 		Consulta();
 		Consulta(Fecha);
 		virtual ~Consulta()=0;
 		Fecha getFechaConsulta();
+		//Medico* getMedico();
 		void agregarDiagnostico(Diagnostico*);
 		set<Diagnostico*> getDiagnosticos();
 		virtual void show()=0;
@@ -49,5 +53,6 @@ class ConReserva: public Consulta{
 };
 
 #include "Diagnostico.h"
+#include "Rol.h"
 
 #endif

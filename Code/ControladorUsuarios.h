@@ -7,7 +7,7 @@
 
 using namespace std;
 
-enum TSesion {PV, CM, APD};
+//enum TSesion {PV, CM, APD};
 
 class ControladorUsuarios{
 	private:

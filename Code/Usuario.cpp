@@ -8,6 +8,7 @@ Usuario::Usuario(int ci, string nombre, string apellido, Sexo sexo, bool estado,
 	this->apellido = apellido;
 	this->sexo = sexo;
 	this->estado = estado;
+	this->pass = "";
 	this->nacimiento = nacimiento;
 	//this->roles = NULL;
 }
@@ -43,6 +44,38 @@ int Usuario::getEdad(Fecha actual){
 void Usuario::agregarRol(Rol* r){
 	this->roles.insert(r);
 }
+
+TSesion Usuario::getTipoSesion(){
+	if(this->ci == 123456789){ //La cedula del admin x defecto es 123456789
+		return APD;
+	}
+	else if(this->pass == ""){
+		return PV;
+	}
+	else{
+		return CM;
+	}
+
+}
+
+bool Usuario::verificarPass(string pass){
+	if(this->pass == pass){
+		return true;
+	}
+	return false;
+}
+
+void Usuario::activar(string pass){
+	this->pass = pass; //Se asume que el formato de pass es correcto
+}
+
+void Usuario::reactivar(){ // setEstado(bool) ?
+	this->estado = true;
+}
+
+/*DataUsuario Usuario::getDataUsuario(){
+
+}*/
 
  void Usuario::show(){
 	 if(this !=  NULL){

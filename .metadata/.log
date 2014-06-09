@@ -1,0 +1,9 @@
+!SESSION 2014-06-06 00:04:25.859 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_UY
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2014-06-06 00:05:28.746
+!MESSAGE Indexed 'Code' (24 sources, 121 headers) in 11,00 sec: 10.073 declarations; 18.331 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0,01%)

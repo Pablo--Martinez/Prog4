@@ -1,0 +1,110 @@
+15:30:10 **** Incremental Build of configuration Debug for project Code ****
+make all 
+Building file: ../Consulta.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Consulta.d" -MT"Consulta.d" -o "Consulta.o" "../Consulta.cpp"
+Finished building: ../Consulta.cpp
+ 
+Building file: ../ControladorConsultas.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
+Finished building: ../ControladorConsultas.cpp
+ 
+Building file: ../ControladorDiagnosticos.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorDiagnosticos.d" -MT"ControladorDiagnosticos.d" -o "ControladorDiagnosticos.o" "../ControladorDiagnosticos.cpp"
+../ControladorDiagnosticos.cpp: In member function ‘std::set<std::basic_string<char> > ControladorDiagnosticos::obtenerCategorias()’:
+../ControladorDiagnosticos.cpp:15:58: warning: no return statement in function returning non-void [-Wreturn-type]
+ set<string> ControladorDiagnosticos::obtenerCategorias(){}
+                                                          ^
+Finished building: ../ControladorDiagnosticos.cpp
+ 
+Building file: ../ControladorTratamientos.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorTratamientos.d" -MT"ControladorTratamientos.d" -o "ControladorTratamientos.o" "../ControladorTratamientos.cpp"
+Finished building: ../ControladorTratamientos.cpp
+ 
+Building file: ../ControladorUsuarios.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
+../ControladorUsuarios.cpp: In member function ‘TSesion ControladorUsuarios::iniciarSesion(int)’:
+../ControladorUsuarios.cpp:16:49: warning: no return statement in function returning non-void [-Wreturn-type]
+ TSesion ControladorUsuarios::iniciarSesion(int){}
+                                                 ^
+../ControladorUsuarios.cpp: In member function ‘bool ControladorUsuarios::esCorrecta(std::string)’:
+../ControladorUsuarios.cpp:18:49: warning: no return statement in function returning non-void [-Wreturn-type]
+ bool ControladorUsuarios::esCorrecta(string ci){}
+                                                 ^
+../ControladorUsuarios.cpp: In member function ‘bool ControladorUsuarios::usuarioLogueado()’:
+../ControladorUsuarios.cpp:26:45: warning: no return statement in function returning non-void [-Wreturn-type]
+ bool ControladorUsuarios::usuarioLogueado(){}
+                                             ^
+../ControladorUsuarios.cpp: In member function ‘bool ControladorUsuarios::ingresoCI(int)’:
+../ControladorUsuarios.cpp:28:45: warning: no return statement in function returning non-void [-Wreturn-type]
+ bool ControladorUsuarios::ingresoCI(int ci){}
+                                             ^
+Finished building: ../ControladorUsuarios.cpp
+ 
+Building file: ../Diagnostico.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Diagnostico.d" -MT"Diagnostico.d" -o "Diagnostico.o" "../Diagnostico.cpp"
+Finished building: ../Diagnostico.cpp
+ 
+Building file: ../ManejadorMedicos.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicos.d" -MT"ManejadorMedicos.d" -o "ManejadorMedicos.o" "../ManejadorMedicos.cpp"
+Finished building: ../ManejadorMedicos.cpp
+ 
+Building file: ../ManejadorSocios.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorSocios.d" -MT"ManejadorSocios.d" -o "ManejadorSocios.o" "../ManejadorSocios.cpp"
+Finished building: ../ManejadorSocios.cpp
+ 
+Building file: ../Rol.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Rol.d" -MT"Rol.d" -o "Rol.o" "../Rol.cpp"
+Finished building: ../Rol.cpp
+ 
+Building file: ../Tratamiento.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Tratamiento.d" -MT"Tratamiento.d" -o "Tratamiento.o" "../Tratamiento.cpp"
+Finished building: ../Tratamiento.cpp
+ 
+Building file: ../Usuario.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Usuario.d" -MT"Usuario.d" -o "Usuario.o" "../Usuario.cpp"
+Finished building: ../Usuario.cpp
+ 
+Building file: ../testConsulta.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testConsulta.d" -MT"testConsulta.d" -o "testConsulta.o" "../testConsulta.cpp"
+Finished building: ../testConsulta.cpp
+ 
+Building file: ../testDiagnostico.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testDiagnostico.d" -MT"testDiagnostico.d" -o "testDiagnostico.o" "../testDiagnostico.cpp"
+Finished building: ../testDiagnostico.cpp
+ 
+Building file: ../testMMedicos.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMMedicos.d" -MT"testMMedicos.d" -o "testMMedicos.o" "../testMMedicos.cpp"
+Finished building: ../testMMedicos.cpp
+ 
+Building file: ../testMSocios.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMSocios.d" -MT"testMSocios.d" -o "testMSocios.o" "../testMSocios.cpp"
+Finished building: ../testMSocios.cpp
+ 
+Building file: ../testTratamiento.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testTratamiento.d" -MT"testTratamiento.d" -o "testTratamiento.o" "../testTratamiento.cpp"
+Finished building: ../testTratamiento.cpp
+ 
+Building target: Code
+Invoking: Cross G++ Linker
+g++  -o "Code"  ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./Diagnostico.o ./Fecha.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorSocios.o ./Medicamento.o ./Rol.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testTratamiento.o   
+Finished building target: Code
+ 
+
+15:30:16 Build Finished (took 5s.482ms)
+
