@@ -1,0 +1,22 @@
+#ifndef HISTORIALNOTIFICACIONES_H_
+#define HISTORIALNOTIFICACIONES_H_
+
+#include <set>
+#include "Rol.h"
+
+class HistorialNotificaciones{
+	private:
+		set<Notificacion*> notificaciones;
+		Medico* medico;
+		Socio* socio;
+		HistorialNotificaciones();
+		HistorialNotificaciones(Socio*, Medico*);
+		static HistorialNotificaciones* instancia;
+	public:
+		static HistorialNotificaciones* getInstance(Socio*,Medico*);
+		void add(Notificacion*);
+};
+
+
+
+#endif /* HISTORIALNOTIFICACIONES_H_ */

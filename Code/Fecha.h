@@ -20,6 +20,7 @@ class Fecha{
 		int getMes();
 		int getAnio();
 		int getHora();
+		bool operator==(Fecha&);
 		void show();
 };
 

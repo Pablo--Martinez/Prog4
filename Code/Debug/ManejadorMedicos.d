@@ -1,6 +1,6 @@
 ManejadorMedicos.d: ../ManejadorMedicos.cpp ../ManejadorMedicos.h \
  ../Rol.h ../Consulta.h ../Fecha.h ../Diagnostico.h ../Tratamiento.h \
- ../Medicamento.h ../Usuario.h
+ ../Medicamento.h ../Usuario.h ../Notificacion.h
 
 ../ManejadorMedicos.h:
 
@@ -17,3 +17,5 @@ ManejadorMedicos.d: ../ManejadorMedicos.cpp ../ManejadorMedicos.h \
 ../Medicamento.h:
 
 ../Usuario.h:
+
+../Notificacion.h:

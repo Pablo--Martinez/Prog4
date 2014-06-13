@@ -44,10 +44,10 @@ Farmacologico::Farmacologico(string descripcion):Tratamiento(descripcion){}
 Farmacologico::~Farmacologico(){}
 
 void Farmacologico::agregarMedicamento(Medicamento* m){
-	this->medicamentos.insert(m);
+	this->medicamentos[m->getNombre()] = m;
 }
 
-set<Medicamento*> Farmacologico::getMedicamentos(){
+map<string,Medicamento*> Farmacologico::getMedicamentos(){
 	return this->medicamentos;
 }
 
@@ -56,9 +56,9 @@ void Farmacologico::show(){
 		cout << "Descripcion: " << this->getDescripcion() << endl;
 
 		int i=0;
-		for (set<Medicamento*>::iterator it=this->medicamentos.begin(); it!=this->medicamentos.end(); ++it){
+		for (map<string,Medicamento*>::iterator it=this->medicamentos.begin(); it!=this->medicamentos.end(); ++it){
 			cout << "Medicamento" << i << ": " << endl;
-			(*it)->show();
+			it->second->show();
 			i++;
 		}
 	}

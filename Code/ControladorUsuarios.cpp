@@ -15,11 +15,11 @@ ControladorUsuarios* ControladorUsuarios::getInstance(){
 
 TSesion ControladorUsuarios::iniciarSesion(int){}
 
-bool ControladorUsuarios::esCorrecta(string ci){}
+bool ControladorUsuarios::ingresarContrasenia(string ci){}
 
 void ControladorUsuarios::asignarSesion(){}
 
-void ControladorUsuarios::reactivarUsuario(string ci){}
+void ControladorUsuarios::reactivar(string ci){}
 
 void ControladorUsuarios::cerrarSesion(){}
 

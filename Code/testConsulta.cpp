@@ -5,7 +5,7 @@
 #include <list>
 
 using namespace std;
-
+/*
 int main(){
 	Fecha f;
 	Diagnostico d;
@@ -14,8 +14,12 @@ int main(){
 	f = Fecha(15,15,1915);
 	Emergencia e;
 	ConReserva r;
-	e = Emergencia(f,"Fiebre alta");
-	r = ConReserva(f,f);
+	Fecha* nacimiento = new Fecha(22,5,1958);
+	Usuario * u = new Usuario(1234,"yo1","yo1",F,true,*nacimiento);
+	Medico* med = new Medico(u);
+	u->agregarRol(med);
+	e = Emergencia(f,"Fiebre alta",med);
+	r = ConReserva(f,f,med);
 
 	d = Diagnostico("A","01","Dolor de espalda");
 	t1 = Farmacologico("Prueba de motivo1");
@@ -51,4 +55,4 @@ int main(){
 	cout << "-------------------" << endl;
 	r.show();
 	return 0;
-}
+}*/

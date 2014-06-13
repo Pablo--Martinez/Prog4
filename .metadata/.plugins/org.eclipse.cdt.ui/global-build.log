@@ -1,10 +1,5 @@
-15:30:10 **** Incremental Build of configuration Debug for project Code ****
+23:50:20 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Consulta.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Consulta.d" -MT"Consulta.d" -o "Consulta.o" "../Consulta.cpp"
-Finished building: ../Consulta.cpp
- 
 Building file: ../ControladorConsultas.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
@@ -31,10 +26,10 @@ g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"
 ../ControladorUsuarios.cpp:16:49: warning: no return statement in function returning non-void [-Wreturn-type]
  TSesion ControladorUsuarios::iniciarSesion(int){}
                                                  ^
-../ControladorUsuarios.cpp: In member function ‘bool ControladorUsuarios::esCorrecta(std::string)’:
-../ControladorUsuarios.cpp:18:49: warning: no return statement in function returning non-void [-Wreturn-type]
- bool ControladorUsuarios::esCorrecta(string ci){}
-                                                 ^
+../ControladorUsuarios.cpp: In member function ‘bool ControladorUsuarios::ingresarContrasenia(std::string)’:
+../ControladorUsuarios.cpp:18:58: warning: no return statement in function returning non-void [-Wreturn-type]
+ bool ControladorUsuarios::ingresarContrasenia(string ci){}
+                                                          ^
 ../ControladorUsuarios.cpp: In member function ‘bool ControladorUsuarios::usuarioLogueado()’:
 ../ControladorUsuarios.cpp:26:45: warning: no return statement in function returning non-void [-Wreturn-type]
  bool ControladorUsuarios::usuarioLogueado(){}
@@ -50,6 +45,11 @@ Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Diagnostico.d" -MT"Diagnostico.d" -o "Diagnostico.o" "../Diagnostico.cpp"
 Finished building: ../Diagnostico.cpp
  
+Building file: ../HistorialNotificaciones.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"HistorialNotificaciones.d" -MT"HistorialNotificaciones.d" -o "HistorialNotificaciones.o" "../HistorialNotificaciones.cpp"
+Finished building: ../HistorialNotificaciones.cpp
+ 
 Building file: ../ManejadorMedicos.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicos.d" -MT"ManejadorMedicos.d" -o "ManejadorMedicos.o" "../ManejadorMedicos.cpp"
@@ -60,9 +60,18 @@ Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorSocios.d" -MT"ManejadorSocios.d" -o "ManejadorSocios.o" "../ManejadorSocios.cpp"
 Finished building: ../ManejadorSocios.cpp
  
+Building file: ../Notificacion.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Notificacion.d" -MT"Notificacion.d" -o "Notificacion.o" "../Notificacion.cpp"
+Finished building: ../Notificacion.cpp
+ 
 Building file: ../Rol.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Rol.d" -MT"Rol.d" -o "Rol.o" "../Rol.cpp"
+../Rol.cpp: In member function ‘void Socio::devolverReserva(Fecha)’:
+../Rol.cpp:103:14: warning: unused variable ‘c’ [-Wunused-variable]
+    Consulta* c = *it;
+              ^
 Finished building: ../Rol.cpp
  
 Building file: ../Tratamiento.cpp
@@ -95,6 +104,11 @@ Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMSocios.d" -MT"testMSocios.d" -o "testMSocios.o" "../testMSocios.cpp"
 Finished building: ../testMSocios.cpp
  
+Building file: ../testObservadores.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testObservadores.d" -MT"testObservadores.d" -o "testObservadores.o" "../testObservadores.cpp"
+Finished building: ../testObservadores.cpp
+ 
 Building file: ../testTratamiento.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testTratamiento.d" -MT"testTratamiento.d" -o "testTratamiento.o" "../testTratamiento.cpp"
@@ -102,6 +116,29 @@ Finished building: ../testTratamiento.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
-g++  -o "Code"  ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./Diagnostico.o ./Fecha.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorSocios.o ./Medicamento.o ./Rol.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testTratamiento.o   
-Finished building target: Code
- 
+g++  -o "Code"  ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./Diagnostico.o ./Fecha.o ./HistorialNotificaciones.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorSocios.o ./Medicamento.o ./Notificacion.o ./Rol.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 0 tiene un índice de símbolo 11 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 1 tiene un índice de símbolo 12 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 2 tiene un índice de símbolo 2 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 3 tiene un índice de símbolo 2 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 4 tiene un índice de símbolo 11 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 5 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 6 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 7 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 8 tiene un índice de símbolo 12 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 9 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 10 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 11 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 12 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 13 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 14 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 15 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 16 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 17 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 18 tiene un índice de símbolo 13 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 19 tiene un índice de símbolo 21 inválido
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): la reubicación 0 tiene un índice de símbolo 2 inválido
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: En la función `_start':
+(.text+0x20): referencia a `main' sin definir
+collect2: error: ld returned 1 exit status
+make: *** [Code] Error 1

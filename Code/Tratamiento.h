@@ -2,14 +2,14 @@
 #define TRATAMIENTO
 
 #include <string>
-#include <set>
+#include <map>
 #include "Fecha.h"
 //#include "Rol.h"
 #include "Medicamento.h"
 
 using namespace std;
 
-class Rol;
+//class Rol;
 class Administrador;
 class Socio;
 class Medico;
@@ -40,13 +40,13 @@ class Quirurjico: public Tratamiento{
 
 class Farmacologico: public Tratamiento{
 	private:
-		set<Medicamento*> medicamentos;
+		map<string,Medicamento*> medicamentos;
 	public:
 		Farmacologico();
 		Farmacologico(string);
 		~Farmacologico();
 		void agregarMedicamento(Medicamento*);
-		set<Medicamento*> getMedicamentos();
+		map<string,Medicamento*> getMedicamentos();
 		void show();
 };
 

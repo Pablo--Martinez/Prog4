@@ -17,13 +17,17 @@ class ControladorUsuarios{
 		Usuario* logueado;
 		Usuario* a_tratar;//????????
 		int ci;
+		string nombre, apellido, pass;
+		Sexo sexo;
+		Fecha nacimiento;
 
 	public:
 		ControladorUsuarios* getInstance();
 		TSesion iniciarSesion(int);
-		bool esCorrecta(string);
+		bool ingresarContrasenia(string);
 		void asignarSesion();
-		void reactivarUsuario(string);
+		void activarUsuario(string);
+		void reactivar(string);
 		void cerrarSesion();
 		bool usuarioLogueado();
 		bool ingresoCI(int);

@@ -2,7 +2,7 @@
 #define MANEJADORMEDICAMENTOS_H_
 
 #include <string>
-#include <set>
+#include <map>
 #include <iostream>
 #include "Medicamento.h"
 
@@ -13,7 +13,7 @@ class ManejadorMedicamentos
 	private:
        ManejadorMedicamentos();
        static ManejadorMedicamentos* instancia;
-       set<Medicamento*> medicamentos;
+       map<string,Medicamento*> medicamentos;
 	public:
 		static ManejadorMedicamentos* getInstance();
 		//~ManejadorMedicamentos();

@@ -4,6 +4,9 @@
 #include <set>
 #include "Fecha.h"
 #include "Consulta.h"
+#include "Rol.h"
+#include "ManejadorMedicos.h"
+#include "ManejadorSocios.h"
 
 class ControladorConsultas{
 	private:
@@ -13,7 +16,7 @@ class ControladorConsultas{
 		//set<DataConsultas> data_consultas;
 
 	public:
-		ControladorConsultas* getInstance();
+		static ControladorConsultas* getInstance();
 		void registroReserva(int,int,Fecha,Fecha);
 		void registroEmergencia(int,int,string,Fecha);
 		//set<DataConsulta> consultasActivas();

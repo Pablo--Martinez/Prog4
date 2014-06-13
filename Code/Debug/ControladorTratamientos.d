@@ -1,6 +1,7 @@
 ControladorTratamientos.d: ../ControladorTratamientos.cpp \
  ../ControladorTratamientos.h ../Tratamiento.h ../Fecha.h \
- ../Medicamento.h ../Rol.h ../Consulta.h ../Diagnostico.h ../Usuario.h
+ ../Medicamento.h ../Rol.h ../Consulta.h ../Diagnostico.h ../Usuario.h \
+ ../Notificacion.h
 
 ../ControladorTratamientos.h:
 
@@ -17,3 +18,5 @@ ControladorTratamientos.d: ../ControladorTratamientos.cpp \
 ../Diagnostico.h:
 
 ../Usuario.h:
+
+../Notificacion.h:

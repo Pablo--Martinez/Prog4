@@ -39,6 +39,11 @@ int Fecha::getHora(){
 	return this->hora;
 }
 
+bool Fecha::operator ==(Fecha &f){
+	return (this->hora == f.hora && this->dia == f.hora &&
+			this->mes == f.mes && this->anio == f.anio);
+}
+
 void Fecha::show(){
 	if(this != NULL){
 		cout << this->dia << "-" << this->mes << "-" << this->anio << " " << this->hora << "hs" << endl;

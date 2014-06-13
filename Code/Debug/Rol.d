@@ -1,5 +1,5 @@
 Rol.d: ../Rol.cpp ../Rol.h ../Consulta.h ../Fecha.h ../Diagnostico.h \
- ../Tratamiento.h ../Medicamento.h ../Usuario.h
+ ../Tratamiento.h ../Medicamento.h ../Usuario.h ../Notificacion.h
 
 ../Rol.h:
 
@@ -14,3 +14,5 @@ Rol.d: ../Rol.cpp ../Rol.h ../Consulta.h ../Fecha.h ../Diagnostico.h \
 ../Medicamento.h:
 
 ../Usuario.h:
+
+../Notificacion.h:

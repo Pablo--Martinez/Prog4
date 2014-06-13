@@ -11,10 +11,12 @@ CPP_SRCS += \
 ../ControladorUsuarios.cpp \
 ../Diagnostico.cpp \
 ../Fecha.cpp \
+../HistorialNotificaciones.cpp \
 ../ManejadorMedicamentos.cpp \
 ../ManejadorMedicos.cpp \
 ../ManejadorSocios.cpp \
 ../Medicamento.cpp \
+../Notificacion.cpp \
 ../Rol.cpp \
 ../Tratamiento.cpp \
 ../Usuario.cpp \
@@ -23,6 +25,7 @@ CPP_SRCS += \
 ../testMMedicamentos.cpp \
 ../testMMedicos.cpp \
 ../testMSocios.cpp \
+../testObservadores.cpp \
 ../testTratamiento.cpp 
 
 OBJS += \
@@ -33,10 +36,12 @@ OBJS += \
 ./ControladorUsuarios.o \
 ./Diagnostico.o \
 ./Fecha.o \
+./HistorialNotificaciones.o \
 ./ManejadorMedicamentos.o \
 ./ManejadorMedicos.o \
 ./ManejadorSocios.o \
 ./Medicamento.o \
+./Notificacion.o \
 ./Rol.o \
 ./Tratamiento.o \
 ./Usuario.o \
@@ -45,6 +50,7 @@ OBJS += \
 ./testMMedicamentos.o \
 ./testMMedicos.o \
 ./testMSocios.o \
+./testObservadores.o \
 ./testTratamiento.o 
 
 CPP_DEPS += \
@@ -55,10 +61,12 @@ CPP_DEPS += \
 ./ControladorUsuarios.d \
 ./Diagnostico.d \
 ./Fecha.d \
+./HistorialNotificaciones.d \
 ./ManejadorMedicamentos.d \
 ./ManejadorMedicos.d \
 ./ManejadorSocios.d \
 ./Medicamento.d \
+./Notificacion.d \
 ./Rol.d \
 ./Tratamiento.d \
 ./Usuario.d \
@@ -67,6 +75,7 @@ CPP_DEPS += \
 ./testMMedicamentos.d \
 ./testMMedicos.d \
 ./testMSocios.d \
+./testObservadores.d \
 ./testTratamiento.d 
 
 

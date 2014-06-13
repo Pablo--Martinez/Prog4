@@ -1,7 +1,7 @@
 #ifndef MANEJADORMEDICOS_H_
 #define MANEJADORMEDICOS_H_
 
-#include <set>
+#include <map>
 #include <iostream>
 #include "Rol.h"
 
@@ -11,7 +11,7 @@ class ManejadorMedicos{
 	private:
        ManejadorMedicos();
        static ManejadorMedicos* instancia;
-       set<Medico*> medicos;
+       map<int,Medico*> medicos;
 	public:
 		static ManejadorMedicos* getInstance();
 		//~ManejadorMedicamentos();

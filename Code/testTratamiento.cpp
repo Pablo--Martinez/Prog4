@@ -30,7 +30,7 @@ int main(){
 	
 	Fecha f2;
 	f2 = Fecha(12,8,2014);
-	q = Quirurjico("Fractura",f2,r);
+	q = Quirurjico("Tratamiento quirurjico",f2,r);
 	q.show();
 
 	return 0;

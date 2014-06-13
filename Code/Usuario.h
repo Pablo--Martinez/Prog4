@@ -38,10 +38,8 @@ class Usuario{
 		TSesion getTipoSesion();
 		bool verificarPass(string);
 		void activar(string);
-		void reactivar(); // setEstado(bool) ?
+		void reactivar();
 		//DataUsuario getDataUsuario();
-		//void agregarConsulta(Consulta*); No va aca
-		//void devolverReserva(Fecha); No va aca
 		void show();	
 };
 

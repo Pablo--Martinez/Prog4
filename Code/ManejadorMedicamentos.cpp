@@ -28,32 +28,34 @@ void ManejadorMedicamentos::agregarMedicamento(string nombre){
 	}*/
 	//this->medicamentos.insert(m);
 
-	if (this->find(nombre) == NULL){
+	if (this->medicamentos[nombre] == NULL){
 		Medicamento* m = new Medicamento(nombre);
-		this->medicamentos.insert(m);
+		this->medicamentos[nombre] = m;
 	}
 }
 
 Medicamento* ManejadorMedicamentos::find(string nombre){
-	//Medicamento* m = new Medicamento(nombre);
+	////Medicamento* m = new Medicamento(nombre);
 	//Medicamento m = Medicamento(nombre);
-	set<Medicamento*>::iterator it = this->medicamentos.begin();
+	//map<string,Medicamento*>::iterator it = this->medicamentos.begin();
 	//it = this->medicamentos.find(m);
-	while(it != this->medicamentos.end()){
-		if((*it)->getNombre() == nombre){
-			return *it;
-		}
-		++it;
-	}
+	//while(it != this->medicamentos.end()){
+	//	if((*it)->getNombre() == nombre){
+	//		return *it;
+	//	}
+	//	++it;
+	//}//
+	if(this->medicamentos[nombre] == NULL)
+		return this->medicamentos[nombre];
 	return NULL;
 }
 
 void ManejadorMedicamentos::show(){
 	if(this != NULL){
 		cout << "Medicamentos:" << endl;
-		for (set<Medicamento*>::iterator it=this->medicamentos.begin(); it!=this->medicamentos.end(); ++it){
+		for (map<string,Medicamento*>::iterator it=this->medicamentos.begin(); it!=this->medicamentos.end(); ++it){
 			cout << "-";
-			(*it)->show();
+			it->second->show();
 		}
 	}
 }

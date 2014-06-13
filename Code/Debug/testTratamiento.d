@@ -1,5 +1,6 @@
 testTratamiento.d: ../testTratamiento.cpp ../Tratamiento.h ../Fecha.h \
- ../Medicamento.h ../Rol.h ../Consulta.h ../Diagnostico.h ../Usuario.h
+ ../Medicamento.h ../Rol.h ../Consulta.h ../Diagnostico.h ../Usuario.h \
+ ../Notificacion.h
 
 ../Tratamiento.h:
 
@@ -14,3 +15,5 @@ testTratamiento.d: ../testTratamiento.cpp ../Tratamiento.h ../Fecha.h \
 ../Diagnostico.h:
 
 ../Usuario.h:
+
+../Notificacion.h:

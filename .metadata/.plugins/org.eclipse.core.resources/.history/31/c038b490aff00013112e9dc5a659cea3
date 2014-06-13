@@ -1,0 +1,14 @@
+#ifndef IOBSERVER_H_
+#define IOBSERVER_H_
+
+
+#include "Rol.h"
+#include "Fecha.h"
+
+class IObserver: public Rol{
+	public:
+		IObserver();
+		virtual notify(Medico*,Fecha,bool)=0;
+};
+
+#endif /* IOBSERVER_H_ */

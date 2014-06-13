@@ -13,12 +13,12 @@ ManejadorMedicos* ManejadorMedicos::getInstance(){
 //~ManejadorMedicamentos();
 
 void ManejadorMedicos::agregarMedico(Medico* m){
-	if (this->find(m->getUsuario()->getCI()) == NULL){
-		this->medicos.insert(m);
+	if (this->medicos[m->getUsuario()->getCI()] == NULL){
+		this->medicos[m->getUsuario()->getCI()] = m;
 	}
 }
 Medico* ManejadorMedicos::find(int ci){
-	set<Medico*>::iterator it = this->medicos.begin();
+	/*set<Medico*>::iterator it = this->medicos.begin();
 	//it = this->medicamentos.find(m);
 	while(it != this->medicos.end()){
 		if((*it)->getUsuario()->getCI() == ci){
@@ -26,13 +26,16 @@ Medico* ManejadorMedicos::find(int ci){
 		}
 		++it;
 	}
-	return NULL;
+	return NULL;*/
+	Medico* m = this->medicos[ci];
+	return m;
 }
+
 void ManejadorMedicos::show(){
 	if(this != NULL){
 		cout << "Medicos disponibles:" << endl;
-		for (set<Medico*>::iterator it=this->medicos.begin(); it!=this->medicos.end(); ++it){
-			(*it)->show();
+		for (map<int,Medico*>::iterator it=this->medicos.begin(); it!=this->medicos.end(); ++it){
+			it->second->show();
 			cout << "----------------" << endl;
 		}
 	}

@@ -1,7 +1,7 @@
 #ifndef MANEJADORSOCIOS_H_
 #define MANEJADORSOCIOS_H_
 
-#include <set>
+#include <map>
 #include <iostream>
 #include "Rol.h"
 
@@ -11,7 +11,7 @@ class ManejadorSocios{
 	private:
 		ManejadorSocios();
         static ManejadorSocios* instancia;
-        set<Socio*> socios;
+        map<int,Socio*> socios;
 	public:
 		static ManejadorSocios* getInstance();
 		//~ManejadorSocios();

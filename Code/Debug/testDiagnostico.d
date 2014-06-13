@@ -1,6 +1,6 @@
 testDiagnostico.d: ../testDiagnostico.cpp ../Diagnostico.h \
  ../Tratamiento.h ../Fecha.h ../Medicamento.h ../Rol.h ../Consulta.h \
- ../Usuario.h
+ ../Usuario.h ../Notificacion.h
 
 ../Diagnostico.h:
 
@@ -15,3 +15,5 @@ testDiagnostico.d: ../testDiagnostico.cpp ../Diagnostico.h \
 ../Consulta.h:
 
 ../Usuario.h:
+
+../Notificacion.h:

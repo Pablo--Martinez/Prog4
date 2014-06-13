@@ -16,7 +16,7 @@ class ControladorDiagnosticos{
 		set<string> letrasCat;
 		//set<DataRep> reps;
 	public:
-		ControladorDiagnosticos* getInstance();
+		static ControladorDiagnosticos* getInstance();
 		set<string> obtenerCategorias();
 		//set<DataRep> obtenerRepresentaciones(string);
 		void altaDiagnostico(string,string,string);

@@ -13,25 +13,30 @@ ManejadorSocios* ManejadorSocios::getInstance(){
 //~ManejadorSocios();
 
 void ManejadorSocios::agregarSocio(Socio* s){
-	if (this->find(s->getUsuario()->getCI()) == NULL){
+	/*if (this->find(s->getUsuario()->getCI()) == NULL){
 		this->socios.insert(s);
+	}*/
+	if(this->socios[s->getUsuario()->getCI()] == NULL){
+		this->socios[s->getUsuario()->getCI()] = s;
 	}
 }
 Socio* ManejadorSocios::find(int ci){
-	set<Socio*>::iterator it = this->socios.begin();
+	/*set<Socio*>::iterator it = this->socios.begin();
 	while(it != this->socios.end()){
 		if((*it)->getUsuario()->getCI() == ci){
 			return *it;
 		}
 		++it;
-	}
-	return NULL;
+	}*/
+	Socio* s = this->socios[ci];
+	return s;
+
 }
 void ManejadorSocios::show(){
 	if(this != NULL){
 		cout << "Socios disponibles:" << endl;
-		for (set<Socio*>::iterator it=this->socios.begin(); it!=this->socios.end(); ++it){
-			(*it)->show();
+		for (map<int,Socio*>::iterator it=this->socios.begin(); it!=this->socios.end(); ++it){
+			it->second->show();
 			cout << "----------------" << endl;
 		}
 	}
