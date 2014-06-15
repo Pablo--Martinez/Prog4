@@ -1,0 +1,11 @@
+#include "DataHistorial.h"
+
+DataHistorial::DataHistorial() {
+	// TODO Auto-generated constructor stub
+
+}
+
+DataHistorial::~DataHistorial() {
+	// TODO Auto-generated destructor stub
+}
+

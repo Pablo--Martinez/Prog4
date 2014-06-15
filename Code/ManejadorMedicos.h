@@ -17,6 +17,7 @@ class ManejadorMedicos{
 		//~ManejadorMedicamentos();
 		void agregarMedico(Medico*);
 		Medico* find(int);
+		map<int,Medico*> getMedicos();
 		void show();
 };
 

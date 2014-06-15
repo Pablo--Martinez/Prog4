@@ -12,6 +12,10 @@ ControladorDiagnosticos* ControladorDiagnosticos::getInstance(){
 	return instancia;
 }
 
+Diagnostico* ControladorDiagnosticos::getDiagnostico(){
+	return this->diag;
+}
+
 set<string> ControladorDiagnosticos::obtenerCategorias(){}
 
 //set<DataRep> ControladorDiagnosticos::obtenerRepresentaciones(string){}

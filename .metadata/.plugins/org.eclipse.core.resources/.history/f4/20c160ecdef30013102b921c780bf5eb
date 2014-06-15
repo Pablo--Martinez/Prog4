@@ -1,0 +1,18 @@
+#include "DataHistorial.h"
+
+DataHistorial::DataHistorial() {}
+
+DataHistorial::DataHistorial(DataUsuario* du, DataMedico* dm){
+	this->medico = dm;
+	this->usuario = du;
+}
+
+DataHistorial::~DataHistorial() {}
+
+DataUsuario* DataHistorial::getUsuario(){
+	return this->usuario
+}
+
+DataMedico* DataHistorial::getMedico(){
+	return this->medico;
+}

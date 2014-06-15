@@ -1,0 +1,30 @@
+/*
+ * Medico.h
+ *
+ *  Created on: 13/06/2014
+ *      Author: pablo
+ */
+
+#ifndef MEDICO_H_
+#define MEDICO_H_
+
+class Medico: public IObserver{
+	private:
+		map<Fecha,Consulta*> atiende;
+		//HistorialNotificaciones* notificaciones;
+		//map<int, set<Notificacion*> > notificaciones;
+		HistorialNotificaciones* notificaciones;
+	public:
+		Medico();
+		Medico(Usuario*);
+		~Medico();
+		map<Fecha,Consulta*> getConsultasAtiende();
+		void agregarConsulta(Consulta*);
+		void devolverConsulta(Consulta*);
+		void seguir(Socio*);
+		void notify(int,Medico*,Fecha,bool);
+		void show();
+		void showNotificaciones();
+};
+
+#endif /* MEDICO_H_ */

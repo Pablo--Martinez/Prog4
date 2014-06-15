@@ -1,0 +1,11 @@
+#include "DataConReserva.h"
+
+DataConReserva::DataConReserva(Fecha fecha_consulta,Fecha fecha_reserva, bool asiste): DataConsulta(fecha_consulta) {
+	this->fecha_reserva = fecha_reserva;
+	this->asiste = asiste;
+}
+
+DataConReserva::~DataConReserva() {
+	// TODO Auto-generated destructor stub
+}
+

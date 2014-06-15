@@ -13,22 +13,17 @@ ManejadorMedicos* ManejadorMedicos::getInstance(){
 //~ManejadorMedicamentos();
 
 void ManejadorMedicos::agregarMedico(Medico* m){
-	if (this->medicos[m->getUsuario()->getCI()] == NULL){
+	if (this->medicos.find(m->getUsuario()->getCI()) == this->medicos.end()){
 		this->medicos[m->getUsuario()->getCI()] = m;
 	}
 }
 Medico* ManejadorMedicos::find(int ci){
-	/*set<Medico*>::iterator it = this->medicos.begin();
-	//it = this->medicamentos.find(m);
-	while(it != this->medicos.end()){
-		if((*it)->getUsuario()->getCI() == ci){
-			return *it;
-		}
-		++it;
-	}
-	return NULL;*/
 	Medico* m = this->medicos[ci];
 	return m;
+}
+
+map<int,Medico*> ManejadorMedicos::getMedicos(){
+	return this->medicos;
 }
 
 void ManejadorMedicos::show(){

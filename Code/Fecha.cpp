@@ -44,6 +44,12 @@ bool Fecha::operator ==(Fecha &f){
 			this->mes == f.mes && this->anio == f.anio);
 }
 
+bool Fecha::operator<(Fecha &f){
+	return((this->anio < f.anio) || (this->anio == f.anio && this->mes < f.mes) ||
+			(this->anio == f.anio && this->mes == f.mes && this->dia < f.dia) ||
+			(this->anio == f.anio && this->mes == f.mes && this->dia < f.dia == this->hora < f.hora));
+}
+
 void Fecha::show(){
 	if(this != NULL){
 		cout << this->dia << "-" << this->mes << "-" << this->anio << " " << this->hora << "hs" << endl;

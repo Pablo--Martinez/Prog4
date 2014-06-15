@@ -1,0 +1,19 @@
+/*
+ * DataConReserva.h
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#ifndef DATACONRESERVA_H_
+#define DATACONRESERVA_H_
+
+#include "DataConsulta.h"
+
+class DataConReserva: public DataConsulta {
+public:
+	DataConReserva();
+	virtual ~DataConReserva();
+};
+
+#endif /* DATACONRESERVA_H_ */

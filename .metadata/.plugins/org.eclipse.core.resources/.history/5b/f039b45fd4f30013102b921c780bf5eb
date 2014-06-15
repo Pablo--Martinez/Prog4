@@ -1,0 +1,22 @@
+/*
+ * DataUsuario.h
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#ifndef DATAUSUARIO_H_
+#define DATAUSUARIO_H_
+
+class Usuario;
+
+class DataUsuario {
+public:
+	DataUsuario();
+	DataUsuario(Usuario*);
+	virtual ~DataUsuario();
+};
+
+#include "Usuario.h"
+
+#endif /* DATAUSUARIO_H_ */

@@ -9,8 +9,24 @@ ControladorTratamientos* ControladorTratamientos::getInstance(){
 	return instancia;
 }
 
-void ControladorTratamientos::agregarTratamientoQuirurjico(int,string,Fecha){}
+void ControladorTratamientos::agregarTratamientoQuirurjico(int ci_medico,string desc,Fecha fecha){
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ControladorDiagnosticos* cd = ControladorDiagnosticos::getInstance();
+	Medico* m = mm->find(ci_medico);
+	Quirurjico* q = new Quirurjico(desc,fecha,m);
+	cd->getDiagnostico()->agregarTratamiento(q);
+}
 
-void ControladorTratamientos::agregarTratamientoFarmacologico(string){}
+void ControladorTratamientos::agregarTratamientoFarmacologico(string desc){
+	Farmacologico* f = new Farmacologico(desc);
+	ControladorDiagnosticos* cd = ControladorDiagnosticos::getInstance();
+	for(set<Medicamento*>::iterator it = this->medicamentos.begin();it != this->medicamentos.end();++it){
+		f->agregarMedicamento(*it);
+	}
+	cd->getDiagnostico()->agregarTratamiento(f);
+}
 
-void ControladorTratamientos::agregarMedicamento(string){}
+void ControladorTratamientos::agregarMedicamento(string nombre_med){
+	ManejadorMedicamentos* mm = ManejadorMedicamentos::getInstance();
+	this->medicamentos.insert(mm->find(nombre_med));
+}

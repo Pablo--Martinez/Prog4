@@ -3,25 +3,11 @@
 
 #include <set>
 #include <map>
-#include "Rol.h"
+//#include "Rol.h"
 #include "Notificacion.h"
 
-//USANDO CONJUNTO DE SINGLETON
-/*
-class HistorialNotificaciones{
-	private:
-		set<Notificacion*> notificaciones;
-		Medico* medico;
-		Socio* socio;
-		HistorialNotificaciones();
-		HistorialNotificaciones(Socio*, Medico*);
-		static HistorialNotificaciones* instancia;
-	public:
-		static HistorialNotificaciones* getInstance(Socio*,Medico*);
-		void add(Notificacion*);
-};*/
+using namespace std;
 
-//USANDO MAP Y UN UNICO SINGLETON
 class HistorialNotificaciones{
 	private:
 		map<int,set<Notificacion*> > notificaciones;
@@ -30,6 +16,7 @@ class HistorialNotificaciones{
 	public:
 		~HistorialNotificaciones();
 		static HistorialNotificaciones* getInstance();
+		map<int,set<Notificacion*> > getNotificaciones();
 		void add(int,Notificacion*);
 };
 

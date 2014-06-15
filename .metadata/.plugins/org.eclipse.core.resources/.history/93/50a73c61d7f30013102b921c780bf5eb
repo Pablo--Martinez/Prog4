@@ -1,0 +1,10 @@
+#ifndef DATAHISTORIAL_H_
+#define DATAHISTORIAL_H_
+
+class DataHistorial {
+public:
+	DataHistorial();
+	virtual ~DataHistorial();
+};
+
+#endif /* DATAHISTORIAL_H_ */

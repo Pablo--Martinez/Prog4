@@ -1,0 +1,21 @@
+#ifndef ADMINISTRADOR_H_
+#define ADMINISTRADOR_H_
+
+class Usuario;
+class Rol;
+
+class Administrador: public Rol{
+	private:
+		set<Usuario*> daDeAlta;
+	public:
+		Administrador();
+		Administrador(Usuario*);
+		~Administrador();
+		set<Usuario*> getUsuariosAlta();
+		void show();
+};
+
+#include "Usuario.h"
+#include "Rol.h"
+
+#endif /* ADMINISTRADOR_H_ */

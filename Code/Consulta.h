@@ -5,11 +5,11 @@
 #include <iostream>
 #include <set>
 #include "Fecha.h"
+#include "DataConsulta.h"
 
 using namespace std;
 
 class Diagnostico;
-//class Rol;
 class Medico;
 class Socio;
 
@@ -26,36 +26,17 @@ class Consulta{
 		Fecha getFechaConsulta();
 		Medico* getMedico();
 		Socio* getSocioSolicitante();
+		bool perteneceAMedico(int);
+		bool perteneceASocio(int);
 		void agregarDiagnostico(Diagnostico*);
 		set<Diagnostico*> getDiagnosticos();
+		virtual DataConsulta getDataConsulta();
 		virtual void show()=0;
-};
-
-class Emergencia: public Consulta{
-	private:
-		string motivo;
-	public:
-		Emergencia();
-		Emergencia(Fecha,string,Medico*,Socio*);
-		~Emergencia();
-		string getMotivo();
-		void show();
-};
-
-class ConReserva: public Consulta{
-	private:
-		Fecha fecha_reserva;
-		bool asiste;
-	public:
-		ConReserva();
-		ConReserva(Fecha,Fecha,Medico*,Socio*);
-		~ConReserva();
-		Fecha getFechaReserva();
-		bool getAsiste();
-		void show();
 };
 
 #include "Diagnostico.h"
 #include "Rol.h"
+#include "Medico.h"
+#include "Socio.h"
 
 #endif

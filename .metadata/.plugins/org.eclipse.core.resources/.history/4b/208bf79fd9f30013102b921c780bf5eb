@@ -1,0 +1,17 @@
+/*
+ * DataRep.h
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#ifndef DATAREP_H_
+#define DATAREP_H_
+
+class DataRep {
+public:
+	DataRep();
+	virtual ~DataRep();
+};
+
+#endif /* DATAREP_H_ */

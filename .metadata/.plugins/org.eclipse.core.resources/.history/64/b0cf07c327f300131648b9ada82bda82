@@ -1,0 +1,30 @@
+#include "ControladorTratamientos.h"
+
+ControladorTratamientos* ControladorTratamientos::instancia = NULL;
+ControladorTratamientos::ControladorTratamientos(){}
+
+ControladorTratamientos* ControladorTratamientos::getInstance(){
+	if(instancia == NULL)
+		instancia = new ControladorTratamientos();
+	return instancia;
+}
+
+void ControladorTratamientos::agregarTratamientoQuirurjico(int ci_medico,string desc,Fecha fecha){
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ControladorDiagnosticos* cd = ControladorDiagnosticos::getInstance();
+	Medico* m = mm->find(ci_medico);
+	Quirurjico* q = new Quirurjico(desc,fecha,m);
+	cd->getDiagnostico()->agregarTratamiento(q);
+}
+
+void ControladorTratamientos::agregarTratamientoFarmacologico(string desc){
+	Farmacologico* f = new Farmacologico(desc);
+	ControladorDiagnosticos* cd = ControladorDiagnosticos::getInstance();
+	for(set<Medicamento*>::iterator it = this->medicamentos.begin();it != this->medicamentos.end();++it){
+		f->agregarMedicamento(*it);
+	}
+
+
+}
+
+void ControladorTratamientos::agregarMedicamento(string){}

@@ -1,0 +1,18 @@
+/*
+ * DataRep.cpp
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#include "DataRep.h"
+
+DataRep::DataRep() {
+	// TODO Auto-generated constructor stub
+
+}
+
+DataRep::~DataRep() {
+	// TODO Auto-generated destructor stub
+}
+

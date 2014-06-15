@@ -1,0 +1,42 @@
+/*
+ * DataUsuario.cpp
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#include "DataUsuario.h"
+
+DataUsuario::DataUsuario() {}
+
+DataUsuario::DataUsuario(Usuario* u){
+	this->ci = u->getCI();
+	this->nombre = u->getNombre();
+	this->apellido = u->getApellido();
+	this->sexo = u->getSexo();
+	this->edad = u->getEdad(Fecha f);// f es la fecha del sistema
+	this->activo = this->activo();
+}
+
+DataUsuario::~DataUsuario() {}
+
+int DataUsuario::getCI(){
+	return this->ci;
+}
+
+string DataUsuario::getNombre(){
+	return this->nombre;
+}
+
+string DataUsuario::getApellido(){
+	return this-apellido;
+}
+
+int DataUsuario::getEdad(){
+	return this->edad;
+}
+
+bool DataUsuario::getActivo(){
+	return this->activo;
+}
+

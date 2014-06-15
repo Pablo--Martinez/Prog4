@@ -1,0 +1,55 @@
+#include "ControladorUsuarios.h"
+
+ControladorUsuarios* ControladorUsuarios::instancia = NULL;
+
+ControladorUsuarios::ControladorUsuarios(){
+	this->logueado = NULL;
+	this->a_tratar = NULL;
+}
+
+ControladorUsuarios* ControladorUsuarios::getInstance(){
+	if (instancia == NULL)
+		instancia = new ControladorUsuarios();
+	return instancia;
+}
+
+Usuario* ControladorUsuarios::getUsuarioLogueado(){
+	return this->logueado;
+}
+
+TSesion ControladorUsuarios::iniciarSesion(int ci){
+	this->a_tratar = this->usuarios[ci];
+	if(this->a_tratar != NULL)
+		return this->a_tratar->getTipoSesion();
+}
+
+bool ControladorUsuarios::ingresarContrasenia(string pass){
+	return this->a_tratar->verificarPass(pass);
+}
+
+void ControladorUsuarios::asignarSesion(){
+	this->logueado = this->a_tratar;
+	this->a_tratar = NULL;
+}
+
+void ControladorUsuarios::reactivar(){
+	this->a_tratar->reactivar();
+}
+
+void ControladorUsuarios::cerrarSesion(){
+	this->logueado = NULL;
+}
+
+bool ControladorUsuarios::usuarioLogueado(){}
+
+bool ControladorUsuarios::ingresoCI(int ci){}
+
+void ControladorUsuarios::ingresarDatosUser(string nombre, string apellido, Sexo sexo, Fecha fecha){}
+
+//void ControladorUsuarios::ingresarCategoria(DataCategoria cat){} ?????
+
+void ControladorUsuarios::confirmarInscripcion(){}
+
+void ControladorUsuarios::cancelarInscripcion(){}
+
+//DataUsuario ControladorUsuarios::devolverDatosUsuario(){}

@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <set>
+#include "DataDiagnostico.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ class Diagnostico{
 		string getDescripcion();
 		void agregarTratamiento(Tratamiento*);
 		set<Tratamiento*> getTratamientos();
+		DataDiagnostico getDataDiagnostico();
 		void show();
 };
 

@@ -1,0 +1,25 @@
+#ifndef DATACONSULTA_H_
+#define DATACONSULTA_H_
+
+//#include DataUsuario
+#include "Fecha.h"
+
+using namespace std;
+
+class DataConsulta{
+	private:
+		Fecha fecha_consulta;
+		//DataUsuario usuario;
+	public:
+		DataConsulta();
+		DataConsulta(Fecha);
+		~DataConsulta();
+		Fecha getFechaConsulta();
+		//DataUsuario getUsuario();
+};
+
+
+
+
+
+#endif /* DATACONSULTA_H_ */

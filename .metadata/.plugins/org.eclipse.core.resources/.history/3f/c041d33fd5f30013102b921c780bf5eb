@@ -1,0 +1,18 @@
+/*
+ * DataUsuario.cpp
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#include "DataUsuario.h"
+
+DataUsuario::DataUsuario() {
+	// TODO Auto-generated constructor stub
+
+}
+
+DataUsuario::~DataUsuario() {
+	// TODO Auto-generated destructor stub
+}
+

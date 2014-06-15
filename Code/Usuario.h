@@ -5,6 +5,8 @@
 #include <iostream>
 #include <set>
 #include "Fecha.h"
+//#include "DataUsuario.h"
+//#include "Rol.h"
 
 using namespace std;
 
@@ -12,6 +14,7 @@ enum Sexo {F,M};
 enum TSesion {PV, CM, APD};
 
 class Rol;
+class DataUsuario;
 
 class Usuario{
 	private:
@@ -39,9 +42,11 @@ class Usuario{
 		bool verificarPass(string);
 		void activar(string);
 		void reactivar();
-		//DataUsuario getDataUsuario();
+		DataUsuario getDataUsuario();
 		void show();	
 };
 
 #include "Rol.h"
+#include "DataUsuario.h"
+
 #endif

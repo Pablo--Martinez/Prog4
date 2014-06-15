@@ -1,0 +1,18 @@
+/*
+ * DataConReserva.cpp
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#include "DataConReserva.h"
+
+DataConReserva::DataConReserva() {
+	// TODO Auto-generated constructor stub
+
+}
+
+DataConReserva::~DataConReserva() {
+	// TODO Auto-generated destructor stub
+}
+

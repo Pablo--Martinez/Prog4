@@ -1,0 +1,17 @@
+/*
+ * DataTratamiento.h
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#ifndef DATATRATAMIENTO_H_
+#define DATATRATAMIENTO_H_
+
+class DataTratamiento {
+public:
+	DataTratamiento();
+	virtual ~DataTratamiento();
+};
+
+#endif /* DATATRATAMIENTO_H_ */

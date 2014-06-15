@@ -13,10 +13,7 @@ ManejadorSocios* ManejadorSocios::getInstance(){
 //~ManejadorSocios();
 
 void ManejadorSocios::agregarSocio(Socio* s){
-	/*if (this->find(s->getUsuario()->getCI()) == NULL){
-		this->socios.insert(s);
-	}*/
-	if(this->socios[s->getUsuario()->getCI()] == NULL){
+	if(this->socios.find(s->getUsuario()->getCI()) == this->socios.end()){
 		this->socios[s->getUsuario()->getCI()] = s;
 	}
 }

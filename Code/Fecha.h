@@ -21,6 +21,7 @@ class Fecha{
 		int getAnio();
 		int getHora();
 		bool operator==(Fecha&);
+		bool operator<(Fecha&);
 		void show();
 };
 

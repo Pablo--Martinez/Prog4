@@ -30,6 +30,15 @@ set<Tratamiento*> Diagnostico::getTratamientos(){
 	return this->tratamientos;
 }
 
+DataDiagnostico Diagnostico::getDataDiagnostico(){
+	DataRep* dr = new DataRep(this->codigo,this->etiqueta);
+	DataDiagnostico dd = DataDiagnostico(dr,this->descripcion);
+	for(set<Tratamiento*>::iterator it = this->tratamientos.begin();it!=this->tratamientos.end();++it){
+		dd.agregarTratamiento(&(*it)->getDataTratamiento());
+	}
+	return dd;
+}
+
 void Diagnostico::show(){
 	if(this != NULL){
 		cout << "Representación: " << this->codigo << this->etiqueta << endl;

@@ -1,0 +1,17 @@
+/*
+ * DataDiagnostico.h
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#ifndef DATADIAGNOSTICO_H_
+#define DATADIAGNOSTICO_H_
+
+class DataDiagnostico {
+public:
+	DataDiagnostico();
+	virtual ~DataDiagnostico();
+};
+
+#endif /* DATADIAGNOSTICO_H_ */

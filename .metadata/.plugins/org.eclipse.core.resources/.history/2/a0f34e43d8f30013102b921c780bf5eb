@@ -1,0 +1,18 @@
+/*
+ * DataMedico.cpp
+ *
+ *  Created on: 14/06/2014
+ *      Author: pablo
+ */
+
+#include "DataMedico.h"
+
+DataMedico::DataMedico() {
+	// TODO Auto-generated constructor stub
+
+}
+
+DataMedico::~DataMedico() {
+	// TODO Auto-generated destructor stub
+}
+
