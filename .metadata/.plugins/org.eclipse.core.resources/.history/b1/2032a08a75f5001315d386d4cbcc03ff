@@ -26,7 +26,6 @@ class ControladorConsultas{
 
 	public:
 		static ControladorConsultas* getInstance();
-		void agregarConsulta(Consulta*);
 		void registroReserva(int,int,Fecha,Fecha);
 		void registroEmergencia(int,int,string,Fecha);
 		set<DataConsulta*> consultasActivas(Fecha);

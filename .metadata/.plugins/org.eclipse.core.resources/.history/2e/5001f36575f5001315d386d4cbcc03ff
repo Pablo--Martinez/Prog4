@@ -4,7 +4,7 @@
 #include "Medicamento.h"
 #include "Usuario.h"
 #include "ControladorTratamientos.h"
-/*
+
 int main(){
 	ControladorTratamientos* CT = ControladorTratamientos::getInstance();
 	Farmacologico t;
@@ -39,10 +39,5 @@ int main(){
 	q = Quirurjico("Tratamiento quirurjico",f2,r);
 	q.show();
 
-	//cout <<  endl << "TESTEANDO EL CONTROLADOR DE TRATAMIENTOS" << endl;
-	//CT->agregarTratamientoFarmacologico()
-
-
 	return 0;
 }
-*/

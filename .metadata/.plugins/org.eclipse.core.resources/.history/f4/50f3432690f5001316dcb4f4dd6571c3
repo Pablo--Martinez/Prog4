@@ -40,7 +40,7 @@ int Fecha::getHora(){
 }
 
 bool Fecha::operator ==(const Fecha &f){
-	return (this->hora == f.hora && this->dia == f.dia &&
+	return (this->hora == f.hora && this->dia == f.hora &&
 			this->mes == f.mes && this->anio == f.anio);
 }
 
@@ -51,9 +51,7 @@ bool Fecha::operator<(const Fecha &f){
 }
 
 bool Fecha::operator >(const Fecha &f){
-	return ((this->anio > f.anio) || (this->anio == f.anio && this->mes > f.mes) ||
-			(this->anio == f.anio && this->mes == f.mes && this->dia > f.dia) ||
-			(this->anio == f.anio && this->mes == f.mes && this->dia == f.dia && this->hora > f.hora));
+	return !(*this < f);
 }
 
 void Fecha::show(){

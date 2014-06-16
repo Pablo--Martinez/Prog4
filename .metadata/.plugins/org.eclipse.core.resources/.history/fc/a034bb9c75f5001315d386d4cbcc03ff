@@ -10,10 +10,6 @@ ControladorConsultas* ControladorConsultas::getInstance(){
 	return instancia;
 }
 
-void ControladorConsultas::agregarConsulta(Consulta* c){
-	this->consultas.insert(c);
-}
-
 void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_reserva,Fecha fecha_consulta){
 	set<Consulta*>::iterator it = this->consultas.begin();
 	while(it != this->consultas.end()){

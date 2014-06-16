@@ -10,10 +10,6 @@ ControladorConsultas* ControladorConsultas::getInstance(){
 	return instancia;
 }
 
-void ControladorConsultas::agregarConsulta(Consulta* c){
-	this->consultas.insert(c);
-}
-
 void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_reserva,Fecha fecha_consulta){
 	set<Consulta*>::iterator it = this->consultas.begin();
 	while(it != this->consultas.end()){
@@ -31,15 +27,14 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_re
 
 void ControladorConsultas::registroEmergencia(int ci_user,int ci_doc,string motivo,Fecha fecha_consulta){}
 
-set<DataConsulta*> ControladorConsultas::consultasActivas(Fecha fecha_sistema){
+set<DataConsulta> ControladorConsultas::consultasActivas(Fecha fecha_sistema){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorSocios* cs = ManejadorSocios::getInstance();
 	Socio* s = cs->find(cu->getUsuarioLogueado()->getCI());
-	set<DataConsulta*> dc;
+	set<DataConsulta> dc;
 	for(set<Consulta*>::iterator it = s->getConsultasSolicitadas().begin();it != s->getConsultasSolicitadas().end();++it){
 		if((*it)->getFechaConsulta() < fecha_sistema){
-			DataConsulta aux = (*it)->getDataConsulta();
-			dc.insert(&aux);
+
 		}
 	}
 	return dc;
@@ -54,19 +49,18 @@ void ControladorConsultas::devolverConsulta(Fecha fecha_consulta){
 	m->devolverConsulta(r);
 	this->consultas.erase(r);
 	delete r;
-}
+}/*
 
-set<DataConsulta*> ControladorConsultas::consultasDelDia(Fecha fecha_sistema){
-	set<DataConsulta*> res;
+set<DataConsulta> ControladorConsultas::consultasDelDia(Fecha fecha_sistema){
+	set<DataConsulta> res;
 	for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
 		ConReserva* r = dynamic_cast<ConReserva*>(*it);
 		if(r != 0 && r->getFechaConsulta() > fecha_sistema){
-			DataConsulta aux = r->getDataConsulta();
-			res.insert(&aux);
+			res.insert(r->getDataConsulta());
 		}
 	}
 	return res;
-}
+}*/
 
 void ControladorConsultas::seleccionarConsultaCI(int ci_user){}
 

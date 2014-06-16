@@ -22,16 +22,15 @@ class ControladorConsultas{
 		static ControladorConsultas* instancia;
 		ControladorConsultas();
 		set<Consulta*> consultas;
-		set<DataConsulta*> data_consultas;
+		set<DataConsulta> data_consultas;
 
 	public:
 		static ControladorConsultas* getInstance();
-		void agregarConsulta(Consulta*);
 		void registroReserva(int,int,Fecha,Fecha);
 		void registroEmergencia(int,int,string,Fecha);
-		set<DataConsulta*> consultasActivas(Fecha);
+		set<DataConsulta> consultasActivas(Fecha);
 		void devolverConsulta(Fecha);
-		set<DataConsulta*> consultasDelDia(Fecha);
+		set<DataConsulta> consultasDelDia(Fecha);
 		void seleccionarConsultaCI(int);
 		DataHistorial obtenerHistorial(int,Fecha);
 };
