@@ -12,6 +12,8 @@
 #include "ManejadorMedicamentos.h"
 #include "Fecha.h"
 
+using namespace std;
+
 class ControladorTratamientos{
 	private:
 		static ControladorTratamientos* instancia;

@@ -1,6 +1,7 @@
-#include "Consulta.h"
+#include "ConReserva.h"
+#include "Emergencia.h"
 #include "Fecha.h"
-#include "Tratamiento.h"
+#include "Farmacologico.h"
 #include <iostream>
 #include <list>
 
@@ -15,11 +16,16 @@ int main(){
 	Emergencia e;
 	ConReserva r;
 	Fecha* nacimiento = new Fecha(22,5,1958);
-	Usuario * u = new Usuario(1234,"yo1","yo1",F,true,*nacimiento);
+	Usuario * u = new Usuario(1234,"Medico","Medico",F,true,*nacimiento);
 	Medico* med = new Medico(u);
 	u->agregarRol(med);
-	e = Emergencia(f,"Fiebre alta",med);
-	r = ConReserva(f,f,med);
+
+	Usuario* u2 = new Usuario(12345,"Socio","Socio",M,true,*nacimiento);
+	Socio* soc = new Socio(u);
+	u2->agregarRol(soc);
+
+	e = Emergencia(f,"Fiebre alta",med,soc);
+	r = ConReserva(f,f,med,soc);
 
 	d = Diagnostico("A","01","Dolor de espalda");
 	t1 = Farmacologico("Prueba de motivo1");

@@ -3,6 +3,8 @@
 
 #include "DataConsulta.h"
 
+using namespace std;
+
 class DataConReserva: public DataConsulta {
 	private:
 		Fecha fecha_reserva;

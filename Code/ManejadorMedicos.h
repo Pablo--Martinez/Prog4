@@ -3,7 +3,7 @@
 
 #include <map>
 #include <iostream>
-#include "Rol.h"
+#include "Medico.h"
 
 using namespace std;
 

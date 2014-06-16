@@ -9,9 +9,9 @@
 
 using namespace std;
 
-class Administrador;
-class Socio;
-class Medico;
+//class Administrador;
+//class Socio;
+//class Medico;
 
 class Tratamiento{
 	private:
@@ -25,5 +25,5 @@ class Tratamiento{
 		virtual void show()=0;
 };
 
-#include "Rol.h"
+//#include "Rol.h"
 #endif

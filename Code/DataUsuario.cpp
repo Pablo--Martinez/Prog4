@@ -1,7 +1,7 @@
 #include "DataUsuario.h"
 
 DataUsuario::DataUsuario() {}
-
+/*
 DataUsuario::DataUsuario(Usuario* u){
 	Fecha f;
 	this->ci = u->getCI();
@@ -10,6 +10,14 @@ DataUsuario::DataUsuario(Usuario* u){
 	this->sexo = u->getSexo();
 	this->edad = u->getEdad(f);// f es la fecha del sistema
 	this->activo = this->activo();
+}*/
+DataUsuario::DataUsuario(int ci,string nombre,string apellido,Sexo sexo,int edad,bool activo){
+	this->ci = ci;
+	this->nombre = nombre;
+	this->apellido = apellido;
+	this->sexo = sexo;
+	this->edad = edad;
+	this->activo = activo;
 }
 
 DataUsuario::~DataUsuario() {}
@@ -23,7 +31,7 @@ string DataUsuario::getNombre(){
 }
 
 string DataUsuario::getApellido(){
-	return this-apellido;
+	return this->apellido;
 }
 
 int DataUsuario::getEdad(){

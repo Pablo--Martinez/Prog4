@@ -2,7 +2,7 @@
 #define MANEJADORADMINISTRADORES_H_
 
 #include <map>
-#include "Rol.h"
+#include "Administrador.h"
 
 using namespace std;
 

@@ -26,20 +26,20 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_re
 }
 
 void ControladorConsultas::registroEmergencia(int ci_user,int ci_doc,string motivo,Fecha fecha_consulta){}
-
+/*
 
 set<DataConsulta> ControladorConsultas::consultasActivas(Fecha fecha_sistema){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorSocios* cs = ManejadorSocios::getInstance();
 	Socio* s = cs->find(cu->getUsuarioLogueado()->getCI());
 	set<DataConsulta> dc;
-	for(map<Fecha,Consulta*>::iterator it = s->getConsultasSolicitadas().begin();it!=s->getConsultasSolicitadas().end();++it){
-		if(it->second->getFechaConsulta() >= fecha_sistema)
-			dc.insert(it->second->getDataConsulta());
+	for(set<Consulta*>::iterator it = s->getConsultasSolicitadas().begin();it!=s->getConsultasSolicitadas().end();++it){
+		if((*it)->getFechaConsulta() > fecha_sistema)
+			dc.insert((*it)->getDataConsulta());
 	}
 	return dc;
 }
-
+*/
 void ControladorConsultas::devolverConsulta(Fecha fecha_consulta){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
@@ -49,11 +49,9 @@ void ControladorConsultas::devolverConsulta(Fecha fecha_consulta){
 	m->devolverConsulta(r);
 	this->consultas.erase(r);
 	delete r;
-}
+}/*
 
-set<DataConsulta> ControladorConsultas::consultasDelDia(){
-	Fecha fecha_sistema;
-	fecha_sistema = Fecha();
+set<DataConsulta> ControladorConsultas::consultasDelDia(Fecha fecha_sistema){
 	set<DataConsulta> res;
 	for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
 		ConReserva* r = dynamic_cast<ConReserva*>(*it);
@@ -62,22 +60,17 @@ set<DataConsulta> ControladorConsultas::consultasDelDia(){
 		}
 	}
 	return res;
-}
+}*/
 
 void ControladorConsultas::seleccionarConsultaCI(int ci_user){}
 
-DataHistorial ControladorConsultas::obtenerHistorial(int ci_user){
+DataHistorial ControladorConsultas::obtenerHistorial(int ci_user,Fecha fecha_sistema){
 	DataHistorial dh;
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	for(map<int,Medico*>::iterator m = mm->getMedicos().begin(); m != mm->getMedicos().end();++m){
-		DataMedico dm = m->second->obtenerHistorial(ci_user);
-		if(dm != NULL)
+		DataMedico dm = m->second->obtenerHistorial(ci_user,fecha_sistema);
+		if(&dm != NULL)
 			dh.agregarMedico(&dm);
 	}
 	return dh;
 }
-
-
-
-
-

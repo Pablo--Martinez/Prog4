@@ -73,8 +73,8 @@ void Usuario::reactivar(){ // setEstado(bool) ?
 	this->estado = true;
 }
 
-DataUsuario Usuario::getDataUsuario(){
-	return DataUsuario(this);
+DataUsuario Usuario::getDataUsuario(Fecha fecha_sistema){
+	return DataUsuario(this->ci,this->nombre,this->apellido,this->sexo,this->getEdad(fecha_sistema),this->estado);
 }
 
  void Usuario::show(){

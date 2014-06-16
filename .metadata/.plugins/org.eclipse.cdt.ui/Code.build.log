@@ -1,33 +1,15 @@
-17:55:53 **** Incremental Build of configuration Debug for project Code ****
+23:28:24 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Administrador.cpp
+Building file: ../testConsulta.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Administrador.d" -MT"Administrador.d" -o "Administrador.o" "../Administrador.cpp"
-In file included from ../Medico.h:4:0,
-                 from ../Consulta.h:39,
-                 from ../Rol.h:7,
-                 from ../Administrador.h:5,
-                 from ../Administrador.cpp:1:
-../IObserver.h:9:28: error: expected class-name before ‘{’ token
- class IObserver: public Rol{
-                            ^
-In file included from ../Consulta.h:40:0,
-                 from ../Rol.h:7,
-                 from ../Administrador.h:5,
-                 from ../Administrador.cpp:1:
-../Socio.h:8:21: error: invalid use of incomplete type ‘class Rol’
- class Socio: public Rol{
-                     ^
-In file included from ../IObserver.h:16:0,
-                 from ../Medico.h:4,
-                 from ../Consulta.h:39,
-                 from ../Rol.h:7,
-                 from ../Administrador.h:5,
-                 from ../Administrador.cpp:1:
-../Usuario.h:16:7: error: forward declaration of ‘class Rol’
- class Rol;
-       ^
-make: *** [Administrador.o] Error 1
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testConsulta.d" -MT"testConsulta.d" -o "testConsulta.o" "../testConsulta.cpp"
+Finished building: ../testConsulta.cpp
+ 
+Building target: Code
+Invoking: Cross G++ Linker
+g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./Notificacion.o ./Quirurjico.o ./Rol.o ./Socio.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
+Finished building target: Code
+ 
 
-17:55:53 Build Finished (took 377ms)
+23:28:25 Build Finished (took 872ms)
 

@@ -34,7 +34,8 @@ DataDiagnostico Diagnostico::getDataDiagnostico(){
 	DataRep* dr = new DataRep(this->codigo,this->etiqueta);
 	DataDiagnostico dd = DataDiagnostico(dr,this->descripcion);
 	for(set<Tratamiento*>::iterator it = this->tratamientos.begin();it!=this->tratamientos.end();++it){
-		dd.agregarTratamiento(&(*it)->getDataTratamiento());
+		DataTratamiento dt = (*it)->getDataTratamiento();
+		dd.agregarTratamiento(&dt);
 	}
 	return dd;
 }

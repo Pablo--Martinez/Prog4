@@ -8,27 +8,22 @@ Socio::Socio(Usuario* u): Rol(u){}
 Socio::~Socio(){}//FALTA HACER
 
 void Socio::agregarConsulta(Consulta* c){
-	//this->solicita.insert(c);
-	this->solicita[c->getFechaConsulta()] = c;
+	this->solicita.insert(c);
 }
 
 Consulta* Socio::devolverReserva(Fecha fecha_consulta){
-	Consulta* res = this->solicita[fecha_consulta];
-	this->solicita.erase(fecha_consulta);
-	return res;
-	/*map<Fecha,Consulta*>::iterator it = this->solicita.begin();
+	set<Consulta*>::iterator it = this->solicita.begin();
 	while(it != this->solicita.end()){
 		if((*it)->getFechaConsulta() == fecha_consulta){
-			Consulta* c = *it;
 			this->solicita.erase(it);
-			//destroy c;
-			break;
+			return *it;
 		}
 		it++;
-	}*/
+	}
+	return NULL;
 }
 
-map<Fecha,Consulta*> Socio::getConsultasSolicitadas(){
+set<Consulta*> Socio::getConsultasSolicitadas(){
 	return this->solicita;
 }
 
@@ -49,7 +44,6 @@ void Socio::unattach(IObserver* o){
 
 void Socio::notifyall(Medico* medico,Fecha fecha,bool nuevoDiag){
 	set<IObserver*>::iterator it = this->observadores.begin();
-	cout << this->observadores.size()<< endl;
 	while(it != this->observadores.end()){
 		if(*it != medico)
 			(*it)->notify(this->getUsuario()->getCI(),medico,fecha,nuevoDiag);
@@ -64,8 +58,8 @@ void Socio::show(){
 		cout << "Usuario: "<< endl;
 		this->getUsuario()->show();;
 		cout << "Consultas solicitadas:" << endl;
-		for (map<Fecha,Consulta*>::iterator it=this->solicita.begin(); it!=this->solicita.end(); ++it){
-			it->second->show();
+		for (set<Consulta*>::iterator it=this->solicita.begin(); it!=this->solicita.end(); ++it){
+			(*it)->show();
 			cout << "----------------" << endl;
 		}
 	}

@@ -1,9 +1,12 @@
 #ifndef DATAUSUARIO_H_
 #define DATAUSUARIO_H_
 
+#include <string>
+#include "Usuario.h"
+
 using namespace std;
 
-class Usuario;
+//class Usuario;
 
 class DataUsuario {
 	private:
@@ -14,7 +17,8 @@ class DataUsuario {
 		bool activo;
 	public:
 		DataUsuario();
-		DataUsuario(Usuario*);
+		//DataUsuario(Usuario*);
+		DataUsuario(int,string,string,Sexo,int,bool);
 		virtual ~DataUsuario();
 		int getCI();
 		string getNombre();
@@ -23,6 +27,6 @@ class DataUsuario {
 		bool getActivo();
 };
 
-#include "Usuario.h"
+//#include "Usuario.h"
 
 #endif /* DATAUSUARIO_H_ */

@@ -3,6 +3,8 @@
 
 #include "Tratamiento.h"
 
+using namespace std;
+
 class Farmacologico: public Tratamiento{
 	private:
 		map<string,Medicamento*> medicamentos;

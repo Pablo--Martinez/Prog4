@@ -1,16 +1,9 @@
 #ifndef ROL
 #define ROL
 
-#include <set>
-#include <map>
-#include <iostream>
-#include "Consulta.h"
-
 using namespace std;
 
 class Usuario;
-class Notificacion;
-class IObserver;
 
 class Rol{
 	private:
@@ -24,7 +17,5 @@ class Rol{
 };
 
 #include "Usuario.h"
-#include "Notificacion.h"
-#include "IObserver.h"
 
 #endif

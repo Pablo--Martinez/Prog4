@@ -5,7 +5,7 @@ DataMedico::DataMedico() {}
 DataMedico::~DataMedico() {}
 
 DataMedico::DataMedico(DataUsuario* du){
-	this->usuario = du
+	this->usuario = du;
 }
 
 void DataMedico::agregarConsulta(DataConsulta* dc){

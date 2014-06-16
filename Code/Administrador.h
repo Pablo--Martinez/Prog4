@@ -3,8 +3,10 @@
 
 #include <set>
 #include "Rol.h"
+
+using namespace std;
+
 class Usuario;
-//class Rol;
 
 class Administrador: public Rol{
 	private:

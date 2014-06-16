@@ -2,6 +2,10 @@
 #define QUIRURJICO_H_
 
 #include "Tratamiento.h"
+#include "Medico.h"
+
+using namespace std;
+
 class Quirurjico: public Tratamiento{
 	private:
 		Fecha fecha;

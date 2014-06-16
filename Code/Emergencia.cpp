@@ -12,14 +12,15 @@ string Emergencia::getMotivo(){
 	return this->motivo;
 }
 
-DataConsulta ConReserva::getDataConsulta(){
-	DataConReserva res = DataConReserva(this->getFechaConsulta(),this->fecha_reserva,this->asiste);
+DataConsulta Emergencia::getDataConsulta(){
+	DataEmergencia res = DataEmergencia(this->getFechaConsulta(),this->motivo);
 	for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
-		res.agregarDiagnostico((&(*it)->getDataDiagnostico()));
+		DataDiagnostico dd = (*it)->getDataDiagnostico();
+		res.agregarDiagnostico(&dd);
 	}
-	return res
-
+	return res;
 }
+
 void Emergencia::show(){
 	cout << "Consulta de emergecia: " << endl;
 	cout << "Fecha de consulta: "; this->getFechaConsulta().show();

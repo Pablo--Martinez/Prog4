@@ -16,7 +16,7 @@ class DataHistorial {
 		virtual ~DataHistorial();
 		void agregarMedico(DataMedico*);
 		DataUsuario* getUsuario();
-		DataMedico* getMedico();
+		set<DataMedico*> getMedicos();
 };
 
 #endif /* DATAHISTORIAL_H_ */

@@ -2,6 +2,7 @@
 #define FECHA
 
 #include <iostream>
+
 using namespace std;
 
 class Fecha{
@@ -15,13 +16,14 @@ class Fecha{
 		Fecha();
 		Fecha(int,int,int); //dia-mes-anio
 		Fecha(int,int,int,int); //dia-mes-anio-hora
-		Fecha(Fecha&);
+		Fecha(const Fecha&);
 		int getDia();
 		int getMes();
 		int getAnio();
 		int getHora();
-		bool operator==(Fecha&);
-		bool operator<(Fecha&);
+		bool operator==(const Fecha&);
+		bool operator<(const Fecha&);
+		bool operator>(const Fecha&);
 		void show();
 };
 

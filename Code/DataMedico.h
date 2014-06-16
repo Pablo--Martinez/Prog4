@@ -5,6 +5,7 @@
 #include "DataUsuario.h"
 #include "DataConsulta.h"
 
+using namespace std;
 
 class DataMedico {
 	private:

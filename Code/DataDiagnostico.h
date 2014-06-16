@@ -1,8 +1,11 @@
 #ifndef DATADIAGNOSTICO_H_
 #define DATADIAGNOSTICO_H_
 
+#include <set>
 #include "DataRep.h"
 #include "DataTratamiento.h"
+
+using namespace std;
 
 class DataDiagnostico {
 	private:

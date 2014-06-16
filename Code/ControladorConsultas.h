@@ -15,6 +15,8 @@
 #include "DataConsulta.h"
 #include "DataHistorial.h"
 
+using namespace std;
+
 class ControladorConsultas{
 	private:
 		static ControladorConsultas* instancia;
@@ -28,9 +30,9 @@ class ControladorConsultas{
 		void registroEmergencia(int,int,string,Fecha);
 		set<DataConsulta> consultasActivas(Fecha);
 		void devolverConsulta(Fecha);
-		set<DataConsulta> consultasDelDia();
+		set<DataConsulta> consultasDelDia(Fecha);
 		void seleccionarConsultaCI(int);
-		DataHistorial obtenerHistorial(int);
+		DataHistorial obtenerHistorial(int,Fecha);
 };
 
 

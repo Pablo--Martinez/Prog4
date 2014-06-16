@@ -13,5 +13,6 @@ string Tratamiento::getDescripcion(){
 }
 
 DataTratamiento Tratamiento::getDataTratamiento(){
-	return DataTratamiento dt = DataTratamiento(this->descripcion);
+	DataTratamiento dt = DataTratamiento(this->descripcion);
+	return dt;
 }

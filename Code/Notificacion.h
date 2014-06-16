@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include "Fecha.h"
-//#include "Rol.h"
+#include "Medico.h"
 
-class Medico;
+using namespace std;
 
 class Notificacion{
 	private:
@@ -21,7 +21,5 @@ class Notificacion{
 		Medico* getQuienDiagnostico();
 		void show();
 };
-
-#include "Rol.h"
 
 #endif /* NOTIFICACION_H_ */

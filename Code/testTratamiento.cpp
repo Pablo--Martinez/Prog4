@@ -1,4 +1,5 @@
-#include "Tratamiento.h"
+#include "Farmacologico.h"
+#include "Quirurjico.h"
 #include "Fecha.h"
 #include "Medicamento.h"
 #include "Usuario.h"
@@ -34,4 +35,5 @@ int main(){
 	q.show();
 
 	return 0;
-}*/
+}
+*/

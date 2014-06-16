@@ -1,10 +1,13 @@
 #ifndef IOBSERVER_H_
 #define IOBSERVER_H_
 
+#include "Fecha.h"
 #include "Rol.h"
-#include "Medico.h"
 
 class Usuario;
+class Medico;
+
+using namespace std;
 
 class IObserver: public Rol{
 	public:
@@ -14,5 +17,6 @@ class IObserver: public Rol{
 };
 
 #include "Usuario.h"
+#include "Medico.h"
 
 #endif /* IOBSERVER_H_ */

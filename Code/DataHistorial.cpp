@@ -16,6 +16,6 @@ DataUsuario* DataHistorial::getUsuario(){
 	return this->usuario;
 }
 
-DataMedico* DataHistorial::getMedico(){
+set<DataMedico*> DataHistorial::getMedicos(){
 	return this->medico;
 }

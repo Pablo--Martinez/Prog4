@@ -1,4 +1,5 @@
-#include "Rol.h"
+#include "Medico.h"
+#include "Socio.h"
 /*
 int main(){
 
