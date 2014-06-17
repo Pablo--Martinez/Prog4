@@ -32,6 +32,7 @@ class Medico: public IObserver{
 		DataMedico obtenerHistorial(int,Fecha);
 		void show();
 		void showNotificaciones();
+		bool libreHoraYConsultas(int cantConsultas);
 };
 
 #include "Usuario.h"

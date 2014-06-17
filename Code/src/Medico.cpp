@@ -75,3 +75,8 @@ void Medico::showNotificaciones(){
 			(*notes)->show();
 	}
 }
+
+bool Medico::libreHoraYConsultas(int cantConsultas) {
+	return 0;
+}
+
