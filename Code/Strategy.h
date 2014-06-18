@@ -1,21 +1,16 @@
-/*
- * Strategy.h
- *
- *  Created on: 16/06/2014
- *      Author: usuario
- */
-
 #ifndef STRATEGY_H_
 #define STRATEGY_H_
+
+#include <set>
+#include "DataMedico.h"
 
 using namespace std;
 
 class Strategy{
-	private:
 	public:
-		virtual Strategy();
+		Strategy();
 		virtual ~Strategy()=0;
-		virtual void algoritmoDeSeleccion()=0;
+		virtual set<DataMedico*> algoritmoDeSeleccion()=0;
 };
 
 #endif /* STRATEGY_H_ */

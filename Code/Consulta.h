@@ -29,7 +29,7 @@ class Consulta{
 		bool perteneceASocio(int);
 		void agregarDiagnostico(Diagnostico*);
 		set<Diagnostico*> getDiagnosticos();
-		virtual DataConsulta getDataConsulta()=0;
+		virtual DataConsulta* getDataConsulta()=0;
 		virtual void show()=0;
 };
 

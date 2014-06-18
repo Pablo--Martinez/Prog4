@@ -16,8 +16,25 @@ Diagnostico* ControladorDiagnosticos::getDiagnostico(){
 	return this->diag;
 }
 
-set<string> ControladorDiagnosticos::obtenerCategorias(){}
+set<string> ControladorDiagnosticos::obtenerCategorias(){
+	set<string> categorias;
+	for(set<Diagnostico*>::iterator d = this->diagnosticos.begin();d != this->diagnosticos.end();++d) {
+		string catDiag = (*d)->obtenerCatDiag();
+		categorias.insert(catDiag);
+	}
+	return categorias;
+}
 
-//set<DataRep> ControladorDiagnosticos::obtenerRepresentaciones(string){}
+set<DataRep*> ControladorDiagnosticos::obtenerRepresentaciones(string letraCat){
+	set<DataRep*> representaciones;
+	for(set<Diagnostico*>::iterator d = this->diagnosticos.begin();d != this->diagnosticos.end();++d) {
+		bool perteneceACat = (*d)->perteneceACat(letraCat);
+		if (perteneceACat) {
+			DataRep* repDiag = (*d)->getDataRepDiagnostico();
+			representaciones.insert(repDiag);
+		}
+	}
+	return representaciones;
+}
 
 void ControladorDiagnosticos::altaDiagnostico(string,string,string){}

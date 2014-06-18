@@ -12,7 +12,7 @@ string Tratamiento::getDescripcion(){
 	return this->descripcion;
 }
 
-DataTratamiento Tratamiento::getDataTratamiento(){
-	DataTratamiento dt = DataTratamiento(this->descripcion);
+DataTratamiento* Tratamiento::getDataTratamiento(){
+	DataTratamiento* dt = new DataTratamiento(this->descripcion);
 	return dt;
 }

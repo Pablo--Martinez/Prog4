@@ -29,32 +29,48 @@ void Medico::notify(int ci_socio, Medico* medico ,Fecha fecha ,bool seAgregoDiag
 	this->notificaciones[ci_socio].insert(note);
 }
 
-DataMedico Medico::getDataMedico(Fecha fecha_sistema){
-	DataUsuario du = this->getUsuario()->getDataUsuario(fecha_sistema);
-	DataMedico dm = DataMedico(&du);
+DataMedico* Medico::getDataMedico(){
+	DataUsuario* du = this->getUsuario()->getDataUsuario();
+	DataMedico* dm = new DataMedico(du);
 	for(set<Consulta*>::iterator it=this->atiende.begin();it!=this->atiende.end();++it){
-		DataConsulta dc = (*it)->getDataConsulta();
-		dm.agregarConsulta(&dc);
+		DataConsulta* dc = (*it)->getDataConsulta();
+		dm->agregarConsulta(dc);
 	}
 	return dm;
 }
 
-DataMedico Medico::obtenerHistorial(int ci_socio, Fecha fecha_sistema){
+DataMedico* Medico::obtenerHistorial(int ci_socio){
 	bool encontre = false;
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
-	DataUsuario du = ms->find(ci_socio)->getUsuario()->getDataUsuario(fecha_sistema);
-	DataMedico dm = DataMedico(&du);
+	DataUsuario* du = ms->find(ci_socio)->getUsuario()->getDataUsuario();
+	DataMedico* dm = new DataMedico(du);
 	for(set<Consulta*>::iterator it = this->atiende.begin();it != this->atiende.end();++it){
 		if((*it)->perteneceASocio(ci_socio)){
 			encontre = true;
-			DataConsulta dc = (*it)->getDataConsulta();
-			dm.agregarConsulta(&dc);
+			DataConsulta* dc = (*it)->getDataConsulta();
+			dm->agregarConsulta(dc);
 		}
 	}
 	if (encontre)
 		return dm;
 	else
 		return NULL;
+}
+
+bool Medico::libreHoraYConsultas(int cantConsultas) {
+	set<Consulta*> consultas = this->getConsultasAtiende();
+	int cant = 0;
+	Fecha fecha_sist;
+	for(set<Consulta*>::iterator consulta = consultas.begin();consulta != consultas.end();++consulta) {
+		Fecha f = (*consulta)->getFechaConsulta();
+		if (f == fecha_sist) {
+			return false;
+		}
+		else {
+			cant++;
+		}
+	}
+	return cant<cantConsultas;
 }
 
 void Medico::show(){
@@ -75,8 +91,3 @@ void Medico::showNotificaciones(){
 			(*notes)->show();
 	}
 }
-
-bool Medico::libreHoraYConsultas(int cantConsultas) {
-	return 0;
-}
-

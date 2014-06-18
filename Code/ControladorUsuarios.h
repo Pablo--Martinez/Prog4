@@ -40,7 +40,7 @@ class ControladorUsuarios{
 		//void ingresarCategoria(DataCategoria); ?????
 		void confirmarInscripcion();
 		void cancelarInscripcion();
-		DataUsuario devolverDatosUsuario(Fecha);
+		DataUsuario* devolverDatosUsuario();
 };
 
 #endif /* CONTROLADORUSUARIOS_H_ */

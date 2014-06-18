@@ -17,7 +17,7 @@ class ConReserva: public Consulta{
 		Fecha getFechaReserva();
 		void registrar();
 		bool getAsiste();
-		DataConsulta getDataConsulta();
+		DataConsulta* getDataConsulta();
 		void show();
 };
 

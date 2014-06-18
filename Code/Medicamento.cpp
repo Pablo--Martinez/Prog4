@@ -1,6 +1,6 @@
 #include "Medicamento.h"
 
-Medicamento::Medicamento(){}
+//Medicamento::Medicamento(){}
 
 Medicamento::Medicamento(string nombre){
 	this->nombre = nombre;

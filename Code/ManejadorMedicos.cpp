@@ -10,7 +10,7 @@ ManejadorMedicos* ManejadorMedicos::getInstance(){
 	return instancia;
 }
 
-//~ManejadorMedicamentos();
+//ManejadorMedicos::~ManejadorMedicos();
 
 void ManejadorMedicos::agregarMedico(Medico* m){
 	if (this->medicos.find(m->getUsuario()->getCI()) == this->medicos.end()){

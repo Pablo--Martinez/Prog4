@@ -8,7 +8,13 @@ Consulta::Consulta(Fecha fecha_consulta, Medico* medico, Socio* socio){
 	this->solicitante = socio;
 }
 
-Consulta::~Consulta(){}
+Consulta::~Consulta(){
+	delete this->atiende;
+	delete this->solicitante;
+	for(set<Diagnostico*>::iterator d = this->diagnosticos.begin();d != this->diagnosticos.end();++d){
+		delete (*d);
+	}
+}
 
 Fecha Consulta::getFechaConsulta(){
 	return this->fecha_consulta;

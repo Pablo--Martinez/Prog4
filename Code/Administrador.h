@@ -3,6 +3,9 @@
 
 #include <set>
 #include "Rol.h"
+#include "Strategy.h"
+#include "MedicosDelPaciente.h"
+#include "MedicosLibres.h"
 
 using namespace std;
 
@@ -12,6 +15,7 @@ class Administrador: public Rol{
 	private:
 		set<Usuario*> daDeAlta;
 		set<Usuario*> reactiva;
+		//Strategy* criterio;
 	public:
 		Administrador();
 		Administrador(Usuario*);

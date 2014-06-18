@@ -2,7 +2,16 @@
 
 ControladorConsultas* ControladorConsultas::instancia = NULL;
 
-ControladorConsultas::ControladorConsultas(){}
+ControladorConsultas::ControladorConsultas(){
+	this->estrategia = NULL;
+}
+
+ControladorConsultas::~ControladorConsultas(){
+	delete this->estrategia;
+	/*for(set<Consulta*>::iterator c = this->consultas){
+
+	}*/
+}
 
 ControladorConsultas* ControladorConsultas::getInstance(){
 	if(instancia == NULL)
@@ -38,8 +47,8 @@ set<DataConsulta*> ControladorConsultas::consultasActivas(Fecha fecha_sistema){
 	set<DataConsulta*> dc;
 	for(set<Consulta*>::iterator it = s->getConsultasSolicitadas().begin();it != s->getConsultasSolicitadas().end();++it){
 		if((*it)->getFechaConsulta() < fecha_sistema){
-			DataConsulta aux = (*it)->getDataConsulta();
-			dc.insert(&aux);
+			DataConsulta* aux = (*it)->getDataConsulta();
+			dc.insert(aux);
 		}
 	}
 	return dc;
@@ -61,8 +70,8 @@ set<DataConsulta*> ControladorConsultas::consultasDelDia(Fecha fecha_sistema){
 	for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
 		ConReserva* r = dynamic_cast<ConReserva*>(*it);
 		if(r != 0 && r->getFechaConsulta() > fecha_sistema){
-			DataConsulta aux = r->getDataConsulta();
-			res.insert(&aux);
+			DataConsulta* aux = r->getDataConsulta();
+			res.insert(aux);
 		}
 	}
 	return res;
@@ -70,13 +79,28 @@ set<DataConsulta*> ControladorConsultas::consultasDelDia(Fecha fecha_sistema){
 
 void ControladorConsultas::seleccionarConsultaCI(int ci_user){}
 
-DataHistorial ControladorConsultas::obtenerHistorial(int ci_user,Fecha fecha_sistema){
-	DataHistorial dh;
+DataHistorial* ControladorConsultas::obtenerHistorial(int ci_user,Fecha fecha_sistema){
+	DataHistorial* dh = new DataHistorial();
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	for(map<int,Medico*>::iterator m = mm->getMedicos().begin(); m != mm->getMedicos().end();++m){
-		DataMedico dm = m->second->obtenerHistorial(ci_user,fecha_sistema);
+		DataMedico* dm = m->second->obtenerHistorial(ci_user);
 		if(&dm != NULL)
-			dh.agregarMedico(&dm);
+			dh->agregarMedico(dm);
 	}
 	return dh;
+}
+
+void ControladorConsultas::seleccionarCriterio(int criterio){
+	if(criterio == 1)
+		this->estrategia = new MedicosDelPaciente();
+	else
+		this->estrategia = new MedicosLibres(this->cantidad_estrategia);
+}
+
+void ControladorConsultas::setCantidad(int cant){
+	this->cantidad_estrategia = cant;
+}
+
+set<DataMedico*> ControladorConsultas::ejecutarStrategy(){
+	return this->estrategia->algoritmoDeSeleccion();
 }

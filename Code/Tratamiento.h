@@ -21,7 +21,7 @@ class Tratamiento{
 		Tratamiento(string);
 		virtual ~Tratamiento()=0;
 		string getDescripcion();
-		DataTratamiento getDataTratamiento();
+		DataTratamiento* getDataTratamiento();
 		virtual void show()=0;
 };
 

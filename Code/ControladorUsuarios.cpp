@@ -116,7 +116,7 @@ void ControladorUsuarios::cancelarInscripcion(){
 	this->sexo = M;
 }
 
-DataUsuario ControladorUsuarios::devolverDatosUsuario(Fecha fecha_sistema){
+DataUsuario* ControladorUsuarios::devolverDatosUsuario(){
 	this->a_tratar = this->usuarios[this->ci];
-	return this->a_tratar->getDataUsuario(fecha_sistema);
+	return this->a_tratar->getDataUsuario();
 }

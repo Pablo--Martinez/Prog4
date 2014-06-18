@@ -7,13 +7,15 @@ Fecha::Fecha(int dia, int mes, int anio){
 	this->mes = mes;
 	this->anio = anio;
 	this->hora = 0;
+	this->minutos = 0;
 }
 
-Fecha::Fecha(int dia, int mes, int anio, int hora){
+Fecha::Fecha(int dia, int mes, int anio, int hora, int minutos){
 	this->dia = dia;
 	this->mes = mes;
 	this->anio = anio;
 	this->hora = hora;
+	this->minutos = minutos;
 }
 
 Fecha::Fecha(const Fecha &fecha){
@@ -37,6 +39,10 @@ int Fecha::getAnio(){
 
 int Fecha::getHora(){
 	return this->hora;
+}
+
+int Fecha::getMinutos(){
+	return this->minutos;
 }
 
 bool Fecha::operator ==(const Fecha &f){

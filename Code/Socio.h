@@ -24,7 +24,7 @@ class Socio: public Rol{
 		void unattach(IObserver*);
 		void notifyall(Medico*,Fecha,bool);
 		//Opeaciones de strategy
-		//set<DataMedico> obtenerMedicosDelPaciente();
+		set<DataMedico*> obtenerMedicosDelPaciente();
 		void show();
 };
 

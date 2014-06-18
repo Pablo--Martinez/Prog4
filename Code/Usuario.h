@@ -5,6 +5,7 @@
 #include <iostream>
 #include <set>
 #include "Fecha.h"
+#include "RelojSistema.h"
 
 using namespace std;
 
@@ -40,7 +41,7 @@ class Usuario{
 		bool verificarPass(string);
 		void activar(string);
 		void reactivar();
-		DataUsuario getDataUsuario(Fecha);
+		DataUsuario* getDataUsuario();
 		void show();	
 };
 

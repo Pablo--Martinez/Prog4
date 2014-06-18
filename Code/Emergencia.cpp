@@ -12,11 +12,11 @@ string Emergencia::getMotivo(){
 	return this->motivo;
 }
 
-DataConsulta Emergencia::getDataConsulta(){
-	DataEmergencia res = DataEmergencia(this->getFechaConsulta(),this->motivo);
+DataConsulta* Emergencia::getDataConsulta(){
+	DataEmergencia* res =  new DataEmergencia(this->getFechaConsulta(),this->motivo);
 	for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
-		DataDiagnostico dd = (*it)->getDataDiagnostico();
-		res.agregarDiagnostico(&dd);
+		DataDiagnostico* dd = (*it)->getDataDiagnostico();
+		res->agregarDiagnostico(dd);
 	}
 	return res;
 }

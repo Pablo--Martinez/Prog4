@@ -1,7 +1,0 @@
-#include "DataConsulta.h"
-
-DataConsulta::DataConsulta();
-DataConsulta::DataConsulta(Fecha);
-DataConsulta::~DataConsulta();
-Fecha DataConsulta::getFechaConsulta();
-

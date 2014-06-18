@@ -4,7 +4,15 @@ Administrador::Administrador(){}
 
 Administrador::Administrador(Usuario* u): Rol(u){}
 
-Administrador::~Administrador(){}//FALTA HACER
+Administrador::~Administrador(){
+	//delete this->criterio;
+	for(set<Usuario*>::iterator u = this->daDeAlta.begin();u != this->daDeAlta.end();++u){
+		delete (*u);
+	}
+	for(set<Usuario*>::iterator u = this->reactiva.begin();u != this->reactiva.end();++u){
+		delete (*u);
+	}
+}
 
 set<Usuario*> Administrador::getUsuariosAlta(){
 	return this->daDeAlta;

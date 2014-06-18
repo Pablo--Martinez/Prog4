@@ -22,6 +22,18 @@ string Diagnostico::getDescripcion(){
 	return this->descripcion;
 }
 
+string Diagnostico::obtenerCatDiag(){
+	return this->etiqueta.substr(0,1);
+}
+
+bool Diagnostico::perteneceACat(string letraCat){
+	if (letraCat[0] == this->etiqueta[0])
+	{
+	  return true;
+	}
+	return false;
+}
+
 void Diagnostico::agregarTratamiento(Tratamiento* tratamiento){
 	this->tratamientos.insert(tratamiento);
 }
@@ -30,14 +42,21 @@ set<Tratamiento*> Diagnostico::getTratamientos(){
 	return this->tratamientos;
 }
 
-DataDiagnostico Diagnostico::getDataDiagnostico(){
+DataDiagnostico* Diagnostico::getDataDiagnostico(){
 	DataRep* dr = new DataRep(this->codigo,this->etiqueta);
-	DataDiagnostico dd = DataDiagnostico(dr,this->descripcion);
+	DataDiagnostico* dd = new DataDiagnostico(dr,this->descripcion);
 	for(set<Tratamiento*>::iterator it = this->tratamientos.begin();it!=this->tratamientos.end();++it){
-		DataTratamiento dt = (*it)->getDataTratamiento();
-		dd.agregarTratamiento(&dt);
+		DataTratamiento* dt = (*it)->getDataTratamiento();
+		dd->agregarTratamiento(dt);
 	}
 	return dd;
+}
+
+DataRep* Diagnostico::getDataRepDiagnostico(){
+
+	DataRep* dr = new DataRep(this->codigo, this->etiqueta);
+
+	return dr;
 }
 
 void Diagnostico::show(){

@@ -51,7 +51,17 @@ void Socio::notifyall(Medico* medico,Fecha fecha,bool nuevoDiag){
 	}
 }
 
-//set<DataMedico> Socio::obtenerMedicosDelPaciente(){}
+set<DataMedico*> Socio::obtenerMedicosDelPaciente(){
+	Fecha fecha_sist;//
+	set<DataMedico*> medicosDelPaciente;
+	set<Consulta*> consultas = this->getConsultasSolicitadas();
+	for(set<Consulta*>::iterator consulta = consultas.begin();consulta != consultas.end();++consulta) {
+		Medico* m = (*consulta)->getMedico();
+		DataMedico* dm = m->getDataMedico();
+		medicosDelPaciente.insert(dm);
+	}
+	return medicosDelPaciente;
+}
 
 void Socio::show(){
 	if(this != NULL){

@@ -23,9 +23,12 @@ class Diagnostico{
 		string getCodigo();
 		string getEtiqueta();
 		string getDescripcion();
+		string obtenerCatDiag();
+		bool perteneceACat(string);
 		void agregarTratamiento(Tratamiento*);
 		set<Tratamiento*> getTratamientos();
-		DataDiagnostico getDataDiagnostico();
+		DataDiagnostico* getDataDiagnostico();
+		DataRep* getDataRepDiagnostico();
 		void show();
 };
 

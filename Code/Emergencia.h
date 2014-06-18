@@ -14,7 +14,7 @@ class Emergencia: public Consulta{
 		Emergencia(Fecha,string,Medico*,Socio*);
 		~Emergencia();
 		string getMotivo();
-		DataConsulta getDataConsulta();
+		DataConsulta* getDataConsulta();
 		void show();
 };
 

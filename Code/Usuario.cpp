@@ -10,7 +10,6 @@ Usuario::Usuario(int ci, string nombre, string apellido, Sexo sexo, bool estado,
 	this->estado = estado;
 	this->pass = "";
 	this->nacimiento = nacimiento;
-	//this->roles = NULL;
 }
 
 int Usuario::getCI(){
@@ -73,8 +72,9 @@ void Usuario::reactivar(){ // setEstado(bool) ?
 	this->estado = true;
 }
 
-DataUsuario Usuario::getDataUsuario(Fecha fecha_sistema){
-	return DataUsuario(this->ci,this->nombre,this->apellido,this->sexo,this->getEdad(fecha_sistema),this->estado);
+DataUsuario* Usuario::getDataUsuario(){
+	RelojSistema* rs = RelojSistema::getInstance();
+	return new DataUsuario(this->ci,this->nombre,this->apellido,this->sexo,this->getEdad(rs->getFechaSistema()),this->estado);
 }
 
  void Usuario::show(){
