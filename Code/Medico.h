@@ -27,6 +27,7 @@ class Medico: public IObserver{
 		DataMedico* getDataMedico();
 		DataMedico* obtenerHistorial(int);
 		bool libreHoraYConsultas(int cantConsultas);
+		bool libreParaFecha(Fecha);
 		void show();
 		void showNotificaciones();
 };

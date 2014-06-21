@@ -1,11 +1,14 @@
 #include "Socio.h"
+#include "Rol.h"
 
 
 Socio::Socio(){}
 
 Socio::Socio(Usuario* u): Rol(u){}
 
-Socio::~Socio(){}//FALTA HACER
+Socio::~Socio(){
+	//FALTA HACER
+}
 
 void Socio::agregarConsulta(Consulta* c){
 	this->solicita.insert(c);

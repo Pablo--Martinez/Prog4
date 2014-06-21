@@ -73,6 +73,17 @@ bool Medico::libreHoraYConsultas(int cantConsultas) {
 	return cant<cantConsultas;
 }
 
+bool Medico::libreParaFecha(Fecha fecha_consulta){
+	set<Consulta*>::iterator consulta = this->atiende.begin();
+	while(consulta != this->atiende.end()){
+		if((*consulta)->getFechaConsulta() == fecha_consulta){
+			return false;
+		}
+		consulta++;
+	}
+	return true;
+}
+
 void Medico::show(){
 	if(this != NULL){
 		cout << "Usuario:" << endl;

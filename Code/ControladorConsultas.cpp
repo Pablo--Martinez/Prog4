@@ -104,3 +104,31 @@ void ControladorConsultas::setCantidad(int cant){
 set<DataMedico*> ControladorConsultas::ejecutarStrategy(){
 	return this->estrategia->algoritmoDeSeleccion();
 }
+
+
+set<DataUsuario*> ControladorConsultas::obtenerMedicos(Fecha fecha_cosulta){
+	this->fecha_consulta = fecha_consulta;
+	set<DataUsuario*> medicos_disponibles;
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	map<int, Medico*> medicos = mm->getMedicos();
+	for(map<int, Medico*>::iterator medicos = mm->getMedicos().begin(); medicos != mm->getMedicos().end();++medicos){
+		if(medicos->second->libreParaFecha(fecha_consulta)){
+			DataUsuario* du = medicos->second->getUsuario()->getDataUsuario();
+			medicos_disponibles.insert(du);
+		}
+	}
+	return medicos_disponibles;
+}
+
+void ControladorConsultas::ingresarConsulta(int ci_doc){
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	RelojSistema* rs = RelojSistema::getInstance();
+	Medico* m = mm->find(ci_doc);
+	Socio* s = ms->find(cu->getUsuarioLogueado()->getCI());
+	ConReserva* r = new ConReserva(this->fecha_consulta,rs->getFechaSistema(),m,s);
+	m->agregarConsulta(r);
+	s->agregarConsulta(r);
+	this->consultas.insert(r);
+}

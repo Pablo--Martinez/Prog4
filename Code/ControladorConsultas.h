@@ -14,6 +14,7 @@
 #include "ManejadorAdministradores.h"
 #include "DataConsulta.h"
 #include "DataHistorial.h"
+#include "DataUsuario.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ class ControladorConsultas{
 		//set<DataConsulta*> data_consultas;
 		Strategy* estrategia;
 		int cantidad_estrategia;
+		Fecha fecha_consulta;
 	public:
 		static ControladorConsultas* getInstance();
 		~ControladorConsultas();
@@ -39,6 +41,8 @@ class ControladorConsultas{
 		void seleccionarCriterio(int);
 		void setCantidad(int);
 		set<DataMedico*> ejecutarStrategy();
+		set<DataUsuario*> obtenerMedicos(Fecha);
+		void ingresarConsulta(int);
 
 };
 

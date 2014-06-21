@@ -1,38 +1,15 @@
-00:36:48 **** Incremental Build of configuration Debug for project Code ****
+12:58:23 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Prog4.cpp
+Building file: ../ControladorConsultas.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Prog4.d" -MT"Prog4.d" -o "Prog4.o" "../Prog4.cpp"
-Finished building: ../Prog4.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
+Finished building: ../ControladorConsultas.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
 g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 0 tiene un índice de símbolo 11 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 1 tiene un índice de símbolo 12 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 2 tiene un índice de símbolo 2 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 3 tiene un índice de símbolo 2 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 4 tiene un índice de símbolo 11 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 5 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 6 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 7 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 8 tiene un índice de símbolo 12 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 9 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 10 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 11 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 12 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 13 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 14 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 15 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 16 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 17 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 18 tiene un índice de símbolo 13 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): la reubicación 19 tiene un índice de símbolo 21 inválido
-/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): la reubicación 0 tiene un índice de símbolo 2 inválido
-/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: En la función `_start':
-(.text+0x20): referencia a `main' sin definir
-collect2: error: ld returned 1 exit status
-make: *** [Code] Error 1
+Finished building target: Code
+ 
 
-00:36:49 Build Finished (took 798ms)
+12:58:24 Build Finished (took 967ms)
 

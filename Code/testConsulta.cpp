@@ -6,7 +6,7 @@
 #include <list>
 
 using namespace std;
-/*
+
 int main(){
 	Fecha f;
 	Diagnostico* d;
@@ -61,4 +61,4 @@ int main(){
 	cout << "-------------------" << endl;
 	r->show();
 	return 0;
-}*/
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="22" version="2.0">
+<workbench progressCount="31" version="2.0">
 <workbenchAdvisor/>
 <window height="744" maximized="true" width="1024" x="65" y="24">
 <fastViewData fastViewLocation="1024"/>
@@ -30,13 +30,18 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="Prog4.cpp" partName="Prog4.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/Prog4.cpp" title="Prog4.cpp" tooltip="Code/Prog4.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/Prog4.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="886" selectionTopPixel="109"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorConsultas.h" partName="ControladorConsultas.h" path="/home/pablo/Escritorio/Fing/Prog4/Code/ControladorConsultas.h" title="ControladorConsultas.h" tooltip="Code/ControladorConsultas.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/ControladorConsultas.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="294"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorConsultas.cpp" partName="ControladorConsultas.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/ControladorConsultas.cpp" title="ControladorConsultas.cpp" tooltip="Code/ControladorConsultas.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/ControladorConsultas.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="588"/>
 </editor>
 </editors>
 <views>
@@ -44,12 +49,19 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
 </view>
 <view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.cdt.ui.pdomSearchViewPage" definitionColumnWidth="150" locationColumnWidth="300" matchColumnWidth="300" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" showEnclosingDefinitions="true"/>
+</viewState>
+</view>
 <view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (1 item)"/>
+<category IMemento.internal.id="Warnings (8 items)"/>
 <category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="261" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -61,12 +73,6 @@
 </view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
-</view>
-<view id="org.eclipse.ui.internal.introview" partName="Welcome">
-<viewState>
-<presentation currentPage="root" restore="true"/>
-<standbyPart/>
-</viewState>
 </view>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
@@ -84,7 +90,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.views.ProblemView" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -122,45 +128,31 @@
 <view id="org.eclipse.ui.views.TaskList"/>
 <view id="org.eclipse.ui.internal.introview"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="topLeft">
-<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
-<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="topLeft">&#x0A;<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.team.ccvs.ui.RepositoriesView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@62ad862b" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
-<folder activePageID="org.eclipse.ui.internal.introview" appearance="2" expanded="1">
-<page content="org.eclipse.ui.internal.introview" label="Welcome"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@62ad862b" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">&#x0A;<folder activePageID="org.eclipse.ui.internal.introview" appearance="2" expanded="1">&#x0A;<page content="org.eclipse.ui.internal.introview" label="Welcome"/>
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25940594" ratioLeft="262" ratioRight="748" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.659375" ratioLeft="422" ratioRight="218" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<info folder="true" part="bottomRight" ratio="0.659375" ratioLeft="422" ratioRight="218" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="bottomLeft" ratio="0.5" ratioLeft="320" ratioRight="320" relationship="4" relative="topLeft">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="bottomLeft" ratio="0.5" ratioLeft="320" ratioRight="320" relationship="4" relative="topLeft">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -222,6 +214,7 @@
 <view id="org.eclipse.ui.views.TaskList"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.cdt.make.ui.views.MakeView"/>
 <fastViewBars/>
@@ -248,16 +241,18 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24980666" ratioLeft="323" ratioRight="970" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottom" ratio="0.7492918" ratioLeft="529" ratioRight="177" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.search.ui.views.SearchView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
@@ -278,30 +273,163 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Prog4.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Stretegy.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Strategy.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ControladorConsultas.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ControladorConsultas.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ManejadorMedicos.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Medico.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Medico.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ConReserva.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ConReserva.cpp"/>
 </editors>
-<item historyLabel="Prog4.cpp" index="0">
-<position info="not_deleted" x="685" y="0"/>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position/>
 </item>
-<item historyLabel="Stretegy.cpp" index="1">
+<item historyLabel="ControladorConsultas.h" index="0">
+<position/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3392" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.h" index="0">
+<position info="not_deleted" x="1252" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3860" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.h" index="0">
+<position info="not_deleted" x="1252" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3860" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3860" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3549" y="0"/>
+</item>
+<item historyLabel="ManejadorMedicos.h" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Strategy.cpp" index="2">
-<position info="not_deleted" x="3" y="0"/>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3549" y="0"/>
 </item>
-<item historyLabel="Stretegy.cpp" index="1">
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3860" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3691" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3680" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3746" y="0"/>
+</item>
+<item historyLabel="Medico.h" index="3">
+<position/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3746" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3745" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3889" y="0"/>
+</item>
+<item historyLabel="Medico.h" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Strategy.cpp" index="2">
-<position info="not_deleted" x="3" y="0"/>
+<item historyLabel="Medico.h" index="3">
+<position info="not_deleted" x="683" y="0"/>
 </item>
-<item historyLabel="Stretegy.cpp" index="1">
+<item historyLabel="ManejadorMedicos.h" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="Prog4.cpp" index="0">
-<position info="not_deleted" x="685" y="0"/>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3745" y="0"/>
+</item>
+<item historyLabel="Medico.cpp" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Medico.cpp" index="4">
+<position info="not_deleted" x="2121" y="0"/>
+</item>
+<item historyLabel="Medico.cpp" index="4">
+<position info="not_deleted" x="2065" y="0"/>
+</item>
+<item historyLabel="Medico.cpp" index="4">
+<position info="not_deleted" x="2026" y="0"/>
+</item>
+<item historyLabel="Medico.cpp" index="4">
+<position info="not_deleted" x="2119" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3416" y="0"/>
+</item>
+<item historyLabel="ManejadorMedicos.h" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3416" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.h" index="0">
+<position info="not_deleted" x="1252" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3416" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="4418" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3396" y="38"/>
+</item>
+<item historyLabel="ControladorConsultas.h" index="0">
+<position info="not_deleted" x="1252" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="3396" y="38"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="4059" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="4173" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="4340" y="0"/>
+</item>
+<item historyLabel="ConReserva.h" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ConReserva.cpp" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.h" index="0">
+<position info="not_deleted" x="1252" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="4340" y="0"/>
+</item>
+<item historyLabel="ConReserva.cpp" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="4418" y="0"/>
+</item>
+<item historyLabel="ConReserva.cpp" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.h" index="0">
+<position info="not_deleted" x="1252" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.h" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="ControladorConsultas.cpp" index="1">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -320,14 +448,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Strategy.cpp" tooltip="Code/Strategy.cpp">
-<persistable path="/Code/Strategy.cpp"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorConsultas.cpp" tooltip="Code/ControladorConsultas.cpp">
+<persistable path="/Code/ControladorConsultas.cpp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Stretegy.cpp" tooltip="Code/Stretegy.cpp">
-<persistable path="/Code/Stretegy.cpp"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorConsultas.h" tooltip="Code/ControladorConsultas.h">
+<persistable path="/Code/ControladorConsultas.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Prog4.cpp" tooltip="Code/Prog4.cpp">
-<persistable path="/Code/Prog4.cpp"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ConReserva.cpp" tooltip="Code/ConReserva.cpp">
+<persistable path="/Code/ConReserva.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ConReserva.h" tooltip="Code/ConReserva.h">
+<persistable path="/Code/ConReserva.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Medico.cpp" tooltip="Code/Medico.cpp">
+<persistable path="/Code/Medico.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Medico.h" tooltip="Code/Medico.h">
+<persistable path="/Code/Medico.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ManejadorMedicos.h" tooltip="Code/ManejadorMedicos.h">
+<persistable path="/Code/ManejadorMedicos.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Consulta.h" tooltip="Code/Consulta.h">
+<persistable path="/Code/Consulta.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="MedicosLibres.h" tooltip="Code/MedicosLibres.h">
+<persistable path="/Code/MedicosLibres.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Rol.h" tooltip="Code/Rol.h">
+<persistable path="/Code/Rol.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Socio.h" tooltip="Code/Socio.h">
+<persistable path="/Code/Socio.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataMedico.h" tooltip="Code/DataMedico.h">
+<persistable path="/Code/DataMedico.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Rol.cpp" tooltip="Code/Rol.cpp">
+<persistable path="/Code/Rol.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Socio.cpp" tooltip="Code/Socio.cpp">
+<persistable path="/Code/Socio.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="testConsulta.cpp" tooltip="Code/testConsulta.cpp">
+<persistable path="/Code/testConsulta.cpp"/>
 </file>
 </mruList>
 </workbench>
