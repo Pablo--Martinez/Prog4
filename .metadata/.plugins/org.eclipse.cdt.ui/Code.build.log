@@ -1,4 +1,4 @@
-12:58:23 **** Incremental Build of configuration Debug for project Code ****
+11:58:03 **** Incremental Build of configuration Debug for project Code ****
 make all 
 Building file: ../ControladorConsultas.cpp
 Invoking: Cross G++ Compiler
@@ -11,5 +11,5 @@ g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsu
 Finished building target: Code
  
 
-12:58:24 Build Finished (took 967ms)
+11:58:05 Build Finished (took 1s.837ms)
 

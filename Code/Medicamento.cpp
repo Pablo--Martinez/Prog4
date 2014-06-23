@@ -6,10 +6,6 @@ Medicamento::Medicamento(string nombre){
 	this->nombre = nombre;
 }
 
-Medicamento::~Medicamento(){
-	//delete this->nombre;
-}
-
 string Medicamento::getNombre(){
 	return this->nombre;
 }

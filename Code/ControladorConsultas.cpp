@@ -38,7 +38,15 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_re
 	}
 }
 
-void ControladorConsultas::registroEmergencia(int ci_user,int ci_doc,string motivo,Fecha fecha_consulta){}
+void ControladorConsultas::registroEmergencia(int ci_user,int ci_doc,string motivo,Fecha fecha_consulta){
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	Socio* s = ms->find(ci_user);
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	Medico* m = mm->find(ci_doc);
+	Emergencia* e = new Emergencia(fecha_consulta, motivo, m, s);
+	s->agregarConsulta(e);
+	m->agregarConsulta(e);
+}
 
 set<DataConsulta*> ControladorConsultas::consultasActivas(Fecha fecha_sistema){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
@@ -77,7 +85,19 @@ set<DataConsulta*> ControladorConsultas::consultasDelDia(Fecha fecha_sistema){
 	return res;
 }
 
-void ControladorConsultas::seleccionarConsultaCI(int ci_user){}
+DataConsulta* ControladorConsultas::seleccionarConsultaCI(int ci_user){
+	set<DataConsulta*> res;
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	int ci_doc = cu->getUsuarioLogueado()->getCI();
+	for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
+		if( (*it)->esDeHoy() and
+			(*it)->perteneceAMedico(ci_doc) and
+			(*it)->perteneceASocio(ci_user)){
+				return (*it)->getDataConsulta();
+		}
+	}
+	return NULL;
+}
 
 DataHistorial* ControladorConsultas::obtenerHistorial(int ci_user,Fecha fecha_sistema){
 	DataHistorial* dh = new DataHistorial();

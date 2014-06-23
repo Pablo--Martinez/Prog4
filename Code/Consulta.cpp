@@ -40,6 +40,12 @@ void Consulta::agregarDiagnostico(Diagnostico* diagnostico){
 	this->diagnosticos.insert(diagnostico);
 }
 
+bool Consulta::esDeHoy(){
+    RelojSistema* rj;
+    rj->getInstance();
+	return (this->getFechaConsulta() == rj->getFechaSistema());
+}
+
 set<Diagnostico*> Consulta::getDiagnosticos(){
 	return this->diagnosticos;
 }

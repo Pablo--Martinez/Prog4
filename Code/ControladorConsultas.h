@@ -5,6 +5,7 @@
 #include "Fecha.h"
 #include "Consulta.h"
 #include "ConReserva.h"
+#include "Emergencia.h"
 #include "Rol.h"
 #include "ManejadorMedicos.h"
 #include "ManejadorSocios.h"
@@ -36,7 +37,7 @@ class ControladorConsultas{
 		set<DataConsulta*> consultasActivas(Fecha);
 		void devolverConsulta(Fecha);
 		set<DataConsulta*> consultasDelDia(Fecha);
-		void seleccionarConsultaCI(int);
+		DataConsulta* seleccionarConsultaCI(int);
 		DataHistorial* obtenerHistorial(int,Fecha);
 		void seleccionarCriterio(int);
 		void setCantidad(int);

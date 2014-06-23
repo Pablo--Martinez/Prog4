@@ -13,7 +13,6 @@ class Medicamento{
 	public:
 		Medicamento();
 		Medicamento(string);
-		~Medicamento();
 		string getNombre();
 		void show();
 };

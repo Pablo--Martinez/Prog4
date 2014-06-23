@@ -10,7 +10,7 @@
 using namespace std;
 
 #include "ManejadorMedicamentos.h"
-/*
+
 int main() {
 
 	ManejadorMedicamentos* mm = ManejadorMedicamentos::getInstance();
@@ -23,6 +23,7 @@ int main() {
 
 	Medicamento* m = mm->find("Diazepan");
 	m->show();
+	delete m;
 	delete mm;
 
 	//mm->show();
@@ -35,4 +36,4 @@ int main() {
 
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	return 0;
-}*/
+}

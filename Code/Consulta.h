@@ -28,6 +28,7 @@ class Consulta{
 		bool perteneceAMedico(int);
 		bool perteneceASocio(int);
 		void agregarDiagnostico(Diagnostico*);
+		bool esDeHoy();
 		set<Diagnostico*> getDiagnosticos();
 		virtual DataConsulta* getDataConsulta()=0;
 		virtual void show()=0;
