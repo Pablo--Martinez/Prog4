@@ -16,7 +16,9 @@ void  ManejadorAdministradores::agregarAdministrador(Administrador* a){
 	}
 }
 Administrador*  ManejadorAdministradores::find(int ci){
-	return this->administradores[ci];
+	if(this->administradores[ci] != NULL)
+		return this->administradores[ci];
+	return NULL;
 }
 
 

@@ -3,6 +3,7 @@
 
 #include <set>
 #include <string>
+#include <stdexcept>
 #include "Usuario.h"
 #include "ManejadorSocios.h"
 #include "ManejadorMedicos.h"

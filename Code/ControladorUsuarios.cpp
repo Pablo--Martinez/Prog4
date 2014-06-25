@@ -39,6 +39,9 @@ void ControladorUsuarios::reactivar(){
 }
 
 void ControladorUsuarios::cerrarSesion(){
+	if(this->logueado == NULL){
+			throw std::invalid_argument("No hay usuario legueado");
+		}
 	this->logueado = NULL;
 }
 

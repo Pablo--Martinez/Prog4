@@ -2,6 +2,7 @@
 #define CONTROLADORCONSULTAS_H_
 
 #include <set>
+#include <stdexcept>
 #include "Fecha.h"
 #include "Consulta.h"
 #include "ConReserva.h"

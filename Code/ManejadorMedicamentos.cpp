@@ -50,6 +50,10 @@ Medicamento* ManejadorMedicamentos::find(string nombre){
 	return NULL;
 }
 
+bool ManejadorMedicamentos::existeMedicamento(string nombre){
+	return this->medicamentos[nombre] != NULL;
+}
+
 void ManejadorMedicamentos::show(){
 	if(this != NULL){
 		cout << "Medicamentos:" << endl;

@@ -19,6 +19,7 @@ class ManejadorMedicamentos
 		//~ManejadorMedicamentos();
 		void agregarMedicamento(string);
 		Medicamento* find(string);
+		bool existeMedicamento(string);
 		void show();
 };
 

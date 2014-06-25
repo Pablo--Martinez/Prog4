@@ -24,6 +24,14 @@ void ControladorConsultas::agregarConsulta(Consulta* c){
 }
 
 void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_reserva,Fecha fecha_consulta){
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+
+	if(mm->find(ci_doc) == NULL)
+		throw std::invalid_argument("NoExisteMedico");
+	if(ms->find(ci_user) == NULL)
+		throw std::invalid_argument("NoExisteSocio");
+
 	set<Consulta*>::iterator it = this->consultas.begin();
 	while(it != this->consultas.end()){
 		ConReserva* r = dynamic_cast<ConReserva*>(*it);
@@ -36,6 +44,7 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_re
 		}
 		it++;
 	}
+	throw std::invalid_argument("NoExisteConsulta");
 }
 
 void ControladorConsultas::registroEmergencia(int ci_user,int ci_doc,string motivo,Fecha fecha_consulta){

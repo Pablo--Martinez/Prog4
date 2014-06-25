@@ -24,11 +24,14 @@ Socio* ManejadorSocios::find(int ci){
 			return *it;
 		}
 		++it;
-	}*/
+	}
 	Socio* s = this->socios[ci];
-	return s;
-
+	return s;*/
+	if(this->socios[ci] != NULL)
+		return this->socios[ci];
+	return NULL;
 }
+
 void ManejadorSocios::show(){
 	if(this != NULL){
 		cout << "Socios disponibles:" << endl;
