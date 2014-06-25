@@ -6,6 +6,7 @@
 #include "Strategy.h"
 #include "MedicosDelPaciente.h"
 #include "MedicosLibres.h"
+#include "DataAltaReactivacion.h"
 
 using namespace std;
 
@@ -13,15 +14,17 @@ class Usuario;
 
 class Administrador: public Rol{
 	private:
-		set<Usuario*> daDeAlta;
-		set<Usuario*> reactiva;
+		//set<Usuario*> daDeAlta;
+		//set<Usuario*> reactiva;
 		//Strategy* criterio;
+		set<DataAltaReactivacion*> deAltaReactivados;
 	public:
 		Administrador();
 		Administrador(Usuario*);
 		~Administrador();
-		set<Usuario*> getUsuariosAlta();
-		set<Usuario*> getUsuariosReactivados();
+		//set<Usuario*> getUsuariosAlta();
+		//set<Usuario*> getUsuariosReactivados();
+		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 		void show();
 };
 

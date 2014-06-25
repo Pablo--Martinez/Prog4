@@ -15,11 +15,11 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="156" y="30"/>
 <coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="96" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="30"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -28,16 +28,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="Sistema.cpp" partName="Sistema.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/Sistema.cpp" title="Sistema.cpp" tooltip="Code/Sistema.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/Sistema.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1693" selectionTopPixel="1190"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.cdt.visualizer.view" partName="Multicore Visualizer">
@@ -84,6 +78,10 @@
 <view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (23 items)"/>
+<category IMemento.internal.id="Warnings"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="261" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="577"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -96,7 +94,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspectives activePart="org.eclipse.ui.views.ProblemView" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -386,26 +384,7 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Sistema.cpp"/>
-</editors>
-<item historyLabel="Sistema.cpp" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position info="not_deleted" x="1836" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position info="not_deleted" x="1855" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position info="not_deleted" x="1836" y="0"/>
-</item>
-<item active="true" historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -422,8 +401,29 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataAltaReactivacion.h" tooltip="Code/DataAltaReactivacion.h">
+<persistable path="/Code/DataAltaReactivacion.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataAltaReactivacion.cpp" tooltip="Code/DataAltaReactivacion.cpp">
+<persistable path="/Code/DataAltaReactivacion.cpp"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Sistema.cpp" tooltip="Code/Sistema.cpp">
 <persistable path="/Code/Sistema.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Administrador.cpp" tooltip="Code/Administrador.cpp">
+<persistable path="/Code/Administrador.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Administrador.h" tooltip="Code/Administrador.h">
+<persistable path="/Code/Administrador.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="testMMedicos.cpp" tooltip="Code/testMMedicos.cpp">
+<persistable path="/Code/testMMedicos.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Rol.cpp" tooltip="Code/Rol.cpp">
+<persistable path="/Code/Rol.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Rol.h" tooltip="Code/Rol.h">
+<persistable path="/Code/Rol.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ManejadorSocios.cpp" tooltip="Code/ManejadorSocios.cpp">
 <persistable path="/Code/ManejadorSocios.cpp"/>
@@ -437,12 +437,6 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ManejadorAdministradores.h" tooltip="Code/ManejadorAdministradores.h">
 <persistable path="/Code/ManejadorAdministradores.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Administrador.cpp" tooltip="Code/Administrador.cpp">
-<persistable path="/Code/Administrador.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Administrador.h" tooltip="Code/Administrador.h">
-<persistable path="/Code/Administrador.h"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Usuario.cpp" tooltip="Code/Usuario.cpp">
 <persistable path="/Code/Usuario.cpp"/>
 </file>
@@ -451,21 +445,6 @@
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stl_tree.h" tooltip="/usr/include/c++/4.8/bits/stl_tree.h">
 <persistable uri="file:/usr/include/c++/4.8/bits/stl_tree.h"/>
-</file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stl_map.h" tooltip="/usr/include/c++/4.8/bits/stl_map.h">
-<persistable uri="file:/usr/include/c++/4.8/bits/stl_map.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorUsuarios.cpp" tooltip="Code/ControladorUsuarios.cpp">
-<persistable path="/Code/ControladorUsuarios.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ManejadorMedicos.cpp" tooltip="Code/ManejadorMedicos.cpp">
-<persistable path="/Code/ManejadorMedicos.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ManejadorMedicos.h" tooltip="Code/ManejadorMedicos.h">
-<persistable path="/Code/ManejadorMedicos.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataMedico.h" tooltip="Code/DataMedico.h">
-<persistable path="/Code/DataMedico.h"/>
 </file>
 </mruList>
 </workbench>

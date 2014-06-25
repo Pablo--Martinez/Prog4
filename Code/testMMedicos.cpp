@@ -22,6 +22,10 @@ int main(){
 	mm->agregarMedico(m);
 	mm->show();
 
+	if(m->esMedico()){
+		cout << "Es medico" << endl;
+	}
+
 	return 0;
 
 }*/

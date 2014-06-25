@@ -235,6 +235,6 @@ void notificarMedicos(){}
 //MAIN PRINCIPAL
 
 int main(){
-	registroConsulta();
+
 	return 0;
 }

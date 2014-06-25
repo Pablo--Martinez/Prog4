@@ -13,6 +13,9 @@ class Rol{
 		Rol(Usuario*);
 		virtual ~Rol()=0;
 		Usuario* getUsuario();
+		bool esAdministrador();
+		bool esMedico();
+		bool esSocio();
 		virtual void show()=0;
 };
 
