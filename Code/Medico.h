@@ -30,6 +30,8 @@ class Medico: public IObserver{
 		bool libreParaFecha(Fecha);
 		void show();
 		void showNotificaciones();
+		tipoRol getTipoRol();
+		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 };
 
 #include "Usuario.h"

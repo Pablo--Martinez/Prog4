@@ -64,6 +64,17 @@ bool Usuario::verificarPass(string pass){
 	return false;
 }
 
+set<DataAltaReactivacion*> Usuario::obtenerUsuariosAltaReactivacion() {
+	set<DataAltaReactivacion*> daDeAltaReactiva;
+	for(set<Rol*>::iterator r = this->roles.begin();r != this->roles.end();++r) {
+		tipoRol tipoRol = (*r)->getTipoRol();
+		if (tipoRol == administrador) {
+			//return = (*r)->obtenerUsuariosAltaReactivacion();
+		}
+	}
+	return daDeAltaReactiva;
+}
+
 void Usuario::activar(string pass){
 	this->pass = pass; //Se asume que el formato de pass es correcto
 }

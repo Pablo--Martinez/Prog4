@@ -6,6 +6,10 @@ Medico::Medico(Usuario* u): IObserver(u){}
 
 Medico::~Medico(){}//FALTA HACER
 
+tipoRol Medico::getTipoRol() {
+	return medico;
+}
+
 set<Consulta*> Medico::getConsultasAtiende(){
 	return this->atiende;
 }

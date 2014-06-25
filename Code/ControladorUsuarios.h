@@ -42,6 +42,7 @@ class ControladorUsuarios{
 		void confirmarInscripcion();
 		void cancelarInscripcion();
 		DataUsuario* devolverDatosUsuario();
+		set<DataAltaReactivacion*> obtenerUsuarios();
 };
 
 #endif /* CONTROLADORUSUARIOS_H_ */

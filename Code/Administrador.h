@@ -24,6 +24,7 @@ class Administrador: public Rol{
 		~Administrador();
 		//set<Usuario*> getUsuariosAlta();
 		//set<Usuario*> getUsuariosReactivados();
+		tipoRol getTipoRol();
 		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 		void show();
 };

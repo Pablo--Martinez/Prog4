@@ -19,12 +19,14 @@ class Socio: public Rol{
 		void agregarConsulta(Consulta*);
 		Consulta* devolverReserva(Fecha);
 		set<Consulta*> getConsultasSolicitadas();
+		tipoRol getTipoRol();
 		// Operaciones de observador
 		void attach(IObserver*);
 		void unattach(IObserver*);
 		void notifyall(Medico*,Fecha,bool);
 		//Opeaciones de strategy
 		set<DataMedico*> obtenerMedicosDelPaciente();
+		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 		void show();
 };
 

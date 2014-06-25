@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 #include "DataUsuario.h"
+#include "Fecha.h"
 
 //class DataUsuario;
 

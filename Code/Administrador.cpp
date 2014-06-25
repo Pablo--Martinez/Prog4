@@ -22,6 +22,10 @@ set<Usuario*> Administrador::getUsuariosReactivados(){
 	return this->reactiva;
 }*/
 
+tipoRol Administrador::getTipoRol() {
+	return administrador;
+}
+
 set<DataAltaReactivacion*> Administrador::obtenerUsuariosAltaReactivacion(){
 	return this->deAltaReactivados;
 }

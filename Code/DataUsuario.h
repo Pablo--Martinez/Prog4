@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//class Usuario;
+class Usuario;
 
 class DataUsuario {
 	private:

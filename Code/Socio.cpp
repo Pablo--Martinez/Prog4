@@ -10,6 +10,11 @@ Socio::~Socio(){
 	//FALTA HACER
 }
 
+tipoRol Socio::getTipoRol() {
+	return socio;
+}
+
+
 void Socio::agregarConsulta(Consulta* c){
 	this->solicita.insert(c);
 }

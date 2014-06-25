@@ -6,6 +6,7 @@
 #include <set>
 #include "Fecha.h"
 #include "RelojSistema.h"
+//#include "DataUsuario.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ enum TSesion {PV, CM, APD};
 
 class Rol;
 class DataUsuario;
+class DataAltaReactivacion;
 
 class Usuario{
 	private:
@@ -39,6 +41,7 @@ class Usuario{
 		void agregarRol(Rol*); //void agregarRol(DataCat) ?
 		TSesion getTipoSesion();
 		bool verificarPass(string);
+		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 		void activar(string);
 		void reactivar();
 		DataUsuario* getDataUsuario();
@@ -47,5 +50,6 @@ class Usuario{
 
 #include "Rol.h"
 #include "DataUsuario.h"
+#include "DataAltaReactivacion.h"
 
 #endif

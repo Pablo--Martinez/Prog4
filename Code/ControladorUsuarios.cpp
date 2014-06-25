@@ -17,6 +17,14 @@ Usuario* ControladorUsuarios::getUsuarioLogueado(){
 	return this->logueado;
 }
 
+set<DataAltaReactivacion*> ControladorUsuarios::obtenerUsuarios() {
+
+	//usuarioLogueado = ControladorUsuarios::getUsuarioLogueado();
+
+
+
+}
+
 TSesion ControladorUsuarios::iniciarSesion(int ci){
 	this->a_tratar = this->usuarios[ci];
 	if(this->a_tratar != NULL){
@@ -123,3 +131,5 @@ DataUsuario* ControladorUsuarios::devolverDatosUsuario(){
 	this->a_tratar = this->usuarios[this->ci];
 	return this->a_tratar->getDataUsuario();
 }
+
+
