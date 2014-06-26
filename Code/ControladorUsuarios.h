@@ -5,6 +5,7 @@
 #include <string>
 #include <stdexcept>
 #include "Usuario.h"
+#include "ConReserva.h"
 #include "ManejadorSocios.h"
 #include "ManejadorMedicos.h"
 #include "ManejadorAdministradores.h"
@@ -18,6 +19,7 @@ class ControladorUsuarios{
 		ControladorUsuarios();
 		static ControladorUsuarios* instancia;
 		map<int,Usuario*> usuarios;
+		int maximo_inasistencias;
 		Usuario* logueado;
 		Usuario* a_tratar;
 		int ci;
@@ -28,6 +30,8 @@ class ControladorUsuarios{
 
 	public:
 		static ControladorUsuarios* getInstance();
+		void setMaximoInasistencias(int);
+		int getMaximoInasistencias();
 		Usuario* getUsuarioLogueado();
 		TSesion iniciarSesion(int);
 		bool ingresarContrasenia(string);
@@ -42,7 +46,8 @@ class ControladorUsuarios{
 		void confirmarInscripcion();
 		void cancelarInscripcion();
 		DataUsuario* devolverDatosUsuario();
-		set<DataAltaReactivacion*> obtenerUsuarios();
+		set<DataAltaReactivacion*> obtenerDaDeAltaReactiva();
+		void recalcularInasistencias(Fecha);
 };
 
 #endif /* CONTROLADORUSUARIOS_H_ */

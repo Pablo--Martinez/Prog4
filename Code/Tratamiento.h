@@ -15,7 +15,7 @@ class Tratamiento{
 	public:
 		Tratamiento();
 		Tratamiento(string);
-		//virtual ~Tratamiento()=0;
+		virtual ~Tratamiento()=0;
 		string getDescripcion();
 		DataTratamiento* getDataTratamiento();
 		virtual void show()=0;

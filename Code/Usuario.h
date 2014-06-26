@@ -43,6 +43,7 @@ class Usuario{
 		bool verificarPass(string);
 		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 		void activar(string);
+		void desactivar();
 		void reactivar();
 		DataUsuario* getDataUsuario();
 		void show();	

@@ -20,18 +20,11 @@ ManejadorMedicamentos::~ManejadorMedicamentos(){
 }
 */
 void ManejadorMedicamentos::agregarMedicamento(string nombre){
-	//Medicamento* m = new Medicamento(nombre);
-	//set<Medicamento*>::iterator it;
-	//it = this->medicamentos.find(m);
-	/*if (*it == NULL){
-		this->medicamentos.insert(m);
-	}*/
-	//this->medicamentos.insert(m);
+	if (this->medicamentos.find(nombre) != this->medicamentos.end())
+		throw std::invalid_argument("Medicamento ya existente");
 
-	if (this->medicamentos[nombre] == NULL){
 		Medicamento* m = new Medicamento(nombre);
-		this->medicamentos[nombre] = m;
-	}
+	this->medicamentos[nombre] = m;
 }
 
 Medicamento* ManejadorMedicamentos::find(string nombre){

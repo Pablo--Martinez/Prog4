@@ -25,6 +25,26 @@ Fecha::Fecha(const Fecha &fecha){
 	this->hora = fecha.hora;
 }
 
+void Fecha::setDia(int dia){
+	this->dia = dia;
+}
+
+void Fecha::setMes(int mes){
+	this->mes = mes;
+}
+
+void Fecha::setAnio(int anio){
+	this->anio = anio;
+}
+
+void Fecha::setHora(int hora){
+	this->hora = hora;
+}
+
+void Fecha::setMinutos(int minutos){
+	this->minutos = minutos;
+}
+
 int Fecha::getDia(){
 	return this-> dia;
 }

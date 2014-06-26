@@ -3,6 +3,7 @@
 
 #include <map>
 #include <iostream>
+#include <stdexcept>
 #include "Socio.h"
 
 using namespace std;
@@ -17,6 +18,7 @@ class ManejadorSocios{
 		//~ManejadorSocios();
 		void agregarSocio(Socio*);
 		Socio* find(int);
+		map<int,Socio*> getSocios();
 		void show();
 };
 

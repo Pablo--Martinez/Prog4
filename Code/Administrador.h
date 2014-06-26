@@ -25,7 +25,7 @@ class Administrador: public Rol{
 		//set<Usuario*> getUsuariosAlta();
 		//set<Usuario*> getUsuariosReactivados();
 		tipoRol getTipoRol();
-		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
+		virtual set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 		void show();
 };
 

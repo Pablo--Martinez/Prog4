@@ -2,6 +2,7 @@
 #define MANEJADORADMINISTRADORES_H_
 
 #include <map>
+#include <stdexcept>
 #include "Administrador.h"
 
 using namespace std;

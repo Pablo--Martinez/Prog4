@@ -13,23 +13,20 @@ ManejadorSocios* ManejadorSocios::getInstance(){
 //~ManejadorSocios();
 
 void ManejadorSocios::agregarSocio(Socio* s){
-	if(this->socios.find(s->getUsuario()->getCI()) == this->socios.end()){
-		this->socios[s->getUsuario()->getCI()] = s;
-	}
+	if(this->socios.find(s->getUsuario()->getCI()) != this->socios.end())
+		throw std::invalid_argument("Socio ya existente");
+
+	this->socios[s->getUsuario()->getCI()] = s;
+
 }
 Socio* ManejadorSocios::find(int ci){
-	/*set<Socio*>::iterator it = this->socios.begin();
-	while(it != this->socios.end()){
-		if((*it)->getUsuario()->getCI() == ci){
-			return *it;
-		}
-		++it;
-	}
-	Socio* s = this->socios[ci];
-	return s;*/
 	if(this->socios[ci] != NULL)
 		return this->socios[ci];
 	return NULL;
+}
+
+map<int,Socio*> ManejadorSocios::getSocios(){
+	return this->socios;
 }
 
 void ManejadorSocios::show(){

@@ -52,6 +52,18 @@ Fecha ingresarFecha(){
 }
 
 // CASOS DE USO
+
+void modificarFechaSistema(){
+	int dia, mes, anio, hora, min;
+	RelojSistema* rs = RelojSistema::getInstance();
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+
+	cout << "Nueva fecha: ";
+	cin >> dia >> mes >> anio >> hora >> min;
+	rs->modificarFechaSistema(dia,mes,anio,hora,min);
+	cu->recalcularInasistencias(rs->getFechaSistema());
+}
+
 void iniciarSesion(){}
 
 void cerrarSesion(){

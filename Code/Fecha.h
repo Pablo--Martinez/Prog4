@@ -18,6 +18,11 @@ class Fecha{
 		Fecha(int,int,int); //dia-mes-anio
 		Fecha(int,int,int,int,int); //dia-mes-anio-hora
 		Fecha(const Fecha&);
+		void setDia(int);
+		void setMes(int);
+		void setAnio(int);
+		void setHora(int);
+		void setMinutos(int);
 		int getDia();
 		int getMes();
 		int getAnio();

@@ -31,7 +31,7 @@ class Medico: public IObserver{
 		void show();
 		void showNotificaciones();
 		tipoRol getTipoRol();
-		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
+		virtual set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 };
 
 #include "Usuario.h"

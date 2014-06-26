@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <iostream>
+#include <stdexcept>
 #include "Medicamento.h"
 
 using namespace std;

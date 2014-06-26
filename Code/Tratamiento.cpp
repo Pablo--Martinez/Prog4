@@ -6,6 +6,8 @@ Tratamiento::Tratamiento(string descripcion){
 	this->descripcion = descripcion;
 }
 
+Tratamiento::~Tratamiento(){}//FALTA HACER
+
 string Tratamiento::getDescripcion(){
 	return this->descripcion;
 }

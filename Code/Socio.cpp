@@ -35,6 +35,11 @@ set<Consulta*> Socio::getConsultasSolicitadas(){
 	return this->solicita;
 }
 
+set<DataAltaReactivacion*> Socio::obtenerUsuariosAltaReactivacion() {
+	set<DataAltaReactivacion*> setVacio;
+	return setVacio;
+}
+
 void Socio::attach(IObserver* o){
 	this->observadores.insert(o);
 }

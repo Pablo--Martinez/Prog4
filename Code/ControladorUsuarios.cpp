@@ -13,24 +13,33 @@ ControladorUsuarios* ControladorUsuarios::getInstance(){
 	return instancia;
 }
 
+void ControladorUsuarios::setMaximoInasistencias(int cantidad){
+	this->maximo_inasistencias = cantidad;
+}
+
+int ControladorUsuarios::getMaximoInasistencias(){
+	return this->maximo_inasistencias;
+}
+
 Usuario* ControladorUsuarios::getUsuarioLogueado(){
 	return this->logueado;
 }
 
-set<DataAltaReactivacion*> ControladorUsuarios::obtenerUsuarios() {
-
-	//usuarioLogueado = ControladorUsuarios::getUsuarioLogueado();
-
-
-
+set<DataAltaReactivacion*> ControladorUsuarios::obtenerDaDeAltaReactiva() {
+	return this->logueado->obtenerUsuariosAltaReactivacion();
 }
 
 TSesion ControladorUsuarios::iniciarSesion(int ci){
 	this->a_tratar = this->usuarios[ci];
-	if(this->a_tratar != NULL){
-		TSesion tipo = this->a_tratar->getTipoSesion();
-		return tipo;
+	if(this->a_tratar == NULL)
+		throw std::invalid_argument("Usuario inexistente");
+
+	TSesion tipo = this->a_tratar->getTipoSesion();
+	if(tipo == CM && !this->a_tratar->getEstado()){
+		this->a_tratar = NULL;
+		throw std::invalid_argument("Usuario inactivo");
 	}
+	return tipo;
 }
 
 bool ControladorUsuarios::ingresarContrasenia(string pass){
@@ -132,4 +141,20 @@ DataUsuario* ControladorUsuarios::devolverDatosUsuario(){
 	return this->a_tratar->getDataUsuario();
 }
 
+void ControladorUsuarios::recalcularInasistencias(Fecha fecha_sistema){
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	for(map<int,Socio*>::iterator socios = ms->getSocios().begin();socios!=ms->getSocios().end();++socios){
+		int cantidad = 0;
+		for(set<Consulta*>::iterator consultas = socios->second->getConsultasSolicitadas().begin();
+				consultas!=socios->second->getConsultasSolicitadas().end();++consultas){
+			if(dynamic_cast<ConReserva*>(*consultas) != NULL){
+				if(dynamic_cast<ConReserva*>(*consultas)->getFechaConsulta() > fecha_sistema &&
+						!dynamic_cast<ConReserva*>(*consultas)->getAsiste())
+					cantidad++;
+			}
+		if(cantidad > this->maximo_inasistencias)
+			this->usuarios[socios->first]->desactivar();
+		}
+	}
+}
 

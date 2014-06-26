@@ -3,6 +3,7 @@
 
 #include <map>
 #include <iostream>
+#include <stdexcept>
 #include "Medico.h"
 
 using namespace std;

@@ -13,9 +13,10 @@ ManejadorMedicos* ManejadorMedicos::getInstance(){
 //ManejadorMedicos::~ManejadorMedicos();
 
 void ManejadorMedicos::agregarMedico(Medico* m){
-	if (this->medicos.find(m->getUsuario()->getCI()) == this->medicos.end()){
-		this->medicos[m->getUsuario()->getCI()] = m;
-	}
+	if (this->medicos.find(m->getUsuario()->getCI()) != this->medicos.end())
+		throw std::invalid_argument("Medico ya existente");
+
+	this->medicos[m->getUsuario()->getCI()] = m;
 }
 Medico* ManejadorMedicos::find(int ci){
 	Medico* m = this->medicos[ci];

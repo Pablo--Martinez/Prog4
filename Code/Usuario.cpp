@@ -40,6 +40,10 @@ int Usuario::getEdad(Fecha actual){
 	return edad;
 }
 
+bool Usuario::getEstado(){
+	return this->estado;
+}
+
 void Usuario::agregarRol(Rol* r){
 	this->roles.insert(r);
 }
@@ -69,7 +73,7 @@ set<DataAltaReactivacion*> Usuario::obtenerUsuariosAltaReactivacion() {
 	for(set<Rol*>::iterator r = this->roles.begin();r != this->roles.end();++r) {
 		tipoRol tipoRol = (*r)->getTipoRol();
 		if (tipoRol == administrador) {
-			//return = (*r)->obtenerUsuariosAltaReactivacion();
+			return (*r)->obtenerUsuariosAltaReactivacion();
 		}
 	}
 	return daDeAltaReactiva;
@@ -77,6 +81,10 @@ set<DataAltaReactivacion*> Usuario::obtenerUsuariosAltaReactivacion() {
 
 void Usuario::activar(string pass){
 	this->pass = pass; //Se asume que el formato de pass es correcto
+}
+
+void Usuario::desactivar(){
+	this->estado = false;
 }
 
 void Usuario::reactivar(){ // setEstado(bool) ?
