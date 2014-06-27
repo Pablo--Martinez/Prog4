@@ -15,10 +15,11 @@ class ManejadorMedicamentos
        ManejadorMedicamentos();
        static ManejadorMedicamentos* instancia;
        map<string,Medicamento*> medicamentos;
+       string nombre;
 	public:
 		static ManejadorMedicamentos* getInstance();
 		//~ManejadorMedicamentos();
-		void agregarMedicamento(string);
+		void ingresarMedicamento();
 		Medicamento* find(string);
 		bool existeMedicamento(string);
 		void show();

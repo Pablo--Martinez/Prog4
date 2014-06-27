@@ -44,6 +44,7 @@ class ControladorConsultas{
 		void setCantidad(int);
 		set<DataMedico*> ejecutarStrategy();
 		set<DataUsuario*> obtenerMedicos(Fecha);
+		void ingresarFechaConsulta(Fecha);
 		void ingresarConsulta(int);
 
 };

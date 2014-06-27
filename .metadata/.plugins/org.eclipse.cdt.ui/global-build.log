@@ -1,16 +1,45 @@
-15:53:03 **** Incremental Build of configuration Debug for project Code ****
+23:08:39 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../ManejadorRepresentaciones.cpp
+Building file: ../ManejadorMedicamentos.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorRepresentaciones.d" -MT"ManejadorRepresentaciones.d" -o "ManejadorRepresentaciones.o" "../ManejadorRepresentaciones.cpp"
-Finished building: ../ManejadorRepresentaciones.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicamentos.d" -MT"ManejadorMedicamentos.d" -o "ManejadorMedicamentos.o" "../ManejadorMedicamentos.cpp"
+Finished building: ../ManejadorMedicamentos.cpp
  
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
+Building file: ../Prog4.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Prog4.d" -MT"Prog4.d" -o "Prog4.o" "../Prog4.cpp"
+Finished building: ../Prog4.cpp
  
-15:57:01 **** Incremental Build of configuration Debug for project Code ****
+Building file: ../Sistema.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
+../Sistema.cpp: In function ‘void registroConsulta()’:
+../Sistema.cpp:99:19: warning: unused variable ‘ms’ [-Wunused-variable]
+  ManejadorSocios* ms = ManejadorSocios::getInstance();
+                   ^
+../Sistema.cpp: In function ‘void altaMedicamento()’:
+../Sistema.cpp:234:6: error: ‘class ManejadorMedicamentos’ has no member named ‘agregarMedicamento’
+  mm->agregarMedicamento(nombre);
+      ^
+make: *** [Sistema.o] Error 1
+
+23:08:40 Build Finished (took 1s.149ms)
+
+23:08:41 **** Incremental Build of configuration Debug for project Code ****
+make all 
+Building file: ../Sistema.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
+../Sistema.cpp: In function ‘void registroConsulta()’:
+../Sistema.cpp:99:19: warning: unused variable ‘ms’ [-Wunused-variable]
+  ManejadorSocios* ms = ManejadorSocios::getInstance();
+                   ^
+../Sistema.cpp: In function ‘void altaMedicamento()’:
+../Sistema.cpp:234:6: error: ‘class ManejadorMedicamentos’ has no member named ‘agregarMedicamento’
+  mm->agregarMedicamento(nombre);
+      ^
+make: *** [Sistema.o] Error 1
+23:09:04 **** Incremental Build of configuration Debug for project Code ****
 make all 
 Building file: ../Sistema.cpp
 Invoking: Cross G++ Compiler
@@ -20,6 +49,16 @@ g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -
   ManejadorSocios* ms = ManejadorSocios::getInstance();
                    ^
 Finished building: ../Sistema.cpp
+ 
+Building file: ../testMMedicamentos.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMMedicamentos.d" -MT"testMMedicamentos.d" -o "testMMedicamentos.o" "../testMMedicamentos.cpp"
+Finished building: ../testMMedicamentos.cpp
+ 
+Building file: ../testTratamiento.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testTratamiento.d" -MT"testTratamiento.d" -o "testTratamiento.o" "../testTratamiento.cpp"
+Finished building: ../testTratamiento.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker

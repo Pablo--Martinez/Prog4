@@ -1,4 +1,4 @@
-15:57:01 **** Incremental Build of configuration Debug for project Code ****
+23:09:04 **** Incremental Build of configuration Debug for project Code ****
 make all 
 Building file: ../Sistema.cpp
 Invoking: Cross G++ Compiler
@@ -9,11 +9,21 @@ g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -
                    ^
 Finished building: ../Sistema.cpp
  
+Building file: ../testMMedicamentos.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMMedicamentos.d" -MT"testMMedicamentos.d" -o "testMMedicamentos.o" "../testMMedicamentos.cpp"
+Finished building: ../testMMedicamentos.cpp
+ 
+Building file: ../testTratamiento.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testTratamiento.d" -MT"testTratamiento.d" -o "testTratamiento.o" "../testTratamiento.cpp"
+Finished building: ../testTratamiento.cpp
+ 
 Building target: Code
 Invoking: Cross G++ Linker
 g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
 Finished building target: Code
  
 
-15:57:02 Build Finished (took 966ms)
+23:09:06 Build Finished (took 1s.672ms)
 

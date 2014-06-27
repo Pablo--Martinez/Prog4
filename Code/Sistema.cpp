@@ -230,8 +230,9 @@ void altaMedicamento(){
 	while(existe_medicamento){
 		cout << "Medicamento existente, ingrese nuevamente: ";
 		cin >> nombre;
+		existe_medicamento = mm->existeMedicamento(nombre);
 	}
-	mm->agregarMedicamento(nombre);
+	mm->ingresarMedicamento();
 }
 
 void devolucionConsulta(){}

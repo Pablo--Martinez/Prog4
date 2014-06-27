@@ -149,6 +149,10 @@ set<DataUsuario*> ControladorConsultas::obtenerMedicos(Fecha fecha_cosulta){
 	return medicos_disponibles;
 }
 
+void ControladorConsultas::ingresarFechaConsulta(Fecha fecha_consulta){
+	this->fecha_consulta = fecha_consulta;
+}
+
 void ControladorConsultas::ingresarConsulta(int ci_doc){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
