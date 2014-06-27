@@ -286,109 +286,116 @@ void altaRepresentacionEstandarizada(){
 	mr->agregarCategoria("A","Una categoria");
 	mr->agregarCategoria("B","Otra categoria");
 	mr->agregarCategoria("C","Ultima categoria");
-	mr->agregarRepresentacion("A","00","repa0");
-	mr->agregarRepresentacion("A","01","repa1");
-	mr->agregarRepresentacion("A","03","repa2");
-	mr->agregarRepresentacion("B","00","repb0");
+	mr->agregarRepresentacion("A","A00","repa0");
+	mr->agregarRepresentacion("A","A01","repa1");
+	mr->agregarRepresentacion("A","A03","repa2");
+	mr->agregarRepresentacion("B","B00","repb0");
 
-	cout << "Categorias: \n";
-
-	map<string,DataRep*> categorias = mr->obtenerCategorias();
-	for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
-
-		cout << " " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
-
-	}
-
-	cout << "Indique la letra de la categoria que desea seleccionar (0 para ingresar una nueva): ";
-
-	string letraCat;
+	string letraCat = "S";
 	string etiquetaCat;
-	cin >> letraCat;
 
-	bool listo = false;
+	while(letraCat != "N") {
 
-	while (!listo && letraCat != "0") {
-		if (mr->existeCategoria(letraCat)) {
-			cr->seleccionarCategoria(letraCat);
-			listo = true;
-		} else {
-			cout << "Error: La categor�a seleccionada no existe.\n";
+		cout << "Categorias: \n";
+
+		map<string,DataRep*> categorias = mr->obtenerCategorias();
+		for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
+			cout << " " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
+		}
+
+		bool listo = false;
+
+		while (!listo && letraCat != "0") {
+
 			cout << "Indique la letra de la categoria que desea seleccionar (0 para ingresar una nueva): ";
 			cin >> letraCat;
-		}
-	}
 
-	if (letraCat == "0") {
-		cout << "Letra de la nueva categoria: ";
+			if (mr->existeCategoria(letraCat)) {
+				cr->seleccionarCategoria(letraCat);
+				listo = true;
+			} else if (letraCat != "0") {
+				cout << "Error: La categoria seleccionada no existe.\n";
+			}
+		}
+
+		if (letraCat == "0") {
+			cout << "Letra de la nueva categoria: ";
+			cin >> letraCat;
+			cout << "Etiqueta de la nueva categoria: ";
+			cin >> etiquetaCat;
+
+			if (mr->existeCategoria(letraCat)) {
+				cout << "Error: La categoria ingresada ya existe.\n";
+			} else {
+				cr->ingresarCategoria(letraCat,etiquetaCat);
+			}
+		}
+
+		cout << "Categoria seleccionada: " << cr->obtenerCategoriaSeleccionada() << "\n";
+
+		set<DataRep*> reps = mr->obtenerRepresentacionesCat(cr->obtenerCategoriaSeleccionada());
+		for(set<DataRep*>::iterator rep = reps.begin();rep!=reps.end();++rep){
+			cout << " " << (*rep)->getCodigo() << " " << (*rep)->getEtiqueta() << "\n";
+		}
+
+		cout << "Desea ingresar una nueva representaci�n? (S/N): ";
 		cin >> letraCat;
-		cout << "Etiqueta de la nueva categoria: ";
-		cin >> etiquetaCat;
 
-		if (mr->existeCategoria(letraCat)) {
-			cout << "Error: La categor�a ingresada ya existe.\n";
-		} else {
-			cr->ingresarCategoria(letraCat,etiquetaCat);
+		string codigoRep;
+		string etiquetaRep;
+		listo = false;
+
+		while (!listo && letraCat != "N") {
+			cout << "Codigo de la nueva representacion: ";
+			cin >> codigoRep;
+			cout << "Etiqueta de la nueva representacion: ";
+			cin >> etiquetaRep;
+			if (mr->existeRepresentacion(cr->obtenerCategoriaSeleccionada(),codigoRep,etiquetaRep)) {
+				cout << "Error: La representacion ingresada ya existe.\n";
+				cout << "Desea ingresar otra? (S/N): ";
+				cin >> letraCat;
+			} else {
+				cr->ingresarRepDiag(codigoRep,etiquetaRep);
+				cout << "Representacion ingresada.\n";
+				cout << "Desea ingresar otra? (S/N): ";
+				cin >> letraCat;
+			}
 		}
-	}
 
-	cout << "Categoria seleccionada: " << cr->obtenerCategoriaSeleccionada() << "\n";
-
-	set<DataRep*> reps = mr->obtenerRepresentacionesCat(cr->obtenerCategoriaSeleccionada());
-	for(set<DataRep*>::iterator rep = reps.begin();rep!=reps.end();++rep){
-
-		cout << " " << (*rep)->getCodigo() << " " << (*rep)->getEtiqueta() << "\n";
+		cout << "Desea seleccionar una nueva categoria? (S/N): ";
+		cin >> letraCat;
 
 	}
 
-	string codigoRep;
-	string etiquetaRep;
-	listo = false;
-
-	while (!listo && letraCat != "N") {
-		cout << "Codigo de la nueva representacion: ";
-		cin >> codigoRep;
-		cout << "Etiqueta de la nueva representacion: ";
-		cin >> etiquetaRep;
-		if (mr->existeRepresentacion(cr->obtenerCategoriaSeleccionada(),codigoRep,etiquetaRep)) {
-			cout << "Error: La representacion ingresada ya existe.\n";
-			cout << "Desea ingresar otra? (S/N): ";
-			cin >> letraCat;
-		} else {
-			cr->ingresarRepDiag(codigoRep,etiquetaRep);
-			cout << "Representacion ingresada.\n";
-			cout << "Desea ingresar otra? (S/N): ";
-			cin >> letraCat;
-		}
-	}
-
-	cr->confirmarRepEst();
-
-	cout << "Categorias: \n";
-
-	categorias = mr->obtenerCategorias();
-	for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
-
-		cout << " " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
-
-	}
-
-
-	cout << "Indique la letra de la categoria que desea seleccionar: ";
+	cout << "Confirma los datos ingresados? (S/N): ";
 	cin >> letraCat;
-
-	cout << "Representaciones cat" << letraCat << ": \n";
-
-	reps = mr->obtenerRepresentacionesCat(letraCat);
-	for(set<DataRep*>::iterator rep = reps.begin();rep!=reps.end();++rep){
-
-		cout << " " << (*rep)->getCodigo() << " " << (*rep)->getEtiqueta() << "\n";
-
+	if (letraCat == "S") {
+		cr->confirmarRepEst();
+		cout << "Datos ingresados con exito! \n";
+	} else {
+		cout << "Operacion cancelada! \n";
 	}
 
 }
 
-void listarRepresentacionesEstandarizadas(){}
+void listarRepresentacionesEstandarizadas(){
+
+	cout << "Listar Representaciones Estandarizadas... \n";
+
+	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
+
+	map<string,DataRep*> categorias = mr->obtenerCategorias();
+	for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
+		cout << " " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
+
+		set<DataRep*> reps = mr->obtenerRepresentacionesCat(cat->second->getCodigo());
+		for(set<DataRep*>::iterator rep = reps.begin();rep!=reps.end();++rep){
+			cout << "  " << (*rep)->getCodigo() << " " << (*rep)->getEtiqueta() << "\n";
+		}
+
+	}
+
+}
 
 void obtenerHistorialPaciente(){}
 
