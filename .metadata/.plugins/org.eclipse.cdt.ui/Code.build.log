@@ -1,9 +1,9 @@
-16:10:24 **** Incremental Build of configuration Debug for project Code ****
+16:22:58 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../ManejadorMedicamentos.cpp
+Building file: ../ControladorUsuarios.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicamentos.d" -MT"ManejadorMedicamentos.d" -o "ManejadorMedicamentos.o" "../ManejadorMedicamentos.cpp"
-Finished building: ../ManejadorMedicamentos.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
+Finished building: ../ControladorUsuarios.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
@@ -11,5 +11,5 @@ g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsu
 Finished building target: Code
  
 
-16:10:25 Build Finished (took 815ms)
+16:22:59 Build Finished (took 1s.69ms)
 

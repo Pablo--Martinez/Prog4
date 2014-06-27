@@ -73,11 +73,9 @@ void iniciarSesion(){
 	bool escorrecta;
 	string pass, nombreMedicamento;
 
-	cout << "Iniciar sesión"<< endl;
-	cout << "Ingrese el Documento:"<< endl;
-	cin >> ci;
-	cout << "Ingrese la contraseña:" << endl;
-	cin >> pass;
+	cout << "Iniciar sesion" << endl;
+	cout << "Ingrese el Documento: ";cin >> ci;
+	cout << "Ingrese la contraseña: ";cin >> pass;
 
 	TSesion ts;
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
@@ -105,18 +103,12 @@ void iniciarSesion(){
 void cerrarSesion(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 
-	cu->iniciarSesion(123456789);//-------------
-	cu->asignarSesion();//-----------------------
-	cout << cu->usuarioLogueado() << endl;//-----------------
-
 	try{
 		cu->cerrarSesion();
 	}
 	catch (const std::invalid_argument& e) {
 		std::cerr << "ERROR: " << e.what() << endl;
 	}
-
-	cout << cu->usuarioLogueado() << endl;//-------------------
 }
 
 void altaReactivacionUsuario(){}
@@ -255,9 +247,6 @@ void altaDiagnosticosConsulta(){}
 void altaMedicamento(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-
-	cu->iniciarSesion(123456789);// ---------
-	cu->asignarSesion();//-------------------
 
 	if(!cu->usuarioLogueado())
 		iniciarSesion();
@@ -410,20 +399,9 @@ int main(){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
 
-	//altaRepresentacionEstandarizada();
-	//cerrarSesion();
-
-	string continuar;
-	do{
-		altaMedicamento();
-		cout << "Ingresar otro(S/N)? ";
-		cin >> continuar;
-	} while(continuar == "S");
-
+	iniciarSesion();
+	altaMedicamento();
 	MM->show();
-	Medicamento* m = MM->find("med1");
-	delete MM;
-	m->show();
-
+	cerrarSesion();
 	return 0;
 }
