@@ -71,12 +71,18 @@ void iniciarSesion(){}
 void cerrarSesion(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 
+	cu->iniciarSesion(123456789);//-------------
+	cu->asignarSesion();//-----------------------
+	cout << cu->usuarioLogueado() << endl;//-----------------
+
 	try{
 		cu->cerrarSesion();
 	}
 	catch (const std::invalid_argument& e) {
 		std::cerr << "ERROR: " << e.what() << endl;
 	}
+
+	cout << cu->usuarioLogueado() << endl;//-------------------
 }
 
 void altaReactivacionUsuario(){}
@@ -90,13 +96,14 @@ void registroConsulta(){
 	//Si no existe un usuario logueado, se fuerza a loguearse
 	if(!cu->usuarioLogueado())
 		iniciarSesion();
-		Administrador* admin = ma->find(cu->getUsuarioLogueado()->getCI());
+
+	//Administrador* admin = ma->find(cu->getUsuarioLogueado()->getCI());
 
 	//Si el usuario logueado no es del tipo requerido, se lanza una excepcion
-	if(admin == NULL)
-		throw std::invalid_argument("UsuarioRolIncorrecto");
+	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+		throw std::invalid_argument("El usuario logueado no es un administrador");
 
-	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	//ManejadorSocios* ms = ManejadorSocios::getInstance();
 
 	//Se procede a ingresar los datos del socio
 	int ci_socio;
@@ -215,6 +222,9 @@ void altaMedicamento(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 
+	cu->iniciarSesion(123456789);// ---------
+	cu->asignarSesion();//-------------------
+
 	if(!cu->usuarioLogueado())
 		iniciarSesion();
 
@@ -241,7 +251,7 @@ void usuariosDadosDeAlta(){}
 
 void altaRepresentacionEstandarizada(){
 
-	cout << "Alta Representación Estandarizada... \n";
+	cout << "Alta Representacion Estandarizada... \n";
 
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
 	ControladorDiagnosticos* cr = ControladorDiagnosticos::getInstance();
@@ -276,7 +286,7 @@ void altaRepresentacionEstandarizada(){
 			cr->seleccionarCategoria(letraCat);
 			listo = true;
 		} else {
-			cout << "Error: La categoría seleccionada no existe.\n";
+			cout << "Error: La categorï¿½a seleccionada no existe.\n";
 			cout << "Indique la letra de la categoria que desea seleccionar (0 para ingresar una nueva): ";
 			cin >> letraCat;
 		}
@@ -289,7 +299,7 @@ void altaRepresentacionEstandarizada(){
 		cin >> etiquetaCat;
 
 		if (mr->existeCategoria(letraCat)) {
-			cout << "Error: La categoría ingresada ya existe.\n";
+			cout << "Error: La categorï¿½a ingresada ya existe.\n";
 		} else {
 			cr->ingresarCategoria(letraCat,etiquetaCat);
 		}
@@ -360,8 +370,26 @@ void notificarMedicos(){}
 //MAIN PRINCIPAL
 
 int main(){
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
 
-	altaRepresentacionEstandarizada();
+	//altaRepresentacionEstandarizada();
+	//cerrarSesion();
+
+	string continuar;
+	do{
+		altaMedicamento();
+		cout << "Ingresar otro(S/N)? ";
+		cin >> continuar;
+	} while(continuar == "S");
+
+	MM->show();
+	Medicamento* m = MM->find("med1");
+	delete MM;
+	m->show();
 
 	return 0;
 }

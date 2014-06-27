@@ -18,7 +18,7 @@ class ManejadorMedicamentos
        string nombre;
 	public:
 		static ManejadorMedicamentos* getInstance();
-		//~ManejadorMedicamentos();
+		~ManejadorMedicamentos();
 		void ingresarMedicamento();
 		Medicamento* find(string);
 		bool existeMedicamento(string);

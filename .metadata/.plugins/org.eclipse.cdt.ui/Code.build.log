@@ -1,33 +1,9 @@
-14:39:15 **** Incremental Build of configuration Debug for project Code ****
+16:10:24 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../ControladorDiagnosticos.cpp
+Building file: ../ManejadorMedicamentos.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorDiagnosticos.d" -MT"ControladorDiagnosticos.d" -o "ControladorDiagnosticos.o" "../ControladorDiagnosticos.cpp"
-Finished building: ../ControladorDiagnosticos.cpp
- 
-Building file: ../ControladorTratamientos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorTratamientos.d" -MT"ControladorTratamientos.d" -o "ControladorTratamientos.o" "../ControladorTratamientos.cpp"
-Finished building: ../ControladorTratamientos.cpp
- 
-Building file: ../ManejadorRepresentaciones.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorRepresentaciones.d" -MT"ManejadorRepresentaciones.d" -o "ManejadorRepresentaciones.o" "../ManejadorRepresentaciones.cpp"
-Finished building: ../ManejadorRepresentaciones.cpp
- 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘void registroConsulta()’:
-../Sistema.cpp:99:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-Finished building: ../Sistema.cpp
- 
-Building file: ../testTratamiento.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testTratamiento.d" -MT"testTratamiento.d" -o "testTratamiento.o" "../testTratamiento.cpp"
-Finished building: ../testTratamiento.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicamentos.d" -MT"ManejadorMedicamentos.d" -o "ManejadorMedicamentos.o" "../ManejadorMedicamentos.cpp"
+Finished building: ../ManejadorMedicamentos.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
@@ -35,5 +11,5 @@ g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsu
 Finished building target: Code
  
 
-14:39:20 Build Finished (took 5s.93ms)
+16:10:25 Build Finished (took 815ms)
 

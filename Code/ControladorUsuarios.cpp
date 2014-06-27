@@ -3,8 +3,16 @@
 ControladorUsuarios* ControladorUsuarios::instancia = NULL;
 
 ControladorUsuarios::ControladorUsuarios(){
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 	this->logueado = NULL;
 	this->a_tratar = NULL;
+	Usuario* u = new Usuario(123456789,"admin","admin",M,true,Fecha());
+	Administrador* admin =  new Administrador(u);
+	u->agregarRol(admin);
+	u->activar("admin");
+	this->usuarios[u->getCI()] = u;
+	ma->agregarAdministrador(admin);
+
 }
 
 ControladorUsuarios* ControladorUsuarios::getInstance(){
@@ -56,9 +64,8 @@ void ControladorUsuarios::reactivar(){
 }
 
 void ControladorUsuarios::cerrarSesion(){
-	if(this->logueado == NULL){
+	if(this->logueado == NULL)
 			throw std::invalid_argument("No hay usuario legueado");
-		}
 	this->logueado = NULL;
 }
 
