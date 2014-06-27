@@ -8,9 +8,6 @@ ControladorConsultas::ControladorConsultas(){
 
 ControladorConsultas::~ControladorConsultas(){
 	delete this->estrategia;
-	/*for(set<Consulta*>::iterator c = this->consultas){
-
-	}*/
 }
 
 ControladorConsultas* ControladorConsultas::getInstance(){
@@ -28,9 +25,9 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_re
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
 
 	if(mm->find(ci_doc) == NULL)
-		throw std::invalid_argument("NoExisteMedico");
+		throw std::invalid_argument("No existe el medico");
 	if(ms->find(ci_user) == NULL)
-		throw std::invalid_argument("NoExisteSocio");
+		throw std::invalid_argument("No existe el socio");
 
 	set<Consulta*>::iterator it = this->consultas.begin();
 	while(it != this->consultas.end()){
@@ -44,7 +41,7 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_re
 		}
 		it++;
 	}
-	throw std::invalid_argument("NoExisteConsulta");
+	throw std::invalid_argument("No existe la reserva");
 }
 
 void ControladorConsultas::registroEmergencia(int ci_user,int ci_doc,string motivo,Fecha fecha_consulta){

@@ -4,10 +4,10 @@ DataAltaReactivacion::DataAltaReactivacion() {}
 
 DataAltaReactivacion::~DataAltaReactivacion() {}
 
-DataAltaReactivacion::DataAltaReactivacion(DataUsuario* dataUsuario,Fecha fecha,bool esReactivacion){
+DataAltaReactivacion::DataAltaReactivacion(DataUsuario* dataUsuario,Fecha fecha,bool esAlta){
 	this->usuario = dataUsuario;
 	this->fechaAltaReactivacion = fecha;
-	this->tipoOperacion = esReactivacion;
+	this->esAlta = esAlta;
 }
 
 DataUsuario* DataAltaReactivacion::getUsuario(){
@@ -19,5 +19,5 @@ Fecha DataAltaReactivacion::getFecha(){
 }
 
 bool DataAltaReactivacion::getTipoOperacion(){
-	return this->tipoOperacion;
+	return this->esAlta;
 }

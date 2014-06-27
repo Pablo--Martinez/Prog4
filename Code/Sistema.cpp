@@ -96,7 +96,11 @@ void iniciarSesion(){
 			cu->asignarSesion();
 		}
 	}catch(const std::invalid_argument& e){
-		std::cerr << "Argumento invalido: " << e.what() << endl;
+		std::cerr << "ERROR: " << e.what() << endl;
+		string continuar;
+		cout << "Reintentar(S/N)?: ";cin >> continuar;
+		if(continuar == "S")
+			iniciarSesion();
 	}
 }
 
@@ -249,7 +253,7 @@ void altaMedicamento(){
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 
 	if(!cu->usuarioLogueado())
-		iniciarSesion();
+		throw std::invalid_argument("No hay usuario logueado");
 
 	Administrador* admin = ma->find(cu->getUsuarioLogueado()->getCI());
 	if(admin == NULL)
@@ -399,9 +403,27 @@ int main(){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
 
-	iniciarSesion();
-	altaMedicamento();
-	MM->show();
-	cerrarSesion();
+	string opcion;
+	altaRepresentacionEstandarizada();
+	listarRepresentacionesEstandarizadas();
+	/*do{
+		cout << "HOLA CHICHE!" << endl
+			 << "Que desea hacer?" << endl
+			 << "-iniciarSesion" << endl
+			 << "-EXIT" << endl;
+		cin >> opcion;
+
+		if(opcion == "iniciarSesion"){
+			try{
+				iniciarSesion();
+				cerrarSesion();
+			}
+			catch (const std::invalid_argument& e) {
+				std::cerr << "ERROR: " << e.what() << endl;
+			}
+		}
+
+	}while(opcion != "EXIT");*/
+
 	return 0;
 }

@@ -14,7 +14,7 @@ class DataAltaReactivacion{
 	private:
 		DataUsuario* usuario;
 		Fecha fechaAltaReactivacion;
-		bool tipoOperacion;
+		bool esAlta;
 	public:
 		DataAltaReactivacion();
 		DataAltaReactivacion(DataUsuario*,Fecha,bool);
