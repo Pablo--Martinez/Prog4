@@ -17,16 +17,19 @@ Diagnostico* ControladorDiagnosticos::getDiagnostico(){
 }
 
 void ControladorDiagnosticos::seleccionarCategoria(string letraCat) {
-	this->catSeleccionada = letraCat;
+	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
+	if (!mr->existeCategoria(letraCat)) {
+		throw std::invalid_argument("La categoría seleccionada no existe");
+	} else {
+		this->catSeleccionada = letraCat;
+	}
 }
 
 void ControladorDiagnosticos::ingresarCategoria(string letraCat,string etiqueta) {
 	this->catSeleccionada = letraCat;
 	this->etiquetaSeleccionada = etiqueta;
 	DataRep* dataCat = new DataRep(letraCat,etiqueta);
-	DataRep* thisCat = this->categorias[letraCat];
-	//if (this->categorias[letraCat] == this->categorias.end()){
-	if (thisCat == NULL){
+	if (this->categorias.find(letraCat) == this->categorias.end()){
 		this->categorias[letraCat] = dataCat;
 	}
 }
@@ -37,15 +40,20 @@ bool ControladorDiagnosticos::existeRepDiag(string codigo,string etiqueta) {
 }
 
 void ControladorDiagnosticos::ingresarRepDiag(string codigo,string etiqueta) {
+	if (this->categorias.find(this->catSeleccionada) == this->categorias.end()) {
+		this->ingresarCategoria(this->catSeleccionada,this->etiquetaSeleccionada);
+	}
 	DataRep* dataRep = new DataRep(this->catSeleccionada+codigo,etiqueta);
-	set<DataRep*> representaciones = this->representaciones[this->catSeleccionada];
-	representaciones.insert(dataRep);
+	this->representaciones[this->catSeleccionada].insert(dataRep);
 }
 
 void ControladorDiagnosticos::confirmarRepEst() {
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
+	//cout << "Entra en ConfirmarRepEst.. \n";
 	for(map<string,DataRep*>::iterator cat = this->categorias.begin(); cat != this->categorias.end();++cat){
-		if (!mr->existeCategoria(cat->second->getCodigo(),cat->second->getEtiqueta())) {
+		//cout << "Prueba una categoria.. \n";
+		if (!mr->existeCategoria(cat->second->getCodigo())) {
+			cout << "AgregarCategoria: " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
 			mr->agregarCategoria(cat->second->getCodigo(),cat->second->getEtiqueta());
 		}
 		mr->ingresarRepresentaciones(cat->second->getCodigo(),this->representaciones[cat->second->getCodigo()]);
@@ -62,16 +70,11 @@ set<string> ControladorDiagnosticos::obtenerCategorias(){
 	return categorias;
 }
 
+string ControladorDiagnosticos::obtenerCategoriaSeleccionada() {
+	return this->catSeleccionada;
+}
+
 set<DataRep*> ControladorDiagnosticos::obtenerRepresentaciones(string letraCat){
-	/*set<DataRep*> representaciones;
-	for(set<Diagnostico*>::iterator d = this->diagnosticos.begin();d != this->diagnosticos.end();++d) {
-		bool perteneceACat = (*d)->perteneceACat(letraCat);
-		if (perteneceACat) {
-			DataRep* repDiag = (*d)->getDataRepDiagnostico();
-			representaciones.insert(repDiag);
-		}
-	}
-	return representaciones;*/
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
 	return mr->obtenerRepresentacionesCat(letraCat);
 }

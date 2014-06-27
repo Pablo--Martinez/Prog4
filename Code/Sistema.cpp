@@ -2,8 +2,10 @@
 #include <iostream>
 #include "ControladorUsuarios.h"
 #include "ControladorConsultas.h"
+#include "ControladorDiagnosticos.h"
 #include "ManejadorAdministradores.h"
 #include "ManejadorMedicamentos.h"
+#include "ManejadorRepresentaciones.h"
 
 using namespace std;
 
@@ -112,8 +114,6 @@ void cerrarSesion(){
 }
 
 void altaReactivacionUsuario(){}
-
-void altaRepresentacionDiagnosticos(){}
 
 void reservaConsulta(){}
 
@@ -273,7 +273,119 @@ void devolucionConsulta(){}
 
 void usuariosDadosDeAlta(){}
 
-void listarRepresentacionDiagnosticos(){}
+void altaRepresentacionEstandarizada(){
+
+	cout << "Alta Representación Estandarizada... \n";
+
+	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
+	ControladorDiagnosticos* cr = ControladorDiagnosticos::getInstance();
+
+	mr->agregarCategoria("A","Una categoria");
+	mr->agregarCategoria("B","Otra categoria");
+	mr->agregarCategoria("C","Ultima categoria");
+	mr->agregarRepresentacion("A","00","repa0");
+	mr->agregarRepresentacion("A","01","repa1");
+	mr->agregarRepresentacion("A","03","repa2");
+	mr->agregarRepresentacion("B","00","repb0");
+
+	cout << "Categorias: \n";
+
+	map<string,DataRep*> categorias = mr->obtenerCategorias();
+	for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
+
+		cout << " " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
+
+	}
+
+	cout << "Indique la letra de la categoria que desea seleccionar (0 para ingresar una nueva): ";
+
+	string letraCat;
+	string etiquetaCat;
+	cin >> letraCat;
+
+	bool listo = false;
+
+	while (!listo && letraCat != "0") {
+		if (mr->existeCategoria(letraCat)) {
+			cr->seleccionarCategoria(letraCat);
+			listo = true;
+		} else {
+			cout << "Error: La categoría seleccionada no existe.\n";
+			cout << "Indique la letra de la categoria que desea seleccionar (0 para ingresar una nueva): ";
+			cin >> letraCat;
+		}
+	}
+
+	if (letraCat == "0") {
+		cout << "Letra de la nueva categoria: ";
+		cin >> letraCat;
+		cout << "Etiqueta de la nueva categoria: ";
+		cin >> etiquetaCat;
+
+		if (mr->existeCategoria(letraCat)) {
+			cout << "Error: La categoría ingresada ya existe.\n";
+		} else {
+			cr->ingresarCategoria(letraCat,etiquetaCat);
+		}
+	}
+
+	cout << "Categoria seleccionada: " << cr->obtenerCategoriaSeleccionada() << "\n";
+
+	set<DataRep*> reps = mr->obtenerRepresentacionesCat(cr->obtenerCategoriaSeleccionada());
+	for(set<DataRep*>::iterator rep = reps.begin();rep!=reps.end();++rep){
+
+		cout << " " << (*rep)->getCodigo() << " " << (*rep)->getEtiqueta() << "\n";
+
+	}
+
+	string codigoRep;
+	string etiquetaRep;
+	listo = false;
+
+	while (!listo && letraCat != "N") {
+		cout << "Codigo de la nueva representacion: ";
+		cin >> codigoRep;
+		cout << "Etiqueta de la nueva representacion: ";
+		cin >> etiquetaRep;
+		if (mr->existeRepresentacion(cr->obtenerCategoriaSeleccionada(),codigoRep,etiquetaRep)) {
+			cout << "Error: La representacion ingresada ya existe.\n";
+			cout << "Desea ingresar otra? (S/N): ";
+			cin >> letraCat;
+		} else {
+			cr->ingresarRepDiag(codigoRep,etiquetaRep);
+			cout << "Representacion ingresada.\n";
+			cout << "Desea ingresar otra? (S/N): ";
+			cin >> letraCat;
+		}
+	}
+
+	cr->confirmarRepEst();
+
+	cout << "Categorias: \n";
+
+	categorias = mr->obtenerCategorias();
+	for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
+
+		cout << " " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
+
+	}
+
+
+	cout << "Indique la letra de la categoria que desea seleccionar: ";
+	cin >> letraCat;
+
+	cout << "Representaciones cat" << letraCat << ": \n";
+
+	reps = mr->obtenerRepresentacionesCat(letraCat);
+	for(set<DataRep*>::iterator rep = reps.begin();rep!=reps.end();++rep){
+
+		cout << " " << (*rep)->getCodigo() << " " << (*rep)->getEtiqueta() << "\n";
+
+	}
+
+}
+
+void listarRepresentacionesEstandarizadas(){}
 
 void obtenerHistorialPaciente(){}
 
@@ -282,6 +394,8 @@ void notificarMedicos(){}
 //MAIN PRINCIPAL
 
 int main(){
+
+	altaRepresentacionEstandarizada();
 
 	return 0;
 }

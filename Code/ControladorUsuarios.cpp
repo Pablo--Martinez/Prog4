@@ -86,49 +86,37 @@ void ControladorUsuarios::ingresarDatosUser(string nombre, string apellido, Sexo
 	this->nacimiento = fecha;
 }
 
-//void ControladorUsuarios::ingresarCategoria(DataCategoria cat){} ?????
+void ControladorUsuarios::ingresarCategoria(Categoria cat){
+    this->categorias.insert(cat);
+}
 
 void ControladorUsuarios::confirmarInscripcion(){
 	Usuario* u = new Usuario(this->ci,this->nombre,this->apellido,this->sexo,false,this->nacimiento);
-	if(this->categoria == Soc){
-		Socio* s = new Socio(u);
-		u->agregarRol(s);
-		ManejadorSocios* ms = ManejadorSocios::getInstance();
-		ms->agregarSocio(s);
+	for(set<Categoria>::iterator it = this->categorias.begin(); it != this->categorias.end(); ++it){
+        if(*it == Soc){
+            Socio* s = new Socio(u);
+            u->agregarRol(s);
+            ManejadorSocios* ms = ManejadorSocios::getInstance();
+            ms->agregarSocio(s);
+        }
+        else if(*it == Med){
+            Medico* m = new Medico(u);
+            u->agregarRol(m);
+            ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+            mm->agregarMedico(m);
+        }
+        else if(*it == Admin){
+            Administrador* a = new Administrador(u);
+            u->agregarRol(a);
+            ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+            ma->agregarAdministrador(a);
+        }
 	}
-	else if(this->categoria == Med){
-		Medico* m = new Medico(u);
-		u->agregarRol(m);
-		ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-		mm->agregarMedico(m);
-	}
-	else if(this->categoria == Admin){
-		Administrador* a = new Administrador(u);
-		u->agregarRol(a);
-		ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-		ma->agregarAdministrador(a);
-	}
-	else if(this->categoria == MedSoc){
-		Medico* m = new Medico(u);
-		u->agregarRol(m);
-		ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-		mm->agregarMedico(m);
-		Socio* s = new Socio(u);
-		u->agregarRol(s);
-		ManejadorSocios* ms = ManejadorSocios::getInstance();
-		ms->agregarSocio(s);
-	}
-	else if(this->categoria == AdminSoc){
-		Administrador* a = new Administrador(u);
-		u->agregarRol(a);
-		ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-		ma->agregarAdministrador(a);
-		Socio* s = new Socio(u);
-		u->agregarRol(s);
-		ManejadorSocios* ms = ManejadorSocios::getInstance();
-		ms->agregarSocio(s);
-	}
-
+	ManejadorAdministradores* madmin = ManejadorAdministradores::getInstance();
+	Administrador* aLogueado = madmin->find(this->getUsuarioLogueado()->getCI());
+	DataUsuario* du = u->getDataUsuario();
+	RelojSistema* rs = RelojSistema::getInstance();
+    aLogueado->agregarUsuarioAltaReactivacion(du, rs->getFechaSistema(), true);//Cuando es True es porque es alta
 	this->usuarios[this->ci] = u;
 }
 

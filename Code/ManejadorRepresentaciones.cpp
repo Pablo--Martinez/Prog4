@@ -11,9 +11,10 @@ ManejadorRepresentaciones* ManejadorRepresentaciones::getInstance(){
 }
 
 void ManejadorRepresentaciones::agregarRepresentacion(string letra,string codigo,string etiqueta) {
-	DataRep* dataRep = new DataRep(letra+codigo,etiqueta);
-	set<DataRep*> representaciones = this->representaciones[letra];
-	representaciones.insert(dataRep);
+	DataRep* dataRep = new DataRep(codigo,etiqueta);
+	//set<DataRep*> representaciones = this->representaciones[letra];
+	//representaciones.insert(dataRep);
+	this->representaciones[letra].insert(dataRep);
 }
 void ManejadorRepresentaciones::agregarCategoria(string letra,string etiqueta) {
 	DataRep* dataCat = new DataRep(letra,etiqueta);
@@ -23,24 +24,21 @@ void ManejadorRepresentaciones::agregarCategoria(string letra,string etiqueta) {
 	}
 }
 bool ManejadorRepresentaciones::existeRepresentacion(string letra,string codigo,string etiqueta) {
-	/*set<DataRep*> thisRepresentaciones = this->representaciones[letra];
-	//if (this->representaciones[letra] == this->representaciones.end()){
-	if (thisRepresentaciones == NULL){
+	set<DataRep*> representaciones = this->representaciones[letra];
+	if (representaciones.empty()) {
 		return false;
-	} else {*/
-		set<DataRep*> representaciones = this->representaciones[letra];
-		for(set<DataRep*>::iterator dr = representaciones.begin();dr != representaciones.end();++dr) {
-			string thiscodigo = (*dr)->getCodigo();
-			string thisetiqueta = (*dr)->getEtiqueta();
-			string newcodigo = letra+codigo;
-			if (thiscodigo.compare(newcodigo) != 0 && thisetiqueta.compare(etiqueta) != 0) {
-				return true;
-			}
+	}
+	for(set<DataRep*>::iterator dr = representaciones.begin();dr != representaciones.end();++dr) {
+		string thiscodigo = (*dr)->getCodigo();
+		string thisetiqueta = (*dr)->getEtiqueta();
+		string newcodigo = letra+codigo;
+		if (thiscodigo == newcodigo && thisetiqueta == etiqueta) {
+			return true;
 		}
-	//}
+	}
 	return false;
 }
-bool ManejadorRepresentaciones::existeCategoria(string letra,string etiqueta) {
+bool ManejadorRepresentaciones::existeCategoria(string letra) {
 	if (this->categorias.find(letra) == this->categorias.end()){
 		return false;
 	} else {
@@ -50,9 +48,13 @@ bool ManejadorRepresentaciones::existeCategoria(string letra,string etiqueta) {
 void ManejadorRepresentaciones::ingresarRepresentaciones(string letraCat,set<DataRep*> reps) {
 	for(set<DataRep*>::iterator dr = reps.begin();dr != reps.end();++dr) {
 		if (!this->existeRepresentacion(letraCat,(*dr)->getCodigo(),(*dr)->getEtiqueta())) {
+			cout << "agregarRepresentacion: " << letraCat << " " << (*dr)->getCodigo() << " " << (*dr)->getEtiqueta() << "\n";
 			this->agregarRepresentacion(letraCat,(*dr)->getCodigo(),(*dr)->getEtiqueta());
 		}
 	}
+}
+map<string,DataRep*> ManejadorRepresentaciones::obtenerCategorias() {
+	return this->categorias;
 }
 set<DataRep*> ManejadorRepresentaciones::obtenerRepresentacionesCat(string letraCat) {
 	return this->representaciones[letraCat];
