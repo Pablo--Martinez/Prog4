@@ -26,6 +26,11 @@ tipoRol Administrador::getTipoRol() {
 	return administrador;
 }
 
+void Administrador::agregarUsuarioAltaReactivacion(DataUsuario* du, Fecha f, bool esReactivacion){
+    DataAltaReactivacion* usuarioDadoDeAlta= new DataAltaReactivacion(du, f, esReactivacion);
+    this->deAltaReactivados.insert(usuarioDadoDeAlta);
+}
+
 set<DataAltaReactivacion*> Administrador::obtenerUsuariosAltaReactivacion(){
 	return this->deAltaReactivados;
 }

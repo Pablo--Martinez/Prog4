@@ -27,7 +27,6 @@ class Usuario{
 		bool estado;
 		string pass;
 		set<Rol*> roles;
-	
 	public:
 		Usuario();
 		Usuario(int,string,string,Sexo,bool,Fecha);
@@ -38,7 +37,7 @@ class Usuario{
 		Sexo getSexo();
 		bool getEstado();
 		int getEdad(Fecha);
-		void agregarRol(Rol*); //void agregarRol(DataCat) ?
+		void agregarRol(Rol*);
 		TSesion getTipoSesion();
 		bool verificarPass(string);
 		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();

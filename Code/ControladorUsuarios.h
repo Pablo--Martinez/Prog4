@@ -12,7 +12,7 @@
 
 using namespace std;
 
-enum Categorias {Med,Soc,Admin,MedSoc,AdminSoc};
+enum Categoria {Med,Soc,Admin};
 
 class ControladorUsuarios{
 	private:
@@ -24,7 +24,7 @@ class ControladorUsuarios{
 		Usuario* a_tratar;
 		int ci;
 		string nombre, apellido, pass;
-		Categorias categoria;
+		set<Categoria> categorias;
 		Sexo sexo;
 		Fecha nacimiento;
 
@@ -42,7 +42,7 @@ class ControladorUsuarios{
 		bool usuarioLogueado();
 		bool ingresoCI(int);
 		void ingresarDatosUser(string,string,Sexo,Fecha);
-		//void ingresarCategoria(DataCategoria); ?????
+		void ingresarCategoria(Categoria);
 		void confirmarInscripcion();
 		void cancelarInscripcion();
 		DataUsuario* devolverDatosUsuario();
