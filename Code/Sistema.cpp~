@@ -1,5 +1,4 @@
 #include <stdexcept>
-#include <iostream>
 #include "ControladorUsuarios.h"
 #include "ControladorConsultas.h"
 #include "ManejadorAdministradores.h"
@@ -68,36 +67,50 @@ void modificarFechaSistema(){
 void iniciarSesion(){
   
 	int ci;
-	bool escorrecta;
 	string pass, nombreMedicamento;
-
+	bool escorrecta;
+	bool esactivo = true;
 	cout << "Iniciar sesión"<< endl;
-	cout << "Ingrese el Documento:"<< endl;
+	cout << "-->\tDocumento:"<< endl;
 	cin >> ci;
-	cout << "Ingrese la contraseña:" << endl;
-	cin >> pass;
-
 	TSesion ts;
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-	try{
-		ts = cu->iniciarSesion(ci);
 
-		if((ts == APD)||(ts == CM)){ //Común o administrativo
+	ts = cu->iniciarSesion(ci);
+	cout << "-->\tIngrese la contraseña:" << endl;
+	cin >> pass;
 
-			  escorrecta = cu->ingresarContrasenia(pass);
-			  if (escorrecta){
-					  cu->asignarSesion();
-			  }else{
-				  throw std::invalid_argument("La contraseña no es correcta.");
+
+	if((ts == APD)||(ts == CM)){
+
+		  escorrecta = cu->ingresarContrasenia(pass);
+
+		  if (escorrecta){
+
+			  if(ts == CM){
+				  esactivo = cu->esActivo(ci);
 			  }
 
-		}else{ //Por primera vez
-			cu->activarUsuario(pass);
-			cu->asignarSesion();
-		}
-	}catch(const std::invalid_argument& e){
-		std::cerr << "Argumento invalido: " << e.what() << endl;
+			  if (esactivo){
+				  cu->asignarSesion();
+			  }else{
+				  throw std::invalid_argument("Usuario inactivo, no se puede realizar el inicio de sesión.");
+			  }
+		  }else{
+			  throw std::invalid_argument("La contraseña no es correcta.");
+		  }
+
+	}else{
+		cu->activarUsuario(pass);
+		cu->asignarSesion();
 	}
+  
+  
+  
+  
+  
+  
+  
 }
 
 void cerrarSesion(){
