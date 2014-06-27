@@ -24,7 +24,8 @@ class ManejadorRepresentaciones
 		void ingresarRepresentaciones(string,set<DataRep*>);
 		set<DataRep*> obtenerRepresentacionesCat(string);
 		bool existeRepresentacion(string,string,string);
-		bool existeCategoria(string,string);
+		bool existeCategoria(string);
+		map<string,DataRep*> obtenerCategorias();
 };
 
 #endif /* MANEJADORREPRESENTACIONES_H_ */

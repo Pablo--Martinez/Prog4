@@ -1,6 +1,7 @@
 #ifndef CONTROLADORDIAGNOSTICOS_H_
 #define CONTROLADORDIAGNOSTICOS_H_
 
+#include <stdexcept>
 #include <map>
 #include <set>
 #include <string>
@@ -21,11 +22,13 @@ class ControladorDiagnosticos{
 		string etiquetaSeleccionada;
 		map<string, set<DataRep*> > representaciones;
 		map<string,DataRep*> categorias;
+		DataRep* categoriaSeleccionada;
 	public:
 		static ControladorDiagnosticos* getInstance();
 		Diagnostico* getDiagnostico();
 		set<string> obtenerCategorias();
 		set<DataRep*> obtenerRepresentaciones(string);
+		string obtenerCategoriaSeleccionada();
 		void altaDiagnostico(string,string,string);
 		void seleccionarCategoria(string);
 		void ingresarCategoria(string,string);
