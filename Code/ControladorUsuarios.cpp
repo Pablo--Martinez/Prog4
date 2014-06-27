@@ -59,6 +59,10 @@ void ControladorUsuarios::asignarSesion(){
 	this->a_tratar = NULL;
 }
 
+void ControladorUsuarios::activarUsuario(string pass){
+	this->a_tratar->activar(pass);
+}
+
 void ControladorUsuarios::reactivar(){
 	this->a_tratar->reactivar();
 }

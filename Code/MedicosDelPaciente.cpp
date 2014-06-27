@@ -16,3 +16,4 @@ set<DataMedico*> MedicosDelPaciente::algoritmoDeSeleccion(){
 	set<DataMedico*> medicosDelPaciente = s->obtenerMedicosDelPaciente();
 	return medicosDelPaciente;
 }
+

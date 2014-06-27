@@ -1,11 +1,8 @@
 #include <stdexcept>
-#include <iostream>
 #include "ControladorUsuarios.h"
 #include "ControladorConsultas.h"
-#include "ControladorDiagnosticos.h"
 #include "ManejadorAdministradores.h"
 #include "ManejadorMedicamentos.h"
-#include "ManejadorRepresentaciones.h"
 
 using namespace std;
 
@@ -70,44 +67,54 @@ void modificarFechaSistema(){
 void iniciarSesion(){
   
 	int ci;
-	bool escorrecta;
 	string pass, nombreMedicamento;
-
+	bool escorrecta;
+	bool esactivo = true;
 	cout << "Iniciar sesión"<< endl;
-	cout << "Ingrese el Documento:"<< endl;
+	cout << "-->\tDocumento:"<< endl;
 	cin >> ci;
-	cout << "Ingrese la contraseña:" << endl;
-	cin >> pass;
-
 	TSesion ts;
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-	try{
-		ts = cu->iniciarSesion(ci);
 
-		if((ts == APD)||(ts == CM)){ //Común o administrativo
+	ts = cu->iniciarSesion(ci);
+	cout << "-->\tIngrese la contraseña:" << endl;
+	cin >> pass;
 
-			  escorrecta = cu->ingresarContrasenia(pass);
-			  if (escorrecta){
-					  cu->asignarSesion();
-			  }else{
-				  throw std::invalid_argument("La contraseña no es correcta.");
+
+	if((ts == APD)||(ts == CM)){
+
+		  escorrecta = cu->ingresarContrasenia(pass);
+
+		  if (escorrecta){
+
+			  if(ts == CM){
+				  esactivo = cu->esActivo(ci);
 			  }
 
-		}else{ //Por primera vez
-			cu->activarUsuario(pass);
-			cu->asignarSesion();
-		}
-	}catch(const std::invalid_argument& e){
-		std::cerr << "Argumento invalido: " << e.what() << endl;
+			  if (esactivo){
+				  cu->asignarSesion();
+			  }else{
+				  throw std::invalid_argument("Usuario inactivo, no se puede realizar el inicio de sesión.");
+			  }
+		  }else{
+			  throw std::invalid_argument("La contraseña no es correcta.");
+		  }
+
+	}else{
+		cu->activarUsuario(pass);
+		cu->asignarSesion();
 	}
+  
+  
+  
+  
+  
+  
+  
 }
 
 void cerrarSesion(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-
-	cu->iniciarSesion(123456789);//-------------
-	cu->asignarSesion();//-----------------------
-	cout << cu->usuarioLogueado() << endl;//-----------------
 
 	try{
 		cu->cerrarSesion();
@@ -115,11 +122,11 @@ void cerrarSesion(){
 	catch (const std::invalid_argument& e) {
 		std::cerr << "ERROR: " << e.what() << endl;
 	}
-
-	cout << cu->usuarioLogueado() << endl;//-------------------
 }
 
 void altaReactivacionUsuario(){}
+
+void altaRepresentacionDiagnosticos(){}
 
 void reservaConsulta(){}
 
@@ -130,14 +137,13 @@ void registroConsulta(){
 	//Si no existe un usuario logueado, se fuerza a loguearse
 	if(!cu->usuarioLogueado())
 		iniciarSesion();
-
-	//Administrador* admin = ma->find(cu->getUsuarioLogueado()->getCI());
+		Administrador* admin = ma->find(cu->getUsuarioLogueado()->getCI());
 
 	//Si el usuario logueado no es del tipo requerido, se lanza una excepcion
-	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("El usuario logueado no es un administrador");
+	if(admin == NULL)
+		throw std::invalid_argument("UsuarioRolIncorrecto");
 
-	//ManejadorSocios* ms = ManejadorSocios::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
 
 	//Se procede a ingresar los datos del socio
 	int ci_socio;
@@ -256,9 +262,6 @@ void altaMedicamento(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 
-	cu->iniciarSesion(123456789);// ---------
-	cu->asignarSesion();//-------------------
-
 	if(!cu->usuarioLogueado())
 		iniciarSesion();
 
@@ -283,119 +286,7 @@ void devolucionConsulta(){}
 
 void usuariosDadosDeAlta(){}
 
-void altaRepresentacionEstandarizada(){
-
-	cout << "Alta Representacion Estandarizada... \n";
-
-	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
-	ControladorDiagnosticos* cr = ControladorDiagnosticos::getInstance();
-
-	mr->agregarCategoria("A","Una categoria");
-	mr->agregarCategoria("B","Otra categoria");
-	mr->agregarCategoria("C","Ultima categoria");
-	mr->agregarRepresentacion("A","00","repa0");
-	mr->agregarRepresentacion("A","01","repa1");
-	mr->agregarRepresentacion("A","03","repa2");
-	mr->agregarRepresentacion("B","00","repb0");
-
-	cout << "Categorias: \n";
-
-	map<string,DataRep*> categorias = mr->obtenerCategorias();
-	for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
-
-		cout << " " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
-
-	}
-
-	cout << "Indique la letra de la categoria que desea seleccionar (0 para ingresar una nueva): ";
-
-	string letraCat;
-	string etiquetaCat;
-	cin >> letraCat;
-
-	bool listo = false;
-
-	while (!listo && letraCat != "0") {
-		if (mr->existeCategoria(letraCat)) {
-			cr->seleccionarCategoria(letraCat);
-			listo = true;
-		} else {
-			cout << "Error: La categor�a seleccionada no existe.\n";
-			cout << "Indique la letra de la categoria que desea seleccionar (0 para ingresar una nueva): ";
-			cin >> letraCat;
-		}
-	}
-
-	if (letraCat == "0") {
-		cout << "Letra de la nueva categoria: ";
-		cin >> letraCat;
-		cout << "Etiqueta de la nueva categoria: ";
-		cin >> etiquetaCat;
-
-		if (mr->existeCategoria(letraCat)) {
-			cout << "Error: La categor�a ingresada ya existe.\n";
-		} else {
-			cr->ingresarCategoria(letraCat,etiquetaCat);
-		}
-	}
-
-	cout << "Categoria seleccionada: " << cr->obtenerCategoriaSeleccionada() << "\n";
-
-	set<DataRep*> reps = mr->obtenerRepresentacionesCat(cr->obtenerCategoriaSeleccionada());
-	for(set<DataRep*>::iterator rep = reps.begin();rep!=reps.end();++rep){
-
-		cout << " " << (*rep)->getCodigo() << " " << (*rep)->getEtiqueta() << "\n";
-
-	}
-
-	string codigoRep;
-	string etiquetaRep;
-	listo = false;
-
-	while (!listo && letraCat != "N") {
-		cout << "Codigo de la nueva representacion: ";
-		cin >> codigoRep;
-		cout << "Etiqueta de la nueva representacion: ";
-		cin >> etiquetaRep;
-		if (mr->existeRepresentacion(cr->obtenerCategoriaSeleccionada(),codigoRep,etiquetaRep)) {
-			cout << "Error: La representacion ingresada ya existe.\n";
-			cout << "Desea ingresar otra? (S/N): ";
-			cin >> letraCat;
-		} else {
-			cr->ingresarRepDiag(codigoRep,etiquetaRep);
-			cout << "Representacion ingresada.\n";
-			cout << "Desea ingresar otra? (S/N): ";
-			cin >> letraCat;
-		}
-	}
-
-	cr->confirmarRepEst();
-
-	cout << "Categorias: \n";
-
-	categorias = mr->obtenerCategorias();
-	for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
-
-		cout << " " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
-
-	}
-
-
-	cout << "Indique la letra de la categoria que desea seleccionar: ";
-	cin >> letraCat;
-
-	cout << "Representaciones cat" << letraCat << ": \n";
-
-	reps = mr->obtenerRepresentacionesCat(letraCat);
-	for(set<DataRep*>::iterator rep = reps.begin();rep!=reps.end();++rep){
-
-		cout << " " << (*rep)->getCodigo() << " " << (*rep)->getEtiqueta() << "\n";
-
-	}
-
-}
-
-void listarRepresentacionesEstandarizadas(){}
+void listarRepresentacionDiagnosticos(){}
 
 void obtenerHistorialPaciente(){}
 
@@ -404,26 +295,6 @@ void notificarMedicos(){}
 //MAIN PRINCIPAL
 
 int main(){
-	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-	ManejadorSocios* ms = ManejadorSocios::getInstance();
-	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-	ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
-
-	//altaRepresentacionEstandarizada();
-	//cerrarSesion();
-
-	string continuar;
-	do{
-		altaMedicamento();
-		cout << "Ingresar otro(S/N)? ";
-		cin >> continuar;
-	} while(continuar == "S");
-
-	MM->show();
-	Medicamento* m = MM->find("med1");
-	delete MM;
-	m->show();
 
 	return 0;
 }
