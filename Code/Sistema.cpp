@@ -1,5 +1,6 @@
 #include <stdexcept>
 #include <iostream>
+#include <typeinfo>
 #include "ControladorUsuarios.h"
 #include "ControladorConsultas.h"
 #include "ControladorDiagnosticos.h"
@@ -115,8 +116,54 @@ void cerrarSesion(){
 
 void altaReactivacionUsuario(){}
 
-void reservaConsulta(){}
+/*
+void reservaConsulta(){
 
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+
+	// if(!cu->usuarioLogueado())
+	//	iniciarSesion();
+
+	Socio* soc = ms->find(cu->getUsuarioLogueado()->getCI());
+
+	if(typeid(*cu->getUsuarioLogueado()->getCI()) == Socio)
+		throw std::invalid_argument("UsuarioRolIncorrecto");
+
+
+	cout << "Ingresar fecha del sistema:" << endl;
+
+	Fecha* f = new ingresarFecha();
+	ControladorConsultas* cc = ControladorConsultas::getInstance();
+	cc->ingresarFechaConsulta(*f);
+	set<DataUsuario*> medicos_disponibles = cc->obtenerMedicos(*f);
+
+	int i=0, disponibles[medicos_disponibles.size()];
+	if(!medicos_disponibles.empty()){ //El strategy dio resultados
+			cout << "Medicos disponibles: " << endl;
+			for(set<DataMedico*>::iterator it = medicos_disponibles.begin();it!=medicos_disponibles.end();++it){
+				cout << "\t" << i+1 << ")" << (*it)->getUsuario()->getNombre() << " " << (*it)->getUsuario()->getApellido() << endl;
+				disponibles[i] = (*it)->getUsuario()->getCI();
+				i++;
+			}
+
+			int seleccionado;
+			cout << "Seleccionar medico(1.." << i+1 << ")";
+			cin >> seleccionado;
+			while(seleccionado <= 0 || seleccionado > i){
+				cout << "Seleccion incorrecta, ingrese nuevamente: ";
+				cin >> seleccionado;
+			}
+			int ci_med = disponibles[seleccionado-1];
+
+			cc->ingresarConsulta(ci_med);
+
+	}else{
+		cout << "No hay medicos disponibles para la fecha";
+	}
+
+}
+*/
 void registroConsulta(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
@@ -130,7 +177,7 @@ void registroConsulta(){
 	if(admin == NULL)
 		throw std::invalid_argument("UsuarioRolIncorrecto");
 
-	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	//ManejadorSocios* ms = ManejadorSocios::getInstance();
 
 	//Se procede a ingresar los datos del socio
 	int ci_socio;
@@ -275,7 +322,7 @@ void usuariosDadosDeAlta(){}
 
 void altaRepresentacionEstandarizada(){
 
-	cout << "Alta Representación Estandarizada... \n";
+	cout << "Alta RepresentaciÃ³n Estandarizada... \n";
 
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
 	ControladorDiagnosticos* cr = ControladorDiagnosticos::getInstance();
@@ -310,7 +357,7 @@ void altaRepresentacionEstandarizada(){
 			cr->seleccionarCategoria(letraCat);
 			listo = true;
 		} else {
-			cout << "Error: La categoría seleccionada no existe.\n";
+			cout << "Error: La categorÃ­a seleccionada no existe.\n";
 			cout << "Indique la letra de la categoria que desea seleccionar (0 para ingresar una nueva): ";
 			cin >> letraCat;
 		}
@@ -323,7 +370,7 @@ void altaRepresentacionEstandarizada(){
 		cin >> etiquetaCat;
 
 		if (mr->existeCategoria(letraCat)) {
-			cout << "Error: La categoría ingresada ya existe.\n";
+			cout << "Error: La categorÃ­a ingresada ya existe.\n";
 		} else {
 			cr->ingresarCategoria(letraCat,etiquetaCat);
 		}
