@@ -159,6 +159,7 @@ set<DataUsuario*> ControladorConsultas::obtenerMedicos(){
 }
 
 void ControladorConsultas::ingresarFechaConsulta(Fecha fecha_consulta){
+	cout << "asadsad";
 	this->fecha_consulta = fecha_consulta;
 }
 
