@@ -9,16 +9,11 @@ ManejadorMedicamentos* ManejadorMedicamentos::getInstance(){
 		instancia = new ManejadorMedicamentos();
 	return instancia;
 }
-/*
+
 ManejadorMedicamentos::~ManejadorMedicamentos(){
-	for (set<Medicamento*>::iterator it=this->medicamentos.begin(); it!=this->medicamentos.end(); ++it){
-		this->medicamentos.erase(*it);
-		delete *it;
-	}
-	//delete this->instancia;
-	//delete this;
+	this->medicamentos.clear();
 }
-*/
+
 void ManejadorMedicamentos::ingresarMedicamento(){
 	if (this->medicamentos.find(this->nombre) != this->medicamentos.end())
 		throw std::invalid_argument("Medicamento ya existente");
@@ -28,24 +23,14 @@ void ManejadorMedicamentos::ingresarMedicamento(){
 }
 
 Medicamento* ManejadorMedicamentos::find(string nombre){
-	////Medicamento* m = new Medicamento(nombre);
-	//Medicamento m = Medicamento(nombre);
-	//map<string,Medicamento*>::iterator it = this->medicamentos.begin();
-	//it = this->medicamentos.find(m);
-	//while(it != this->medicamentos.end()){
-	//	if((*it)->getNombre() == nombre){
-	//		return *it;
-	//	}
-	//	++it;
-	//}//
-	if(this->medicamentos[nombre] == NULL)
+	if(this->medicamentos.find(nombre) != this->medicamentos.end())
 		return this->medicamentos[nombre];
 	return NULL;
 }
 
 bool ManejadorMedicamentos::existeMedicamento(string nombre){
 	this->nombre = nombre;
-	return this->medicamentos[nombre] != NULL;
+	return (this->medicamentos.find(nombre) != this->medicamentos.end());
 }
 
 void ManejadorMedicamentos::show(){

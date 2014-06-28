@@ -19,8 +19,9 @@ void ManejadorMedicos::agregarMedico(Medico* m){
 	this->medicos[m->getUsuario()->getCI()] = m;
 }
 Medico* ManejadorMedicos::find(int ci){
-	Medico* m = this->medicos[ci];
-	return m;
+	if(this->medicos.find(ci) != this->medicos.end())
+		return this->medicos[ci];
+	return NULL;
 }
 
 map<int,Medico*> ManejadorMedicos::getMedicos(){
