@@ -43,7 +43,7 @@ class ControladorConsultas{
 		void seleccionarCriterio(int);
 		void setCantidad(int);
 		set<DataMedico*> ejecutarStrategy();
-		set<DataUsuario*> obtenerMedicos(Fecha);
+		set<DataUsuario*> obtenerMedicos();
 		void ingresarFechaConsulta(Fecha);
 		void ingresarConsulta(int);
 

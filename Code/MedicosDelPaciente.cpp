@@ -9,8 +9,9 @@ MedicosDelPaciente::~MedicosDelPaciente() {
 	// TODO Auto-generated destructor stub
 }
 
+
 set<DataMedico*> MedicosDelPaciente::algoritmoDeSeleccion(){
-	int ci_socio; // se saca de la mem del sist
+	int ci_socio = 123; // se saca de la mem del sist
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
 	Socio* s = ms->find(ci_socio);
 	set<DataMedico*> medicosDelPaciente = s->obtenerMedicosDelPaciente();

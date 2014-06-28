@@ -3,6 +3,7 @@
 ControladorConsultas* ControladorConsultas::instancia = NULL;
 
 ControladorConsultas::ControladorConsultas(){
+	cout << "dale bos";
 	this->estrategia = NULL;
 }
 
@@ -110,7 +111,7 @@ DataHistorial* ControladorConsultas::obtenerHistorial(int ci_user,Fecha fecha_si
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	for(map<int,Medico*>::iterator m = mm->getMedicos().begin(); m != mm->getMedicos().end();++m){
 		DataMedico* dm = m->second->obtenerHistorial(ci_user);
-		if(&dm != NULL)
+		//if(&dm != NULL)
 			dh->agregarMedico(dm);
 	}
 	return dh;
@@ -132,12 +133,14 @@ set<DataMedico*> ControladorConsultas::ejecutarStrategy(){
 }
 
 
-set<DataUsuario*> ControladorConsultas::obtenerMedicos(Fecha fecha_cosulta){
-	this->fecha_consulta = fecha_consulta;
+set<DataUsuario*> ControladorConsultas::obtenerMedicos(){
 	set<DataUsuario*> medicos_disponibles;
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	map<int, Medico*> medicos = mm->getMedicos();
+	cout << "antes del for";
 	for(map<int, Medico*>::iterator medicos = mm->getMedicos().begin(); medicos != mm->getMedicos().end();++medicos){
+		cout << "dentro del for";
+		medicos->second->show();
 		if(medicos->second->libreParaFecha(fecha_consulta)){
 			DataUsuario* du = medicos->second->getUsuario()->getDataUsuario();
 			medicos_disponibles.insert(du);
@@ -147,6 +150,7 @@ set<DataUsuario*> ControladorConsultas::obtenerMedicos(Fecha fecha_cosulta){
 }
 
 void ControladorConsultas::ingresarFechaConsulta(Fecha fecha_consulta){
+	cout << "asadsad";
 	this->fecha_consulta = fecha_consulta;
 }
 

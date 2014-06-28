@@ -13,6 +13,27 @@ ControladorUsuarios::ControladorUsuarios(){
 	this->usuarios[u->getCI()] = u;
 	ma->agregarAdministrador(admin);
 
+
+
+
+
+	Fecha* f1 = new Fecha(25,06,1990);
+	Usuario* u1 = new Usuario(45306079,"nombre1","apellido1",F,true, *f1);
+	u1->activar("prog4");
+	Medico* medico = new Medico(u1);
+	u1->agregarRol(medico);
+
+	this->usuarios[45306079] = u1;
+
+	Fecha* f3 = new Fecha(25,06,1990);
+	Usuario* u3 = new Usuario(122323444,"nombre3","apellido3",F,false, *f3);
+	Socio* socio = new Socio(u3);
+	u3->activar("prog4");
+	u3->agregarRol(socio);
+
+	this->usuarios[122323444] = u3;
+
+
 }
 
 ControladorUsuarios* ControladorUsuarios::getInstance(){
