@@ -1,8 +1,7 @@
 #include "MedicosDelPaciente.h"
 
-MedicosDelPaciente::MedicosDelPaciente() {
-	// TODO Auto-generated constructor stub
-
+MedicosDelPaciente::MedicosDelPaciente(int ci_socio) {
+	this->ci_tratante = ci_socio;
 }
 
 MedicosDelPaciente::~MedicosDelPaciente() {
@@ -10,9 +9,8 @@ MedicosDelPaciente::~MedicosDelPaciente() {
 }
 
 set<DataMedico*> MedicosDelPaciente::algoritmoDeSeleccion(){
-	int ci_socio; // se saca de la mem del sist
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
-	Socio* s = ms->find(ci_socio);
+	Socio* s = ms->find(this->ci_tratante);
 	set<DataMedico*> medicosDelPaciente = s->obtenerMedicosDelPaciente();
 	return medicosDelPaciente;
 }

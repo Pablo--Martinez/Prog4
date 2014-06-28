@@ -105,9 +105,19 @@ void Medico::show(){
 	}
 }
 
-void Medico::showNotificaciones(){
-	for(map<int, set<Notificacion*> >::iterator it = this->notificaciones.begin();it!=this->notificaciones.end();++it){
+void Medico::showNotificaciones(int ci_socio){
+	/*for(map<int, set<Notificacion*> >::iterator it = this->notificaciones.begin();it!=this->notificaciones.end();++it){
 		for(set<Notificacion*>::iterator notes = it->second.begin();notes != it->second.end();++notes)
 			(*notes)->show();
-	}
+	}*/
+	if(this->notificaciones.find(ci_socio) == this->notificaciones.end())
+		std::invalid_argument("Este socio no tiene seguimiento");
+
+	for(set<Notificacion*>::iterator notes = this->notificaciones.find(ci_socio)->second.begin();
+			notes != this->notificaciones.find(ci_socio)->second.end();++notes)
+		(*notes)->show();
+}
+
+map<int,set<Notificacion*> > Medico::getNotificaciones(){
+	return this->notificaciones;
 }

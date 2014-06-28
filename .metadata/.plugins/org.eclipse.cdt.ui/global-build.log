@@ -1,144 +1,71 @@
-15:41:22 **** Incremental Build of configuration Debug for project Code ****
+12:25:02 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../ControladorTratamientos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorTratamientos.d" -MT"ControladorTratamientos.d" -o "ControladorTratamientos.o" "../ControladorTratamientos.cpp"
-Finished building: ../ControladorTratamientos.cpp
- 
-Building file: ../ManejadorMedicamentos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicamentos.d" -MT"ManejadorMedicamentos.d" -o "ManejadorMedicamentos.o" "../ManejadorMedicamentos.cpp"
-Finished building: ../ManejadorMedicamentos.cpp
- 
-Building file: ../Prog4.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Prog4.d" -MT"Prog4.d" -o "Prog4.o" "../Prog4.cpp"
-Finished building: ../Prog4.cpp
- 
+make: No se hace nada para «all».
+12:25:10 **** Incremental Build of configuration Debug for project Code ****
+make all 
 Building file: ../Sistema.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
 ../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:373:23: warning: unused variable ‘cu’ [-Wunused-variable]
+../Sistema.cpp:485:23: warning: unused variable ‘cu’ [-Wunused-variable]
   ControladorUsuarios* cu = ControladorUsuarios::getInstance();
                        ^
-../Sistema.cpp:374:19: warning: unused variable ‘ms’ [-Wunused-variable]
+../Sistema.cpp:486:19: warning: unused variable ‘ms’ [-Wunused-variable]
   ManejadorSocios* ms = ManejadorSocios::getInstance();
                    ^
-../Sistema.cpp:375:28: warning: unused variable ‘ma’ [-Wunused-variable]
+../Sistema.cpp:487:28: warning: unused variable ‘ma’ [-Wunused-variable]
   ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
                             ^
-../Sistema.cpp:376:20: warning: unused variable ‘mm’ [-Wunused-variable]
+../Sistema.cpp:488:20: warning: unused variable ‘mm’ [-Wunused-variable]
   ManejadorMedicos* mm = ManejadorMedicos::getInstance();
                     ^
+../Sistema.cpp:489:25: warning: unused variable ‘MM’ [-Wunused-variable]
+  ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
+                         ^
+../Sistema.cpp:490:16: warning: unused variable ‘rs’ [-Wunused-variable]
+  RelojSistema* rs = RelojSistema::getInstance();
+                ^
 Finished building: ../Sistema.cpp
- 
-Building file: ../testMMedicamentos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMMedicamentos.d" -MT"testMMedicamentos.d" -o "testMMedicamentos.o" "../testMMedicamentos.cpp"
-Finished building: ../testMMedicamentos.cpp
- 
-Building file: ../testTratamiento.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testTratamiento.d" -MT"testTratamiento.d" -o "testTratamiento.o" "../testTratamiento.cpp"
-Finished building: ../testTratamiento.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
 g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
 Finished building target: Code
  
-15:42:29 **** Incremental Build of configuration Debug for project Code ****
+12:51:00 **** Incremental Build of configuration Debug for project Code ****
 make all 
-make: No se hace nada para «all».
-15:47:22 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ManejadorMedicamentos.cpp
+Building file: ../Consulta.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicamentos.d" -MT"ManejadorMedicamentos.d" -o "ManejadorMedicamentos.o" "../ManejadorMedicamentos.cpp"
-15:50:54 **** Incremental Build of configuration Debug for project Code ****
-make all 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Consulta.d" -MT"Consulta.d" -o "Consulta.o" "../Consulta.cpp"
+Finished building: ../Consulta.cpp
+ 
 Building file: ../ControladorDiagnosticos.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorDiagnosticos.d" -MT"ControladorDiagnosticos.d" -o "ControladorDiagnosticos.o" "../ControladorDiagnosticos.cpp"
 Finished building: ../ControladorDiagnosticos.cpp
  
-Building file: ../ControladorTratamientos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorTratamientos.d" -MT"ControladorTratamientos.d" -o "ControladorTratamientos.o" "../ControladorTratamientos.cpp"
-Finished building: ../ControladorTratamientos.cpp
- 
-Building file: ../ControladorUsuarios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
-Finished building: ../ControladorUsuarios.cpp
- 
-Building file: ../ManejadorMedicamentos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicamentos.d" -MT"ManejadorMedicamentos.d" -o "ManejadorMedicamentos.o" "../ManejadorMedicamentos.cpp"
-Finished building: ../ManejadorMedicamentos.cpp
- 
-Building file: ../ManejadorRepresentaciones.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorRepresentaciones.d" -MT"ManejadorRepresentaciones.d" -o "ManejadorRepresentaciones.o" "../ManejadorRepresentaciones.cpp"
-Finished building: ../ManejadorRepresentaciones.cpp
- 
-Building file: ../Prog4.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Prog4.d" -MT"Prog4.d" -o "Prog4.o" "../Prog4.cpp"
-Finished building: ../Prog4.cpp
- 
 Building file: ../Sistema.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
 ../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:373:23: warning: unused variable ‘cu’ [-Wunused-variable]
+../Sistema.cpp:485:23: warning: unused variable ‘cu’ [-Wunused-variable]
   ControladorUsuarios* cu = ControladorUsuarios::getInstance();
                        ^
-../Sistema.cpp:374:19: warning: unused variable ‘ms’ [-Wunused-variable]
+../Sistema.cpp:486:19: warning: unused variable ‘ms’ [-Wunused-variable]
   ManejadorSocios* ms = ManejadorSocios::getInstance();
                    ^
-../Sistema.cpp:375:28: warning: unused variable ‘ma’ [-Wunused-variable]
+../Sistema.cpp:487:28: warning: unused variable ‘ma’ [-Wunused-variable]
   ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
                             ^
-../Sistema.cpp:376:20: warning: unused variable ‘mm’ [-Wunused-variable]
+../Sistema.cpp:488:20: warning: unused variable ‘mm’ [-Wunused-variable]
   ManejadorMedicos* mm = ManejadorMedicos::getInstance();
                     ^
-Finished building: ../Sistema.cpp
- 
-Building file: ../testMMedicamentos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMMedicamentos.d" -MT"testMMedicamentos.d" -o "testMMedicamentos.o" "../testMMedicamentos.cpp"
-Finished building: ../testMMedicamentos.cpp
- 
-Building file: ../testTratamiento.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testTratamiento.d" -MT"testTratamiento.d" -o "testTratamiento.o" "../testTratamiento.cpp"
-Finished building: ../testTratamiento.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-15:55:49 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:373:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:374:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:375:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:376:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
+../Sistema.cpp:489:25: warning: unused variable ‘MM’ [-Wunused-variable]
+  ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
+                         ^
+../Sistema.cpp:490:16: warning: unused variable ‘rs’ [-Wunused-variable]
+  RelojSistema* rs = RelojSistema::getInstance();
+                ^
 Finished building: ../Sistema.cpp
  
 Building target: Code
@@ -146,606 +73,58 @@ Invoking: Cross G++ Linker
 g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
 Finished building target: Code
  
-15:56:38 **** Incremental Build of configuration Debug for project Code ****
+15:22:16 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Sistema.cpp
+Building file: ../ControladorConsultas.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:373:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:374:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:375:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:376:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-15:56:42 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-15:57:59 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ManejadorMedicamentos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicamentos.d" -MT"ManejadorMedicamentos.d" -o "ManejadorMedicamentos.o" "../ManejadorMedicamentos.cpp"
-Finished building: ../ManejadorMedicamentos.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-15:58:13 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-15:59:19 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ManejadorMedicamentos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicamentos.d" -MT"ManejadorMedicamentos.d" -o "ManejadorMedicamentos.o" "../ManejadorMedicamentos.cpp"
-Finished building: ../ManejadorMedicamentos.cpp
- 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:373:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:374:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:375:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:376:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-15:59:23 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-16:01:15 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-16:09:51 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ManejadorAdministradores.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorAdministradores.d" -MT"ManejadorAdministradores.d" -o "ManejadorAdministradores.o" "../ManejadorAdministradores.cpp"
-Finished building: ../ManejadorAdministradores.cpp
- 
-Building file: ../ManejadorMedicos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicos.d" -MT"ManejadorMedicos.d" -o "ManejadorMedicos.o" "../ManejadorMedicos.cpp"
-../ManejadorMedicos.cpp: In member function ‘Medico* ManejadorMedicos::find(int)’:
-../ManejadorMedicos.cpp:23:17: error: cannot convert ‘ManejadorMedicos’ to ‘Medico*’ in return
-   return this[ci];
-                 ^
-make: *** [ManejadorMedicos.o] Error 1
-16:10:05 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ManejadorMedicos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicos.d" -MT"ManejadorMedicos.d" -o "ManejadorMedicos.o" "../ManejadorMedicos.cpp"
-Finished building: ../ManejadorMedicos.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-16:10:24 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ManejadorMedicamentos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicamentos.d" -MT"ManejadorMedicamentos.d" -o "ManejadorMedicamentos.o" "../ManejadorMedicamentos.cpp"
-Finished building: ../ManejadorMedicamentos.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-16:14:59 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ControladorUsuarios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
-Finished building: ../ControladorUsuarios.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
+Finished building: ../ControladorConsultas.cpp
  
 Building file: ../MedicosDelPaciente.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MedicosDelPaciente.d" -MT"MedicosDelPaciente.d" -o "MedicosDelPaciente.o" "../MedicosDelPaciente.cpp"
 ../MedicosDelPaciente.cpp: In member function ‘virtual std::set<DataMedico*> MedicosDelPaciente::algoritmoDeSeleccion()’:
-../MedicosDelPaciente.cpp:15:30: warning: ‘ci_socio’ is used uninitialized in this function [-Wuninitialized]
-  Socio* s = ms->find(ci_socio);
-                              ^
-Finished building: ../MedicosDelPaciente.cpp
- 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:407:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:408:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:409:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:410:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-16:17:28 **** Incremental Build of configuration Debug for project Code ****
+../MedicosDelPaciente.cpp:14:2: error: ‘ControladorConsultas’ was not declared in this scope
+  ControladorConsultas* cc = ControladorConsultas::getInstance();
+  ^
+../MedicosDelPaciente.cpp:14:24: error: ‘cc’ was not declared in this scope
+  ControladorConsultas* cc = ControladorConsultas::getInstance();
+                        ^
+../MedicosDelPaciente.cpp:14:29: error: ‘ControladorConsultas’ is not a class or namespace
+  ControladorConsultas* cc = ControladorConsultas::getInstance();
+                             ^
+make: *** [MedicosDelPaciente.o] Error 1
+15:22:47 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Sistema.cpp
+Building file: ../Administrador.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:404:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:405:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:406:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:407:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-16:18:28 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:404:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:405:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:406:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:407:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-16:20:55 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ControladorUsuarios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
-Finished building: ../ControladorUsuarios.cpp
- 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:396:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:397:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:398:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:399:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-16:22:58 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ControladorUsuarios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
-Finished building: ../ControladorUsuarios.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-18:36:06 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-18:36:44 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-19:25:13 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ControladorConsultas.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
-Finished building: ../ControladorConsultas.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-19:40:15 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ControladorConsultas.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
-Finished building: ../ControladorConsultas.cpp
- 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:397:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:398:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:399:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:400:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-19:45:22 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘void iniciarSesion()’:
-../Sistema.cpp:102:15: error: could not convert ‘continuar’ from ‘std::string {aka std::basic_string<char>}’ to ‘bool’
-   if(continuar)
-               ^
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-make: *** [Sistema.o] Error 1
-19:46:11 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:403:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:404:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:405:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:406:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-19:46:18 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:403:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:404:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:405:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:406:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-19:48:16 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-19:49:50 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:408:18: error: ‘ataMedicamento’ was not declared in this scope
-   ataMedicamento();
-                  ^
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-make: *** [Sistema.o] Error 1
-19:49:57 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-19:58:29 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-../Sistema.cpp:404:25: warning: unused variable ‘MM’ [-Wunused-variable]
-  ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Administrador.d" -MT"Administrador.d" -o "Administrador.o" "../Administrador.cpp"
+In file included from ../ControladorUsuarios.h:12:0,
+                 from ../ControladorConsultas.h:13,
+                 from ../MedicosDelPaciente.h:6,
+                 from ../Administrador.h:7,
+                 from ../Administrador.cpp:1:
+../ManejadorAdministradores.h:14:11: error: ‘Administrador’ was not declared in this scope
+   map<int,Administrador*> administradores;
+           ^
+../ManejadorAdministradores.h:14:25: error: template argument 2 is invalid
+   map<int,Administrador*> administradores;
                          ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-19:59:30 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:410:5: error: expected primary-expression before ‘<<’ token
-     << "-iniciarSesion" << endl
-     ^
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-../Sistema.cpp:404:25: warning: unused variable ‘MM’ [-Wunused-variable]
-  ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
-                         ^
-make: *** [Sistema.o] Error 1
-19:59:39 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-../Sistema.cpp:404:25: warning: unused variable ‘MM’ [-Wunused-variable]
-  ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
-                         ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-20:01:59 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-../Sistema.cpp:404:25: warning: unused variable ‘MM’ [-Wunused-variable]
-  ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
-                         ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-20:03:30 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-../Sistema.cpp:404:25: warning: unused variable ‘MM’ [-Wunused-variable]
-  ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
-                         ^
-Finished building: ../Sistema.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-20:04:38 **** Incremental Build of configuration Debug for project Code ****
+../ManejadorAdministradores.h:14:25: error: template argument 4 is invalid
+../ManejadorAdministradores.h:17:29: error: ‘Administrador’ has not been declared
+   void agregarAdministrador(Administrador*);
+                             ^
+../ManejadorAdministradores.h:18:3: error: ‘Administrador’ does not name a type
+   Administrador* find(int);
+   ^
+make: *** [Administrador.o] Error 1
+15:23:20 **** Incremental Build of configuration Debug for project Code ****
 make all 
 Building file: ../Administrador.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Administrador.d" -MT"Administrador.d" -o "Administrador.o" "../Administrador.cpp"
 Finished building: ../Administrador.cpp
  
-Building file: ../ConReserva.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ConReserva.d" -MT"ConReserva.d" -o "ConReserva.o" "../ConReserva.cpp"
-Finished building: ../ConReserva.cpp
- 
-Building file: ../Consulta.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Consulta.d" -MT"Consulta.d" -o "Consulta.o" "../Consulta.cpp"
-../Consulta.cpp: In member function ‘bool Consulta::esDeHoy()’:
-../Consulta.cpp:46:35: warning: ‘rj’ is used uninitialized in this function [-Wuninitialized]
-  return (this->getFechaConsulta() == rj->getFechaSistema());
-                                   ^
-Finished building: ../Consulta.cpp
- 
 Building file: ../ControladorConsultas.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
@@ -761,162 +140,159 @@ Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
 Finished building: ../ControladorUsuarios.cpp
  
-Building file: ../DataAltaReactivacion.cpp
+Building file: ../ManejadorAdministradores.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataAltaReactivacion.d" -MT"DataAltaReactivacion.d" -o "DataAltaReactivacion.o" "../DataAltaReactivacion.cpp"
-../DataAltaReactivacion.cpp: In constructor ‘DataAltaReactivacion::DataAltaReactivacion(DataUsuario*, Fecha, bool)’:
-../DataAltaReactivacion.cpp:10:8: error: ‘class DataAltaReactivacion’ has no member named ‘tipoOperacion’
-  this->tipoOperacion = esReactivacion;
-        ^
-../DataAltaReactivacion.cpp: In member function ‘bool DataAltaReactivacion::getTipoOperacion()’:
-../DataAltaReactivacion.cpp:22:15: error: ‘class DataAltaReactivacion’ has no member named ‘tipoOperacion’
-  return this->tipoOperacion;
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorAdministradores.d" -MT"ManejadorAdministradores.d" -o "ManejadorAdministradores.o" "../ManejadorAdministradores.cpp"
+Finished building: ../ManejadorAdministradores.cpp
+ 
+Building file: ../MedicosDelPaciente.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MedicosDelPaciente.d" -MT"MedicosDelPaciente.d" -o "MedicosDelPaciente.o" "../MedicosDelPaciente.cpp"
+../MedicosDelPaciente.cpp: In member function ‘virtual std::set<DataMedico*> MedicosDelPaciente::algoritmoDeSeleccion()’:
+../MedicosDelPaciente.cpp:14:2: error: ‘ControladorConsultas’ was not declared in this scope
+  ControladorConsultas* cc = ControladorConsultas::getInstance();
+  ^
+../MedicosDelPaciente.cpp:14:24: error: ‘cc’ was not declared in this scope
+  ControladorConsultas* cc = ControladorConsultas::getInstance();
+                        ^
+../MedicosDelPaciente.cpp:14:29: error: ‘ControladorConsultas’ is not a class or namespace
+  ControladorConsultas* cc = ControladorConsultas::getInstance();
+                             ^
+make: *** [MedicosDelPaciente.o] Error 1
+15:29:59 **** Incremental Build of configuration Debug for project Code ****
+make all 
+Building file: ../Administrador.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Administrador.d" -MT"Administrador.d" -o "Administrador.o" "../Administrador.cpp"
+Finished building: ../Administrador.cpp
+ 
+Building file: ../ControladorConsultas.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
+../ControladorConsultas.cpp: In member function ‘void ControladorConsultas::seleccionarCriterio(int)’:
+../ControladorConsultas.cpp:131:45: error: no matching function for call to ‘MedicosDelPaciente::MedicosDelPaciente()’
+   this->estrategia = new MedicosDelPaciente();
+                                             ^
+../ControladorConsultas.cpp:131:45: note: candidates are:
+In file included from ../Administrador.h:7:0,
+                 from ../ManejadorAdministradores.h:6,
+                 from ../ControladorUsuarios.h:12,
+                 from ../ControladorConsultas.h:13,
+                 from ../ControladorConsultas.cpp:1:
+../MedicosDelPaciente.h:13:3: note: MedicosDelPaciente::MedicosDelPaciente(int)
+   MedicosDelPaciente(int);
+   ^
+../MedicosDelPaciente.h:13:3: note:   candidate expects 1 argument, 0 provided
+../MedicosDelPaciente.h:9:7: note: MedicosDelPaciente::MedicosDelPaciente(const MedicosDelPaciente&)
+ class MedicosDelPaciente: public Strategy {
+       ^
+../MedicosDelPaciente.h:9:7: note:   candidate expects 1 argument, 0 provided
+make: *** [ControladorConsultas.o] Error 1
+15:30:30 **** Incremental Build of configuration Debug for project Code ****
+make all 
+Building file: ../ControladorConsultas.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
+../ControladorConsultas.cpp: In member function ‘void ControladorConsultas::seleccionarCriterio(int)’:
+../ControladorConsultas.cpp:131:51: error: ‘class ControladorConsultas’ has no member named ‘ci_tratante’
+   this->estrategia = new MedicosDelPaciente(this->ci_tratante);
+                                                   ^
+make: *** [ControladorConsultas.o] Error 1
+15:30:46 **** Incremental Build of configuration Debug for project Code ****
+make all 
+Building file: ../ControladorConsultas.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
+../ControladorConsultas.cpp:19:49: error: no ‘void ControladorConsultas::ingresarCI(int)’ member function declared in class ‘ControladorConsultas’
+ void ControladorConsultas::ingresarCI(int ci_soc){
+                                                 ^
+../ControladorConsultas.cpp: In member function ‘int ControladorConsultas::getCITratante()’:
+../ControladorConsultas.cpp:24:15: error: ‘class ControladorConsultas’ has no member named ‘ci’
+  return this->ci;
                ^
-../DataAltaReactivacion.cpp:23:1: warning: control reaches end of non-void function [-Wreturn-type]
+../ControladorConsultas.cpp:25:1: warning: control reaches end of non-void function [-Wreturn-type]
  }
  ^
-make: *** [DataAltaReactivacion.o] Error 1
-20:05:13 **** Incremental Build of configuration Debug for project Code ****
+make: *** [ControladorConsultas.o] Error 1
+15:31:00 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../DataAltaReactivacion.cpp
+Building file: ../ControladorConsultas.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataAltaReactivacion.d" -MT"DataAltaReactivacion.d" -o "DataAltaReactivacion.o" "../DataAltaReactivacion.cpp"
-Finished building: ../DataAltaReactivacion.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
+Finished building: ../ControladorConsultas.cpp
  
-Building file: ../DataHistorial.cpp
+Building file: ../ControladorTratamientos.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataHistorial.d" -MT"DataHistorial.d" -o "DataHistorial.o" "../DataHistorial.cpp"
-Finished building: ../DataHistorial.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorTratamientos.d" -MT"ControladorTratamientos.d" -o "ControladorTratamientos.o" "../ControladorTratamientos.cpp"
+Finished building: ../ControladorTratamientos.cpp
  
-Building file: ../DataMedico.cpp
+Building file: ../ControladorUsuarios.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataMedico.d" -MT"DataMedico.d" -o "DataMedico.o" "../DataMedico.cpp"
-Finished building: ../DataMedico.cpp
- 
-Building file: ../DataUsuario.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataUsuario.d" -MT"DataUsuario.d" -o "DataUsuario.o" "../DataUsuario.cpp"
-Finished building: ../DataUsuario.cpp
- 
-Building file: ../Emergencia.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Emergencia.d" -MT"Emergencia.d" -o "Emergencia.o" "../Emergencia.cpp"
-Finished building: ../Emergencia.cpp
- 
-Building file: ../HistorialNotificaciones.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"HistorialNotificaciones.d" -MT"HistorialNotificaciones.d" -o "HistorialNotificaciones.o" "../HistorialNotificaciones.cpp"
-Finished building: ../HistorialNotificaciones.cpp
- 
-Building file: ../IObserver.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"IObserver.d" -MT"IObserver.d" -o "IObserver.o" "../IObserver.cpp"
-Finished building: ../IObserver.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
+Finished building: ../ControladorUsuarios.cpp
  
 Building file: ../ManejadorAdministradores.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorAdministradores.d" -MT"ManejadorAdministradores.d" -o "ManejadorAdministradores.o" "../ManejadorAdministradores.cpp"
 Finished building: ../ManejadorAdministradores.cpp
  
-Building file: ../ManejadorMedicos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicos.d" -MT"ManejadorMedicos.d" -o "ManejadorMedicos.o" "../ManejadorMedicos.cpp"
-Finished building: ../ManejadorMedicos.cpp
- 
-Building file: ../ManejadorSocios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorSocios.d" -MT"ManejadorSocios.d" -o "ManejadorSocios.o" "../ManejadorSocios.cpp"
-Finished building: ../ManejadorSocios.cpp
- 
-Building file: ../Medico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medico.d" -MT"Medico.d" -o "Medico.o" "../Medico.cpp"
-Finished building: ../Medico.cpp
- 
 Building file: ../MedicosDelPaciente.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MedicosDelPaciente.d" -MT"MedicosDelPaciente.d" -o "MedicosDelPaciente.o" "../MedicosDelPaciente.cpp"
-../MedicosDelPaciente.cpp: In member function ‘virtual std::set<DataMedico*> MedicosDelPaciente::algoritmoDeSeleccion()’:
-../MedicosDelPaciente.cpp:15:30: warning: ‘ci_socio’ is used uninitialized in this function [-Wuninitialized]
-  Socio* s = ms->find(ci_socio);
-                              ^
 Finished building: ../MedicosDelPaciente.cpp
- 
-Building file: ../MedicosLibres.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MedicosLibres.d" -MT"MedicosLibres.d" -o "MedicosLibres.o" "../MedicosLibres.cpp"
-Finished building: ../MedicosLibres.cpp
- 
-Building file: ../Notificacion.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Notificacion.d" -MT"Notificacion.d" -o "Notificacion.o" "../Notificacion.cpp"
-Finished building: ../Notificacion.cpp
- 
-Building file: ../Quirurjico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Quirurjico.d" -MT"Quirurjico.d" -o "Quirurjico.o" "../Quirurjico.cpp"
-Finished building: ../Quirurjico.cpp
- 
-Building file: ../Rol.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Rol.d" -MT"Rol.d" -o "Rol.o" "../Rol.cpp"
-Finished building: ../Rol.cpp
  
 Building file: ../Sistema.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
+../Sistema.cpp: In function ‘void registroConsulta()’:
+../Sistema.cpp:167:6: error: ‘class ControladorConsultas’ has no member named ‘ingresarCI’
+  cc->ingresarCI(ci_socio);
+      ^
 ../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
+../Sistema.cpp:482:23: warning: unused variable ‘cu’ [-Wunused-variable]
   ControladorUsuarios* cu = ControladorUsuarios::getInstance();
                        ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
+../Sistema.cpp:483:19: warning: unused variable ‘ms’ [-Wunused-variable]
   ManejadorSocios* ms = ManejadorSocios::getInstance();
                    ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
+../Sistema.cpp:484:28: warning: unused variable ‘ma’ [-Wunused-variable]
   ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
                             ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
+../Sistema.cpp:485:20: warning: unused variable ‘mm’ [-Wunused-variable]
   ManejadorMedicos* mm = ManejadorMedicos::getInstance();
                     ^
-../Sistema.cpp:404:25: warning: unused variable ‘MM’ [-Wunused-variable]
+../Sistema.cpp:486:25: warning: unused variable ‘MM’ [-Wunused-variable]
   ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
                          ^
+../Sistema.cpp:487:16: warning: unused variable ‘rs’ [-Wunused-variable]
+  RelojSistema* rs = RelojSistema::getInstance();
+                ^
+make: *** [Sistema.o] Error 1
+15:31:12 **** Incremental Build of configuration Debug for project Code ****
+make all 
+Building file: ../Sistema.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
+../Sistema.cpp: In function ‘int main()’:
+../Sistema.cpp:482:23: warning: unused variable ‘cu’ [-Wunused-variable]
+  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+                       ^
+../Sistema.cpp:483:19: warning: unused variable ‘ms’ [-Wunused-variable]
+  ManejadorSocios* ms = ManejadorSocios::getInstance();
+                   ^
+../Sistema.cpp:484:28: warning: unused variable ‘ma’ [-Wunused-variable]
+  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+                            ^
+../Sistema.cpp:485:20: warning: unused variable ‘mm’ [-Wunused-variable]
+  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+                    ^
+../Sistema.cpp:486:25: warning: unused variable ‘MM’ [-Wunused-variable]
+  ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
+                         ^
+../Sistema.cpp:487:16: warning: unused variable ‘rs’ [-Wunused-variable]
+  RelojSistema* rs = RelojSistema::getInstance();
+                ^
 Finished building: ../Sistema.cpp
- 
-Building file: ../Socio.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Socio.d" -MT"Socio.d" -o "Socio.o" "../Socio.cpp"
-Finished building: ../Socio.cpp
- 
-Building file: ../Stretegy.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Stretegy.d" -MT"Stretegy.d" -o "Stretegy.o" "../Stretegy.cpp"
-Finished building: ../Stretegy.cpp
- 
-Building file: ../Usuario.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Usuario.d" -MT"Usuario.d" -o "Usuario.o" "../Usuario.cpp"
-Finished building: ../Usuario.cpp
- 
-Building file: ../testConsulta.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testConsulta.d" -MT"testConsulta.d" -o "testConsulta.o" "../testConsulta.cpp"
-Finished building: ../testConsulta.cpp
- 
-Building file: ../testMMedicos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMMedicos.d" -MT"testMMedicos.d" -o "testMMedicos.o" "../testMMedicos.cpp"
-Finished building: ../testMMedicos.cpp
- 
-Building file: ../testMSocios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMSocios.d" -MT"testMSocios.d" -o "testMSocios.o" "../testMSocios.cpp"
-Finished building: ../testMSocios.cpp
- 
-Building file: ../testObservadores.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testObservadores.d" -MT"testObservadores.d" -o "testObservadores.o" "../testObservadores.cpp"
-Finished building: ../testObservadores.cpp
  
 Building file: ../testTratamiento.cpp
 Invoking: Cross G++ Compiler
@@ -928,34 +304,18 @@ Invoking: Cross G++ Linker
 g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
 Finished building target: Code
  
-20:07:08 **** Incremental Build of configuration Debug for project Code ****
+15:33:10 **** Incremental Build of configuration Debug for project Code ****
 make all 
-make: No se hace nada para «all».
-20:08:48 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
+Building file: ../Strategy.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘int main()’:
-../Sistema.cpp:400:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-../Sistema.cpp:401:19: warning: unused variable ‘ms’ [-Wunused-variable]
-  ManejadorSocios* ms = ManejadorSocios::getInstance();
-                   ^
-../Sistema.cpp:402:28: warning: unused variable ‘ma’ [-Wunused-variable]
-  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-                            ^
-../Sistema.cpp:403:20: warning: unused variable ‘mm’ [-Wunused-variable]
-  ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-                    ^
-../Sistema.cpp:404:25: warning: unused variable ‘MM’ [-Wunused-variable]
-  ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
-                         ^
-Finished building: ../Sistema.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Strategy.d" -MT"Strategy.d" -o "Strategy.o" "../Strategy.cpp"
+Finished building: ../Strategy.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
+g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
 Finished building target: Code
  
+15:36:17 **** Incremental Build of configuration Debug for project Code ****
+make all 
+make: No se hace nada para «all».

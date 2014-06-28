@@ -23,6 +23,7 @@ Fecha::Fecha(const Fecha &fecha){
 	this->mes = fecha.mes;
 	this->anio = fecha.anio;
 	this->hora = fecha.hora;
+	this->minutos = fecha.minutos;
 }
 
 void Fecha::setDia(int dia){

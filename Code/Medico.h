@@ -29,7 +29,8 @@ class Medico: public IObserver{
 		bool libreHoraYConsultas(int cantConsultas);
 		bool libreParaFecha(Fecha);
 		void show();
-		void showNotificaciones();
+		void showNotificaciones(int);
+		map<int,set<Notificacion*> > getNotificaciones();
 		tipoRol getTipoRol();
 		virtual set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 };

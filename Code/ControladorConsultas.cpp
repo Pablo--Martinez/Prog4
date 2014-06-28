@@ -16,6 +16,14 @@ ControladorConsultas* ControladorConsultas::getInstance(){
 	return instancia;
 }
 
+void ControladorConsultas::ingresarCITratante(int ci_soc){
+	this->ci_tratante = ci_soc;
+}
+
+int ControladorConsultas::getCITratante(){
+	return this->ci_tratante;
+}
+
 void ControladorConsultas::agregarConsulta(Consulta* c){
 	this->consultas.insert(c);
 }
@@ -31,8 +39,8 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_re
 
 	set<Consulta*>::iterator it = this->consultas.begin();
 	while(it != this->consultas.end()){
-		ConReserva* r = dynamic_cast<ConReserva*>(*it);
-		if( r != 0){
+		if(typeid(*it) == typeid(ConReserva)){
+			ConReserva* r = dynamic_cast<ConReserva*>(*it);
 			if(r->perteneceASocio(ci_user) && r->perteneceAMedico(ci_doc) &&
 			   r->getFechaReserva() == fecha_reserva && r->getFechaConsulta() == fecha_consulta){
 				r->registrar();
@@ -82,10 +90,12 @@ void ControladorConsultas::devolverConsulta(Fecha fecha_consulta){
 set<DataConsulta*> ControladorConsultas::consultasDelDia(Fecha fecha_sistema){
 	set<DataConsulta*> res;
 	for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
-		ConReserva* r = dynamic_cast<ConReserva*>(*it);
-		if(r != 0 && r->getFechaConsulta() > fecha_sistema){
-			DataConsulta* aux = r->getDataConsulta();
-			res.insert(aux);
+		if(typeid(*it) == typeid(ConReserva)){
+			ConReserva* r = dynamic_cast<ConReserva*>(*it);
+			if(r->getFechaConsulta() > fecha_sistema){
+				DataConsulta* aux = r->getDataConsulta();
+				res.insert(aux);
+			}
 		}
 	}
 	return res;
@@ -118,7 +128,7 @@ DataHistorial* ControladorConsultas::obtenerHistorial(int ci_user,Fecha fecha_si
 
 void ControladorConsultas::seleccionarCriterio(int criterio){
 	if(criterio == 1)
-		this->estrategia = new MedicosDelPaciente();
+		this->estrategia = new MedicosDelPaciente(this->ci_tratante);
 	else
 		this->estrategia = new MedicosLibres(this->cantidad_estrategia);
 }

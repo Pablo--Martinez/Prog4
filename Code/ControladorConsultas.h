@@ -29,9 +29,12 @@ class ControladorConsultas{
 		Strategy* estrategia;
 		int cantidad_estrategia;
 		Fecha fecha_consulta;
+		int ci_tratante;
 	public:
 		static ControladorConsultas* getInstance();
 		~ControladorConsultas();
+		void ingresarCITratante(int);
+		int getCITratante();
 		void agregarConsulta(Consulta*);
 		void registroReserva(int,int,Fecha,Fecha);
 		void registroEmergencia(int,int,string,Fecha);
