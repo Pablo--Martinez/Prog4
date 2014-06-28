@@ -151,7 +151,7 @@ void reservaConsulta(){
 	if(!cu->usuarioLogueado())
 		iniciarSesion();
 
-	cout << "Ingresar fecha del sistema:" << endl;
+	cout << "Ingresar fecha a reservar:" << endl;
 
 	Fecha f = ingresarFecha();
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
@@ -343,7 +343,6 @@ void devolucionConsulta(){}
 
 void usuariosDadosDeAlta(){}
 
-/*
 void altaRepresentacionEstandarizada(){
 
 	cout << "Alta Representacion Estandarizada... \n";
@@ -448,7 +447,7 @@ void altaRepresentacionEstandarizada(){
 	}
 
 }
-*/
+
 void listarRepresentacionesEstandarizadas(){
 
 	cout << "Listar Representaciones Estandarizadas... \n";
@@ -525,38 +524,19 @@ void setearMaximoInasistencias(){
 //MAIN PRINCIPAL
 
 int main(){
-	//ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-	//ManejadorSocios* ms = ManejadorSocios::getInstance();
-//	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-//	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-//	ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
 
-
-	reservaConsulta();
-	//registroConsulta();
-	/*	string opcion;
-	altaRepresentacionEstandarizada();
-	listarRepresentacionesEstandarizadas();
-	do{
-		cout << "HOLA CHICHE!" << endl
-	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-	ManejadorSocios* ms = ManejadorSocios::getInstance();
-	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-	ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
-	RelojSistema* rs = RelojSistema::getInstance();
-
+	cout << "HOLA CHICHE!" << endl;
 	string opcion;
-	//altaRepresentacionEstandarizada();
-	//listarRepresentacionesEstandarizadas();
-	do{
-		cout << "\tBIENVENIDO!" << endl
+
+	cout << "\tBIENVENIDO!" << endl
 			 << "Que desea hacer?" << endl
 			 << "-iniciarSesion" << endl
-			 << "-EXIT" << endl;
-		cout << ">> "; cin >> opcion;
+			 << "-Salir" << endl;
+	cout << ">> "; cin >> opcion;
 
-		if(opcion == "iniciarSesion"){
+
+	while(opcion != "Salir"){
+			if(opcion == "iniciarSesion"){
 			try{
 				iniciarSesion();
 				do{
@@ -577,8 +557,10 @@ int main(){
 						 << "15- verHora" << endl
 						 << "16- modificarHora" << endl
 						 << "17- setearMaximoInasistencias" << endl
-						 << "18- cerrarSesion" << endl << endl
-						 << "Que desea hacer? "; cin >> opcion;
+						 << "18- cerrarSesion" << endl
+						 << "19- Salir" << endl << endl
+						 << "Que desea hacer? ";
+					cout << ">> "; cin >> opcion;
 
 					if(opcion == "altaMedicamento"){
 						try{
@@ -632,7 +614,7 @@ int main(){
 		}
 
 
-	}while(opcion != "EXIT");
-*/
+	};
+
 	return 0;
 }
