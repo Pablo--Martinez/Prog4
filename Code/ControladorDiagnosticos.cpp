@@ -19,7 +19,7 @@ Diagnostico* ControladorDiagnosticos::getDiagnostico(){
 void ControladorDiagnosticos::seleccionarCategoria(string letraCat) {
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
 	if (!mr->existeCategoria(letraCat)) {
-		throw std::invalid_argument("La categoría seleccionada no existe");
+		throw std::invalid_argument("La categoria seleccionada no existe");
 	} else {
 		this->catSeleccionada = letraCat;
 	}
@@ -58,7 +58,7 @@ void ControladorDiagnosticos::confirmarRepEst() {
 		}
 		mr->ingresarRepresentaciones(cat->second->getCodigo(),this->representaciones[cat->second->getCodigo()]);
 	}
-	// acá hay que destruir todo el registro temporal de representaciones
+	// aca hay que destruir todo el registro temporal de representaciones
 }
 
 set<string> ControladorDiagnosticos::obtenerCategorias(){

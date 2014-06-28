@@ -43,6 +43,10 @@ ControladorUsuarios* ControladorUsuarios::getInstance(){
 }
 
 void ControladorUsuarios::setMaximoInasistencias(int cantidad){
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+	if(ma->find(this->logueado->getCI()) == NULL)
+		throw std::invalid_argument("Se deben tener permisos de administrador");
+
 	this->maximo_inasistencias = cantidad;
 }
 
@@ -167,7 +171,7 @@ void ControladorUsuarios::recalcularInasistencias(Fecha fecha_sistema){
 		int cantidad = 0;
 		for(set<Consulta*>::iterator consultas = socios->second->getConsultasSolicitadas().begin();
 				consultas!=socios->second->getConsultasSolicitadas().end();++consultas){
-			if(dynamic_cast<ConReserva*>(*consultas) != NULL){
+			if(typeid(*consultas) == typeid(ConReserva)){
 				if(dynamic_cast<ConReserva*>(*consultas)->getFechaConsulta() > fecha_sistema &&
 						!dynamic_cast<ConReserva*>(*consultas)->getAsiste())
 					cantidad++;

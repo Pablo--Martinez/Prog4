@@ -7,8 +7,10 @@
 using namespace std;
 
 class MedicosDelPaciente: public Strategy {
+	private:
+		int ci_tratante;
 	public:
-		MedicosDelPaciente();
+		MedicosDelPaciente(int);
 		virtual ~MedicosDelPaciente();
 		set<DataMedico*> algoritmoDeSeleccion();
 };

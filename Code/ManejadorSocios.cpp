@@ -20,7 +20,7 @@ void ManejadorSocios::agregarSocio(Socio* s){
 
 }
 Socio* ManejadorSocios::find(int ci){
-	if(this->socios[ci] != NULL)
+	if(this->socios.find(ci) != this->socios.end())
 		return this->socios[ci];
 	return NULL;
 }

@@ -42,10 +42,15 @@ void Consulta::agregarDiagnostico(Diagnostico* diagnostico){
 
 
 bool Consulta::esDeHoy(){
+<<<<<<< HEAD
     //RelojSistema* rj;
     //rj->getInstance();
 	//return (this->getFechaConsulta() == rj->getFechaSistema());
     return true;
+=======
+    RelojSistema* rj = RelojSistema::getInstance();
+	return (this->getFechaConsulta() == rj->getFechaSistema());
+>>>>>>> b7e2b535a2597197a49bb25808d86baeed5210cf
 }
 
 set<Diagnostico*> Consulta::getDiagnosticos(){

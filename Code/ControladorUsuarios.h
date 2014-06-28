@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 #include <stdexcept>
+#include <typeinfo>
 #include "Usuario.h"
 #include "ConReserva.h"
 #include "ManejadorSocios.h"

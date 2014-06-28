@@ -58,14 +58,35 @@ Fecha ingresarFecha(){
 // CASOS DE USO
 
 void modificarFechaSistema(){
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+		std::invalid_argument("Se requieren permisos de administrador");
+
 	int dia, mes, anio, hora, min;
 	RelojSistema* rs = RelojSistema::getInstance();
-	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 
-	cout << "Nueva fecha: ";
+	cout << "Nueva fecha(dia/mes/anio hora:minutos): ";
 	cin >> dia >> mes >> anio >> hora >> min;
 	rs->modificarFechaSistema(dia,mes,anio,hora,min);
 	cu->recalcularInasistencias(rs->getFechaSistema());
+
+	cout << "Hora modificada correctamente!" << endl << endl;
+}
+
+void verFechaSistema(){
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+		std::invalid_argument("Se requieren permisos de administrador");
+
+	RelojSistema* rs = RelojSistema::getInstance();
+	cout << "Fecha(dia/mes/anio hora:minutos): "
+		 << rs->getFechaSistema().getDia() << "/"
+		 << rs->getFechaSistema().getMes() << "/"
+		 << rs->getFechaSistema().getAnio() << " "
+		 << rs->getFechaSistema().getHora() << ":"
+		 << rs->getFechaSistema().getMinutos() << "hs" << endl << endl;
 }
 
 void iniciarSesion(){
@@ -96,6 +117,8 @@ void iniciarSesion(){
 			cu->activarUsuario(pass);
 			cu->asignarSesion();
 		}
+		cout << "Sesion iniciada correctamente!" << endl << endl;
+
 	}catch(const std::invalid_argument& e){
 		std::cerr << "ERROR: " << e.what() << endl;
 		string continuar;
@@ -110,6 +133,7 @@ void cerrarSesion(){
 
 	try{
 		cu->cerrarSesion();
+		cout << "Sesion terminada correctamente" << endl;
 	}
 	catch (const std::invalid_argument& e) {
 		std::cerr << "ERROR: " << e.what() << endl;
@@ -175,18 +199,15 @@ void reservaConsulta(){
 void registroConsulta(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+	ControladorConsultas* cc = ControladorConsultas::getInstance();
 
 	//Si no existe un usuario logueado, se fuerza a loguearse
 	if(!cu->usuarioLogueado())
 		iniciarSesion();
 
-	//Administrador* admin = ma->find(cu->getUsuarioLogueado()->getCI());
-
 	//Si el usuario logueado no es del tipo requerido, se lanza una excepcion
 	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
 		throw std::invalid_argument("El usuario logueado no es un administrador");
-
-	//ManejadorSocios* ms = ManejadorSocios::getInstance();
 
 	//Se procede a ingresar los datos del socio
 	int ci_socio;
@@ -196,6 +217,7 @@ void registroConsulta(){
 		cout << "Cedula incorrecta, ingrese nuevamente: ";
 		cin >> ci_socio;
 	}
+	cc->ingresarCITratante(ci_socio);
 
 	//Se selecciona el tipo de consulta a registrar
 	string tipo_consulta;
@@ -206,7 +228,6 @@ void registroConsulta(){
 		cin >> tipo_consulta;
 	}
 
-	ControladorConsultas* cc = ControladorConsultas::getInstance();
 	RelojSistema* rs = RelojSistema::getInstance();
 	Fecha fecha_consulta;
 
@@ -229,7 +250,7 @@ void registroConsulta(){
 			cout << "Reserva registrada correctamente! " << endl;
 		}
 		catch (const std::invalid_argument& e) {
-			std::cerr << "Argumento invalido: " << e.what() << endl;
+			std::cerr << "ERROR: " << e.what() << endl;
 		}
 	}
 	else{
@@ -293,7 +314,7 @@ void registroConsulta(){
 			cc->registroEmergencia(ci_socio,ci_doc,motivo,fecha_consulta);
 		}
 		catch (const std::invalid_argument& e) {
-			std::cerr << "Argumento invalido: " << e.what() << endl;
+			std::cerr << "ERROR: " << e.what() << endl;
 		}
 	}
 }
@@ -322,6 +343,7 @@ void altaMedicamento(){
 		existe_medicamento = mm->existeMedicamento(nombre);
 	}
 	mm->ingresarMedicamento();
+	cout << "Medicamento ingresado correctamente!" << endl << endl;
 }
 
 void devolucionConsulta(){}
@@ -367,20 +389,23 @@ void altaRepresentacionEstandarizada(){
 				cr->seleccionarCategoria(letraCat);
 				listo = true;
 			} else if (letraCat != "0") {
-				cout << "Error: La categoria seleccionada no existe.\n";
+				cout << "ERROR: La categoria seleccionada no existe.\n";
 			}
 		}
 
-		if (letraCat == "0") {
+		listo = false;
+
+		while (!listo || letraCat == "0") {
 			cout << "Letra de la nueva categoria: ";
 			cin >> letraCat;
 			cout << "Etiqueta de la nueva categoria: ";
 			cin >> etiquetaCat;
 
 			if (mr->existeCategoria(letraCat)) {
-				cout << "Error: La categoria ingresada ya existe.\n";
+				cout << "ERROR: La categoria ingresada ya existe.\n";
 			} else {
 				cr->ingresarCategoria(letraCat,etiquetaCat);
+				listo = true;
 			}
 		}
 
@@ -454,9 +479,60 @@ void obtenerHistorialPaciente(){}
 
 void notificarMedicos(){}
 
+void sucribirseAPaciente(){
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+
+	cout << "Usuarios del sistema: " << endl;
+	for(map<int,Socio*>::iterator it = ms->getSocios().begin();it != ms->getSocios().end();++it){
+		DataUsuario du;
+		du = *(it->second->getUsuario()->getDataUsuario());
+		cout << "\t- " << du.getCI() << ": " << du.getNombre() << " " << du.getApellido() << endl;
+	}
+	int ci_soc;
+	cout << "Ingrese la CI: "; cin >> ci_soc;
+	while(ms->find(ci_soc) == NULL){
+		cout << "Cedula incorrecta, ingrese nuevamente: "; cin >> ci_soc;
+	}
+
+	mm->find(cu->getUsuarioLogueado()->getCI())->seguir(ms->find(ci_soc));
+
+}
+
+void verNotificaciones(){
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+
+	cout << "Socios a los que esta subscirpto: " << endl;
+	for(map<int,set<Notificacion*> >::iterator it = mm->find(cu->getUsuarioLogueado()->getCI())->getNotificaciones().begin();
+			it!=mm->find(cu->getUsuarioLogueado()->getCI())->getNotificaciones().end();++it){
+		DataUsuario du;
+		du = *(ms->find(it->first)->getUsuario()->getDataUsuario());
+		cout << "\t-" << it->first << ": " << du.getNombre() << " " << du.getApellido() << endl;
+	}
+
+	int ci_soc;
+	cout << "Ingrese la CI: "; cin >> ci_soc;
+	while(ms->find(ci_soc) == NULL){
+		cout << "Cedula incorrecta, ingrese nuevamente: "; cin >> ci_soc;
+	}
+
+	mm->find(cu->getUsuarioLogueado()->getCI())->showNotificaciones(ci_soc);
+}
+
+void setearMaximoInasistencias(){
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	int inasistencias;
+	cout << "Cantidad maxima de inasistencas: ";cin >> inasistencias;
+	cu->setMaximoInasistencias(inasistencias);
+}
+
 //MAIN PRINCIPAL
 
 int main(){
+<<<<<<< HEAD
 	//ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	//ManejadorSocios* ms = ManejadorSocios::getInstance();
 //	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
@@ -471,22 +547,102 @@ int main(){
 	listarRepresentacionesEstandarizadas();
 	do{
 		cout << "HOLA CHICHE!" << endl
+=======
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorMedicamentos* MM = ManejadorMedicamentos::getInstance();
+	RelojSistema* rs = RelojSistema::getInstance();
+
+	string opcion;
+	//altaRepresentacionEstandarizada();
+	//listarRepresentacionesEstandarizadas();
+	do{
+		cout << "\tBIENVENIDO!" << endl
+>>>>>>> b7e2b535a2597197a49bb25808d86baeed5210cf
 			 << "Que desea hacer?" << endl
 			 << "-iniciarSesion" << endl
 			 << "-EXIT" << endl;
-		cin >> opcion;
+		cout << ">> "; cin >> opcion;
 
 		if(opcion == "iniciarSesion"){
 			try{
 				iniciarSesion();
+				do{
+					cout << "1- altaReactivarUsuario" << endl
+						 << "2- dadosDeAltaReactivados" << endl
+						 << "3- altaMedicamento" << endl
+						 << "4- altaRepresentacionEstandarizada" << endl
+						 << "5- listarRepresentacionesEstandarizadas" << endl
+						 << "6- registrarConsulta" << endl
+						 << "7- cantidadConsultasPorCategoria" << endl
+						 << "8- altaDiagnisticosDeConsulta" << endl
+						 << "9- historialPaciente" << endl
+						 << "10- reservarConsulta" << endl
+						 << "11- devolverReserva" << endl
+						 << "12- estadoDeSituacion" << endl
+						 << "13- seguirSocio" << endl
+						 << "14- verNotificaciones" << endl
+						 << "15- verHora" << endl
+						 << "16- modificarHora" << endl
+						 << "17- setearMaximoInasistencias" << endl
+						 << "18- cerrarSesion" << endl << endl
+						 << "Que desea hacer? "; cin >> opcion;
+
+					if(opcion == "altaMedicamento"){
+						try{
+							altaMedicamento();
+						}
+						catch (const std::invalid_argument& e) {
+							std::cerr << "ERROR: " << e.what() << endl;
+						}
+					}
+
+					else if(opcion == "setearMaximoInasistencias"){
+						try{
+							setearMaximoInasistencias();
+						}
+						catch (const std::invalid_argument& e) {
+							std::cerr << "ERROR: " << e.what() << endl;
+						}
+					}
+
+					else if(opcion == "verHora"){
+						try{
+							verFechaSistema();
+						}
+						catch (const std::invalid_argument& e) {
+							std::cerr << "ERROR: " << e.what() << endl;
+						}
+					}
+
+					else if(opcion == "modificarHora"){
+						try{
+							modificarFechaSistema();
+						}
+						catch (const std::invalid_argument& e) {
+							std::cerr << "ERROR: " << e.what() << endl;
+						}
+					}
+
+					else{
+						cout << "Opcion incorrecta" << endl;
+					}
+
+				}while(opcion != "cerrarSesion");
 				cerrarSesion();
 			}
 			catch (const std::invalid_argument& e) {
 				std::cerr << "ERROR: " << e.what() << endl;
 			}
 		}
+		else{
+			cout << "Opcion incorrecta" << endl;
+		}
 
-	}while(opcion != "EXIT");*/
+
+	}while(opcion != "EXIT");
 
 	return 0;
 }
