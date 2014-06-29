@@ -139,8 +139,170 @@ void cerrarSesion(){
 	}
 }
 
-void altaReactivacionUsuario(){}
+void altaReactivacionUsuario(){
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 
+	if(!cu->usuarioLogueado())
+		throw std::invalid_argument("No hay usuario logueado");
+
+	Administrador* admin = ma->find(cu->getUsuarioLogueado()->getCI());
+	if(admin == NULL)
+		throw std::invalid_argument("UsuarioRolIncorrecto");
+
+	cout << "Ingrese CI de Usuario a dar de Alta/Reactivar: " << endl;
+	int ci_usuario;
+	cin >> ci_usuario;
+
+	if (cu->ingresoCI(ci_usuario)){ //Si existe
+		DataUsuario* du = cu->devolverDatosUsuario();
+		cout << "El usuario ya existe en el sistema \n";
+		cout << "Nombre: " << du->getNombre() << "\n";
+		cout << "Apellido: " << du->getApellido() << "\n";
+
+		if (du->getSexo() == M) {
+			cout << "Sexo: Masculino \n";
+		}
+		else{
+			cout << "Sexo: Femenino \n";
+		}
+		cout << "Edad: " << du->getEdad() << "\n";
+		cout << "Roles: \n";
+		for(set<Rol*>::iterator r = du->getRoles().begin();r != du->getRoles().end();++r) {
+				tipoRol tipoRol = (*r)->getTipoRol();
+				if (tipoRol == administrador)
+					cout << "	Administrador \n";
+				else if (tipoRol == medico)
+					cout << "	Medico \n";
+				else
+					cout << "	Socio \n";
+		}
+
+		if (du->getActivo()) {
+			cout << "El estado del Usuario es Activo \n" << endl;
+		}
+		else{
+			string reactivar;
+			cout << "El estado del Usuario es Inactivo \n";
+			cout << "¿Reactivar Usuario? S/N  \n";
+			cin >> reactivar;
+			if(reactivar == "S"){
+				cu->reactivar();
+				cout << "Usuario reactivado  \n" << endl;
+			}
+		}
+	}
+	else{
+		string nombre_user;
+		string apellido_user;
+		string sexo_user;
+		Sexo sex;
+		Categoria rol1_usuario;
+		string rol_usuario;
+		string otro_rol;
+		cout << "Usuario Inexistente - Se procedera a dar de alta \n";
+		cout << "Nombre: "; cin >> nombre_user;
+		cout << "Apellido: "; cin >> apellido_user;
+		cout << "Sexo (M/F): "; cin >> sexo_user;
+		if (sexo_user == "M")
+			sex = M;
+		else
+			sex = F;
+		cout << "Ingresar Fecha de Nacimiento: \n"; //Fecha f = ingresarFecha();
+
+		int dia, mes, anio;
+		cout << "Dia: ";
+		cin >> dia;
+		while(dia <= 0 || dia > 31){
+			cout << "Dia incorrecto, ingrese nuevamente: ";
+			cin >> dia;
+		}
+
+		//Se ingresa el mes
+		cout << "Mes: ";
+		cin >> mes;
+		while(mes <= 0 || mes > 12){
+			cout << "Mes incorrect, ingrese nuevamente: ";
+			cin >> mes;
+		}
+
+		//Se ingresa el anio
+		cout << "Anio: ";
+		cin >> anio;
+		while(anio<= 0){
+			cout << "Anio incorrecto, ingrese nuevamente: ";
+			cin >> anio;
+		}
+
+		Fecha f = Fecha(dia,mes,anio);
+
+
+
+		ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+		cu->ingresarDatosUser(nombre_user, apellido_user, sex, f);
+
+		cout << "Ingrese una categoria para el usuario (Administrador/Medico/Socio): ";
+		do {
+			cin >> rol_usuario;
+			if (rol_usuario == "Administrador")
+				rol1_usuario = Admin;
+			else if (rol_usuario == "Medico")
+				rol1_usuario = Med;
+			else if (rol_usuario == "Socio")
+				rol1_usuario = Soc;
+			else{
+				cout << "Categoria inexistente  \n";
+				cout << "Ingrese nuevamente: ";
+			}
+		}
+		while ((rol_usuario != "Administrador") and (rol_usuario != "Medico") and (rol_usuario != "Socio"));
+		cu->ingresarCategoria(rol1_usuario);
+		cout << "¿Desea ingresar otra categoria al Usuario? (S/N)"; cin >> otro_rol;
+		if(otro_rol == "S"){
+			string rol_usuario2;
+			Categoria rol2_usuario;
+			cout << "Ingrese otra categoria para el usuario (Administrador/Medico/Socio): ";
+			do {
+				cin >> rol_usuario2;
+				if (rol_usuario == rol_usuario2){
+					cout << "Ya se ah ingresado esta categoria \n";
+					cout << "Ingrese nuevamente: ";
+				}
+				else if ((rol_usuario == "Administrador" and rol_usuario2 == "Medico")
+						or (rol_usuario == "Medico" and rol_usuario2 == "Administrador")){
+					cout << "Roles incompatibles \n";
+					cout << "Ingrese nuevamente: ";
+				}
+				else if (rol_usuario2 == "Administrador")
+					rol2_usuario = Admin;
+				else if (rol_usuario2 == "Medico")
+					rol2_usuario = Med;
+				else if (rol_usuario2 == "Socio")
+					rol2_usuario = Soc;
+				else{
+					cout << "Categoria inexistente";
+					cout << "Ingrese nuevamente: ";
+				}
+			} while (((rol_usuario2 != "Administrador") and (rol_usuario2 != "Medico") and (rol_usuario2 != "Socio"))
+					or (((rol_usuario == "Administrador" and rol_usuario2 == "Medico")
+					or (rol_usuario == "Medico" and rol_usuario2 == "Administrador")))
+					or (rol_usuario == rol_usuario2));
+			cu->ingresarCategoria(rol2_usuario);
+		}
+
+		string Confirmar;
+		cout << "¿Confirmar alta de Usuario? S/N \n";
+		cin >> Confirmar;
+		if (Confirmar == "S"){
+			cu->confirmarInscripcion();
+			cout << "Usuario " << nombre_user << " dado de alta \n" << endl;
+		}
+		else{
+			cu->cancelarInscripcion();
+			cout << "Se ah cancelado el alta de usuario \n" << endl;
+		}
+	}
+}
 
 void reservaConsulta(){
 
@@ -338,7 +500,89 @@ void altaMedicamento(){
 	cout << "Medicamento ingresado correctamente!" << endl << endl;
 }
 
-void devolucionConsulta(){}
+void devolucionConsulta(){
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+		ManejadorSocios* ms = ManejadorSocios::getInstance();
+
+		//Si no existe un usuario logueado, se fuerza a loguearse
+		if(!cu->usuarioLogueado())
+			iniciarSesion();
+		Socio* socio = ms->find(cu->getUsuarioLogueado()->getCI());
+
+		//Si el usuario logueado no es del tipo requerido, se lanza una excepcion
+		if(socio == NULL)
+			throw std::invalid_argument("UsuarioRolIncorrecto");
+
+		ControladorConsultas* cc = ControladorConsultas::getInstance();
+		RelojSistema* rs = RelojSistema::getInstance();
+		set<DataConsulta*> consultasActivas= cc->consultasActivasXUsuario(rs->getFechaSistema(), cu->getUsuarioLogueado()->getCI());
+		//set<Fecha> listadoConsultasActivas;
+
+		cout << "Consultas activas" << endl;
+		if (consultasActivas.empty()){
+			cout << "El usuario logueado no tiene consultas activas \n" << endl;
+		}
+		else{
+			for(set<DataConsulta*>::iterator it = consultasActivas.begin();it!=consultasActivas.end();++it){
+				//listadoConsultasActivas.insert((*it)->getFechaConsulta());
+				(*it)->getFechaConsulta().show();
+			}
+			//El usuario elige la consulta
+			int anioSeleccionado;
+			int mesSeleccionado;
+			int diaSeleccionado;
+			int horaSeleccionada;
+			int minutosSeleccionados;
+			Fecha fechaSeleccionada;
+
+			cout << "Seleccione una fecha del listado anterior" << endl;
+			cout << "Ingrese anio: ";
+			cin >> anioSeleccionado;
+			cout << "Ingrese mes: ";
+			cin >> mesSeleccionado;
+			cout << "Ingrese dia: ";
+			cin >> diaSeleccionado;
+			cout << "Ingrese hora: ";
+			cin >> horaSeleccionada;
+			cout << "Ingrese minutos: ";
+			cin >> minutosSeleccionados;
+
+			fechaSeleccionada.setAnio(anioSeleccionado);
+			fechaSeleccionada.setMes(mesSeleccionado);
+			fechaSeleccionada.setDia(diaSeleccionado);
+			fechaSeleccionada.setHora(horaSeleccionada);
+			fechaSeleccionada.setMinutos(minutosSeleccionados);
+
+			bool bandera = false;
+			while(bandera = false){
+				for(set<DataConsulta*>::iterator auxIt = consultasActivas.begin();auxIt!=consultasActivas.end();++auxIt){
+					if (((*auxIt)->getFechaConsulta()) == fechaSeleccionada){
+						bandera = true;
+					}
+				}
+				cout << "Seleccion incorrecta, ingrese nuevamente: \n";
+				cout << "Ingrese anio: ";
+				cin >> anioSeleccionado;
+				cout << "Ingrese mes: ";
+				cin >> mesSeleccionado;
+				cout << "Ingrese dia: ";
+				cin >> diaSeleccionado;
+				cout << "Ingrese hora: ";
+				cin >> horaSeleccionada;
+				cout << "Ingrese minutos: ";
+				cin >> minutosSeleccionados;
+
+				fechaSeleccionada.setAnio(anioSeleccionado);
+				fechaSeleccionada.setMes(mesSeleccionado);
+				fechaSeleccionada.setDia(diaSeleccionado);
+				fechaSeleccionada.setHora(horaSeleccionada);
+				fechaSeleccionada.setMinutos(minutosSeleccionados);
+			}
+
+			cc->devolverConsulta(fechaSeleccionada);
+			cout << "Se ah eliminado la consulta \n" << endl;
+		}
+}
 
 void usuariosDadosDeAlta(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
@@ -569,7 +813,19 @@ void cantidadConsultasPorCategoria(){
 }
 
 void estadoDeSituacion(){
+  
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
 
+	if(!cu->usuarioLogueado())
+		throw std::invalid_argument("No hay usuario logueado");
+
+	Socio* soc = ms->find(cu->getUsuarioLogueado()->getCI());
+	if(soc == NULL)
+		throw std::invalid_argument("UsuarioRolIncorrecto");
+
+	DataEstado* estado = soc->obtenerEstadoReservas();
+	estado->show();
 }
 
 //MAIN PRINCIPAL

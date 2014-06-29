@@ -14,6 +14,7 @@ tipoRol Socio::getTipoRol() {
 	return socio;
 }
 
+
 void Socio::agregarConsulta(Consulta* c){
 	this->solicita.insert(c);
 }
@@ -87,3 +88,27 @@ void Socio::show(){
 	}
 }
 
+DataEstado* Socio::obtenerEstadoReservas(){
+
+	set<Consulta*> consultas = this->getConsultasSolicitadas();
+	if (!consultas.empty()){
+		int sinasistencia = 0;
+		DataEstado* estado = new DataEstado(sinasistencia);
+		for(set<Consulta*>::iterator consulta = consultas.begin();consulta != consultas.end();++consulta) {
+				DataConsulta* dc = (*consulta)->getDataConsulta();
+				DataConReserva* cr = dynamic_cast<DataConReserva*>(dc);
+				if(cr){
+					estado->agregarConReserva(cr);
+				    if(!cr->getAsiste()){
+				    	sinasistencia++;
+				    }
+				}
+		}
+		estado->setCantConsultasSinAsistencias(sinasistencia);
+
+		return estado;
+	}else{
+		throw::invalid_argument("No hay consultas solicitadas para el socio");
+	}
+
+}

@@ -12,28 +12,6 @@ ControladorUsuarios::ControladorUsuarios(){
 	u->activar("admin");
 	this->usuarios[u->getCI()] = u;
 	ma->agregarAdministrador(admin);
-
-
-
-
-
-	Fecha* f1 = new Fecha(25,06,1990);
-	Usuario* u1 = new Usuario(45306079,"nombre1","apellido1",F,true, *f1);
-	u1->activar("prog4");
-	Medico* medico = new Medico(u1);
-	u1->agregarRol(medico);
-
-	this->usuarios[45306079] = u1;
-
-	Fecha* f3 = new Fecha(25,06,1990);
-	Usuario* u3 = new Usuario(122323444,"nombre3","apellido3",F,false, *f3);
-	Socio* socio = new Socio(u3);
-	u3->activar("prog4");
-	u3->agregarRol(socio);
-
-	this->usuarios[122323444] = u3;
-
-
 }
 
 ControladorUsuarios* ControladorUsuarios::getInstance(){
@@ -90,6 +68,11 @@ void ControladorUsuarios::activarUsuario(string pass){
 
 void ControladorUsuarios::reactivar(){
 	this->a_tratar->reactivar();
+	ManejadorAdministradores* madmin = ManejadorAdministradores::getInstance();
+	Administrador* aLogueado = madmin->find(this->getUsuarioLogueado()->getCI());
+	DataUsuario* du = this->a_tratar->getDataUsuario();
+	RelojSistema* rs = RelojSistema::getInstance();
+	aLogueado->agregarUsuarioAltaReactivacion(du, rs->getFechaSistema(), false);//Cuando es False es porque es reactivación
 }
 
 void ControladorUsuarios::cerrarSesion(){
@@ -102,8 +85,11 @@ bool ControladorUsuarios::usuarioLogueado(){
 	return this->logueado != NULL;
 }
 
-bool ControladorUsuarios::ingresoCI(int ci){
-	if(this->usuarios.find(ci) == this->usuarios.end())
+bool ControladorUsuarios::ingresoCI(int ci){ // Hace horas que estoy trancado con esta porqueriiiia...
+											 // Pido disculpas si es que es una pabada pero no se como arreglarlo
+											 // No me encuentra a mis usuarios agregados es un HDP. AYUUUUUDAAAAA
+	this->usuarios.begin();
+	if(this->usuarios.count(ci) == 0) //this->usuarios.end())
 		return false;
 	else{
 		this->ci = ci;
@@ -121,6 +107,7 @@ void ControladorUsuarios::ingresarDatosUser(string nombre, string apellido, Sexo
 void ControladorUsuarios::ingresarCategoria(Categoria cat){
     this->categorias.insert(cat);
 }
+
 
 void ControladorUsuarios::confirmarInscripcion(){
 	Usuario* u = new Usuario(this->ci,this->nombre,this->apellido,this->sexo,false,this->nacimiento);
@@ -160,6 +147,7 @@ void ControladorUsuarios::cancelarInscripcion(){
 	this->sexo = M;
 }
 
+
 DataUsuario* ControladorUsuarios::devolverDatosUsuario(){
 	this->a_tratar = this->usuarios[this->ci];
 	return this->a_tratar->getDataUsuario();
@@ -181,4 +169,3 @@ void ControladorUsuarios::recalcularInasistencias(Fecha fecha_sistema){
 		}
 	}
 }
-

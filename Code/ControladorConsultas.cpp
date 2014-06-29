@@ -62,13 +62,13 @@ void ControladorConsultas::registroEmergencia(int ci_user,int ci_doc,string moti
 	m->agregarConsulta(e);
 }
 
-set<DataConsulta*> ControladorConsultas::consultasActivas(Fecha fecha_sistema){
+set<DataConsulta*> ControladorConsultas::consultasActivasXUsuario(Fecha fecha_sistema, int CI){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorSocios* cs = ManejadorSocios::getInstance();
 	Socio* s = cs->find(cu->getUsuarioLogueado()->getCI());
 	set<DataConsulta*> dc;
 	for(set<Consulta*>::iterator it = s->getConsultasSolicitadas().begin();it != s->getConsultasSolicitadas().end();++it){
-		if((*it)->getFechaConsulta() < fecha_sistema){
+		if(((*it)->getFechaConsulta() < fecha_sistema) and (*it)->perteneceASocio(CI)){
 			DataConsulta* aux = (*it)->getDataConsulta();
 			dc.insert(aux);
 		}

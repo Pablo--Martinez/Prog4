@@ -30,6 +30,7 @@ class ControladorConsultas{
 		int cantidad_estrategia;
 		Fecha fecha_consulta;
 		int ci_tratante;
+
 	public:
 		static ControladorConsultas* getInstance();
 		~ControladorConsultas();
@@ -38,7 +39,7 @@ class ControladorConsultas{
 		void agregarConsulta(Consulta*);
 		void registroReserva(int,int,Fecha,Fecha);
 		void registroEmergencia(int,int,string,Fecha);
-		set<DataConsulta*> consultasActivas(Fecha);
+		set<DataConsulta*> consultasActivasXUsuario(Fecha, int);
 		void devolverConsulta(Fecha);
 		set<DataConsulta*> consultasDelDia(Fecha);
 		DataConsulta* seleccionarConsultaCI(int);
@@ -48,11 +49,6 @@ class ControladorConsultas{
 		set<DataMedico*> ejecutarStrategy();
 		set<DataUsuario*> obtenerMedicos();
 		void ingresarFechaConsulta(Fecha);
-		void ingresarConsulta(int);
-
+		void ingresarConsulta(int);		
 };
-
-
-
-
 #endif /* CONTROLADORCONSULTAS_H_ */
