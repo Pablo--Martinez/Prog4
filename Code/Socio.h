@@ -3,11 +3,11 @@
 
 #include "Rol.h"
 #include "Consulta.h"
+#include "DataEstado.h"
 
 using namespace std;
 
 class Usuario;
-class IObserver;
 
 class Socio: public Rol{
 	private:
@@ -28,10 +28,10 @@ class Socio: public Rol{
 		//Opeaciones de strategy
 		set<DataMedico*> obtenerMedicosDelPaciente();
 		virtual set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
+		DataEstado* obtenerEstadoReservas();
 		void show();
 };
 
 #include "Usuario.h"
-#include "IObserver.h"
 
 #endif /* SOCIO_H_ */

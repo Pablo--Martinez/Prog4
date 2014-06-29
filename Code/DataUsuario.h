@@ -4,6 +4,14 @@
 #include <string>
 #include "Usuario.h"
 
+#include <iostream>
+#include <typeinfo>
+
+#include <string>
+#include <set>
+#include "Usuario.h"
+#include "Rol.h"
+
 using namespace std;
 
 class Usuario;
@@ -15,16 +23,19 @@ class DataUsuario {
 		Sexo sexo;
 		int edad;
 		bool activo;
+		set<Rol*> roles;
 	public:
 		DataUsuario();
 		//DataUsuario(Usuario*);
-		DataUsuario(int,string,string,Sexo,int,bool);
+		DataUsuario(int,string,string,Sexo,int,bool,set<Rol*>);
 		virtual ~DataUsuario();
-		int getCI();
+		int getCI();		
 		string getNombre();
-		string getApellido();
+		string getApellido();		
 		int getEdad();
+		Sexo getSexo();
 		bool getActivo();
+		set<Rol*> getRoles();
 };
 
 //#include "Usuario.h"

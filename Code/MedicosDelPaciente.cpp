@@ -10,6 +10,7 @@ MedicosDelPaciente::~MedicosDelPaciente() {
 
 
 set<DataMedico*> MedicosDelPaciente::algoritmoDeSeleccion(){
+	//int ci_socio;  se saca de la mem del sist
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
 	Socio* s = ms->find(this->ci_tratante);
 	set<DataMedico*> medicosDelPaciente = s->obtenerMedicosDelPaciente();

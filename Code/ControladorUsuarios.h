@@ -27,8 +27,7 @@ class ControladorUsuarios{
 		string nombre, apellido, pass;
 		set<Categoria> categorias;
 		Sexo sexo;
-		Fecha nacimiento;
-
+		Fecha nacimiento;		
 	public:
 		static ControladorUsuarios* getInstance();
 		void setMaximoInasistencias(int);
@@ -52,4 +51,3 @@ class ControladorUsuarios{
 };
 
 #endif /* CONTROLADORUSUARIOS_H_ */
-

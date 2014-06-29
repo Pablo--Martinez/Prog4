@@ -81,6 +81,11 @@ void ControladorUsuarios::activarUsuario(string pass){
 
 void ControladorUsuarios::reactivar(){
 	this->a_tratar->reactivar();
+	ManejadorAdministradores* madmin = ManejadorAdministradores::getInstance();
+	Administrador* aLogueado = madmin->find(this->getUsuarioLogueado()->getCI());
+	DataUsuario* du = this->a_tratar->getDataUsuario();
+	RelojSistema* rs = RelojSistema::getInstance();
+	aLogueado->agregarUsuarioAltaReactivacion(du, rs->getFechaSistema(), false);//Cuando es False es porque es reactivación
 }
 
 void ControladorUsuarios::cerrarSesion(){
@@ -94,8 +99,10 @@ bool ControladorUsuarios::usuarioLogueado(){
 }
 
 bool ControladorUsuarios::ingresoCI(int ci){
-	if(this->usuarios.find(ci) == this->usuarios.end())
+	if(this->usuarios.find(ci) == this->usuarios.end()){
+		this->ci = ci;
 		return false;
+	}
 	else{
 		this->ci = ci;
 		return true;
@@ -112,6 +119,7 @@ void ControladorUsuarios::ingresarDatosUser(string nombre, string apellido, Sexo
 void ControladorUsuarios::ingresarCategoria(Categoria cat){
     this->categorias.insert(cat);
 }
+
 
 void ControladorUsuarios::confirmarInscripcion(){
 	Usuario* u = new Usuario(this->ci,this->nombre,this->apellido,this->sexo,false,this->nacimiento);
@@ -151,6 +159,7 @@ void ControladorUsuarios::cancelarInscripcion(){
 	this->sexo = M;
 }
 
+
 DataUsuario* ControladorUsuarios::devolverDatosUsuario(){
 	this->a_tratar = this->usuarios[this->ci];
 	return this->a_tratar->getDataUsuario();
@@ -172,4 +181,3 @@ void ControladorUsuarios::recalcularInasistencias(Fecha fecha_sistema){
 		}
 	}
 }
-
