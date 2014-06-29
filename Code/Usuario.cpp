@@ -73,7 +73,9 @@ set<DataAltaReactivacion*> Usuario::obtenerUsuariosAltaReactivacion() {
 	for(set<Rol*>::iterator r = this->roles.begin();r != this->roles.end();++r) {
 		tipoRol tipoRol = (*r)->getTipoRol();
 		if (tipoRol == administrador) {
-			return (*r)->obtenerUsuariosAltaReactivacion();
+		//if(typeid(*r) == typeid(Administrador)){
+			//return (dynamic_cast<Administrador*>(*r))->obtenerUsuariosAltaReactivacion();
+			(*r)->obtenerUsuariosAltaReactivacion();
 		}
 	}
 	return daDeAltaReactiva;

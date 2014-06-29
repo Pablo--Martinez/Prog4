@@ -7,6 +7,7 @@
 using namespace std;
 
 class Usuario;
+class IObserver;
 
 class Socio: public Rol{
 	private:
@@ -31,5 +32,6 @@ class Socio: public Rol{
 };
 
 #include "Usuario.h"
+#include "IObserver.h"
 
 #endif /* SOCIO_H_ */

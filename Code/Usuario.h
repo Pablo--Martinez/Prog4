@@ -4,8 +4,11 @@
 #include <string>
 #include <iostream>
 #include <set>
+#include <typeinfo>
 #include "Fecha.h"
 #include "RelojSistema.h"
+//#include "Administrador.h"
+//#include "Rol.h"
 //#include "DataUsuario.h"
 
 using namespace std;
@@ -14,6 +17,7 @@ enum Sexo {F,M};
 enum TSesion {PV, CM, APD};
 
 class Rol;
+//class Administrador;
 class DataUsuario;
 class DataAltaReactivacion;
 
@@ -49,6 +53,7 @@ class Usuario{
 };
 
 #include "Rol.h"
+//#include "Administrador.h"
 #include "DataUsuario.h"
 #include "DataAltaReactivacion.h"
 
