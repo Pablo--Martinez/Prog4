@@ -88,7 +88,7 @@ bool Medico::libreParaFecha(Fecha fecha_consulta){
 		if((*consulta)->getFechaConsulta() == fecha_consulta){
 			return false;
 		}
-		consulta++;
+		++consulta;
 	}
 	return true;
 }

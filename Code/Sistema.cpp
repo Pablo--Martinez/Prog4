@@ -176,10 +176,11 @@ void reservaConsulta(){
 			}
 
 			cc->ingresarConsulta(seleccionado);
+			cout << "Consulta reservada satisfactoriamente" << endl << endl;
 
 		}
 		else{
-			cout << "No hay medicos disponibles para la fecha";
+			cout << "No hay medicos disponibles para la fecha" << endl;
 		}
 	}
 	catch(const std::invalid_argument& e){
@@ -207,7 +208,7 @@ void registroConsulta(){
 	int ci_socio;
 	cout << "Ingrese ci del socio: ";
 	cin >> ci_socio;
-	while(ci_socio <= 0 || ms->find(ci_socio) == NULL){ //Si no es correcto el formato de la ci, se fuerza a ingresar nuevamente
+	while(ms->find(ci_socio) == NULL || ci_socio <= 0){ //Si no es correcto el formato de la ci, se fuerza a ingresar nuevamente
 		cout << "Cedula incorrecta, ingrese nuevamente: ";
 		cin >> ci_socio;
 	}
@@ -234,7 +235,7 @@ void registroConsulta(){
 		//Se procede a seleccionar el medico que va a tratar la consulta
 		cout << "Ingrese ci del medico: ";
 		cin >> ci_doc;
-		while(ci_doc <= 0 || mm->find(ci_doc) == NULL){//Si el formato de la ci es incorrecto se fuerza
+		while(mm->find(ci_doc) == NULL ||ci_doc <= 0){//Si el formato de la ci es incorrecto se fuerza
 			cout << "Cedula incorrecta, ingrese nuevamente: ";
 			cin >> ci_doc;
 		}
@@ -338,7 +339,9 @@ void altaMedicamento(){
 	cout << "Medicamento ingresado correctamente!" << endl << endl;
 }
 
-void devolucionConsulta(){}
+void devolucionConsulta(){
+
+}
 
 void usuariosDadosDeAlta(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
@@ -490,8 +493,6 @@ void listarRepresentacionesEstandarizadas(){
 }
 
 void obtenerHistorialPaciente(){}
-
-void notificarMedicos(){}
 
 void suscribirseAPaciente(){
 	ManejadorSocios* ms = ManejadorSocios::getInstance();

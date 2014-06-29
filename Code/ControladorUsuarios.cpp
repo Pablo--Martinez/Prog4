@@ -13,26 +13,17 @@ ControladorUsuarios::ControladorUsuarios(){
 	this->usuarios[u->getCI()] = u;
 	ma->agregarAdministrador(admin);
 
+	Usuario* u1 = new Usuario(51708245,"Medico","Medico",M,true,Fecha(15,7,1992,0,0));
+	Usuario* u2 = new Usuario(51708240,"Socio","Socio",F,true,Fecha(15,7,1992,0,0));
+	Medico* m = new Medico(u1);
+	Socio* s = new Socio(u2);
+	this->usuarios[51708245] = u1;
+	this->usuarios[51708240] = u2;
 
-
-
-
-	Fecha* f1 = new Fecha(25,06,1990);
-	Usuario* u1 = new Usuario(45306079,"nombre1","apellido1",F,true, *f1);
-	u1->activar("prog4");
-	Medico* medico = new Medico(u1);
-	u1->agregarRol(medico);
-
-	this->usuarios[45306079] = u1;
-
-	Fecha* f3 = new Fecha(25,06,1990);
-	Usuario* u3 = new Usuario(122323444,"nombre3","apellido3",F,false, *f3);
-	Socio* socio = new Socio(u3);
-	u3->activar("prog4");
-	u3->agregarRol(socio);
-
-	this->usuarios[122323444] = u3;
-
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	mm->agregarMedico(m);
+	ms->agregarSocio(s);
 
 }
 

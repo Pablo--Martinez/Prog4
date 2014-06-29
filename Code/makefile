@@ -138,4 +138,5 @@ DataTratamiento.o:
 clear:
 	rm *.o 
 	rm *.h.gch
+	rm Sistema
 

@@ -49,7 +49,8 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_re
 		}
 		it++;
 	}
-	throw std::invalid_argument("No existe la reserva");
+	if(it == this->consultas.end())
+		throw std::invalid_argument("No existe la reserva");
 }
 
 void ControladorConsultas::registroEmergencia(int ci_user,int ci_doc,string motivo,Fecha fecha_consulta){
@@ -145,15 +146,15 @@ set<DataUsuario*> ControladorConsultas::obtenerMedicos(){
 	set<DataUsuario*> medicos_disponibles;
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	map<int, Medico*> medicos = mm->getMedicos();
-	if(!medicos.empty()){
-		for(map<int, Medico*>::iterator medicos = mm->getMedicos().begin(); medicos != mm->getMedicos().end();++medicos){
-			if(medicos->second->libreParaFecha(fecha_consulta)){
-				DataUsuario* du = medicos->second->getUsuario()->getDataUsuario();
+	if(!mm->getMedicos().empty()){
+		for(map<int, Medico*>::iterator it = medicos.begin(); it != medicos.end();++it){
+			if(it->second->libreParaFecha(this->fecha_consulta)){
+				DataUsuario* du = it->second->getUsuario()->getDataUsuario();
 				medicos_disponibles.insert(du);
 			}
 		}
 	}else{
-		throw::invalid_argument("no hay medicos en el sistema");
+		throw::invalid_argument("No hay medicos en el sistema");
 	}
 	return medicos_disponibles;
 }
