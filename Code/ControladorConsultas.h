@@ -39,7 +39,7 @@ class ControladorConsultas{
 		void agregarConsulta(Consulta*);
 		void registroReserva(int,int,Fecha,Fecha);
 		void registroEmergencia(int,int,string,Fecha);
-		set<DataConsulta*> consultasActivasXUsuario(Fecha, int);
+		set<DataConsulta*> consultasActivasXUsuario();
 		void devolverConsulta(Fecha);
 		set<DataConsulta*> consultasDelDia(Fecha);
 		DataConsulta* seleccionarConsultaCI(int);

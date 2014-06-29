@@ -4,7 +4,8 @@ all: Medicamento.o Diagnostico.o Tratamiento.o Farmacologico.o Quirurjico.o Rol.
      ControladorConsultas.o ControladorDiagnosticos.o Fecha.o DataAltaReactivacion.o DataConReserva.o \
      DataConsulta.o DataDiagnostico.o DataEmergencia.o DataHistorial.o DataMedico.o DataRep.o \
      DataTratamiento.o DataUsuario.o ManejadorRepresentaciones.o ControladorUsuarios.o Notificacion.o \
-     RelojSistema.o ControladorTratamientos.o MedicosDelPaciente.o MedicosLibres.o Strategy.o Usuario.o
+     RelojSistema.o ControladorTratamientos.o MedicosDelPaciente.o MedicosLibres.o Strategy.o Usuario.o \
+     DataEstado.o
      
 	g++ -o Sistema Sistema.cpp Medicamento.o Diagnostico.o Tratamiento.o Farmacologico.o Quirurjico.o Rol.o \
      IObserver.o Medico.o Socio.o Administrador.o Consulta.o Emergencia.o ConReserva.o \
@@ -12,7 +13,8 @@ all: Medicamento.o Diagnostico.o Tratamiento.o Farmacologico.o Quirurjico.o Rol.
      ControladorConsultas.o ControladorDiagnosticos.o Fecha.o DataAltaReactivacion.o DataConReserva.o \
      DataConsulta.o DataDiagnostico.o DataEmergencia.o DataHistorial.o DataMedico.o DataRep.o \
      DataTratamiento.o DataUsuario.o ManejadorRepresentaciones.o ControladorUsuarios.o Notificacion.o \
-     RelojSistema.o ControladorTratamientos.o MedicosDelPaciente.o MedicosLibres.o Strategy.o Usuario.o
+     RelojSistema.o ControladorTratamientos.o MedicosDelPaciente.o MedicosLibres.o Strategy.o Usuario.o \
+     DataEstado.o
 
 #Clases 
 Usuario.o:
@@ -104,6 +106,9 @@ ControladorUsuarios.o:
 #Datatypes
 Fecha.o:
 	g++ -Wall -Werror -c Fecha.h Fecha.cpp
+	
+DataEstado.o:
+	g++ -Wall -Werror -c DataEstado.h DataEstado.cpp
 	
 DataUsuario.o:
 	g++ -Wall -Werror -c DataUsuario.h DataUsuario.cpp

@@ -6,6 +6,8 @@ ControladorUsuarios::ControladorUsuarios(){
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 	this->logueado = NULL;
 	this->a_tratar = NULL;
+	this->maximo_inasistencias = 3;
+
 	Usuario* u = new Usuario(123456789,"admin","admin",M,true,Fecha());
 	Administrador* admin =  new Administrador(u);
 	u->agregarRol(admin);
@@ -100,6 +102,7 @@ bool ControladorUsuarios::usuarioLogueado(){
 
 bool ControladorUsuarios::ingresoCI(int ci){
 	if(this->usuarios.find(ci) == this->usuarios.end()){
+		this->a_tratar = this->usuarios.find(ci)->second;
 		this->ci = ci;
 		return false;
 	}
@@ -167,17 +170,18 @@ DataUsuario* ControladorUsuarios::devolverDatosUsuario(){
 
 void ControladorUsuarios::recalcularInasistencias(Fecha fecha_sistema){
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
-	for(map<int,Socio*>::iterator socios = ms->getSocios().begin();socios!=ms->getSocios().end();++socios){
+	map<int,Socio*> socios = ms->getSocios();
+	for(map<int,Socio*>::iterator socio = socios.begin();socio!= socios.end();++socio){
 		int cantidad = 0;
-		for(set<Consulta*>::iterator consultas = socios->second->getConsultasSolicitadas().begin();
-				consultas!=socios->second->getConsultasSolicitadas().end();++consultas){
-			if(typeid(*consultas) == typeid(ConReserva)){
-				if(dynamic_cast<ConReserva*>(*consultas)->getFechaConsulta() > fecha_sistema &&
-						!dynamic_cast<ConReserva*>(*consultas)->getAsiste())
+		set<Consulta*> consultas = socio->second->getConsultasSolicitadas();
+		for(set<Consulta*>::iterator consulta = consultas.begin();consulta!=consultas.end();++consulta){
+			if(typeid(*consulta) == typeid(ConReserva)){
+				ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
+				if(r->getFechaConsulta() > fecha_sistema && r->getAsiste())
 					cantidad++;
 			}
 		if(cantidad > this->maximo_inasistencias)
-			this->usuarios[socios->first]->desactivar();
+			this->usuarios[socio->first]->desactivar();
 		}
 	}
 }

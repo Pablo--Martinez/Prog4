@@ -95,7 +95,7 @@ void Usuario::reactivar(){ // setEstado(bool) ?
 
 DataUsuario* Usuario::getDataUsuario(){
 	RelojSistema* rs = RelojSistema::getInstance();
-	return new DataUsuario(this->ci,this->nombre,this->apellido,this->sexo,this->getEdad(rs->getFechaSistema()),this->estado,this->roles);
+	return new DataUsuario(this->ci,this->pass,this->nombre,this->apellido,this->sexo,this->getEdad(rs->getFechaSistema()),this->estado,this->roles);
 }
 
  void Usuario::show(){

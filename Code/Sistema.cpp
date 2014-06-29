@@ -61,7 +61,7 @@ void modificarFechaSistema(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		std::invalid_argument("Se requieren permisos de administrador");
+		throw std::invalid_argument("Se requieren permisos de administrador");
 
 	int dia, mes, anio, hora, min;
 	RelojSistema* rs = RelojSistema::getInstance();
@@ -78,7 +78,7 @@ void verFechaSistema(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		std::invalid_argument("Se requieren permisos de administrador");
+		throw std::invalid_argument("Se requieren permisos de administrador");
 
 	RelojSistema* rs = RelojSistema::getInstance();
 	cout << "Fecha(dia/mes/anio hora:minutos): "
@@ -148,7 +148,7 @@ void altaReactivacionUsuario(){
 
 	Administrador* admin = ma->find(cu->getUsuarioLogueado()->getCI());
 	if(admin == NULL)
-		throw std::invalid_argument("UsuarioRolIncorrecto");
+		throw std::invalid_argument("Se requieren permisos de administrador");
 
 	cout << "Ingrese CI de Usuario a dar de Alta/Reactivar: ";
 	int ci_usuario;
@@ -179,17 +179,20 @@ void altaReactivacionUsuario(){
 		}
 
 		if (du->getActivo()) {
-			cout << "\t-El estado del Usuario es Activo \n" << endl;
+			cout << "\t-Estado: actico \n" << endl;
 		}
-		else{
+		else if(!du->getActivo() && !(du->getPass() == "")){
 			string reactivar;
-			cout << "El estado del Usuario es Inactivo \n";
-			cout << "¿Reactivar Usuario? S/N  \n";
+			cout << "\t-Estado: inactivo \n";
+			cout << "¿Reactivar Usuario?(S/N)  \n";
 			cin >> reactivar;
 			if(reactivar == "S"){
 				cu->reactivar();
 				cout << "Usuario reactivado  \n" << endl;
 			}
+		}
+		else if(du->getActivo()){
+			cout << "\t-Estado: inactivo \n" << endl;
 		}
 	}
 	else{
@@ -231,7 +234,7 @@ void altaReactivacionUsuario(){
 		}
 		while ((rol_usuario != "Administrador") and (rol_usuario != "Medico") and (rol_usuario != "Socio"));
 		cu->ingresarCategoria(rol1_usuario);
-		cout << "¿Desea ingresar otra categoria al Usuario? (S/N)"; cin >> otro_rol;
+		cout << "¿Desea ingresar otra categoria al Usuario?(S/N) "; cin >> otro_rol;
 		if(otro_rol == "S"){
 			string rol_usuario2;
 			Categoria rol2_usuario;
@@ -459,7 +462,7 @@ void altaMedicamento(){
 
 	Administrador* admin = ma->find(cu->getUsuarioLogueado()->getCI());
 	if(admin == NULL)
-		throw std::invalid_argument("UsuarioRolIncorrecto");
+		throw std::invalid_argument("Se requieren permisos de administrador");
 
 	ManejadorMedicamentos* mm = ManejadorMedicamentos::getInstance();
 	string nombre;
@@ -489,8 +492,9 @@ void devolucionConsulta(){
 		throw std::invalid_argument("UsuarioRolIncorrecto");
 
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
-	RelojSistema* rs = RelojSistema::getInstance();
-	set<DataConsulta*> consultasActivas= cc->consultasActivasXUsuario(rs->getFechaSistema(), cu->getUsuarioLogueado()->getCI());
+	/*RelojSistema* rs = RelojSistema::getInstance();
+	Fecha fecha_sistema = rs->getFechaSistema();*/
+	set<DataConsulta*> consultasActivas= cc->consultasActivasXUsuario();
 
 	cout << "Consultas activas" << endl;
 	if (consultasActivas.empty()){
@@ -506,22 +510,6 @@ void devolucionConsulta(){
 
 		cout << "Seleccione una fecha del listado anterior" << endl;
 		fechaSeleccionada = ingresarFecha();
-		/*cout << "Ingrese anio: ";
-		cin >> anioSeleccionado;
-		cout << "Ingrese mes: ";
-		cin >> mesSeleccionado;
-		cout << "Ingrese dia: ";
-		cin >> diaSeleccionado;
-		cout << "Ingrese hora: ";
-		cin >> horaSeleccionada;
-		cout << "Ingrese minutos: ";
-		cin >> minutosSeleccionados;
-
-		fechaSeleccionada.setAnio(anioSeleccionado);
-		fechaSeleccionada.setMes(mesSeleccionado);
-		fechaSeleccionada.setDia(diaSeleccionado);
-		fechaSeleccionada.setHora(horaSeleccionada);
-		fechaSeleccionada.setMinutos(minutosSeleccionados);*/
 
 		bool bandera = false;
 		while(bandera = false){
@@ -532,22 +520,6 @@ void devolucionConsulta(){
 			}
 			cout << "Seleccion incorrecta, ingrese nuevamente: \n";
 			fechaSeleccionada = ingresarFecha();
-			/*cout << "Ingrese anio: ";
-			cin >> anioSeleccionado;
-			cout << "Ingrese mes: ";
-			cin >> mesSeleccionado;
-			cout << "Ingrese dia: ";
-			cin >> diaSeleccionado;
-			cout << "Ingrese hora: ";
-			cin >> horaSeleccionada;
-			cout << "Ingrese minutos: ";
-			cin >> minutosSeleccionados;
-
-			fechaSeleccionada.setAnio(anioSeleccionado);
-			fechaSeleccionada.setMes(mesSeleccionado);
-			fechaSeleccionada.setDia(diaSeleccionado);
-			fechaSeleccionada.setHora(horaSeleccionada);
-			fechaSeleccionada.setMinutos(minutosSeleccionados);*/
 
 		}
 		cc->devolverConsulta(fechaSeleccionada);
@@ -565,18 +537,22 @@ void usuariosDadosDeAlta(){
 	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
 		throw std::invalid_argument("Se deben tener privilegios de administrador");
 
-	cout << "Usuarios dados de alta/reactivados: " << endl;
-	for(set<DataAltaReactivacion*>::iterator it = ma->find(cu->getUsuarioLogueado()->getCI())->obtenerUsuariosAltaReactivacion().begin();
-			it!=ma->find(cu->getUsuarioLogueado()->getCI())->obtenerUsuariosAltaReactivacion().end();++it){
+	set<DataAltaReactivacion*> alta_reactivados = ma->find(cu->getUsuarioLogueado()->getCI())->obtenerUsuariosAltaReactivacion();
 
-		if((*it)->getTipoOperacion())
-			cout << "\t-(ALTA) ";
-		else
-			cout << "\t-(REACTIVADO) ";
+	if(alta_reactivados.empty())
+		cout << "No reactivo/ingreso usuarios" << endl << endl;
+	else{
+		cout << "Usuarios dados de alta/reactivados: " << endl;
+		for(set<DataAltaReactivacion*>::iterator it = alta_reactivados.begin();it!= alta_reactivados.end();++it){
+			if((*it)->getTipoOperacion())
+				cout << "\t-(ALTA  ";
+			else
+				cout << "\t-(REACTIVADO ";
 
-		(*it)->getFecha().show();
-		cout << (*it)->getUsuario()->getCI() << ": " << (*it)->getUsuario()->getNombre() << " "
-			 << (*it)->getUsuario()->getApellido() << endl;
+			(*it)->getFecha().show();
+			cout << ") " << (*it)->getUsuario()->getCI() << ": " << (*it)->getUsuario()->getNombre() << " "
+				 << (*it)->getUsuario()->getApellido() << endl;
+		}
 	}
 }
 
@@ -732,21 +708,32 @@ void verNotificaciones(){
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 
-	cout << "Socios a los que esta subscirpto: " << endl;
-	for(map<int,set<Notificacion*> >::iterator it = mm->find(cu->getUsuarioLogueado()->getCI())->getNotificaciones().begin();
-			it!=mm->find(cu->getUsuarioLogueado()->getCI())->getNotificaciones().end();++it){
-		DataUsuario du;
-		du = *(ms->find(it->first)->getUsuario()->getDataUsuario());
-		cout << "\t-" << it->first << ": " << du.getNombre() << " " << du.getApellido() << endl;
-	}
+	if(!cu->usuarioLogueado())
+		throw std::invalid_argument("No hay usuario logueado");
 
-	int ci_soc;
-	cout << "Ingrese la CI: "; cin >> ci_soc;
-	while(ms->find(ci_soc) == NULL){
-		cout << "Cedula incorrecta, ingrese nuevamente: "; cin >> ci_soc;
-	}
+	if(mm->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+		throw std::invalid_argument("Se deben tener privilegios de medico");
 
-	mm->find(cu->getUsuarioLogueado()->getCI())->showNotificaciones(ci_soc);
+	map<int,set<Notificacion*> > notificaciones = mm->find(cu->getUsuarioLogueado()->getCI())->getNotificaciones();
+
+	if(notificaciones.empty())
+		cout << "No hay socios suscriptos" << endl << endl;
+	else{
+		cout << "Socios a los que esta subscirpto: " << endl;
+		for(map<int,set<Notificacion*> >::iterator it = notificaciones.begin();	it!=notificaciones.end();++it){
+			DataUsuario du;
+			du = *(ms->find(it->first)->getUsuario()->getDataUsuario());
+			cout << "\t-" << it->first << ": " << du.getNombre() << " " << du.getApellido() << endl;
+		}
+
+		int ci_soc;
+		cout << "Ingrese la CI: "; cin >> ci_soc;
+		while(ms->find(ci_soc) == NULL){
+			cout << "Cedula incorrecta, ingrese nuevamente: "; cin >> ci_soc;
+		}
+
+		mm->find(cu->getUsuarioLogueado()->getCI())->showNotificaciones(ci_soc);
+	}
 }
 
 void verMaximoInasistencias(){
@@ -804,7 +791,7 @@ int main(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	string opcion;
 
-	cout << "BIENBENIDO" << endl;
+	cout << "BIENVENIDO" << endl;
 	while(true){
 		if(!cu->usuarioLogueado()){
 			cout << "- iniciarSesion" << endl

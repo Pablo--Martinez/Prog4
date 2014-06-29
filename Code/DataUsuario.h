@@ -19,7 +19,7 @@ class Usuario;
 class DataUsuario {
 	private:
 		int ci;
-		string nombre,apellido;
+		string pass, nombre,apellido;
 		Sexo sexo;
 		int edad;
 		bool activo;
@@ -27,9 +27,10 @@ class DataUsuario {
 	public:
 		DataUsuario();
 		//DataUsuario(Usuario*);
-		DataUsuario(int,string,string,Sexo,int,bool,set<Rol*>);
+		DataUsuario(int,string,string,string,Sexo,int,bool,set<Rol*>);
 		virtual ~DataUsuario();
-		int getCI();		
+		int getCI();
+		string getPass();
 		string getNombre();
 		string getApellido();		
 		int getEdad();

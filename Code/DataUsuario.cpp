@@ -2,8 +2,9 @@
 
 DataUsuario::DataUsuario() {}
 
-DataUsuario::DataUsuario(int ci,string nombre,string apellido,Sexo sexo,int edad,bool activo, set<Rol*> roles){
+DataUsuario::DataUsuario(int ci,string pass,string nombre,string apellido,Sexo sexo,int edad,bool activo, set<Rol*> roles){
 	this->ci = ci;
+	this->pass = pass;
 	this->nombre = nombre;
 	this->apellido = apellido;
 	this->sexo = sexo;
@@ -17,6 +18,10 @@ DataUsuario::~DataUsuario() {}
 
 int DataUsuario::getCI(){
 	return this->ci;
+}
+
+string DataUsuario::getPass(){
+	return this->pass;
 }
 
 string DataUsuario::getNombre(){
