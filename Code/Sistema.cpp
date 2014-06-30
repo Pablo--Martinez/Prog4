@@ -820,6 +820,9 @@ void agregarDatosDePrueba() {
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
 
+	if(cu->usuarioLogueado())
+		throw std::invalid_argument("Debes cerrar sesion antes de ejecutar este comando");
+
 	// INICIAR SESION DEL ADMINISTRADOR
 
 	cu->iniciarSesion(34567645);
@@ -932,8 +935,7 @@ int main(){
 				 << "17- verMaximoInasistencias" << endl
 				 << "18- setearMaximoInasistencias" << endl
 				 << "19- cerrarSesion" << endl
-				 << "20- datosDePrueba" << endl
-				 << "21- salir" << endl << endl;
+				 << "20- salir" << endl << endl;
 		}
 
 		cout << ">> "; cin >> opcion;
@@ -1125,9 +1127,6 @@ int main(){
 			catch (const std::invalid_argument& e) {
 				std::cerr << "ERROR: " << e.what() << endl;
 			}
-		}
-		else if(opcion == "datosDePrueba"){
-			agregarDatosDePrueba();
 		}
 
 		else if(opcion == "salir"){
