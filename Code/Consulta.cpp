@@ -9,12 +9,12 @@ Consulta::Consulta(Fecha fecha_consulta, Medico* medico, Socio* socio){
 }
 
 Consulta::~Consulta(){
-	delete this->atiende;
-	delete this->solicitante;
-	for(set<Diagnostico*>::iterator d = this->diagnosticos.begin();d != this->diagnosticos.end();++d){
+	//delete this->atiende;
+	//delete this->solicitante;
+	/*for(set<Diagnostico*>::iterator d = this->diagnosticos.begin();d != this->diagnosticos.end();++d){
 		delete (*d);
 	}
-	this->diagnosticos.clear();
+	this->diagnosticos.clear();*/
 }
 
 Fecha Consulta::getFechaConsulta(){
