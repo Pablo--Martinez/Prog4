@@ -472,14 +472,14 @@ void altaDiagnosticosConsulta(){
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
 	RelojSistema* rs = RelojSistema::getInstance();
 
-	//Muestro todas las consultas del día
+	//Muestro todas las consultas del dia
 	set<DataConsulta*> consultasDelDia = cc->consultasDelDia(rs->getFechaSistema());
 	set<int> listadoCedulas;
 
 	cout << "Consultas del dia" << endl;
 	for(set<DataConsulta*>::iterator it = consultasDelDia.begin();it!=consultasDelDia.end();++it){
 		listadoCedulas.insert((*it)->getCI());
-		cout << (*it)->getCI() << endl;
+		cout << "\t-" << (*it)->getCI() << endl;
 	}
 
 	//El usuario elige la consulta
@@ -491,6 +491,7 @@ void altaDiagnosticosConsulta(){
 		cin >> ciSeleccionada;
 	}
 
+	Consulta* consulta = cc->getConsulta(ciSeleccionada,rs->getFechaSistema());
 
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
 	string categoriaSeleccionada;
@@ -537,15 +538,15 @@ void altaDiagnosticosConsulta(){
 		cin >> descripcion;
 
 		ControladorDiagnosticos* cd = ControladorDiagnosticos::getInstance();
-		Diagnostico* diag = cd->altaDiagnostico(rep->getCodigo(), rep->getEtiqueta(), descripcion, cc->getConsulta(ciSeleccionada,rs->getFechaSistema()));
-
+		Diagnostico* diag = cd->altaDiagnostico(rep->getCodigo(), rep->getEtiqueta(), descripcion, consulta);
+		consulta->agregarDiagnostico(diag);
 		cout << "Diagnostico agregado.\n";
 
 		string agregarTratamientos = "S";
 
 		while (agregarTratamientos == "S") {
 			string tipoTratamiento;
-			cout << "¿Que tipo de tratamiento desea agregar? (F/Q): ";
+			cout << "Que tipo de tratamiento desea agregar? (F/Q): ";
 			cin >> tipoTratamiento;
 			while((tipoTratamiento != "F") && (tipoTratamiento != "Q")){
 				cout << "Seleccion incorrecta, ingrese nuevamente: ";
@@ -565,7 +566,7 @@ void altaDiagnosticosConsulta(){
 				ct->agregarTratamientoQuirurjico(cedulaMedico,desc,fechaOper,diag);
 			} else if (tipoTratamiento == "F") {
 				string medicamento, opcionMedicamento;
-				cout << "Ingrese los medicamentos correspondientes al Tratamiento \n";
+				cout << "Ingrese los medicamentos correspondientes al Tratamiento \n";	//(*it)->show();
 				opcionMedicamento = "S";
 				while(opcionMedicamento == "S") {
 
@@ -580,13 +581,14 @@ void altaDiagnosticosConsulta(){
 
 					diag->agregarTratamiento(tfarm);
 
-					cout << "¿Desea agregar otro medicamento? (S/N): "; cin >> opcionMedicamento;
+					cout << "Desea agregar otro medicamento? (S/N): "; cin >> opcionMedicamento;
 				}
 			}
-			cout << "¿Desea agregar otro tratamiento? (S/N): "; cin >> agregarTratamientos;
+			cout << "Desea agregar otro tratamiento? (S/N): "; cin >> agregarTratamientos;
 		}
-		cout << "¿Desea agregar otro diagnostico? (S/N): "; cin >> agregarDiagnosticos;
+		cout << "Desea agregar otro diagnostico? (S/N): "; cin >> agregarDiagnosticos;
 	}
+	cout << "Diagnosticos agregados satisfactoriamente" << endl;
 }
 
 void altaMedicamento(){
@@ -1094,19 +1096,60 @@ void agregarDatosDePrueba() {
 	// DIAGNOSTICOS DE CONSULTAS
 
 	DataRep* rep = mr->obtenerRepresentacion("A","A02");
-	Diagnostico* D1 = cd->altaDiagnostico(rep->getCodigo(), rep->getEtiqueta(), "Desc 1",cc->getConsulta(34562345,Fecha(23,6,2014)));
+	Consulta* cons = cc->getConsulta(34562345,Fecha(23,6,2014));
+	Diagnostico* D1 = cd->altaDiagnostico(rep->getCodigo(), rep->getEtiqueta(),"Desc 1",cons);
+
+	rep = mr->obtenerRepresentacion("B","B01");
+	Diagnostico* D2 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 2",cons);
+
+	rep = mr->obtenerRepresentacion("A","A02");
+	cons = cc->getConsulta(65436667,Fecha(16,3,2014));
+	Diagnostico* D3 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 3",cons);
+
+	rep = mr->obtenerRepresentacion("B","B01");
+	cons = cc->getConsulta(34562345,Fecha(23,05,2014));
+	Diagnostico* D4 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 4",cons);
+
+	rep = mr->obtenerRepresentacion("A","A01");
+	cons = cc->getConsulta(65436667,Fecha(24,05,2014));
+	Diagnostico* D5 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 5",cons);
+
+	rep = mr->obtenerRepresentacion("A","A02");
+	Diagnostico* D6 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 6",cons);
+
 
 	// TRATAMIENTOS FARMACOLOGICOS
 
 	Farmacologico* tfarm;
 
-	tfarm = new Farmacologico();
+	tfarm = new Farmacologico("Desc 1");
 	tfarm->agregarMedicamento(mmed->find("M1"));
 	D1->agregarTratamiento(tfarm);
 
+	tfarm = new Farmacologico("Desc 2");
+	tfarm->agregarMedicamento(mmed->find("M2"));
+	D1->agregarTratamiento(tfarm);
+
+	tfarm = new Farmacologico("Desc 3");
+	tfarm->agregarMedicamento(mmed->find("M3"));
+	D1->agregarTratamiento(tfarm);
+
+	tfarm = new Farmacologico("Desc 4");
+	tfarm->agregarMedicamento(mmed->find("M1"));
+	D4->agregarTratamiento(tfarm);
+
+	tfarm = new Farmacologico("Desc 5");
+	tfarm->agregarMedicamento(mmed->find("M2"));
+	D5->agregarTratamiento(tfarm);
+
+	tfarm = new Farmacologico("Desc 6");
+	tfarm->agregarMedicamento(mmed->find("M3"));
+	D6->agregarTratamiento(tfarm);
+
 	// TRATAMIENTOS QUIRURGICOS
 
-	ct->agregarTratamientoQuirurjico(65436667,"Desc 11",Fecha(25,7,2014),D1);
+	ct->agregarTratamientoQuirurjico(65436667,"Desc 11",Fecha(25,7,2014),D2);
+	ct->agregarTratamientoQuirurjico(43521343,"Desc 22",Fecha(01,02,2014),D3);
 
 	// SUSCRIPCIONES
 

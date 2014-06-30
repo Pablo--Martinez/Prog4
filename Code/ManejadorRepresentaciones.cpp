@@ -68,7 +68,7 @@ bool ManejadorRepresentaciones::existeRepresentacion(string letra,string codigo)
 DataRep* ManejadorRepresentaciones::obtenerRepresentacion(string letra,string codigo) {
 	set<DataRep*> representaciones = this->representaciones[letra];
 	if (representaciones.empty()) {
-		return false;
+		return NULL;
 	}
 	for(set<DataRep*>::iterator dr = representaciones.begin();dr != representaciones.end();++dr) {
 		string thiscodigo = (*dr)->getCodigo();
@@ -77,7 +77,7 @@ DataRep* ManejadorRepresentaciones::obtenerRepresentacion(string letra,string co
 			return (*dr);
 		}
 	}
-	return false;
+	return NULL;
 }
 bool ManejadorRepresentaciones::existeCategoria(string letra) {
 	if (this->categorias.find(letra) == this->categorias.end()){

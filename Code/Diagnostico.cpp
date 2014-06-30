@@ -7,6 +7,7 @@ Diagnostico::Diagnostico(string codigo, string etiqueta, string descripcion, Con
 	this->etiqueta = etiqueta;
 	this->descripcion = descripcion;
 	this->consulta = consulta;
+	consulta->agregarDiagnostico(this);
 }
 
 Diagnostico::~Diagnostico(){
@@ -50,7 +51,7 @@ set<Tratamiento*> Diagnostico::getTratamientos(){
 
 DataDiagnostico* Diagnostico::getDataDiagnostico(){
 	if(this != NULL){
-		DataRep* dr = new DataRep(this->codigo,this->etiqueta);
+		DataRep* dr = new DataRep(this->codigo,this->etiqueta); // ACA ESTA EL BUG
 		DataDiagnostico* dd = new DataDiagnostico(dr,this->descripcion);
 		for(set<Tratamiento*>::iterator it = this->tratamientos.begin();it!=this->tratamientos.end();++it){
 			DataTratamiento* dt = (*it)->getDataTratamiento();

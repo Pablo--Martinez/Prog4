@@ -11,8 +11,10 @@ DataDiagnostico::~DataDiagnostico() {
 }
 
 DataDiagnostico::DataDiagnostico(DataRep* dr,string desc){
-	this->descripicon = desc;
-	this->representacion = dr;
+	if(this != NULL){
+		this->descripicon = desc;
+		this->representacion = dr;
+	}
 }
 
 void DataDiagnostico::agregarTratamiento(DataTratamiento* dt){
