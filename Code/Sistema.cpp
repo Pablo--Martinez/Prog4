@@ -367,9 +367,6 @@ void registroConsulta(){
 	RelojSistema* rs = RelojSistema::getInstance();
 	Fecha fecha_consulta;
 
-	//Se ingresa la fecha de la consulta
-	fecha_consulta = ingresarFecha();
-
 	if(tipo_consulta == "reserva"){
 		int ci_doc;
 
@@ -599,7 +596,7 @@ void altaRepresentacionEstandarizada(){
 
 		listo = false;
 
-		while (!listo || letraCat == "0") {
+		while (!listo && letraCat == "0") {
 			cout << "Letra de la nueva categoria: ";
 			cin >> letraCat;
 			cout << "Etiqueta de la nueva categoria: ";
@@ -686,6 +683,12 @@ void suscribirseAPaciente(){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 
+	if(!cu->usuarioLogueado())
+		throw std::invalid_argument("No hay usuario logueado");
+
+	if(mm->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+		throw std::invalid_argument("Se deben tener privilegios de medico");
+
 	cout << "Usuarios del sistema: " << endl;
 	for(map<int,Socio*>::iterator it = ms->getSocios().begin();it != ms->getSocios().end();++it){
 		DataUsuario du;
@@ -698,7 +701,13 @@ void suscribirseAPaciente(){
 		cout << "Cedula incorrecta, ingrese nuevamente: "; cin >> ci_soc;
 	}
 
-	mm->find(cu->getUsuarioLogueado()->getCI())->seguir(ms->find(ci_soc));
+	int ci_med = cu->getUsuarioLogueado()->getCI();
+	Socio* s = ms->find(ci_soc);
+	Medico* m = mm->find(ci_med);
+	m->seguir(s);
+	//mm->find()->seguir();
+	cout << "Se ha realizado la suscripcion satisfactoriamente" << endl << endl;
+
 
 }
 
@@ -712,6 +721,8 @@ void verNotificaciones(){
 
 	if(mm->find(cu->getUsuarioLogueado()->getCI()) == NULL)
 		throw std::invalid_argument("Se deben tener privilegios de medico");
+
+
 
 	map<int,set<Notificacion*> > notificaciones = mm->find(cu->getUsuarioLogueado()->getCI())->getNotificaciones();
 
@@ -731,7 +742,9 @@ void verNotificaciones(){
 			cout << "Cedula incorrecta, ingrese nuevamente: "; cin >> ci_soc;
 		}
 
-		mm->find(cu->getUsuarioLogueado()->getCI())->showNotificaciones(ci_soc);
+		int ci_med = cu->getUsuarioLogueado()->getCI();
+		Medico* m = mm->find(ci_med);
+		m->showNotificaciones(ci_soc);
 	}
 }
 
