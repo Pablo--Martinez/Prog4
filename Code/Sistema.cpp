@@ -79,9 +79,12 @@ void modificarFechaSistema(){
 
 void verFechaSistema(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+	//ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 	//if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
 	//	throw std::invalid_argument("Se requieren permisos de administrador");
+
+	if(!cu->usuarioLogueado())
+		throw std::invalid_argument("No hay usuario logueado");
 
 	RelojSistema* rs = RelojSistema::getInstance();
 	cout << "Fecha(dia/mes/anio hora:minutos): "
