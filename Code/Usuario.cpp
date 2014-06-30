@@ -3,9 +3,9 @@
 Usuario::Usuario(){}
 
 Usuario::~Usuario(){
-	for(set<Rol*>::iterator it = this->roles.begin();it != this->roles.end();++it){
+	/*for(set<Rol*>::iterator it = this->roles.begin();it != this->roles.end();++it){
 		delete (*it);
-	}
+	}*/
 	this->roles.clear();
 }
 

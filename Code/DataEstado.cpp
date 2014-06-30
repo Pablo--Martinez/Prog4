@@ -33,10 +33,10 @@ void DataEstado::show(){
 
 			int i=0;
 			for(set<DataConReserva*>::iterator it = conReserva.begin();it!=conReserva.end();++it){
-					cout << "\t" << i+1 << ")" << "Fecha de consulta:" << endl;
-					(*it)->getFechaConsulta().show();
-					cout << "Fecha de reserva;" << endl;
-					(*it)->getFechaReserva().show();
+					cout << "\t" << i+1 << ")" << "Fecha de consulta:";
+					cout << "\t"; (*it)->getFechaConsulta().show(); cout << endl;
+					cout << "\t"; cout << "Fecha de reserva;";
+					cout << "\t"; (*it)->getFechaReserva().show(); cout << endl;
 					i++;
 			}
 		}

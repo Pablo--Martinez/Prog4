@@ -12,10 +12,6 @@ Medico::~Medico(){
 		cat->second.clear();
 	}
 	this->notificaciones.clear();
-	/*for(set<Consulta*>::iterator it = this->atiende.begin();it != this->atiende.end();++it){
-		delete (*it);
-	}
-	this->atiende.clear();*/
 }
 
 tipoRol Medico::getTipoRol() {
@@ -40,7 +36,6 @@ void Medico::seguir(Socio* s){
 }
 
 void Medico::notify(int ci_socio, Medico* medico ,Fecha fecha ,bool seAgregoDiag){
-	//this->notificaciones->getInstance();
 	Notificacion* note = new Notificacion(medico,fecha,seAgregoDiag);
 	this->notificaciones[ci_socio].insert(note);
 }
@@ -48,16 +43,11 @@ void Medico::notify(int ci_socio, Medico* medico ,Fecha fecha ,bool seAgregoDiag
 DataMedico* Medico::getDataMedico(){
 	DataUsuario* du = this->getUsuario()->getDataUsuario();
 	DataMedico* dm = new DataMedico(du);
-	/*for(set<Consulta*>::iterator it=this->atiende.begin();it!=this->atiende.end();++it){
-		DataConsulta* dc = (*it)->getDataConsulta();
-		dm->agregarConsulta(dc);
-	}*/
 	return dm;
 }
 
 DataMedico* Medico::obtenerHistorial(int ci_socio){
 	bool encontre = false;
-	ManejadorSocios* ms = ManejadorSocios::getInstance();
 	DataMedico* dm = this->getDataMedico();
 	for(set<Consulta*>::iterator it = this->atiende.begin();it != this->atiende.end();++it){
 		if((*it)->perteneceASocio(ci_socio)){

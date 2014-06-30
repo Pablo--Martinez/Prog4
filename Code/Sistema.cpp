@@ -6,6 +6,7 @@
 #include "ManejadorAdministradores.h"
 #include "ManejadorMedicamentos.h"
 #include "ManejadorRepresentaciones.h"
+#include "ControladorTratamientos.h"
 
 using namespace std;
 
@@ -394,7 +395,7 @@ void registroConsulta(){
 		}
 	}
 	else{
-		int criterio, cantidad, ci_doc;
+		int criterio, cantidad;
 		string motivo;
 
 		cout << "Criterio de seleccion de medico: " << endl <<
@@ -721,11 +722,7 @@ void obtenerHistorialPaciente(){
 		if(mm->find(it->first)->obtenerHistorial(ci_soc) != NULL)
 			historial->agregarMedico(mm->find(it->first)->obtenerHistorial(ci_soc));
 	}
-
 	historial->show();
-
-
-
 }
 
 void suscribirseAPaciente(){
@@ -843,6 +840,18 @@ void estadoDeSituacion(){
 
 	DataEstado* estado = soc->obtenerEstadoReservas();
 	estado->show();
+}
+
+void eliminarMemoria(){
+	delete ControladorUsuarios::getInstance();
+	delete ControladorConsultas::getInstance();
+	delete ControladorDiagnosticos::getInstance();
+	delete ControladorTratamientos::getInstance();
+	delete ManejadorAdministradores::getInstance();
+	delete ManejadorMedicamentos::getInstance();
+	delete ManejadorMedicos::getInstance();
+	delete ManejadorSocios::getInstance();
+	delete ManejadorRepresentaciones::getInstance();
 }
 
 void agregarDatosDePrueba() {
@@ -1197,6 +1206,6 @@ int main(){
 		}
 
 	}
-
+	eliminarMemoria();
 	return 0;
 }

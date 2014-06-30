@@ -136,7 +136,6 @@ DataHistorial* ControladorConsultas::obtenerHistorial(int ci_user,Fecha fecha_si
 }
 
 void ControladorConsultas::seleccionarCriterio(int criterio){
-	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	if(criterio == 2)
 		this->estrategia = new MedicosDelPaciente(this->ci_tratante);
 	else
