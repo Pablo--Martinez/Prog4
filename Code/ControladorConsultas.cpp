@@ -40,7 +40,7 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_co
 	set<Consulta*> consultas_socio = ms->find(ci_user)->getConsultasSolicitadas();
 	set<Consulta*>::iterator it = consultas_socio.begin();
 	while(it != consultas_socio.end()){
-		if(typeid(*it) == typeid(ConReserva)){
+		if(typeid(**it) == typeid(ConReserva)){
 			ConReserva* r = dynamic_cast<ConReserva*>(*it);
 			if(r->perteneceASocio(ci_user) && r->perteneceAMedico(ci_doc) && r->getFechaConsulta() == fecha_consulta){
 				r->registrar();
@@ -95,7 +95,7 @@ void ControladorConsultas::devolverConsulta(Fecha fecha_consulta){
 set<DataConsulta*> ControladorConsultas::consultasDelDia(Fecha fecha_sistema){
 	set<DataConsulta*> res;
 	for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
-		if(typeid(*it) == typeid(ConReserva)){
+		if(typeid(**it) == typeid(ConReserva)){
 			ConReserva* r = dynamic_cast<ConReserva*>(*it);
 			if(r->getFechaConsulta() > fecha_sistema){
 				DataConsulta* aux = r->getDataConsulta();

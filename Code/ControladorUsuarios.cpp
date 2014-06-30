@@ -145,6 +145,7 @@ void ControladorUsuarios::confirmarInscripcion(){
 	DataUsuario* du = u->getDataUsuario();
 	RelojSistema* rs = RelojSistema::getInstance();
     aLogueado->agregarUsuarioAltaReactivacion(du, rs->getFechaSistema(), true);//Cuando es True es porque es alta
+    this->categorias.clear();
 	this->usuarios[this->ci] = u;
 }
 
@@ -169,12 +170,12 @@ void ControladorUsuarios::recalcularInasistencias(Fecha fecha_sistema){
 		int cantidad = 0;
 		set<Consulta*> consultas = socio->second->getConsultasSolicitadas();
 		for(set<Consulta*>::iterator consulta = consultas.begin();consulta!=consultas.end();++consulta){
-			if(typeid(*consulta) == typeid(ConReserva)){
+			if(typeid(**consulta) == typeid(ConReserva)){
 				ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
-				if(r->getFechaConsulta() > fecha_sistema && r->getAsiste())
+				if((r->getFechaConsulta() < fecha_sistema) && !(r->getAsiste()))
 					cantidad++;
 			}
-		if(cantidad > this->maximo_inasistencias)
+		if(cantidad >= this->maximo_inasistencias)
 			this->usuarios[socio->first]->desactivar();
 		}
 	}

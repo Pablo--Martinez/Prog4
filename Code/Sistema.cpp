@@ -270,7 +270,7 @@ void altaReactivacionUsuario(){
 		}
 
 		string Confirmar;
-		cout << "¿Confirmar alta de Usuario? (S/N) \n";
+		cout << "¿Confirmar alta de Usuario? (S/N): ";
 		cin >> Confirmar;
 		if (Confirmar == "S"){
 			cu->confirmarInscripcion();
@@ -287,6 +287,7 @@ void reservaConsulta(){
 
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	RelojSistema* rs = RelojSistema::getInstance();
 
 	if(!cu->usuarioLogueado())
 		iniciarSesion();
@@ -294,6 +295,10 @@ void reservaConsulta(){
 	cout << "Ingresar fecha a reservar:" << endl;
 
 	Fecha f = ingresarFecha();
+	while(f < rs->getFechaSistema()){
+		cout << "Fecha incorrecta, ingresar nuevamente: " << endl;
+		f = ingresarFecha();
+	}
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
 
 	cc->ingresarFechaConsulta(f);
