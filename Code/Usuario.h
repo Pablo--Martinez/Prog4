@@ -33,6 +33,7 @@ class Usuario{
 		set<Rol*> roles;
 	public:
 		Usuario();
+		~Usuario();
 		Usuario(int,string,string,Sexo,bool,Fecha);
 		int getCI();
 		string getNombre();
