@@ -22,12 +22,15 @@ bool ConReserva::getAsiste(){
 }
 
 DataConsulta* ConReserva::getDataConsulta(){
-	DataConReserva* res = new DataConReserva(this->getFechaConsulta(),this->fecha_reserva,this->asiste);
-	for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
-		DataDiagnostico* dd = (*it)->getDataDiagnostico();
-		res->agregarDiagnostico(dd);
+	if(this != NULL){
+		DataConReserva* res = new DataConReserva(this->getFechaConsulta(),this->fecha_reserva,this->asiste);
+			for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
+				DataDiagnostico* dd = (*it)->getDataDiagnostico();
+				res->agregarDiagnostico(dd);
+			}
+			return res;
 	}
-	return res;
+	return NULL;
 }
 
 void ConReserva::show(){

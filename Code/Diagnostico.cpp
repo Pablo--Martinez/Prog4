@@ -43,13 +43,16 @@ set<Tratamiento*> Diagnostico::getTratamientos(){
 }
 
 DataDiagnostico* Diagnostico::getDataDiagnostico(){
-	DataRep* dr = new DataRep(this->codigo,this->etiqueta);
-	DataDiagnostico* dd = new DataDiagnostico(dr,this->descripcion);
-	for(set<Tratamiento*>::iterator it = this->tratamientos.begin();it!=this->tratamientos.end();++it){
-		DataTratamiento* dt = (*it)->getDataTratamiento();
-		dd->agregarTratamiento(dt);
+	if(this != NULL){
+		DataRep* dr = new DataRep(this->codigo,this->etiqueta);
+		DataDiagnostico* dd = new DataDiagnostico(dr,this->descripcion);
+		for(set<Tratamiento*>::iterator it = this->tratamientos.begin();it!=this->tratamientos.end();++it){
+			DataTratamiento* dt = (*it)->getDataTratamiento();
+			dd->agregarTratamiento(dt);
+		}
+		return dd;
 	}
-	return dd;
+	return NULL;
 }
 
 DataRep* Diagnostico::getDataRepDiagnostico(){

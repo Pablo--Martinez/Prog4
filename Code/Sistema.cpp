@@ -181,7 +181,7 @@ void altaReactivacionUsuario(){
 		}
 
 		if (du->getActivo()) {
-			cout << "\t-Estado: actico \n" << endl;
+			cout << "\t-Estado: activo \n" << endl;
 		}
 		else if(!du->getActivo() && !(du->getPass() == "")){
 			string reactivar;
@@ -492,14 +492,15 @@ void devolucionConsulta(){
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
 	set<DataConsulta*> consultasActivas= cc->consultasActivasXUsuario();
 
-	cout << "Consultas activas" << endl;
-	if (consultasActivas.empty()){
+		if (consultasActivas.empty()){
 		cout << "El usuario logueado no tiene consultas activas \n" << endl;
 	}
 	else{
+		cout << "Consultas activas" << endl;
 		for(set<DataConsulta*>::iterator it = consultasActivas.begin();it!=consultasActivas.end();++it){
 			//listadoConsultasActivas.insert((*it)->getFechaConsulta());
 			(*it)->getFechaConsulta().show();
+			cout << endl;
 		}
 		//El usuario elige la consulta
 		Fecha fechaSeleccionada;
@@ -512,14 +513,17 @@ void devolucionConsulta(){
 			for(set<DataConsulta*>::iterator auxIt = consultasActivas.begin();auxIt!=consultasActivas.end();++auxIt){
 				if (((*auxIt)->getFechaConsulta()) == fechaSeleccionada){
 					bandera = true;
+					break;
 				}
 			}
-			cout << "Seleccion incorrecta, ingrese nuevamente: \n";
-			fechaSeleccionada = ingresarFecha();
+			if(!bandera){
+				cout << "Seleccion incorrecta, ingrese nuevamente: \n";
+				fechaSeleccionada = ingresarFecha();
+			}
 
 		}
 		cc->devolverConsulta(fechaSeleccionada);
-		cout << "Se ah eliminado la consulta \n" << endl;
+		cout << "Se ha eliminado la consulta \n" << endl;
 	}
 }
 
@@ -558,14 +562,14 @@ void altaRepresentacionEstandarizada(){
 
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
 	ControladorDiagnosticos* cr = ControladorDiagnosticos::getInstance();
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 
-	mr->agregarCategoria("A","Una categoria");
-	mr->agregarCategoria("B","Otra categoria");
-	mr->agregarCategoria("C","Ultima categoria");
-	mr->agregarRepresentacion("A","A00","repa0");
-	mr->agregarRepresentacion("A","A01","repa1");
-	mr->agregarRepresentacion("A","A03","repa2");
-	mr->agregarRepresentacion("B","B00","repb0");
+	if(!cu->usuarioLogueado())
+		throw std::invalid_argument("No hay usuario logueado");
+
+	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+		throw std::invalid_argument("Se deben tener privilegios de administrador");
 
 	string letraCat = "S";
 	string etiquetaCat;
@@ -594,20 +598,24 @@ void altaRepresentacionEstandarizada(){
 			}
 		}
 
-		listo = false;
+		if (letraCat == "0") {
 
-		while (!listo && letraCat == "0") {
-			cout << "Letra de la nueva categoria: ";
-			cin >> letraCat;
-			cout << "Etiqueta de la nueva categoria: ";
-			cin >> etiquetaCat;
+			listo = false;
 
-			if (mr->existeCategoria(letraCat)) {
-				cout << "ERROR: La categoria ingresada ya existe.\n";
-			} else {
-				cr->ingresarCategoria(letraCat,etiquetaCat);
-				listo = true;
+			while (!listo) {
+				cout << "Letra de la nueva categoria: ";
+				cin >> letraCat;
+				cout << "Etiqueta de la nueva categoria: ";
+				cin >> etiquetaCat;
+
+				if (mr->existeCategoria(letraCat)) {
+					cout << "ERROR: La categoria ingresada ya existe.\n";
+				} else {
+					cr->ingresarCategoria(letraCat,etiquetaCat);
+					listo = true;
+				}
 			}
+
 		}
 
 		cout << "Categoria seleccionada: " << cr->obtenerCategoriaSeleccionada() << "\n";
@@ -629,7 +637,7 @@ void altaRepresentacionEstandarizada(){
 			cin >> codigoRep;
 			cout << "Etiqueta de la nueva representacion: ";
 			cin >> etiquetaRep;
-			if (mr->existeRepresentacion(cr->obtenerCategoriaSeleccionada(),codigoRep,etiquetaRep)) {
+			if (mr->existeRepresentacion(cr->obtenerCategoriaSeleccionada(),cr->obtenerCategoriaSeleccionada()+codigoRep,etiquetaRep)) {
 				cout << "Error: La representacion ingresada ya existe.\n";
 				cout << "Desea ingresar otra? (S/N): ";
 				cin >> letraCat;
@@ -648,10 +656,11 @@ void altaRepresentacionEstandarizada(){
 
 	cout << "Confirma los datos ingresados? (S/N): ";
 	cin >> letraCat;
-	if(letraCat == "S") {
+	if (letraCat == "S") {
 		cr->confirmarRepEst();
 		cout << "Datos ingresados con exito! \n";
 	} else {
+		cr->clearRepEst();
 		cout << "Operacion cancelada! \n";
 	}
 
@@ -662,6 +671,15 @@ void listarRepresentacionesEstandarizadas(){
 	cout << "Listar Representaciones Estandarizadas... \n";
 
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+
+	if(!cu->usuarioLogueado())
+		throw std::invalid_argument("No hay usuario logueado");
+
+	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL && mm->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+		throw std::invalid_argument("Se deben tener privilegios de administrador o medico");
 
 	map<string,DataRep*> categorias = mr->obtenerCategorias();
 	for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
@@ -796,6 +814,89 @@ void estadoDeSituacion(){
 	estado->show();
 }
 
+void agregarDatosDePrueba() {
+
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ControladorConsultas* cc = ControladorConsultas::getInstance();
+	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
+
+	// INICIAR SESION DEL ADMINISTRADOR
+
+	//cu->iniciarSesion(34567645);
+	//cu->asignarSesion();
+
+	// USUARIOS
+
+	cu->ingresoCI(34562345);
+	cu->ingresarDatosUser("Tifany", "McKensey", F, Fecha(1,1,1990));
+	cu->ingresarCategoria(Soc);
+	cu->confirmarInscripcion();
+
+	cu->ingresoCI(12345435);
+	cu->ingresarDatosUser("Diego", "Perez", M, Fecha(3,3,1980));
+	cu->ingresarCategoria(Soc);
+	cu->confirmarInscripcion();
+
+	cu->ingresoCI(65436667);
+	cu->ingresarDatosUser("Juan", "Montoya", M, Fecha(7,4,1970));
+	cu->ingresarCategoria(Soc);
+	cu->ingresarCategoria(Med);
+	cu->confirmarInscripcion();
+
+	cu->ingresoCI(43521343);
+	cu->ingresarDatosUser("Debora", "Corral", F, Fecha(13,7,1993));
+	cu->ingresarCategoria(Med);
+	cu->confirmarInscripcion();
+
+	cu->ingresoCI(98056743);
+	cu->ingresarDatosUser("Ana", "Lopez", F, Fecha(24,9,1981));
+	cu->ingresarCategoria(Med);
+	cu->confirmarInscripcion();
+
+	// RESERVAS COMUNES
+
+	/*cc->ingresarFechaConsulta(Fecha(21,6,2014));
+	cc->ingresarConsulta(65436667);
+	cc->registroReserva(34562345,65436667,Fecha(21,6,2014),Fecha(23,6,2014));
+
+	cc->ingresarFechaConsulta(Fecha(22,5,2014));
+	cc->ingresarConsulta(43521343);
+	cc->registroReserva(34562345,43521343,Fecha(22,5,2014),Fecha(22,6,2014));
+
+	cc->ingresarFechaConsulta(Fecha(15,3,2014));
+	cc->ingresarConsulta(43521343);
+	cc->registroReserva(65436667,43521343,Fecha(15,3,2014),Fecha(16,3,2014));
+
+	cc->ingresarFechaConsulta(Fecha(28,2,2014));
+	cc->ingresarConsulta(98056743);
+	cc->registroReserva(12345435,98056743,Fecha(28,2,2014),Fecha(1,3,2014));*/
+
+	// RESERVAS DE EMERGENCIA
+
+	/*cc->registroEmergencia(34562345,65436667,"Fiebre alta",Fecha(23,5,2014));
+	cc->registroEmergencia(65436667,43521343,"Asma",Fecha(24,5,2014));
+	cc->registroEmergencia(65436667,98056743,"Mareos",Fecha(3,3,2014));*/
+
+	// REPRESENTACIONES ESTANDARIZADAS
+
+	mr->agregarCategoria("A","Afecciones pulmonares");
+	mr->agregarCategoria("B","Aparato Digestivo");
+	mr->agregarRepresentacion("A","A01","Asma");
+	mr->agregarRepresentacion("A","A02","Congestion");
+	mr->agregarRepresentacion("B","B01","Nauseas");
+
+	// DIAGNOSTICOS DE CONSULTAS
+
+	// TRATAMIENTOS FARMACOLOGICOS
+
+	// TRATAMIENTOS QUIRURGICOS
+
+	// SUSCRIPCIONES
+
+	// CERRAR LA SESION DEL ADMINISTRADOR
+	//cu->cerrarSesion();
+}
+
 //MAIN PRINCIPAL
 
 int main(){
@@ -807,6 +908,7 @@ int main(){
 	while(true){
 		if(!cu->usuarioLogueado()){
 			cout << "- iniciarSesion" << endl
+				 << "- agregarDatosDePrueba" << endl
 				 << "- salir" << endl;
 
 		}
@@ -830,7 +932,8 @@ int main(){
 				 << "17- verMaximoInasistencias" << endl
 				 << "18- setearMaximoInasistencias" << endl
 				 << "19- cerrarSesion" << endl
-				 << "20- salir" << endl << endl;
+				 << "20- datosDePrueba" << endl
+				 << "21- salir" << endl << endl;
 		}
 
 		cout << ">> "; cin >> opcion;
@@ -862,7 +965,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "altaRepresentacionEstandarizada"){
+		else if(opcion == "altaRepresentacionEstandarizada" || opcion == "4"){
 			try{
 				altaRepresentacionEstandarizada();
 			}
@@ -871,7 +974,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "listarRepresentacionesEstandarizadas"){
+		else if(opcion == "listarRepresentacionesEstandarizadas" || opcion == "5"){
 			try{
 				listarRepresentacionesEstandarizadas();
 			}
@@ -1006,6 +1109,15 @@ int main(){
 			}
 		}
 
+		else if(opcion == "agregarDatosDePrueba"){
+			try{
+				agregarDatosDePrueba();
+			}
+			catch (const std::invalid_argument& e) {
+				std::cerr << "ERROR: " << e.what() << endl;
+			}
+		}
+
 		else if(opcion == "cerrarSesion"){
 			try{
 				cerrarSesion();
@@ -1013,6 +1125,9 @@ int main(){
 			catch (const std::invalid_argument& e) {
 				std::cerr << "ERROR: " << e.what() << endl;
 			}
+		}
+		else if(opcion == "datosDePrueba"){
+			agregarDatosDePrueba();
 		}
 
 		else if(opcion == "salir"){

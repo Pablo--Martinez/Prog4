@@ -49,16 +49,28 @@ void ControladorDiagnosticos::ingresarRepDiag(string codigo,string etiqueta) {
 
 void ControladorDiagnosticos::confirmarRepEst() {
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
-	//cout << "Entra en ConfirmarRepEst.. \n";
 	for(map<string,DataRep*>::iterator cat = this->categorias.begin(); cat != this->categorias.end();++cat){
-		//cout << "Prueba una categoria.. \n";
 		if (!mr->existeCategoria(cat->second->getCodigo())) {
-			cout << "AgregarCategoria: " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
 			mr->agregarCategoria(cat->second->getCodigo(),cat->second->getEtiqueta());
 		}
 		mr->ingresarRepresentaciones(cat->second->getCodigo(),this->representaciones[cat->second->getCodigo()]);
 	}
 	// aca hay que destruir todo el registro temporal de representaciones
+	this->clearRepEst();
+}
+
+void ControladorDiagnosticos::clearRepEst() {
+	for(map<string,DataRep*>::iterator cat = this->categorias.begin(); cat != this->categorias.end();++cat){
+		delete cat->second;
+	}
+	this->categorias.clear();
+	for(map<string, set<DataRep*> >::iterator cat = this->representaciones.begin(); cat != this->representaciones.end();++cat){
+		for(set<DataRep*>::iterator dr = cat->second.begin();dr != cat->second.end();++dr) {
+			delete (*dr);
+		}
+		cat->second.clear();
+	}
+	this->representaciones.clear();
 }
 
 set<string> ControladorDiagnosticos::obtenerCategorias(){

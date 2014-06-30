@@ -31,8 +31,7 @@ bool ManejadorRepresentaciones::existeRepresentacion(string letra,string codigo,
 	for(set<DataRep*>::iterator dr = representaciones.begin();dr != representaciones.end();++dr) {
 		string thiscodigo = (*dr)->getCodigo();
 		string thisetiqueta = (*dr)->getEtiqueta();
-		string newcodigo = letra+codigo;
-		if (thiscodigo == newcodigo && thisetiqueta == etiqueta) {
+		if (thiscodigo == codigo || thisetiqueta == etiqueta) {
 			return true;
 		}
 	}
@@ -48,7 +47,6 @@ bool ManejadorRepresentaciones::existeCategoria(string letra) {
 void ManejadorRepresentaciones::ingresarRepresentaciones(string letraCat,set<DataRep*> reps) {
 	for(set<DataRep*>::iterator dr = reps.begin();dr != reps.end();++dr) {
 		if (!this->existeRepresentacion(letraCat,(*dr)->getCodigo(),(*dr)->getEtiqueta())) {
-			cout << "agregarRepresentacion: " << letraCat << " " << (*dr)->getCodigo() << " " << (*dr)->getEtiqueta() << "\n";
 			this->agregarRepresentacion(letraCat,(*dr)->getCodigo(),(*dr)->getEtiqueta());
 		}
 	}

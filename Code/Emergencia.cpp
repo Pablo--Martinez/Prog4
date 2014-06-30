@@ -13,12 +13,15 @@ string Emergencia::getMotivo(){
 }
 
 DataConsulta* Emergencia::getDataConsulta(){
-	DataEmergencia* res =  new DataEmergencia(this->getFechaConsulta(),this->motivo);
-	for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
-		DataDiagnostico* dd = (*it)->getDataDiagnostico();
-		res->agregarDiagnostico(dd);
+	if(this != NULL){
+		DataEmergencia* res =  new DataEmergencia(this->getFechaConsulta(),this->motivo);
+		for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
+			DataDiagnostico* dd = (*it)->getDataDiagnostico();
+			res->agregarDiagnostico(dd);
+		}
+		return res;
 	}
-	return res;
+	return NULL;
 }
 
 void Emergencia::show(){

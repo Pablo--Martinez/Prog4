@@ -15,17 +15,11 @@ ControladorUsuarios::ControladorUsuarios(){
 	this->usuarios[u->getCI()] = u;
 	ma->agregarAdministrador(admin);
 
-	Usuario* u1 = new Usuario(51708245,"Medico","Medico",M,true,Fecha(15,7,1992,0,0));
-	Usuario* u2 = new Usuario(51708240,"Socio","Socio",F,true,Fecha(15,7,1992,0,0));
-	Medico* m = new Medico(u1);
-	Socio* s = new Socio(u2);
-	this->usuarios[51708245] = u1;
-	this->usuarios[51708240] = u2;
-
-	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-	ManejadorSocios* ms = ManejadorSocios::getInstance();
-	mm->agregarMedico(m);
-	ms->agregarSocio(s);
+	/*Usuario* ud = new Usuario(34567645,"James","Peer",M,true,Fecha(28,12,1988));
+	Administrador* admind =  new Administrador(ud);
+	ud->agregarRol(admind);
+	this->usuarios[ud->getCI()] = ud;
+	ma->agregarAdministrador(admind);*/
 
 }
 
@@ -51,9 +45,9 @@ Usuario* ControladorUsuarios::getUsuarioLogueado(){
 	return this->logueado;
 }
 
-set<DataAltaReactivacion*> ControladorUsuarios::obtenerDaDeAltaReactiva() {
+/*set<DataAltaReactivacion*> ControladorUsuarios::obtenerDaDeAltaReactiva() {
 	return this->logueado->obtenerUsuariosAltaReactivacion();
-}
+}*/
 
 TSesion ControladorUsuarios::iniciarSesion(int ci){
 	this->a_tratar = this->usuarios[ci];

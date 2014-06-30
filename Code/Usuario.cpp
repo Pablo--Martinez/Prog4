@@ -68,8 +68,16 @@ bool Usuario::verificarPass(string pass){
 	return false;
 }
 
-set<DataAltaReactivacion*> Usuario::obtenerUsuariosAltaReactivacion() {
-	set<DataAltaReactivacion*> daDeAltaReactiva;
+/*set<DataAltaReactivacion*> Usuario::obtenerUsuariosAltaReactivacion() {
+
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+	Administrador* rolAdmin = ma->find(this->ci);
+	if (rolAdmin == NULL) {
+		throw std::invalid_argument("El usuario seleccionado no es administrador");
+	}
+	return rolAdmin->obtenerUsuariosAltaReactivacion();
+
+	/ *set<DataAltaReactivacion*> daDeAltaReactiva;
 	for(set<Rol*>::iterator r = this->roles.begin();r != this->roles.end();++r) {
 		tipoRol tipoRol = (*r)->getTipoRol();
 		if (tipoRol == administrador) {
@@ -78,11 +86,12 @@ set<DataAltaReactivacion*> Usuario::obtenerUsuariosAltaReactivacion() {
 			(*r)->obtenerUsuariosAltaReactivacion();
 		}
 	}
-	return daDeAltaReactiva;
-}
+	return daDeAltaReactiva;* /
+}*/
 
 void Usuario::activar(string pass){
 	this->pass = pass; //Se asume que el formato de pass es correcto
+	this->estado = true;
 }
 
 void Usuario::desactivar(){

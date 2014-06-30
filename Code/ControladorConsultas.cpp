@@ -71,7 +71,8 @@ set<DataConsulta*> ControladorConsultas::consultasActivasXUsuario(){
 	set<DataConsulta*> dc;
 	Fecha fecha_sistema;
 	fecha_sistema = rs->getFechaSistema();
-	for(set<Consulta*>::iterator it = s->getConsultasSolicitadas().begin();it != s->getConsultasSolicitadas().end();++it){
+	set<Consulta*> consultas = s->getConsultasSolicitadas();
+	for(set<Consulta*>::iterator it = consultas.begin();it != consultas.end();++it){
 		if(((*it)->getFechaConsulta() > fecha_sistema) && (*it)->perteneceASocio(cu->getUsuarioLogueado()->getCI())){
 			DataConsulta* aux = (*it)->getDataConsulta();
 			dc.insert(aux);

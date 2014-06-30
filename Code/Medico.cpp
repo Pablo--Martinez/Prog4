@@ -27,11 +27,6 @@ void Medico::seguir(Socio* s){
 
 }
 
-set<DataAltaReactivacion*> Medico::obtenerUsuariosAltaReactivacion() {
-	set<DataAltaReactivacion*> setVacio;
-	return setVacio;
-}
-
 void Medico::notify(int ci_socio, Medico* medico ,Fecha fecha ,bool seAgregoDiag){
 	//this->notificaciones->getInstance();
 	Notificacion* note = new Notificacion(medico,fecha,seAgregoDiag);

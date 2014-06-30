@@ -13,6 +13,9 @@ string Tratamiento::getDescripcion(){
 }
 
 DataTratamiento* Tratamiento::getDataTratamiento(){
-	DataTratamiento* dt = new DataTratamiento(this->descripcion);
-	return dt;
+	if(this != NULL){
+		DataTratamiento* dt = new DataTratamiento(this->descripcion);
+		return dt;
+	}
+	return NULL;
 }

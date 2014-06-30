@@ -32,7 +32,7 @@ class Medico: public IObserver{
 		void showNotificaciones(int);
 		map<int,set<Notificacion*> > getNotificaciones();
 		tipoRol getTipoRol();
-		virtual set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
+		//virtual set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 };
 
 #include "Usuario.h"
