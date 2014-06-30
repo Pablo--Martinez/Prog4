@@ -85,6 +85,6 @@ bool Fecha::operator >(const Fecha &f){
 
 void Fecha::show(){
 	if(this != NULL){
-		cout << this->dia << "-" << this->mes << "-" << this->anio << " " << this->hora << ":" << this->minutos << "hs";
+		cout << this->dia << "/" << this->mes << "/" << this->anio << " " << this->hora << ":" << this->minutos << "hs";
 	}
 }

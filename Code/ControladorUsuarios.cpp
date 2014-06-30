@@ -15,7 +15,7 @@ ControladorUsuarios::ControladorUsuarios(){
 	this->usuarios[u->getCI()] = u;
 	ma->agregarAdministrador(admin);
 
-	/*Usuario* ud = new Usuario(34567645,"James","Peer",M,true,Fecha(28,12,1988));
+	Usuario* ud = new Usuario(34567645,"James","Peer",M,true,Fecha(28,12,1988));
 	Administrador* admind =  new Administrador(ud);
 	ud->agregarRol(admind);
 	this->usuarios[ud->getCI()] = ud;

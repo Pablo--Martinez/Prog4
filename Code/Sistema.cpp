@@ -66,7 +66,7 @@ void modificarFechaSistema(){
 	int dia, mes, anio, hora, min;
 	RelojSistema* rs = RelojSistema::getInstance();
 
-	cout << "Nueva fecha(dia/mes/anio hora:minutos): ";
+	cout << "Nueva fecha(dia mes anio hora minutos): ";
 	cin >> dia >> mes >> anio >> hora >> min;
 	rs->modificarFechaSistema(dia,mes,anio,hora,min);
 	cu->recalcularInasistencias(rs->getFechaSistema());
@@ -906,6 +906,7 @@ int main(){
 
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	string opcion;
+	bool vermenu = true;
 
 	cout << "BIENVENIDO" << endl;
 	while(true){
@@ -916,6 +917,7 @@ int main(){
 
 		}
 		else{
+			if (vermenu) {
 			cout << "1- altaReactivarUsuario" << endl
 			     << "2- dadosDeAltaReactivados" << endl
 				 << "3- altaMedicamento" << endl
@@ -935,7 +937,10 @@ int main(){
 				 << "17- verMaximoInasistencias" << endl
 				 << "18- setearMaximoInasistencias" << endl
 				 << "19- cerrarSesion" << endl
-				 << "20- salir" << endl << endl;
+				 << "20- salir" << endl
+				 << "? - menu" << endl << endl;
+				vermenu = false;
+			}
 		}
 
 		cout << ">> "; cin >> opcion;
@@ -949,7 +954,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "altaReactivarUsuario"){
+		else if(opcion == "altaReactivarUsuario" || opcion == "1"){
 			try{
 				altaReactivacionUsuario();
 			}
@@ -958,7 +963,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "dadosDeAltaReactivados"){
+		else if(opcion == "dadosDeAltaReactivados" || opcion == "2"){
 			try{
 				usuariosDadosDeAlta();
 			}
@@ -985,7 +990,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "registrarConsulta"){
+		else if(opcion == "registrarConsulta" || opcion == "6"){
 			try{
 				registroConsulta();
 			}
@@ -994,7 +999,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "cantidadConsultasPorCategoria"){
+		else if(opcion == "cantidadConsultasPorCategoria" || opcion == "7"){
 			try{
 				cantidadConsultasPorCategoria();
 			}
@@ -1003,7 +1008,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "altaDiagnisticosDeConsulta"){
+		else if(opcion == "altaDiagnisticosDeConsulta" || opcion == "8"){
 			try{
 				altaDiagnosticosConsulta();
 			}
@@ -1012,7 +1017,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "historialPaciente"){
+		else if(opcion == "historialPaciente" || opcion == "9"){
 			try{
 				obtenerHistorialPaciente();
 			}
@@ -1021,7 +1026,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "reservarConsulta"){
+		else if(opcion == "reservarConsulta" || opcion == "10"){
 			try{
 				reservaConsulta();
 			}
@@ -1030,7 +1035,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "devolverReserva"){
+		else if(opcion == "devolverReserva" || opcion == "11"){
 			try{
 				devolucionConsulta();
 			}
@@ -1039,7 +1044,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "estadoDeSituacion"){
+		else if(opcion == "estadoDeSituacion" || opcion == "12"){
 			try{
 				estadoDeSituacion();
 			}
@@ -1048,7 +1053,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "suscribirseAPaciente"){
+		else if(opcion == "suscribirseAPaciente" || opcion == "13"){
 			try{
 				suscribirseAPaciente();
 			}
@@ -1057,7 +1062,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "verNotificaciones"){
+		else if(opcion == "verNotificaciones" || opcion == "14"){
 			try{
 				verNotificaciones();
 			}
@@ -1066,7 +1071,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "altaMedicamento"){
+		else if(opcion == "altaMedicamento" || opcion == "3"){
 			try{
 				altaMedicamento();
 			}
@@ -1075,7 +1080,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "verMaximoInasistencias"){
+		else if(opcion == "verMaximoInasistencias" || opcion == "17"){
 			try{
 				verMaximoInasistencias();
 			}
@@ -1084,7 +1089,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "setearMaximoInasistencias"){
+		else if(opcion == "setearMaximoInasistencias" || opcion == "18"){
 			try{
 				setearMaximoInasistencias();
 			}
@@ -1093,7 +1098,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "verHora"){
+		else if(opcion == "verHora" || opcion == "15"){
 			try{
 				verFechaSistema();
 			}
@@ -1102,7 +1107,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "modificarHora"){
+		else if(opcion == "modificarHora" || opcion == "16"){
 			try{
 				modificarFechaSistema();
 			}
@@ -1120,7 +1125,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "cerrarSesion"){
+		else if(opcion == "cerrarSesion" || opcion == "19"){
 			try{
 				cerrarSesion();
 			}
@@ -1129,11 +1134,15 @@ int main(){
 			}
 		}
 
-		else if(opcion == "salir"){
+		else if(opcion == "salir" || opcion == "20"){
 			if(cu->usuarioLogueado()){
 				cerrarSesion();
 			}
 			break;
+		}
+
+		else if(opcion == "?"){
+			vermenu = true;
 		}
 
 		else{
