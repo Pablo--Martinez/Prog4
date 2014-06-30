@@ -47,6 +47,7 @@ class DataUsuario {
 		bool esMedico();
 		bool esSocio();
 		set<DataRol*> getRoles();
+		void show();
 };
 
 //#include "Usuario.h"

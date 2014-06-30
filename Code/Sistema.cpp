@@ -715,10 +715,11 @@ void obtenerHistorialPaciente(){
 		cout << "Cedula incorrecta, ingrese nuevamente: "; cin >> ci_soc;
 	}
 
-	DataHistorial* historial = new DataHistorial();
+	DataHistorial* historial = new DataHistorial(ms->find(ci_soc)->getUsuario()->getDataUsuario());
 	map<int,Medico*> medicos = mm->getMedicos();
 	for(map<int,Medico*>::iterator it = medicos.begin();it!=medicos.end();++it){
-		historial->agregarMedico(mm->find(it->first)->obtenerHistorial(ci_soc));
+		if(mm->find(it->first)->obtenerHistorial(ci_soc) != NULL)
+			historial->agregarMedico(mm->find(it->first)->obtenerHistorial(ci_soc));
 	}
 
 	historial->show();

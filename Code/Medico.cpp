@@ -48,10 +48,10 @@ void Medico::notify(int ci_socio, Medico* medico ,Fecha fecha ,bool seAgregoDiag
 DataMedico* Medico::getDataMedico(){
 	DataUsuario* du = this->getUsuario()->getDataUsuario();
 	DataMedico* dm = new DataMedico(du);
-	for(set<Consulta*>::iterator it=this->atiende.begin();it!=this->atiende.end();++it){
+	/*for(set<Consulta*>::iterator it=this->atiende.begin();it!=this->atiende.end();++it){
 		DataConsulta* dc = (*it)->getDataConsulta();
 		dm->agregarConsulta(dc);
-	}
+	}*/
 	return dm;
 }
 

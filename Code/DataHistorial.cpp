@@ -28,6 +28,7 @@ set<DataMedico*> DataHistorial::getMedicos(){
 
 void DataHistorial::show(){
 	if(this != NULL){
+		this->usuario->show();
 		for(set<DataMedico*>::iterator it = this->medico.begin();it != this->medico.end();++it){
 			(*it)->show();
 		}

@@ -76,6 +76,12 @@ bool DataUsuario::getActivo(){
 	return this->activo;
 }
 
+void DataUsuario::show(){
+	cout << "CI usuario: " << this->ci << endl;
+	cout << "Nombe completo: " << this->nombre << " " << this->apellido << endl;
+	cout << "Edad: " << this->edad << endl;
+}
+
 
 
 #include "DataUsuario.h"
