@@ -8,6 +8,10 @@ ControladorConsultas::ControladorConsultas(){
 
 ControladorConsultas::~ControladorConsultas(){
 	delete this->estrategia;
+	for(set<Consulta*>::iterator c = this->consultas.begin();c != this->consultas.end();++c){
+		delete (*c);
+	}
+	this->consultas.clear();
 }
 
 ControladorConsultas* ControladorConsultas::getInstance(){

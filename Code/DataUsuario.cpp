@@ -14,7 +14,12 @@ DataUsuario::DataUsuario(int ci,string pass,string nombre,string apellido,Sexo s
 }
 
 
-DataUsuario::~DataUsuario() {}
+DataUsuario::~DataUsuario() {
+	for(set<Rol*>::iterator it = this->roles.begin();it != this->roles.end();++it){
+		delete (*it);
+	}
+	this->roles.clear();
+}
 
 int DataUsuario::getCI(){
 	return this->ci;

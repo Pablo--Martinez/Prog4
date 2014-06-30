@@ -4,7 +4,12 @@ Farmacologico::Farmacologico(){}
 
 Farmacologico::Farmacologico(string descripcion):Tratamiento(descripcion){}
 
-Farmacologico::~Farmacologico(){}
+Farmacologico::~Farmacologico(){
+	/*for(map<string,Medicamento*>::iterator it = this->medicamentos.begin();it != this->medicamentos.end();++it){
+		delete (it->second);
+	}
+	this->medicamentos.clear();*/
+}
 
 void Farmacologico::agregarMedicamento(Medicamento* m){
 	this->medicamentos[m->getNombre()] = m;

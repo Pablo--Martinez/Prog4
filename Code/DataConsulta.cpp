@@ -7,7 +7,12 @@ DataConsulta::DataConsulta(Fecha fecha_consulta/*, int ci*/){
 	//this->ci = ci;
 }
 
-DataConsulta::~DataConsulta(){}
+DataConsulta::~DataConsulta(){
+	for(set<DataDiagnostico*>::iterator it = this->diagnosticos.begin();it != this->diagnosticos.end();++it){
+		delete (*it);
+	}
+	this->diagnosticos.clear();
+}
 
 Fecha DataConsulta::getFechaConsulta(){
 	return this->fecha_consulta;

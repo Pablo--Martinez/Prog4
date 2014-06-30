@@ -4,7 +4,15 @@ HistorialNotificaciones* HistorialNotificaciones::instancia = NULL;
 
 HistorialNotificaciones::HistorialNotificaciones(){}
 
-HistorialNotificaciones::~HistorialNotificaciones(){} //FALTA HACER
+HistorialNotificaciones::~HistorialNotificaciones(){
+	for(map<int,set<Notificacion*> >::iterator cat = this->notificaciones.begin();cat != this->notificaciones.end();++cat){
+		for(set<Notificacion*>::iterator dr = cat->second.begin();dr != cat->second.end();++dr) {
+			delete (*dr);
+		}
+		cat->second.clear();
+	}
+	this->notificaciones.clear();
+} //FALTA HACER
 
 HistorialNotificaciones* HistorialNotificaciones::getInstance(){
 	if(instancia == NULL)

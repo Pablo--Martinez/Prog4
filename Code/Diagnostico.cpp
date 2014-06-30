@@ -8,7 +8,12 @@ Diagnostico::Diagnostico(string codigo, string etiqueta, string descripcion){
 	this->descripcion = descripcion;
 }
 
-Diagnostico::~Diagnostico(){}
+Diagnostico::~Diagnostico(){
+	/*for(set<Tratamiento*>::iterator it = this->tratamientos.begin();it != this->tratamientos.end();++it){
+		delete (*it);
+	}
+	this->tratamientos.clear();*/
+}
 
 string Diagnostico::getCodigo(){
 	return this->codigo;

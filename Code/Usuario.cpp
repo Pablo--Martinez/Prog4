@@ -2,6 +2,13 @@
 
 Usuario::Usuario(){}
 
+Usuario::~Usuario(){
+	for(set<Rol*>::iterator it = this->roles.begin();it != this->roles.end();++it){
+		delete (*it);
+	}
+	this->roles.clear();
+}
+
 Usuario::Usuario(int ci, string nombre, string apellido, Sexo sexo, bool estado, Fecha nacimiento){
 	this->ci = ci;
 	this->nombre = nombre;

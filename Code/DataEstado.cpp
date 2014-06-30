@@ -4,6 +4,13 @@ DataEstado::DataEstado(int cantSinAsistencias){
 	this->cantConsultasSinAsistencias = cantSinAsistencias;
 }
 
+DataEstado::~DataEstado(){
+	for(set<DataConReserva*>::iterator it = this->conReserva.begin();it != this->conReserva.end();++it){
+		delete (*it);
+	}
+	this->conReserva.clear();
+}
+
 void DataEstado::agregarConReserva(DataConReserva* cr){
 	this->conReserva.insert(cr);
 }

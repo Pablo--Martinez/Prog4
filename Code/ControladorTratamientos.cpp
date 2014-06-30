@@ -3,6 +3,17 @@
 ControladorTratamientos* ControladorTratamientos::instancia = NULL;
 ControladorTratamientos::ControladorTratamientos(){}
 
+ControladorTratamientos::~ControladorTratamientos(){
+	for(set<Tratamiento*>::iterator it = this->tratamientos.begin();it != this->tratamientos.end();++it){
+		delete (*it);
+	}
+	this->tratamientos.clear();
+	for(set<Medicamento*>::iterator it = this->medicamentos.begin();it != this->medicamentos.end();++it){
+		delete (*it);
+	}
+	this->medicamentos.clear();
+}
+
 ControladorTratamientos* ControladorTratamientos::getInstance(){
 	if(instancia == NULL)
 		instancia = new ControladorTratamientos();

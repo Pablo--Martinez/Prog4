@@ -11,6 +11,9 @@ ManejadorMedicamentos* ManejadorMedicamentos::getInstance(){
 }
 
 ManejadorMedicamentos::~ManejadorMedicamentos(){
+	for(map<string,Medicamento*>::iterator it = this->medicamentos.begin();it != this->medicamentos.end();++it){
+		delete (it->second);
+	}
 	this->medicamentos.clear();
 }
 

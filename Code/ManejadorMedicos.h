@@ -15,7 +15,7 @@ class ManejadorMedicos{
        map<int,Medico*> medicos;
 	public:
 		static ManejadorMedicos* getInstance();
-		//~ManejadorMedicos();
+		~ManejadorMedicos();
 		void agregarMedico(Medico*);
 		Medico* find(int);
 		map<int,Medico*> getMedicos();

@@ -2,7 +2,13 @@
 
 DataDiagnostico::DataDiagnostico() {}
 
-DataDiagnostico::~DataDiagnostico() {}
+DataDiagnostico::~DataDiagnostico() {
+	delete this->representacion;
+	for(set<DataTratamiento*>::iterator it = this->tratamientos.begin();it != this->tratamientos.end();++it){
+		delete (*it);
+	}
+	this->tratamientos.clear();
+}
 
 DataDiagnostico::DataDiagnostico(DataRep* dr,string desc){
 	this->descripicon = desc;

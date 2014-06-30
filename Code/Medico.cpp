@@ -4,7 +4,19 @@
 
 Medico::Medico(Usuario* u): IObserver(u){}
 
-Medico::~Medico(){}//FALTA HACER
+Medico::~Medico(){
+	for(map<int, set<Notificacion*> >::iterator cat = this->notificaciones.begin(); cat != this->notificaciones.end();++cat){
+		for(set<Notificacion*>::iterator dr = cat->second.begin();dr != cat->second.end();++dr) {
+			delete (*dr);
+		}
+		cat->second.clear();
+	}
+	this->notificaciones.clear();
+	/*for(set<Consulta*>::iterator it = this->atiende.begin();it != this->atiende.end();++it){
+		delete (*it);
+	}
+	this->atiende.clear();*/
+}
 
 tipoRol Medico::getTipoRol() {
 	return medico;

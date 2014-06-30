@@ -4,6 +4,20 @@ ManejadorRepresentaciones* ManejadorRepresentaciones::instancia = NULL;
 
 ManejadorRepresentaciones::ManejadorRepresentaciones(){}
 
+ManejadorRepresentaciones::~ManejadorRepresentaciones(){
+	for(map<string,DataRep*>::iterator it = this->categorias.begin();it != this->categorias.end();++it){
+		delete (it->second);
+	}
+	this->categorias.clear();
+	for(map<string, set<DataRep*> >::iterator cat = this->representaciones.begin(); cat != this->representaciones.end();++cat){
+		for(set<DataRep*>::iterator dr = cat->second.begin();dr != cat->second.end();++dr) {
+			delete (*dr);
+		}
+		cat->second.clear();
+	}
+	this->representaciones.clear();
+}
+
 ManejadorRepresentaciones* ManejadorRepresentaciones::getInstance(){
 	if (instancia == NULL)
 		instancia = new ManejadorRepresentaciones();

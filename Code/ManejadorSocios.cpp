@@ -4,6 +4,13 @@ ManejadorSocios* ManejadorSocios::instancia = NULL;
 
 ManejadorSocios::ManejadorSocios(){}
 
+ManejadorSocios::~ManejadorSocios(){
+	for(map<int,Socio*>::iterator it = this->socios.begin();it != this->socios.end();++it){
+		delete (it->second);
+	}
+	this->socios.clear();
+}
+
 ManejadorSocios* ManejadorSocios::getInstance(){
 	if (instancia == NULL)
 		instancia = new ManejadorSocios();
