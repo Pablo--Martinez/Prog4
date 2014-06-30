@@ -37,8 +37,11 @@ void DataDiagnostico::show(){
 	if(this != NULL){
 		cout << "\t\t\tDescripcion: " << this->descripicon << endl;
 		this->representacion->show();
+		int i = 0;
 		for(set<DataTratamiento*>::iterator it = this->tratamientos.begin(); it!=this->tratamientos.end();++it){
+			cout << "\t\t\tTratamiento" << i << ":" << endl;
 			(*it)->show();
+			i++;
 		}
 	}
 }

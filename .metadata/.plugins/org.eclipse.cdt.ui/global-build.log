@@ -1,492 +1,70 @@
-16:41:11 **** Incremental Build of configuration Debug for project Code ****
+19:11:22 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Socio.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Socio.d" -MT"Socio.d" -o "Socio.o" "../Socio.cpp"
-../Socio.cpp: In member function ‘DataEstado* Socio::obtenerEstadoReservas()’:
-../Socio.cpp:97:36: error: ‘ConReserva’ was not declared in this scope
-    if(typeid(**consulta) == typeid(ConReserva)){
-                                    ^
-../Socio.cpp:98:17: error: ‘r’ was not declared in this scope
-     ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
-                 ^
-../Socio.cpp:98:34: error: expected type-specifier before ‘ConReserva’
-     ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
-                                  ^
-../Socio.cpp:98:34: error: expected ‘>’ before ‘ConReserva’
-../Socio.cpp:98:34: error: expected ‘(’ before ‘ConReserva’
-../Socio.cpp:98:45: error: expected primary-expression before ‘>’ token
-     ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
-                                             ^
-../Socio.cpp:98:57: error: expected ‘)’ before ‘;’ token
-     ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
-                                                         ^
-make: *** [Socio.o] Error 1
-16:41:30 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Administrador.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Administrador.d" -MT"Administrador.d" -o "Administrador.o" "../Administrador.cpp"
-Finished building: ../Administrador.cpp
- 
-Building file: ../ConReserva.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ConReserva.d" -MT"ConReserva.d" -o "ConReserva.o" "../ConReserva.cpp"
-Finished building: ../ConReserva.cpp
- 
-Building file: ../Consulta.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Consulta.d" -MT"Consulta.d" -o "Consulta.o" "../Consulta.cpp"
-Finished building: ../Consulta.cpp
- 
-Building file: ../ControladorConsultas.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
-Finished building: ../ControladorConsultas.cpp
- 
-Building file: ../ControladorDiagnosticos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorDiagnosticos.d" -MT"ControladorDiagnosticos.d" -o "ControladorDiagnosticos.o" "../ControladorDiagnosticos.cpp"
-Finished building: ../ControladorDiagnosticos.cpp
- 
-Building file: ../ControladorTratamientos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorTratamientos.d" -MT"ControladorTratamientos.d" -o "ControladorTratamientos.o" "../ControladorTratamientos.cpp"
-Finished building: ../ControladorTratamientos.cpp
- 
-Building file: ../ControladorUsuarios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
-Finished building: ../ControladorUsuarios.cpp
- 
-Building file: ../Diagnostico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Diagnostico.d" -MT"Diagnostico.d" -o "Diagnostico.o" "../Diagnostico.cpp"
-Finished building: ../Diagnostico.cpp
- 
-Building file: ../Emergencia.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Emergencia.d" -MT"Emergencia.d" -o "Emergencia.o" "../Emergencia.cpp"
-Finished building: ../Emergencia.cpp
- 
-Building file: ../HistorialNotificaciones.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"HistorialNotificaciones.d" -MT"HistorialNotificaciones.d" -o "HistorialNotificaciones.o" "../HistorialNotificaciones.cpp"
-Finished building: ../HistorialNotificaciones.cpp
- 
-Building file: ../IObserver.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"IObserver.d" -MT"IObserver.d" -o "IObserver.o" "../IObserver.cpp"
-Finished building: ../IObserver.cpp
- 
-Building file: ../ManejadorAdministradores.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorAdministradores.d" -MT"ManejadorAdministradores.d" -o "ManejadorAdministradores.o" "../ManejadorAdministradores.cpp"
-Finished building: ../ManejadorAdministradores.cpp
- 
-Building file: ../ManejadorMedicos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicos.d" -MT"ManejadorMedicos.d" -o "ManejadorMedicos.o" "../ManejadorMedicos.cpp"
-Finished building: ../ManejadorMedicos.cpp
- 
-Building file: ../ManejadorSocios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorSocios.d" -MT"ManejadorSocios.d" -o "ManejadorSocios.o" "../ManejadorSocios.cpp"
-Finished building: ../ManejadorSocios.cpp
- 
-Building file: ../Medico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medico.d" -MT"Medico.d" -o "Medico.o" "../Medico.cpp"
-Finished building: ../Medico.cpp
- 
-Building file: ../MedicosDelPaciente.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MedicosDelPaciente.d" -MT"MedicosDelPaciente.d" -o "MedicosDelPaciente.o" "../MedicosDelPaciente.cpp"
-Finished building: ../MedicosDelPaciente.cpp
- 
-Building file: ../MedicosLibres.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MedicosLibres.d" -MT"MedicosLibres.d" -o "MedicosLibres.o" "../MedicosLibres.cpp"
-Finished building: ../MedicosLibres.cpp
- 
-Building file: ../Notificacion.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Notificacion.d" -MT"Notificacion.d" -o "Notificacion.o" "../Notificacion.cpp"
-Finished building: ../Notificacion.cpp
- 
-Building file: ../Quirurjico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Quirurjico.d" -MT"Quirurjico.d" -o "Quirurjico.o" "../Quirurjico.cpp"
-Finished building: ../Quirurjico.cpp
- 
 Building file: ../Sistema.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
 Finished building: ../Sistema.cpp
  
-Building file: ../Socio.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Socio.d" -MT"Socio.d" -o "Socio.o" "../Socio.cpp"
-../Socio.cpp: In member function ‘DataEstado* Socio::obtenerEstadoReservas()’:
-../Socio.cpp:97:36: error: ‘ConReserva’ was not declared in this scope
-    if(typeid(**consulta) == typeid(ConReserva)){
-                                    ^
-../Socio.cpp:98:17: error: ‘r’ was not declared in this scope
-     ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
-                 ^
-../Socio.cpp:98:34: error: expected type-specifier before ‘ConReserva’
-     ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
-                                  ^
-../Socio.cpp:98:34: error: expected ‘>’ before ‘ConReserva’
-../Socio.cpp:98:34: error: expected ‘(’ before ‘ConReserva’
-../Socio.cpp:98:45: error: expected primary-expression before ‘>’ token
-     ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
-                                             ^
-../Socio.cpp:98:57: error: expected ‘)’ before ‘;’ token
-     ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
-                                                         ^
-make: *** [Socio.o] Error 1
-16:42:26 **** Incremental Build of configuration Debug for project Code ****
+Building target: Code
+Invoking: Cross G++ Linker
+g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
+Finished building target: Code
+ 
+19:23:04 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Administrador.cpp
+Building file: ../Sistema.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Administrador.d" -MT"Administrador.d" -o "Administrador.o" "../Administrador.cpp"
-Finished building: ../Administrador.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
+../Sistema.cpp: In function ‘void verFechaSistema()’:
+../Sistema.cpp:81:23: warning: unused variable ‘cu’ [-Wunused-variable]
+  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+                       ^
+../Sistema.cpp:82:28: warning: unused variable ‘ma’ [-Wunused-variable]
+  ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
+                            ^
+Finished building: ../Sistema.cpp
  
-Building file: ../ConReserva.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ConReserva.d" -MT"ConReserva.d" -o "ConReserva.o" "../ConReserva.cpp"
-Finished building: ../ConReserva.cpp
+Building target: Code
+Invoking: Cross G++ Linker
+g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
+Finished building target: Code
  
-Building file: ../Consulta.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Consulta.d" -MT"Consulta.d" -o "Consulta.o" "../Consulta.cpp"
-Finished building: ../Consulta.cpp
- 
-Building file: ../ControladorConsultas.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
-Finished building: ../ControladorConsultas.cpp
- 
-Building file: ../ControladorDiagnosticos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorDiagnosticos.d" -MT"ControladorDiagnosticos.d" -o "ControladorDiagnosticos.o" "../ControladorDiagnosticos.cpp"
-Finished building: ../ControladorDiagnosticos.cpp
- 
-Building file: ../ControladorTratamientos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorTratamientos.d" -MT"ControladorTratamientos.d" -o "ControladorTratamientos.o" "../ControladorTratamientos.cpp"
-Finished building: ../ControladorTratamientos.cpp
- 
-Building file: ../ControladorUsuarios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
-Finished building: ../ControladorUsuarios.cpp
- 
-Building file: ../DataEstado.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataEstado.d" -MT"DataEstado.d" -o "DataEstado.o" "../DataEstado.cpp"
-In file included from ../ManejadorSocios.h:7:0,
-                 from ../Medico.h:7,
-                 from ../Consulta.h:39,
-                 from ../ConReserva.h:4,
-                 from ../DataEstado.h:5,
-                 from ../DataEstado.cpp:1:
-../Socio.h:32:3: error: ‘DataEstado’ does not name a type
-   DataEstado* obtenerEstadoReservas();
-   ^
-make: *** [DataEstado.o] Error 1
-16:42:50 **** Incremental Build of configuration Debug for project Code ****
+19:23:10 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Administrador.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Administrador.d" -MT"Administrador.d" -o "Administrador.o" "../Administrador.cpp"
-Finished building: ../Administrador.cpp
- 
-Building file: ../ConReserva.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ConReserva.d" -MT"ConReserva.d" -o "ConReserva.o" "../ConReserva.cpp"
-Finished building: ../ConReserva.cpp
- 
-Building file: ../Consulta.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Consulta.d" -MT"Consulta.d" -o "Consulta.o" "../Consulta.cpp"
-Finished building: ../Consulta.cpp
- 
-Building file: ../ControladorConsultas.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
-Finished building: ../ControladorConsultas.cpp
- 
-Building file: ../ControladorDiagnosticos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorDiagnosticos.d" -MT"ControladorDiagnosticos.d" -o "ControladorDiagnosticos.o" "../ControladorDiagnosticos.cpp"
-Finished building: ../ControladorDiagnosticos.cpp
- 
-Building file: ../ControladorTratamientos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorTratamientos.d" -MT"ControladorTratamientos.d" -o "ControladorTratamientos.o" "../ControladorTratamientos.cpp"
-Finished building: ../ControladorTratamientos.cpp
- 
-Building file: ../ControladorUsuarios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorUsuarios.d" -MT"ControladorUsuarios.d" -o "ControladorUsuarios.o" "../ControladorUsuarios.cpp"
-Finished building: ../ControladorUsuarios.cpp
- 
+make: No se hace nada para «all».
+19:24:56 **** Incremental Build of configuration Debug for project Code ****
+make all 
 Building file: ../DataEstado.cpp
 Invoking: Cross G++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataEstado.d" -MT"DataEstado.d" -o "DataEstado.o" "../DataEstado.cpp"
 Finished building: ../DataEstado.cpp
  
-Building file: ../Diagnostico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Diagnostico.d" -MT"Diagnostico.d" -o "Diagnostico.o" "../Diagnostico.cpp"
-Finished building: ../Diagnostico.cpp
+Building target: Code
+Invoking: Cross G++ Linker
+g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
+Finished building target: Code
  
-Building file: ../Emergencia.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Emergencia.d" -MT"Emergencia.d" -o "Emergencia.o" "../Emergencia.cpp"
-Finished building: ../Emergencia.cpp
- 
-Building file: ../HistorialNotificaciones.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"HistorialNotificaciones.d" -MT"HistorialNotificaciones.d" -o "HistorialNotificaciones.o" "../HistorialNotificaciones.cpp"
-Finished building: ../HistorialNotificaciones.cpp
- 
-Building file: ../IObserver.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"IObserver.d" -MT"IObserver.d" -o "IObserver.o" "../IObserver.cpp"
-Finished building: ../IObserver.cpp
- 
-Building file: ../ManejadorAdministradores.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorAdministradores.d" -MT"ManejadorAdministradores.d" -o "ManejadorAdministradores.o" "../ManejadorAdministradores.cpp"
-Finished building: ../ManejadorAdministradores.cpp
- 
-Building file: ../ManejadorMedicos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorMedicos.d" -MT"ManejadorMedicos.d" -o "ManejadorMedicos.o" "../ManejadorMedicos.cpp"
-Finished building: ../ManejadorMedicos.cpp
- 
-Building file: ../ManejadorSocios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ManejadorSocios.d" -MT"ManejadorSocios.d" -o "ManejadorSocios.o" "../ManejadorSocios.cpp"
-Finished building: ../ManejadorSocios.cpp
- 
-Building file: ../Medico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medico.d" -MT"Medico.d" -o "Medico.o" "../Medico.cpp"
-Finished building: ../Medico.cpp
- 
-Building file: ../MedicosDelPaciente.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MedicosDelPaciente.d" -MT"MedicosDelPaciente.d" -o "MedicosDelPaciente.o" "../MedicosDelPaciente.cpp"
-Finished building: ../MedicosDelPaciente.cpp
- 
-Building file: ../MedicosLibres.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MedicosLibres.d" -MT"MedicosLibres.d" -o "MedicosLibres.o" "../MedicosLibres.cpp"
-Finished building: ../MedicosLibres.cpp
- 
-Building file: ../Notificacion.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Notificacion.d" -MT"Notificacion.d" -o "Notificacion.o" "../Notificacion.cpp"
-Finished building: ../Notificacion.cpp
- 
-Building file: ../Quirurjico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Quirurjico.d" -MT"Quirurjico.d" -o "Quirurjico.o" "../Quirurjico.cpp"
-Finished building: ../Quirurjico.cpp
- 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-Finished building: ../Sistema.cpp
- 
-Building file: ../Socio.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Socio.d" -MT"Socio.d" -o "Socio.o" "../Socio.cpp"
-../Socio.cpp: In member function ‘DataEstado* Socio::obtenerEstadoReservas()’:
-../Socio.cpp:99:50: error: invalid conversion from ‘DataConsulta*’ to ‘DataConReserva*’ [-fpermissive]
-     estado->agregarConReserva(r->getDataConsulta());
-                                                  ^
-In file included from ../Socio.h:7:0,
-                 from ../Socio.cpp:1:
-../DataEstado.h:16:8: error:   initializing argument 1 of ‘void DataEstado::agregarConReserva(DataConReserva*)’ [-fpermissive]
-   void agregarConReserva(DataConReserva*);
-        ^
-make: *** [Socio.o] Error 1
-16:43:53 **** Incremental Build of configuration Debug for project Code ****
+19:25:07 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Socio.cpp
+Building file: ../DataEstado.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Socio.d" -MT"Socio.d" -o "Socio.o" "../Socio.cpp"
-../Socio.cpp: In member function ‘DataEstado* Socio::obtenerEstadoReservas()’:
-../Socio.cpp:99:45: error: invalid conversion from ‘DataConsulta*’ to ‘DataConReserva*’ [-fpermissive]
-     DataConReserva* dr = r->getDataConsulta();
-                                             ^
-make: *** [Socio.o] Error 1
-16:44:21 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Socio.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Socio.d" -MT"Socio.d" -o "Socio.o" "../Socio.cpp"
-../Socio.cpp: In member function ‘DataEstado* Socio::obtenerEstadoReservas()’:
-../Socio.cpp:99:77: error: expected primary-expression before ‘;’ token
-     DataConReserva* dr = dynamic_cast<DataConReserva*>(r->getDataConsulta()=;
-                                                                             ^
-../Socio.cpp:99:77: error: expected ‘)’ before ‘;’ token
-make: *** [Socio.o] Error 1
-16:44:28 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Socio.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Socio.d" -MT"Socio.d" -o "Socio.o" "../Socio.cpp"
-Finished building: ../Socio.cpp
- 
-Building file: ../testConsulta.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testConsulta.d" -MT"testConsulta.d" -o "testConsulta.o" "../testConsulta.cpp"
-Finished building: ../testConsulta.cpp
- 
-Building file: ../testDiagnostico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testDiagnostico.d" -MT"testDiagnostico.d" -o "testDiagnostico.o" "../testDiagnostico.cpp"
-Finished building: ../testDiagnostico.cpp
- 
-Building file: ../testMMedicos.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMMedicos.d" -MT"testMMedicos.d" -o "testMMedicos.o" "../testMMedicos.cpp"
-Finished building: ../testMMedicos.cpp
- 
-Building file: ../testMSocios.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testMSocios.d" -MT"testMSocios.d" -o "testMSocios.o" "../testMSocios.cpp"
-Finished building: ../testMSocios.cpp
- 
-Building file: ../testObservadores.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testObservadores.d" -MT"testObservadores.d" -o "testObservadores.o" "../testObservadores.cpp"
-Finished building: ../testObservadores.cpp
- 
-Building file: ../testTratamiento.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testTratamiento.d" -MT"testTratamiento.d" -o "testTratamiento.o" "../testTratamiento.cpp"
-Finished building: ../testTratamiento.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataEstado.d" -MT"DataEstado.d" -o "DataEstado.o" "../DataEstado.cpp"
+Finished building: ../DataEstado.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
 g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
 Finished building target: Code
  
-16:45:26 **** Incremental Build of configuration Debug for project Code ****
+19:26:40 **** Incremental Build of configuration Debug for project Code ****
 make all 
-make: No se hace nada para «all».
-16:49:56 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Sistema.cpp
+Building file: ../DataEstado.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-Finished building: ../Sistema.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataEstado.d" -MT"DataEstado.d" -o "DataEstado.o" "../DataEstado.cpp"
+Finished building: ../DataEstado.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
 g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
 Finished building target: Code
  
-16:58:16 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Diagnostico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Diagnostico.d" -MT"Diagnostico.d" -o "Diagnostico.o" "../Diagnostico.cpp"
-Finished building: ../Diagnostico.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-16:58:28 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-17:16:45 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../ConReserva.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ConReserva.d" -MT"ConReserva.d" -o "ConReserva.o" "../ConReserva.cpp"
-Finished building: ../ConReserva.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-17:16:53 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-17:19:52 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Emergencia.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Emergencia.d" -MT"Emergencia.d" -o "Emergencia.o" "../Emergencia.cpp"
-Finished building: ../Emergencia.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-17:21:13 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-17:26:37 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../DataHistorial.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataHistorial.d" -MT"DataHistorial.d" -o "DataHistorial.o" "../DataHistorial.cpp"
-Finished building: ../DataHistorial.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-17:26:45 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-17:27:14 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../Diagnostico.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Diagnostico.d" -MT"Diagnostico.d" -o "Diagnostico.o" "../Diagnostico.cpp"
-Finished building: ../Diagnostico.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-17:27:19 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-17:29:58 **** Incremental Build of configuration Debug for project Code ****
-make all 
-Building file: ../DataRep.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DataRep.d" -MT"DataRep.d" -o "DataRep.o" "../DataRep.cpp"
-Finished building: ../DataRep.cpp
- 
-Building target: Code
-Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataRol.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
-Finished building target: Code
- 
-17:30:04 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-17:32:46 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».
-17:33:25 **** Incremental Build of configuration Debug for project Code ****
-make all 
-make: No se hace nada para «all».

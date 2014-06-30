@@ -80,8 +80,8 @@ void modificarFechaSistema(){
 void verFechaSistema(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
-	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("Se requieren permisos de administrador");
+	//if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+	//	throw std::invalid_argument("Se requieren permisos de administrador");
 
 	RelojSistema* rs = RelojSistema::getInstance();
 	cout << "Fecha(dia/mes/anio hora:minutos): "
@@ -288,10 +288,14 @@ void reservaConsulta(){
 
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
 	RelojSistema* rs = RelojSistema::getInstance();
 
 	if(!cu->usuarioLogueado())
 		iniciarSesion();
+
+	if(ms->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+		throw std::invalid_argument("Se requieren privilegios de socio");
 
 	cout << "Ingresar fecha a reservar:" << endl;
 
@@ -625,7 +629,7 @@ void devolucionConsulta(){
 
 	//Si el usuario logueado no es del tipo requerido, se lanza una excepcion
 	if(socio == NULL)
-		throw std::invalid_argument("UsuarioRolIncorrecto");
+		throw std::invalid_argument("Se requieren privilegios de socio");
 
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
 	set<DataConsulta*> consultasActivas= cc->consultasActivasXUsuario();
@@ -673,7 +677,7 @@ void usuariosDadosDeAlta(){
 		throw std::invalid_argument("No hay usuario logueado");
 
 	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("Se deben tener privilegios de administrador");
+		throw std::invalid_argument("Se requieren privilegios de administrador");
 
 	set<DataAltaReactivacion*> alta_reactivados = ma->find(cu->getUsuarioLogueado()->getCI())->obtenerUsuariosAltaReactivacion();
 
@@ -695,9 +699,6 @@ void usuariosDadosDeAlta(){
 }
 
 void altaRepresentacionEstandarizada(){
-
-	cout << "Alta Representacion Estandarizada... \n";
-
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
 	ControladorDiagnosticos* cr = ControladorDiagnosticos::getInstance();
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
@@ -707,7 +708,7 @@ void altaRepresentacionEstandarizada(){
 		throw std::invalid_argument("No hay usuario logueado");
 
 	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("Se deben tener privilegios de administrador");
+		throw std::invalid_argument("Se requieren privilegios de administrador");
 
 	string letraCat = "S";
 	string etiquetaCat;
@@ -817,7 +818,7 @@ void listarRepresentacionesEstandarizadas(){
 		throw std::invalid_argument("No hay usuario logueado");
 
 	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL && mm->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("Se deben tener privilegios de administrador o medico");
+		throw std::invalid_argument("Se requieren privilegios de administrador o medico");
 
 	map<string,DataRep*> categorias = mr->obtenerCategorias();
 	for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
@@ -841,7 +842,7 @@ void obtenerHistorialPaciente(){
 		throw std::invalid_argument("No hay usuario logueado");
 
 	if(mm->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("Se deben tener privilegios de medico");
+		throw std::invalid_argument("Se requieren privilegios de medico");
 
 	int ci_soc;
 	cout << "Ingrese la cedula del socio: "; cin >> ci_soc;
@@ -867,7 +868,7 @@ void suscribirseAPaciente(){
 		throw std::invalid_argument("No hay usuario logueado");
 
 	if(mm->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("Se deben tener privilegios de medico");
+		throw std::invalid_argument("Se requieren privilegios de medico");
 
 	cout << "Usuarios del sistema: " << endl;
 	for(map<int,Socio*>::iterator it = ms->getSocios().begin();it != ms->getSocios().end();++it){
@@ -884,7 +885,6 @@ void suscribirseAPaciente(){
 	Socio* s = ms->find(ci_soc);
 	Medico* m = mm->find(ci_med);
 	m->seguir(s);
-	//mm->find()->seguir();
 	cout << "Se ha realizado la suscripcion satisfactoriamente" << endl << endl;
 
 
@@ -899,7 +899,7 @@ void verNotificaciones(){
 		throw std::invalid_argument("No hay usuario logueado");
 
 	if(mm->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("Se deben tener privilegios de medico");
+		throw std::invalid_argument("Se requieren privilegios de medico");
 
 
 
@@ -935,7 +935,7 @@ void verMaximoInasistencias(){
 		throw std::invalid_argument("No hay usuario logueado");
 
 	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("Se deben tener privilegios de administrador");
+		throw std::invalid_argument("Se requieren privilegios de administrador");
 
 	cout << "Cantidad maxima de inasistencias: " << cu->getMaximoInasistencias() << endl;
 }
@@ -948,7 +948,7 @@ void setearMaximoInasistencias(){
 		throw std::invalid_argument("No hay usuario logueado");
 
 	if(ma->find(cu->getUsuarioLogueado()->getCI()) == NULL)
-		throw std::invalid_argument("Se deben tener privilegios de administrador");
+		throw std::invalid_argument("Se requieren privilegios de administrador");
 
 	int inasistencias;
 	cout << "Cantidad maxima de inasistencas: ";cin >> inasistencias;
@@ -969,7 +969,7 @@ void estadoDeSituacion(){
 
 	Socio* soc = ms->find(cu->getUsuarioLogueado()->getCI());
 	if(soc == NULL)
-		throw std::invalid_argument("UsuarioRolIncorrecto");
+		throw std::invalid_argument("Se requieren permisos de socio");
 
 	DataEstado* estado = soc->obtenerEstadoReservas();
 	estado->show();
@@ -985,6 +985,7 @@ void eliminarMemoria(){
 	delete ManejadorMedicos::getInstance();
 	delete ManejadorSocios::getInstance();
 	delete ManejadorRepresentaciones::getInstance();
+	delete RelojSistema::getInstance();
 }
 
 void agregarDatosDePrueba() {
@@ -1091,29 +1092,48 @@ void agregarDatosDePrueba() {
 	mmed->existeMedicamento("M3");
 	mmed->ingresarMedicamento();
 
+	// SUSCRIPCIONES
+
+	Socio* s;
+	Medico* m;
+
+	s = ms->find(34562345);
+	m = mm->find(65436667);
+	m->seguir(s);
+
+	s = ms->find(65436667);
+	m = mm->find(43521343);
+	m->seguir(s);
+
 	// DIAGNOSTICOS DE CONSULTAS
 
 	DataRep* rep = mr->obtenerRepresentacion("A","A02");
 	Consulta* cons = cc->getConsulta(34562345,Fecha(23,6,2014));
 	Diagnostico* D1 = cd->altaDiagnostico(rep->getCodigo(), rep->getEtiqueta(),"Desc 1",cons);
+	cons->getSocioSolicitante()->notifyall(cons->getMedico(),Fecha(23,6,2014),true);
 
 	rep = mr->obtenerRepresentacion("B","B01");
 	Diagnostico* D2 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 2",cons);
+	cons->getSocioSolicitante()->notifyall(cons->getMedico(),Fecha(23,6,2014),true);
 
 	rep = mr->obtenerRepresentacion("A","A02");
 	cons = cc->getConsulta(65436667,Fecha(16,3,2014));
 	Diagnostico* D3 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 3",cons);
+	cons->getSocioSolicitante()->notifyall(cons->getMedico(),Fecha(16,3,2014),true);
 
 	rep = mr->obtenerRepresentacion("B","B01");
 	cons = cc->getConsulta(34562345,Fecha(23,05,2014));
 	Diagnostico* D4 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 4",cons);
+	cons->getSocioSolicitante()->notifyall(cons->getMedico(),Fecha(23,5,2014),true);
 
 	rep = mr->obtenerRepresentacion("A","A01");
 	cons = cc->getConsulta(65436667,Fecha(24,05,2014));
 	Diagnostico* D5 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 5",cons);
+	cons->getSocioSolicitante()->notifyall(cons->getMedico(),Fecha(24,5,2014),true);
 
 	rep = mr->obtenerRepresentacion("A","A02");
 	Diagnostico* D6 = cd->altaDiagnostico(rep->getCodigo(),rep->getEtiqueta(),"Desc 6",cons);
+	cons->getSocioSolicitante()->notifyall(cons->getMedico(),Fecha(23,6,2014),true);
 
 
 	// TRATAMIENTOS FARMACOLOGICOS
@@ -1149,18 +1169,6 @@ void agregarDatosDePrueba() {
 	ct->agregarTratamientoQuirurjico(65436667,"Desc 11",Fecha(25,7,2014),D2);
 	ct->agregarTratamientoQuirurjico(43521343,"Desc 22",Fecha(01,02,2014),D3);
 
-	// SUSCRIPCIONES
-
-	Socio* s;
-	Medico* m;
-
-	s = ms->find(34562345);
-	m = mm->find(65436667);
-	m->seguir(s);
-
-	s = ms->find(65436667);
-	m = mm->find(43521343);
-	m->seguir(s);
 
 	// CERRAR LA SESION DEL ADMINISTRADOR
 	cu->cerrarSesion();

@@ -14,5 +14,5 @@ string DataTratamiento::getDescripcion(){
 
 void DataTratamiento::show(){
 	if(this != NULL)
-		cout << "Descripcion: " <<this->descripcion << endl;
+		cout << "\t\t\t\tDescripcion: " <<this->descripcion << endl;
 }
