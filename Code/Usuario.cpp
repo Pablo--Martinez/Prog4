@@ -111,7 +111,22 @@ void Usuario::reactivar(){ // setEstado(bool) ?
 
 DataUsuario* Usuario::getDataUsuario(){
 	RelojSistema* rs = RelojSistema::getInstance();
-	return new DataUsuario(this->ci,this->pass,this->nombre,this->apellido,this->sexo,this->getEdad(rs->getFechaSistema()),this->estado,this->roles);
+	set<DataRol*> dataRoles;
+	bool esadmin = false;
+	bool esmedico = false;
+	bool essocio = false;
+	for(set<Rol*>::iterator it = this->roles.begin();it != this->roles.end();++it){
+		if ((*it)->getTipoRol() == administrador) {
+			esadmin = true;
+		}
+		if ((*it)->getTipoRol() == medico) {
+			esmedico = true;
+		}
+		if ((*it)->getTipoRol() == socio) {
+			essocio = true;
+		}
+	}
+	return new DataUsuario(this->ci,this->pass,this->nombre,this->apellido,this->sexo,this->getEdad(rs->getFechaSistema()),this->estado,esadmin,esmedico,essocio);
 }
 
  void Usuario::show(){

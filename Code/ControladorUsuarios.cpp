@@ -140,33 +140,33 @@ void ControladorUsuarios::ingresarCategoria(Categoria cat){
 
 
 void ControladorUsuarios::confirmarInscripcion(){
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
 	Usuario* u = new Usuario(this->ci,this->nombre,this->apellido,this->sexo,false,this->nacimiento);
 	for(set<Categoria>::iterator it = this->categorias.begin(); it != this->categorias.end(); ++it){
         if(*it == Soc){
             Socio* s = new Socio(u);
             u->agregarRol(s);
-            ManejadorSocios* ms = ManejadorSocios::getInstance();
             ms->agregarSocio(s);
         }
         else if(*it == Med){
             Medico* m = new Medico(u);
             u->agregarRol(m);
-            ManejadorMedicos* mm = ManejadorMedicos::getInstance();
             mm->agregarMedico(m);
         }
         else if(*it == Admin){
             Administrador* a = new Administrador(u);
             u->agregarRol(a);
-            ManejadorAdministradores* ma = ManejadorAdministradores::getInstance();
             ma->agregarAdministrador(a);
         }
 	}
-	ManejadorAdministradores* madmin = ManejadorAdministradores::getInstance();
-	Administrador* aLogueado = madmin->find(this->getUsuarioLogueado()->getCI());
+	Administrador* aLogueado = ma->find(this->getUsuarioLogueado()->getCI());
 	DataUsuario* du = u->getDataUsuario();
 	RelojSistema* rs = RelojSistema::getInstance();
     aLogueado->agregarUsuarioAltaReactivacion(du, rs->getFechaSistema(), true);//Cuando es True es porque es alta
 	this->usuarios[this->ci] = u;
+	this->categorias.clear();
 }
 
 void ControladorUsuarios::cancelarInscripcion(){

@@ -1,10 +1,10 @@
 #ifndef ROL
 #define ROL
 
+enum tipoRol {administrador,socio,medico};
+
 #include <set>
 #include "DataAltaReactivacion.h"
-
-enum tipoRol {administrador,socio,medico};
 
 using namespace std;
 
