@@ -2,10 +2,11 @@
 
 Diagnostico::Diagnostico(){}
 
-Diagnostico::Diagnostico(string codigo, string etiqueta, string descripcion){
+Diagnostico::Diagnostico(string codigo, string etiqueta, string descripcion, Consulta* consulta){
 	this->codigo = codigo;
 	this->etiqueta = etiqueta;
 	this->descripcion = descripcion;
+	this->consulta = consulta;
 }
 
 Diagnostico::~Diagnostico(){

@@ -116,4 +116,8 @@ set<DataRep*> ControladorDiagnosticos::obtenerRepresentaciones(string letraCat){
 	return mr->obtenerRepresentacionesCat(letraCat);
 }
 
-void ControladorDiagnosticos::altaDiagnostico(string,string,string){}
+Diagnostico* ControladorDiagnosticos::altaDiagnostico(string codigo,string etiqueta,string descripcion,Consulta* consulta){
+	Diagnostico* diag = new Diagnostico(codigo,etiqueta,descripcion,consulta);
+	this->diagnosticos.insert(diag);
+	return diag;
+}

@@ -23,7 +23,7 @@ class ControladorTratamientos{
 	public:
 		~ControladorTratamientos();
 		static ControladorTratamientos* getInstance();
-		void agregarTratamientoQuirurjico(int,string,Fecha);
+		void agregarTratamientoQuirurjico(int,string,Fecha,Diagnostico*);
 		void agregarTratamientoFarmacologico(string);
 		void agregarMedicamento(string);
 		//set<Medicamento*> getMedicamentosAUsar();

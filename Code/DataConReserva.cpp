@@ -1,8 +1,10 @@
 #include "DataConReserva.h"
 
-DataConReserva::DataConReserva(Fecha fecha_consulta,Fecha fecha_reserva, bool asiste): DataConsulta(fecha_consulta) {
+DataConReserva::DataConReserva(Fecha fecha_consulta,Fecha fecha_reserva, bool asiste, int ci_soc): DataConsulta(fecha_consulta) {
 	this->fecha_reserva = fecha_reserva;
 	this->asiste = asiste;
+	//this->ci = ci_soc;
+	this->setCI(ci_soc);
 }
 
 DataConReserva::~DataConReserva() {}

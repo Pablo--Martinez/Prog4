@@ -67,8 +67,7 @@ int Fecha::getMinutos(){
 }
 
 bool Fecha::operator ==(const Fecha &f){
-	return (this->hora == f.hora && this->dia == f.dia &&
-			this->mes == f.mes && this->anio == f.anio);
+	return (this->dia == f.dia && this->mes == f.mes && this->anio == f.anio); //this->hora == f.hora &&
 }
 
 bool Fecha::operator<(const Fecha &f){

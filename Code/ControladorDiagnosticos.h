@@ -30,7 +30,7 @@ class ControladorDiagnosticos{
 		set<string> obtenerCategorias();
 		set<DataRep*> obtenerRepresentaciones(string);
 		string obtenerCategoriaSeleccionada();
-		void altaDiagnostico(string,string,string);
+		Diagnostico* altaDiagnostico(string,string,string,Consulta*);
 		void seleccionarCategoria(string);
 		void ingresarCategoria(string,string);
 		bool existeRepDiag(string,string);
