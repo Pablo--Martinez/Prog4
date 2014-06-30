@@ -40,10 +40,10 @@ Fecha ingresarFecha(){
 	cin >> hora;
 	while(hora< 0 || hora > 23){
 		cout << "Hora incorrecto, ingrese nuevamente: ";
-		cin >> anio;
+		cin >> hora;
 	}
 
-	//Se ingresan los minutos ?????
+	//Se ingresan los minutos
 	cout << "Minutos: ";
 	cin >> minutos;
 	while(minutos< 0 || minutos > 59){
@@ -90,6 +90,9 @@ void verFechaSistema(){
 }
 
 void iniciarSesion(){
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	if(cu->usuarioLogueado())
+		throw std::invalid_argument("Ya existe sesion activa");
   
 	int ci;
 	bool escorrecta;
@@ -99,7 +102,6 @@ void iniciarSesion(){
 	cout << "Ingrese la contraseña: ";cin >> pass;
 
 	TSesion ts;
-	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	try{
 		ts = cu->iniciarSesion(ci);
 
@@ -371,6 +373,9 @@ void registroConsulta(){
 	if(tipo_consulta == "reserva"){
 		int ci_doc;
 
+		//Se ingresa la fecha de la consulta
+		fecha_consulta = ingresarFecha();
+
 		//Se procede a seleccionar el medico que va a tratar la consulta
 		cout << "Ingrese ci del medico: ";
 		cin >> ci_doc;
@@ -380,7 +385,7 @@ void registroConsulta(){
 		}
 
 		try{
-			cc->registroReserva(ci_socio,ci_doc,rs->getFechaSistema(),fecha_consulta);
+			cc->registroReserva(ci_socio,ci_doc,fecha_consulta);
 			cout << "Reserva registrada correctamente! " << endl;
 		}
 		catch (const std::invalid_argument& e) {
@@ -393,8 +398,8 @@ void registroConsulta(){
 
 		cout << "Criterio de seleccion de medico: " << endl <<
 				"1) Medicos libres" << endl <<
-				"2) Medicos del paciente";
-		cin >> criterio;
+				"2) Medicos del paciente" << endl;
+		cout << "Criterio(1/2): ";cin >> criterio;
 		while(criterio <= 0 || criterio > 2){
 			cout << "Criterio incorrecto, ingrese nuevamente: ";
 			cin >> criterio;
@@ -411,15 +416,11 @@ void registroConsulta(){
 		}
 		cc->seleccionarCriterio(criterio);
 		set<DataMedico*> medicos_disponibles = cc->ejecutarStrategy();
-		//ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-		//int i=0, disponibles[mm->getMedicos().size()];
 
 		if(!medicos_disponibles.empty()){ //El strategy dio resultados
 			cout << "Medicos disponibles: " << endl;
 			for(set<DataMedico*>::iterator it = medicos_disponibles.begin();it!=medicos_disponibles.end();++it){
 				cout << "\t- " << (*it)->getUsuario()->getCI() << ": " << (*it)->getUsuario()->getNombre() << endl;
-				//disponibles[i] = (*it)->getUsuario()->getCI();
-				//i++;
 			}
 		}
 
@@ -427,8 +428,6 @@ void registroConsulta(){
 			cout << "No hay medicos disponibles, se listaran todos: " << endl;
 			for(map<int,Medico*>::iterator it = mm->getMedicos().begin();it!=mm->getMedicos().end();++it){
 				cout << "\t- " << it->first << ": "<< it->second->getDataMedico()->getUsuario()->getNombre() << endl;
-				//disponibles[i] = it->first;
-				//i++;
 			}
 
 		}
@@ -443,7 +442,9 @@ void registroConsulta(){
 		cin >> motivo;
 
 		try{
+			fecha_consulta = rs->getFechaSistema();
 			cc->registroEmergencia(ci_socio,seleccionado,motivo,fecha_consulta);
+			cout << "Emergencia registrada correctamente" << endl << endl;
 		}
 		catch (const std::invalid_argument& e) {
 			std::cerr << "ERROR: " << e.what() << endl;
@@ -492,8 +493,6 @@ void devolucionConsulta(){
 		throw std::invalid_argument("UsuarioRolIncorrecto");
 
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
-	/*RelojSistema* rs = RelojSistema::getInstance();
-	Fecha fecha_sistema = rs->getFechaSistema();*/
 	set<DataConsulta*> consultasActivas= cc->consultasActivasXUsuario();
 
 	cout << "Consultas activas" << endl;
@@ -512,7 +511,7 @@ void devolucionConsulta(){
 		fechaSeleccionada = ingresarFecha();
 
 		bool bandera = false;
-		while(bandera = false){
+		while(!bandera){
 			for(set<DataConsulta*>::iterator auxIt = consultasActivas.begin();auxIt!=consultasActivas.end();++auxIt){
 				if (((*auxIt)->getFechaConsulta()) == fechaSeleccionada){
 					bandera = true;
@@ -652,7 +651,7 @@ void altaRepresentacionEstandarizada(){
 
 	cout << "Confirma los datos ingresados? (S/N): ";
 	cin >> letraCat;
-	if (letraCat == "S") {
+	if(letraCat == "S") {
 		cr->confirmarRepEst();
 		cout << "Datos ingresados con exito! \n";
 	} else {

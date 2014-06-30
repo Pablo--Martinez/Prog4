@@ -67,9 +67,10 @@ DataMedico* Medico::obtenerHistorial(int ci_socio){
 }
 
 bool Medico::libreHoraYConsultas(int cantConsultas) {
+	RelojSistema* rs = RelojSistema::getInstance();
 	set<Consulta*> consultas = this->getConsultasAtiende();
 	int cant = 0;
-	Fecha fecha_sist;
+	Fecha fecha_sist = rs->getFechaSistema();
 	for(set<Consulta*>::iterator consulta = consultas.begin();consulta != consultas.end();++consulta) {
 		Fecha f = (*consulta)->getFechaConsulta();
 		if (f == fecha_sist) {

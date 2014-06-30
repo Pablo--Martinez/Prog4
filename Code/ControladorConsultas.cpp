@@ -28,7 +28,7 @@ void ControladorConsultas::agregarConsulta(Consulta* c){
 	this->consultas.insert(c);
 }
 
-void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_reserva,Fecha fecha_consulta){
+void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_consulta){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
 
@@ -37,19 +37,19 @@ void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_re
 	if(ms->find(ci_user) == NULL)
 		throw std::invalid_argument("No existe el socio");
 
-	set<Consulta*>::iterator it = this->consultas.begin();
-	while(it != this->consultas.end()){
+	set<Consulta*> consultas_socio = ms->find(ci_user)->getConsultasSolicitadas();
+	set<Consulta*>::iterator it = consultas_socio.begin();
+	while(it != consultas_socio.end()){
 		if(typeid(*it) == typeid(ConReserva)){
 			ConReserva* r = dynamic_cast<ConReserva*>(*it);
-			if(r->perteneceASocio(ci_user) && r->perteneceAMedico(ci_doc) &&
-			   r->getFechaReserva() == fecha_reserva && r->getFechaConsulta() == fecha_consulta){
+			if(r->perteneceASocio(ci_user) && r->perteneceAMedico(ci_doc) && r->getFechaConsulta() == fecha_consulta){
 				r->registrar();
 				break;
 			}
 		}
-		it++;
+		++it;
 	}
-	if(it == this->consultas.end())
+	if(it == consultas_socio.end())
 		throw std::invalid_argument("No existe la reserva");
 }
 
@@ -70,9 +70,9 @@ set<DataConsulta*> ControladorConsultas::consultasActivasXUsuario(){
 	Socio* s = cs->find(cu->getUsuarioLogueado()->getCI());
 	set<DataConsulta*> dc;
 	Fecha fecha_sistema;
-	fecha_sistema =Fecha(rs->getFechaSistema().getDia(),rs->getFechaSistema().getMes(),rs->getFechaSistema().getAnio(),rs->getFechaSistema().getHora(),rs->getFechaSistema().getHora());
+	fecha_sistema = rs->getFechaSistema();
 	for(set<Consulta*>::iterator it = s->getConsultasSolicitadas().begin();it != s->getConsultasSolicitadas().end();++it){
-		if(((*it)->getFechaConsulta() > fecha_sistema/*rs->getFechaSistema()*/) && (*it)->perteneceASocio(cu->getUsuarioLogueado()->getCI())){
+		if(((*it)->getFechaConsulta() > fecha_sistema) && (*it)->perteneceASocio(cu->getUsuarioLogueado()->getCI())){
 			DataConsulta* aux = (*it)->getDataConsulta();
 			dc.insert(aux);
 		}
@@ -131,7 +131,8 @@ DataHistorial* ControladorConsultas::obtenerHistorial(int ci_user,Fecha fecha_si
 }
 
 void ControladorConsultas::seleccionarCriterio(int criterio){
-	if(criterio == 1)
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	if(criterio == 2)
 		this->estrategia = new MedicosDelPaciente(this->ci_tratante);
 	else
 		this->estrategia = new MedicosLibres(this->cantidad_estrategia);
