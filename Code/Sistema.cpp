@@ -307,13 +307,10 @@ void reservaConsulta(){
 
 	try{
 		set<DataUsuario*> medicos_disponibles = cc->obtenerMedicos();
-		//int i=0; //disponibles[medicos_disponibles.size()];
 		if(!medicos_disponibles.empty()){
 			cout << "Medicos disponibles: " << endl;
 			for(set<DataUsuario*>::iterator it = medicos_disponibles.begin();it!=medicos_disponibles.end();++it){
 				cout << "\t" << "- " << (*it)->getCI() << ": "<< (*it)->getNombre() << " " << (*it)->getApellido() << endl;
-				//disponibles[i] = (*it)->getCI();
-				//i++;
 			}
 
 			int seleccionado;
@@ -372,6 +369,7 @@ void registroConsulta(){
 	}
 
 	RelojSistema* rs = RelojSistema::getInstance();
+	cout << "Ingresar la fecha de la consulta: " << endl;
 	Fecha fecha_consulta;
 
 	if(tipo_consulta == "reserva"){

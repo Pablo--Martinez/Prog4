@@ -15,7 +15,8 @@ string Emergencia::getMotivo(){
 DataConsulta* Emergencia::getDataConsulta(){
 	if(this != NULL){
 		DataEmergencia* res =  new DataEmergencia(this->getFechaConsulta(),this->motivo);
-		for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
+		set<Diagnostico*> diags = this->getDiagnosticos();
+		for(set<Diagnostico*>::iterator it = diags.begin();it!=diags.end();++it){
 			DataDiagnostico* dd = (*it)->getDataDiagnostico();
 			res->agregarDiagnostico(dd);
 		}

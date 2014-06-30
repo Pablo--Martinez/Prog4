@@ -24,7 +24,8 @@ bool ConReserva::getAsiste(){
 DataConsulta* ConReserva::getDataConsulta(){
 	if(this != NULL){
 		DataConReserva* res = new DataConReserva(this->getFechaConsulta(),this->fecha_reserva,this->asiste,this->getSocioSolicitante()->getUsuario()->getCI());
-		for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
+		set<Diagnostico*> diags = this->getDiagnosticos();
+		for(set<Diagnostico*>::iterator it = diags.begin();it!=diags.end();++it){
 			DataDiagnostico* dd = (*it)->getDataDiagnostico();
 			res->agregarDiagnostico(dd);
 		}

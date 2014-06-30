@@ -1,9 +1,11 @@
 #ifndef SOCIO_H_
 #define SOCIO_H_
 
+#include <typeinfo>
 #include "Rol.h"
 #include "Consulta.h"
 #include "DataEstado.h"
+#include "ConReserva.h"
 
 using namespace std;
 

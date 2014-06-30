@@ -24,7 +24,7 @@ string DataRep::getEtiqueta(){
 
 void DataRep::show(){
 	if(this != NULL){
-		cout << "\t\t\t\tCodigo: " << this->codigo << endl;
-		cout << "\t\t\t\tEtiqueta: " << this->etiqueta << endl;
+		cout << "\t\t\tCodigo: " << this->codigo << endl;
+		cout << "\t\t\tEtiqueta: " << this->etiqueta << endl;
 	}
 }

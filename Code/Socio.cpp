@@ -94,14 +94,22 @@ DataEstado* Socio::obtenerEstadoReservas(){
 		int sinasistencia = 0;
 		DataEstado* estado = new DataEstado(sinasistencia);
 		for(set<Consulta*>::iterator consulta = consultas.begin();consulta != consultas.end();++consulta) {
-				DataConsulta* dc = (*consulta)->getDataConsulta();
+			if(typeid(**consulta) == typeid(ConReserva)){
+				ConReserva* r = dynamic_cast<ConReserva*>(*consulta);
+				DataConReserva* dr = dynamic_cast<DataConReserva*>(r->getDataConsulta());
+				estado->agregarConReserva(dr);
+				if(r->getAsiste()){
+					sinasistencia++;
+				}
+			}
+				/*DataConsulta* dc = (*consulta)->getDataConsulta();
 				DataConReserva* cr = dynamic_cast<DataConReserva*>(dc);
 				if(cr){
 					estado->agregarConReserva(cr);
 				    if(!cr->getAsiste()){
 				    	sinasistencia++;
 				    }
-				}
+				}*/
 		}
 		estado->setCantConsultasSinAsistencias(sinasistencia);
 

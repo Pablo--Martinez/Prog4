@@ -31,6 +31,7 @@ void DataHistorial::show(){
 		this->usuario->show();
 		for(set<DataMedico*>::iterator it = this->medico.begin();it != this->medico.end();++it){
 			(*it)->show();
+			cout << endl;
 		}
 	}
 }
