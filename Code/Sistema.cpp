@@ -850,6 +850,9 @@ void agregarDatosDePrueba() {
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
+	ManejadorMedicamentos* mmed = ManejadorMedicamentos::getInstance();
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
 
 	if(cu->usuarioLogueado())
 		throw std::invalid_argument("Debes cerrar sesion antes de ejecutar este comando");
