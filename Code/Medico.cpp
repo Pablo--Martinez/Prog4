@@ -94,11 +94,11 @@ void Medico::show(){
 	if(this != NULL){
 		cout << "Usuario:" << endl;
 		this->getUsuario()->show();
-		cout << "Consultas que atiende:" << endl;
+		/*cout << "Consultas que atiende:" << endl;
 		for (set<Consulta*>::iterator it=this->atiende.begin(); it!=this->atiende.end(); ++it){
 			(*it)->show();
 			cout << "----------------" << endl;
-		}
+		}*/
 	}
 }
 

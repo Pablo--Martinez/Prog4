@@ -23,12 +23,12 @@ bool ConReserva::getAsiste(){
 
 DataConsulta* ConReserva::getDataConsulta(){
 	if(this != NULL){
-		DataConReserva* res = new DataConReserva(this->getFechaConsulta(),this->fecha_reserva,this->asiste);
-			for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
-				DataDiagnostico* dd = (*it)->getDataDiagnostico();
-				res->agregarDiagnostico(dd);
-			}
-			return res;
+		DataConReserva* res = new DataConReserva(this->getFechaConsulta(),this->fecha_reserva,this->asiste,this->getSocioSolicitante()->getUsuario()->getCI());
+		for(set<Diagnostico*>::iterator it = this->getDiagnosticos().begin();it!=this->getDiagnosticos().end();++it){
+			DataDiagnostico* dd = (*it)->getDataDiagnostico();
+			res->agregarDiagnostico(dd);
+		}
+		return res;
 	}
 	return NULL;
 }
@@ -36,10 +36,10 @@ DataConsulta* ConReserva::getDataConsulta(){
 void ConReserva::show(){
 	if(this != NULL){
 		cout << "Conuslta con reserva:" << endl;
-		cout << "Fecha de consulta: "; this->getFechaConsulta().show();
-		cout << "Fecha de reserva: "; this->getFechaReserva().show();
-		cout << "Medico tratante: "; this->getMedico()->show();
-		set<Diagnostico*>::iterator pos;
+		cout << "Fecha de consulta: "; this->getFechaConsulta().show(); cout << "\n";
+		cout << "Fecha de reserva: "; this->getFechaReserva().show(); cout << "\n";
+		cout << "Medico tratante: "; this->getMedico()->show(); cout << "\n";
+		/*set<Diagnostico*>::iterator pos;
 		pos = this->getDiagnosticos().begin();
 		int i=0;
 
@@ -48,6 +48,6 @@ void ConReserva::show(){
 			(*pos)->show();
 			pos++;
 			i++;
-		}
+		}*/
 	}
 }

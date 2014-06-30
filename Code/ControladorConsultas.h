@@ -45,6 +45,7 @@ class ControladorConsultas{
 		set<DataConsulta*> consultasDelDia(Fecha);
 		DataConsulta* seleccionarConsultaCI(int);
 		DataHistorial* obtenerHistorial(int,Fecha);
+		Consulta* getConsulta(int ci_soc,Fecha fecha);
 		void seleccionarCriterio(int);
 		void setCantidad(int);
 		set<DataMedico*> ejecutarStrategy();

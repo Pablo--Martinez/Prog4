@@ -32,6 +32,18 @@ void ControladorConsultas::agregarConsulta(Consulta* c){
 	this->consultas.insert(c);
 }
 
+Consulta* ControladorConsultas::getConsulta(int ci_soc,Fecha fecha){
+	for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
+		if(typeid(**it) == typeid(ConReserva)){
+			ConReserva* r = dynamic_cast<ConReserva*>(*it);
+			if(r->getFechaConsulta() == fecha && r->perteneceASocio(ci_soc)){
+				return r;
+			}
+		}
+	}
+	return NULL;
+}
+
 void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_consulta){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
@@ -99,9 +111,11 @@ void ControladorConsultas::devolverConsulta(Fecha fecha_consulta){
 set<DataConsulta*> ControladorConsultas::consultasDelDia(Fecha fecha_sistema){
 	set<DataConsulta*> res;
 	for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
+		//(*it)->show();
 		if(typeid(**it) == typeid(ConReserva)){
+			//cout << "Tipo ConReserva \n";
 			ConReserva* r = dynamic_cast<ConReserva*>(*it);
-			if(r->getFechaConsulta() > fecha_sistema){
+			if(r->getFechaConsulta() == fecha_sistema){
 				DataConsulta* aux = r->getDataConsulta();
 				res.insert(aux);
 			}

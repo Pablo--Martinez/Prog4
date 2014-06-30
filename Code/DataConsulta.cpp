@@ -22,6 +22,10 @@ int DataConsulta::getCI(){
 	return this->ci;
 }
 
+void DataConsulta::setCI(int ci){
+	this->ci = ci;
+}
+
 set<DataDiagnostico*> DataConsulta::getDiagnosticos(){
 	return this->diagnosticos;
 }

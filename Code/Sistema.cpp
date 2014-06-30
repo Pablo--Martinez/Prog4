@@ -3,10 +3,12 @@
 #include "ControladorUsuarios.h"
 #include "ControladorConsultas.h"
 #include "ControladorDiagnosticos.h"
+#include "ControladorTratamientos.h"
 #include "ManejadorAdministradores.h"
 #include "ManejadorMedicamentos.h"
 #include "ManejadorRepresentaciones.h"
 #include "ControladorTratamientos.h"
+
 
 using namespace std;
 
@@ -454,7 +456,138 @@ void registroConsulta(){
 	}
 }
 
-void altaDiagnosticosConsulta(){}
+void altaDiagnosticosConsulta(){
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+
+	//Si no existe un usuario logueado, se fuerza a loguearse
+	if(!cu->usuarioLogueado())
+	iniciarSesion();
+	Medico* medico = mm->find(cu->getUsuarioLogueado()->getCI());
+
+	//Si el usuario logueado no es del tipo requerido, se lanza una excepcion
+	if(medico == NULL)
+		throw std::invalid_argument("Se requieren permisos de Medico");
+
+	ControladorConsultas* cc = ControladorConsultas::getInstance();
+	RelojSistema* rs = RelojSistema::getInstance();
+
+	//Muestro todas las consultas del día
+	set<DataConsulta*> consultasDelDia = cc->consultasDelDia(rs->getFechaSistema());
+	set<int> listadoCedulas;
+
+	cout << "Consultas del dia" << endl;
+	for(set<DataConsulta*>::iterator it = consultasDelDia.begin();it!=consultasDelDia.end();++it){
+		listadoCedulas.insert((*it)->getCI());
+		cout << (*it)->getCI() << endl;
+	}
+
+	//El usuario elige la consulta
+	int ciSeleccionada;
+	cout << "Ingrese la cedula seleccionada del listado anterior: ";
+	cin >> ciSeleccionada;
+	while(listadoCedulas.count(ciSeleccionada) == 0){
+		cout << "Seleccion incorrecta, ingrese nuevamente: ";
+		cin >> ciSeleccionada;
+	}
+
+
+	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
+	string categoriaSeleccionada;
+	string codigoSeleccionado;
+
+	string agregarDiagnosticos = "S";
+
+	while (agregarDiagnosticos == "S") {
+
+		codigoSeleccionado = "C";
+
+		while (codigoSeleccionado == "C") {
+
+			map<string,DataRep*> categorias = mr->obtenerCategorias();
+			for(map<string,DataRep*>::iterator cat = categorias.begin();cat!=categorias.end();++cat){
+				cout << " " << cat->second->getCodigo() << " " << cat->second->getEtiqueta() << "\n";
+			}
+			cout << "Ingrese la categoria a seleccionar del listado anterior: ";
+			cin >> categoriaSeleccionada;
+			while(!mr->existeCategoria(categoriaSeleccionada)){
+				cout << "Seleccion incorrecta, ingrese nuevamente: ";
+				cin >> categoriaSeleccionada;
+			}
+
+			set<DataRep*> reps = mr->obtenerRepresentacionesCat(categoriaSeleccionada);
+			for(set<DataRep*>::iterator rep = reps.begin();rep!=reps.end();++rep){
+				cout << "  " << (*rep)->getCodigo() << " " << (*rep)->getEtiqueta() << "\n";
+			}
+
+			cout << "Ingrese el codigo de la representacion seleccionada (C para volver a categorias): ";
+			cin >> codigoSeleccionado;
+			while(codigoSeleccionado != "C" && !mr->existeRepresentacion(categoriaSeleccionada,codigoSeleccionado)){
+				cout << "Seleccion incorrecta, ingrese nuevamente: ";
+				cin >> codigoSeleccionado;
+			}
+
+		}
+
+		DataRep* rep = mr->obtenerRepresentacion(categoriaSeleccionada,codigoSeleccionado);
+		cout << "Seleccionado: " << rep->getCodigo() << " " << rep->getEtiqueta() << "\n";
+
+		string descripcion;
+		cout << "Ingrese una descripcion: ";
+		cin >> descripcion;
+
+		ControladorDiagnosticos* cd = ControladorDiagnosticos::getInstance();
+		Diagnostico* diag = cd->altaDiagnostico(rep->getCodigo(), rep->getEtiqueta(), descripcion, cc->getConsulta(ciSeleccionada,rs->getFechaSistema()));
+
+		cout << "Diagnostico agregado.\n";
+
+		string agregarTratamientos = "S";
+
+		while (agregarTratamientos == "S") {
+			string tipoTratamiento;
+			cout << "¿Que tipo de tratamiento desea agregar? (F/Q): ";
+			cin >> tipoTratamiento;
+			while((tipoTratamiento != "F") && (tipoTratamiento != "Q")){
+				cout << "Seleccion incorrecta, ingrese nuevamente: ";
+				cin >> tipoTratamiento;
+			}
+			ControladorTratamientos* ct = ControladorTratamientos::getInstance();
+			cout << "Ingrese una descripcion del tratamiento: ";
+			string desc;
+			cin >> desc;
+			//getline(cin, desc);
+			if(tipoTratamiento == "Q"){
+				cout << "Ingrese la fecha de la operacion. \n";
+				Fecha fechaOper = ingresarFecha();
+				int cedulaMedico;
+				cout << "Ingrese CI de medico a realizar el tratamiento: ";
+				cin >> cedulaMedico;
+				ct->agregarTratamientoQuirurjico(cedulaMedico,desc,fechaOper,diag);
+			} else if (tipoTratamiento == "F") {
+				string medicamento, opcionMedicamento;
+				cout << "Ingrese los medicamentos correspondientes al Tratamiento \n";
+				opcionMedicamento = "S";
+				while(opcionMedicamento == "S") {
+
+					Farmacologico* tfarm = new Farmacologico();
+
+					ManejadorMedicamentos* mmed = ManejadorMedicamentos::getInstance();
+					mmed->show();
+
+					cout << "Seleccione un medicamento: ";
+					cin >> medicamento;
+					tfarm->agregarMedicamento(mmed->find(medicamento));
+
+					diag->agregarTratamiento(tfarm);
+
+					cout << "¿Desea agregar otro medicamento? (S/N): "; cin >> opcionMedicamento;
+				}
+			}
+			cout << "¿Desea agregar otro tratamiento? (S/N): "; cin >> agregarTratamientos;
+		}
+		cout << "¿Desea agregar otro diagnostico? (S/N): "; cin >> agregarDiagnosticos;
+	}
+}
 
 void altaMedicamento(){
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
@@ -858,7 +991,12 @@ void agregarDatosDePrueba() {
 
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
+	ControladorDiagnosticos* cd = ControladorDiagnosticos::getInstance();
+	ControladorTratamientos* ct = ControladorTratamientos::getInstance();
 	ManejadorRepresentaciones* mr = ManejadorRepresentaciones::getInstance();
+	ManejadorMedicamentos* mmed = ManejadorMedicamentos::getInstance();
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
 
 	if(cu->usuarioLogueado())
 		throw std::invalid_argument("Debes cerrar sesion antes de ejecutar este comando");
@@ -902,28 +1040,28 @@ void agregarDatosDePrueba() {
 
 	cu->iniciarSesion(34562345);
 	cu->asignarSesion();
-	cc->ingresarFechaConsulta(Fecha(21,6,2014));
-	cc->ingresarFechaReserva(Fecha(23,6,2014));
+	cc->ingresarFechaConsulta(Fecha(23,6,2014));
+	cc->ingresarFechaReserva(Fecha(21,6,2014));
 	cc->ingresarConsulta(65436667);
 
-	cc->ingresarFechaConsulta(Fecha(22,5,2014));
-	cc->ingresarFechaReserva(Fecha(22,6,2014));
+	cc->ingresarFechaConsulta(Fecha(22,6,2014));
+	cc->ingresarFechaReserva(Fecha(22,5,2014));
 	cc->ingresarConsulta(43521343);
 
 	cu->cerrarSesion();
 
 	cu->iniciarSesion(65436667);
 	cu->asignarSesion();
-	cc->ingresarFechaConsulta(Fecha(15,3,2014));
-	cc->ingresarFechaReserva(Fecha(16,3,2014));
+	cc->ingresarFechaConsulta(Fecha(16,3,2014));
+	cc->ingresarFechaReserva(Fecha(15,3,2014));
 	cc->ingresarConsulta(43521343);
 
 	cu->cerrarSesion();
 
 	cu->iniciarSesion(12345435);
 	cu->asignarSesion();
-	cc->ingresarFechaConsulta(Fecha(28,2,2014));
-	cc->ingresarFechaReserva(Fecha(1,3,2014));
+	cc->ingresarFechaConsulta(Fecha(1,3,2014));
+	cc->ingresarFechaReserva(Fecha(28,2,2014));
 	cc->ingresarConsulta(98056743);
 
 	cu->cerrarSesion();
@@ -944,13 +1082,44 @@ void agregarDatosDePrueba() {
 	mr->agregarRepresentacion("A","A02","Congestion");
 	mr->agregarRepresentacion("B","B01","Nauseas");
 
+	// MEDICAMENTOS
+
+	mmed->existeMedicamento("M1");
+	mmed->ingresarMedicamento();
+	mmed->existeMedicamento("M2");
+	mmed->ingresarMedicamento();
+	mmed->existeMedicamento("M3");
+	mmed->ingresarMedicamento();
+
 	// DIAGNOSTICOS DE CONSULTAS
+
+	DataRep* rep = mr->obtenerRepresentacion("A","A02");
+	Diagnostico* D1 = cd->altaDiagnostico(rep->getCodigo(), rep->getEtiqueta(), "Desc 1",cc->getConsulta(34562345,Fecha(23,6,2014)));
 
 	// TRATAMIENTOS FARMACOLOGICOS
 
+	Farmacologico* tfarm;
+
+	tfarm = new Farmacologico();
+	tfarm->agregarMedicamento(mmed->find("M1"));
+	D1->agregarTratamiento(tfarm);
+
 	// TRATAMIENTOS QUIRURGICOS
 
+	ct->agregarTratamientoQuirurjico(65436667,"Desc 11",Fecha(25,7,2014),D1);
+
 	// SUSCRIPCIONES
+
+	Socio* s;
+	Medico* m;
+
+	s = ms->find(34562345);
+	m = mm->find(65436667);
+	m->seguir(s);
+
+	s = ms->find(65436667);
+	m = mm->find(43521343);
+	m->seguir(s);
 
 	// CERRAR LA SESION DEL ADMINISTRADOR
 	cu->cerrarSesion();
@@ -981,7 +1150,7 @@ int main(){
 				 << "5- listarRepresentacionesEstandarizadas" << endl
 				 << "6- registrarConsulta" << endl
 				 << "7- cantidadConsultasPorCategoria" << endl
-				 << "8- altaDiagnisticosDeConsulta" << endl
+				 << "8- altaDiagnosticosDeConsulta" << endl
 				 << "9- historialPaciente" << endl
 				 << "10- reservarConsulta" << endl
 				 << "11- devolverReserva" << endl
@@ -1064,7 +1233,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "altaDiagnisticosDeConsulta" || opcion == "8"){
+		else if(opcion == "altaDiagnosticosDeConsulta" || opcion == "8"){
 			try{
 				altaDiagnosticosConsulta();
 			}

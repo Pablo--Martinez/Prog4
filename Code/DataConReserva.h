@@ -11,7 +11,7 @@ class DataConReserva: public DataConsulta {
 		bool asiste;
 	public:
 		DataConReserva();
-		DataConReserva(Fecha,Fecha,bool);
+		DataConReserva(Fecha,Fecha,bool,int);
 		virtual ~DataConReserva();
 		Fecha getFechaReserva();
 		bool getAsiste();

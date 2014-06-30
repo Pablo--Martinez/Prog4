@@ -9,7 +9,7 @@ RelojSistema* RelojSistema::getInstance(){
 }
 
 RelojSistema::RelojSistema() {
-	this->fecha_sistema = Fecha(1,1,1,1,1);
+	this->fecha_sistema = Fecha(23,6,2014,17,0);
 
 }
 

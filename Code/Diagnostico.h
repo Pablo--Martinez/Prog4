@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <set>
+#include "Consulta.h"
 #include "DataDiagnostico.h"
 
 using namespace std;
@@ -15,10 +16,11 @@ class Diagnostico{
 		string codigo;
 		string etiqueta;
 		string descripcion;
+		Consulta* consulta;
 		set<Tratamiento*> tratamientos;
 	public:
 		Diagnostico();
-		Diagnostico(string,string,string);
+		Diagnostico(string,string,string,Consulta*);
 		~Diagnostico();
 		string getCodigo();
 		string getEtiqueta();

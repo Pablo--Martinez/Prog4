@@ -51,6 +51,34 @@ bool ManejadorRepresentaciones::existeRepresentacion(string letra,string codigo,
 	}
 	return false;
 }
+bool ManejadorRepresentaciones::existeRepresentacion(string letra,string codigo) {
+	set<DataRep*> representaciones = this->representaciones[letra];
+	if (representaciones.empty()) {
+		return false;
+	}
+	for(set<DataRep*>::iterator dr = representaciones.begin();dr != representaciones.end();++dr) {
+		string thiscodigo = (*dr)->getCodigo();
+		string thisetiqueta = (*dr)->getEtiqueta();
+		if (thiscodigo == codigo) {
+			return true;
+		}
+	}
+	return false;
+}
+DataRep* ManejadorRepresentaciones::obtenerRepresentacion(string letra,string codigo) {
+	set<DataRep*> representaciones = this->representaciones[letra];
+	if (representaciones.empty()) {
+		return false;
+	}
+	for(set<DataRep*>::iterator dr = representaciones.begin();dr != representaciones.end();++dr) {
+		string thiscodigo = (*dr)->getCodigo();
+		string thisetiqueta = (*dr)->getEtiqueta();
+		if (thiscodigo == codigo) {
+			return (*dr);
+		}
+	}
+	return false;
+}
 bool ManejadorRepresentaciones::existeCategoria(string letra) {
 	if (this->categorias.find(letra) == this->categorias.end()){
 		return false;

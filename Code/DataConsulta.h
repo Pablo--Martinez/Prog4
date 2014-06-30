@@ -19,6 +19,7 @@ class DataConsulta{
 		virtual ~DataConsulta();
 		Fecha getFechaConsulta();
 		int getCI();
+		void setCI(int);
 		void agregarDiagnostico(DataDiagnostico*);
 		set<DataDiagnostico*> getDiagnosticos();
 		virtual void show()=0;
