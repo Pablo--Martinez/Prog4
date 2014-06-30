@@ -822,8 +822,8 @@ void agregarDatosDePrueba() {
 
 	// INICIAR SESION DEL ADMINISTRADOR
 
-	//cu->iniciarSesion(34567645);
-	//cu->asignarSesion();
+	cu->iniciarSesion(34567645);
+	cu->asignarSesion();
 
 	// USUARIOS
 
@@ -894,7 +894,7 @@ void agregarDatosDePrueba() {
 	// SUSCRIPCIONES
 
 	// CERRAR LA SESION DEL ADMINISTRADOR
-	//cu->cerrarSesion();
+	cu->cerrarSesion();
 }
 
 //MAIN PRINCIPAL

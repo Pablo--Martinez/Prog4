@@ -24,6 +24,7 @@ class ControladorDiagnosticos{
 		map<string,DataRep*> categorias;
 		DataRep* categoriaSeleccionada;
 	public:
+		~ControladorDiagnosticos();
 		static ControladorDiagnosticos* getInstance();
 		Diagnostico* getDiagnostico();
 		set<string> obtenerCategorias();

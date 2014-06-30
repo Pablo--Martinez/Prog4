@@ -14,6 +14,7 @@ Consulta::~Consulta(){
 	for(set<Diagnostico*>::iterator d = this->diagnosticos.begin();d != this->diagnosticos.end();++d){
 		delete (*d);
 	}
+	this->diagnosticos.clear();
 }
 
 Fecha Consulta::getFechaConsulta(){

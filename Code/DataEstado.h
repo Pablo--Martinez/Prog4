@@ -11,6 +11,7 @@ class DataEstado{
 		set<DataConReserva*> conReserva;
 	public:
 		DataEstado();
+		~DataEstado();
 		DataEstado(int);
 		void agregarConReserva(DataConReserva*);
 		void setCantConsultasSinAsistencias(int);

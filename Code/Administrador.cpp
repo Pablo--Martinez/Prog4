@@ -5,13 +5,10 @@ Administrador::Administrador(){}
 Administrador::Administrador(Usuario* u): Rol(u){}
 
 Administrador::~Administrador(){
-	//delete this->criterio;
-	/*for(set<Usuario*>::iterator u = this->daDeAlta.begin();u != this->daDeAlta.end();++u){
-		delete (*u);
+	for(set<DataAltaReactivacion*>::iterator da = this->deAltaReactivados.begin();da != this->deAltaReactivados.end();++da){
+		delete (*da);
 	}
-	for(set<Usuario*>::iterator u = this->reactiva.begin();u != this->reactiva.end();++u){
-		delete (*u);
-	}*/
+	this->deAltaReactivados.clear();
 }
 /*
 set<Usuario*> Administrador::getUsuariosAlta(){

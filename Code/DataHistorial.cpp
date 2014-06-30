@@ -2,11 +2,17 @@
 
 DataHistorial::DataHistorial() {}
 
+DataHistorial::~DataHistorial() {
+	delete this->usuario;
+	for(set<DataMedico*>::iterator it = this->medico.begin();it != this->medico.end();++it){
+		delete (*it);
+	}
+	this->medico.clear();
+}
+
 DataHistorial::DataHistorial(DataUsuario* du){
 	this->usuario = du;
 }
-
-DataHistorial::~DataHistorial() {}
 
 void DataHistorial::agregarMedico(DataMedico* dm){
 	this->medico.insert(dm);

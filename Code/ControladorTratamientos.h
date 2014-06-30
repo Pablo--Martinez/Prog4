@@ -21,6 +21,7 @@ class ControladorTratamientos{
 		set<Tratamiento*> tratamientos;
 		set<Medicamento*> medicamentos;
 	public:
+		~ControladorTratamientos();
 		static ControladorTratamientos* getInstance();
 		void agregarTratamientoQuirurjico(int,string,Fecha);
 		void agregarTratamientoFarmacologico(string);

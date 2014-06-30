@@ -15,7 +15,7 @@ class ManejadorSocios{
         map<int,Socio*> socios;
 	public:
 		static ManejadorSocios* getInstance();
-		//~ManejadorSocios();
+		~ManejadorSocios();
 		void agregarSocio(Socio*);
 		Socio* find(int);
 		map<int,Socio*> getSocios();

@@ -6,6 +6,31 @@ ControladorDiagnosticos::ControladorDiagnosticos(){
 	this->diag = NULL;
 }
 
+ControladorDiagnosticos::~ControladorDiagnosticos(){
+	delete this->diag;
+	delete this->categoriaSeleccionada;
+	this->letrasCat.clear();
+	for(set<Diagnostico*>::iterator it = this->diagnosticos.begin();it != this->diagnosticos.end();++it){
+		delete (*it);
+	}
+	this->diagnosticos.clear();
+	for(set<Diagnostico*>::iterator it = this->diagnosticosTemp.begin();it != this->diagnosticosTemp.end();++it){
+		delete (*it);
+	}
+	this->diagnosticosTemp.clear();
+	for(map<string, set<DataRep*> >::iterator cat = this->representaciones.begin(); cat != this->representaciones.end();++cat){
+		for(set<DataRep*>::iterator dr = cat->second.begin();dr != cat->second.end();++dr) {
+			delete (*dr);
+		}
+		cat->second.clear();
+	}
+	this->representaciones.clear();
+	for(map<string,DataRep*>::iterator it = this->categorias.begin();it != this->categorias.end();++it){
+		delete (it->second);
+	}
+	this->categorias.clear();
+}
+
 ControladorDiagnosticos* ControladorDiagnosticos::getInstance(){
 	if(instancia == NULL)
 		instancia = new ControladorDiagnosticos();

@@ -29,6 +29,7 @@ class ControladorUsuarios{
 		Sexo sexo;
 		Fecha nacimiento;		
 	public:
+		~ControladorUsuarios();
 		static ControladorUsuarios* getInstance();
 		void setMaximoInasistencias(int);
 		int getMaximoInasistencias();

@@ -18,7 +18,7 @@ class ManejadorRepresentaciones
 		map<string,DataRep*> categorias;
 	public:
 		static ManejadorRepresentaciones* getInstance();
-		//~ManejadorRepresentaciones();
+		~ManejadorRepresentaciones();
 		void agregarRepresentacion(string,string,string);
 		void agregarCategoria(string,string);
 		void ingresarRepresentaciones(string,set<DataRep*>);

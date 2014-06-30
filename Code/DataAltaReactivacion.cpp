@@ -2,7 +2,9 @@
 
 DataAltaReactivacion::DataAltaReactivacion() {}
 
-DataAltaReactivacion::~DataAltaReactivacion() {}
+DataAltaReactivacion::~DataAltaReactivacion() {
+	delete this->usuario;
+}
 
 DataAltaReactivacion::DataAltaReactivacion(DataUsuario* dataUsuario,Fecha fecha,bool esAlta){
 	this->usuario = dataUsuario;
