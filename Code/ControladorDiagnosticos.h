@@ -35,6 +35,7 @@ class ControladorDiagnosticos{
 		bool existeRepDiag(string,string);
 		void ingresarRepDiag(string,string);
 		void confirmarRepEst();
+		void clearRepEst();
 };
 
 #endif /* CONTROLADORDIAGNOSTICOS_H_ */

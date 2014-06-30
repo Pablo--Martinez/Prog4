@@ -44,7 +44,7 @@ class Usuario{
 		void agregarRol(Rol*);
 		TSesion getTipoSesion();
 		bool verificarPass(string);
-		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
+		//set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 		void activar(string);
 		void desactivar();
 		void reactivar();

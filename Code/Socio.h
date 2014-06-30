@@ -27,7 +27,7 @@ class Socio: public Rol{
 		void notifyall(Medico*,Fecha,bool);
 		//Opeaciones de strategy
 		set<DataMedico*> obtenerMedicosDelPaciente();
-		virtual set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
+		//virtual set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
 		DataEstado* obtenerEstadoReservas();
 		void show();
 };
