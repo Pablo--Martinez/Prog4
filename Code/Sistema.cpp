@@ -935,6 +935,15 @@ void agregarDatosDePrueba() {
 	mr->agregarRepresentacion("A","A02","Congestion");
 	mr->agregarRepresentacion("B","B01","Nauseas");
 
+	// MEDICAMENTOS
+
+	mmed->existeMedicamento("M1");
+	mmed->ingresarMedicamento();
+	mmed->existeMedicamento("M2");
+	mmed->ingresarMedicamento();
+	mmed->existeMedicamento("M3");
+	mmed->ingresarMedicamento();
+
 	// DIAGNOSTICOS DE CONSULTAS
 
 	// TRATAMIENTOS FARMACOLOGICOS
@@ -942,6 +951,17 @@ void agregarDatosDePrueba() {
 	// TRATAMIENTOS QUIRURGICOS
 
 	// SUSCRIPCIONES
+
+	Socio* s;
+	Medico* m;
+
+	s = ms->find(34562345);
+	m = mm->find(65436667);
+	m->seguir(s);
+
+	s = ms->find(65436667);
+	m = mm->find(43521343);
+	m->seguir(s);
 
 	// CERRAR LA SESION DEL ADMINISTRADOR
 	cu->cerrarSesion();
@@ -972,7 +992,7 @@ int main(){
 				 << "5- listarRepresentacionesEstandarizadas" << endl
 				 << "6- registrarConsulta" << endl
 				 << "7- cantidadConsultasPorCategoria" << endl
-				 << "8- altaDiagnisticosDeConsulta" << endl
+				 << "8- altaDiagnosticosDeConsulta" << endl
 				 << "9- historialPaciente" << endl
 				 << "10- reservarConsulta" << endl
 				 << "11- devolverReserva" << endl
@@ -1055,7 +1075,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "altaDiagnisticosDeConsulta" || opcion == "8"){
+		else if(opcion == "altaDiagnosticosDeConsulta" || opcion == "8"){
 			try{
 				altaDiagnosticosConsulta();
 			}
