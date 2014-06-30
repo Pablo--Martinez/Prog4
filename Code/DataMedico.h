@@ -18,6 +18,7 @@ class DataMedico {
 		void agregarConsulta(DataConsulta*);
 		DataUsuario* getUsuario();
 		set<DataConsulta*> getConsultas();
+		void show();
 };
 
 #endif /* DATAMEDICO_H_ */

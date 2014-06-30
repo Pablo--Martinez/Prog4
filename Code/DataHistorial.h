@@ -17,6 +17,7 @@ class DataHistorial {
 		void agregarMedico(DataMedico*);
 		DataUsuario* getUsuario();
 		set<DataMedico*> getMedicos();
+		void show();
 };
 
 #endif /* DATAHISTORIAL_H_ */

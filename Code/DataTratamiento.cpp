@@ -11,3 +11,8 @@ DataTratamiento::DataTratamiento(string desc){
 string DataTratamiento::getDescripcion(){
 	return this->descripcion;
 }
+
+void DataTratamiento::show(){
+	if(this != NULL)
+		cout << "Descripcion: " <<this->descripcion << endl;
+}

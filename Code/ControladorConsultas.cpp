@@ -129,7 +129,7 @@ DataHistorial* ControladorConsultas::obtenerHistorial(int ci_user,Fecha fecha_si
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	for(map<int,Medico*>::iterator m = mm->getMedicos().begin(); m != mm->getMedicos().end();++m){
 		DataMedico* dm = m->second->obtenerHistorial(ci_user);
-		//if(&dm != NULL)
+		if(dm != NULL)
 			dh->agregarMedico(dm);
 	}
 	return dh;
@@ -172,14 +172,18 @@ void ControladorConsultas::ingresarFechaConsulta(Fecha fecha_consulta){
 	this->fecha_consulta = fecha_consulta;
 }
 
+void ControladorConsultas::ingresarFechaReserva(Fecha fecha_reserva){
+	this->fecha_reserva = fecha_reserva;
+}
+
 void ControladorConsultas::ingresarConsulta(int ci_doc){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
 	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-	RelojSistema* rs = RelojSistema::getInstance();
+	//RelojSistema* rs = RelojSistema::getInstance();
 	Medico* m = mm->find(ci_doc);
 	Socio* s = ms->find(cu->getUsuarioLogueado()->getCI());
-	ConReserva* r = new ConReserva(this->fecha_consulta,rs->getFechaSistema(),m,s);
+	ConReserva* r = new ConReserva(this->fecha_consulta,this->fecha_reserva,m,s);
 	m->agregarConsulta(r);
 	s->agregarConsulta(r);
 	this->consultas.insert(r);

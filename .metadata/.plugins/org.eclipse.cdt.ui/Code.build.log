@@ -1,32 +1,19 @@
-02:45:37 **** Incremental Build of configuration Debug for project Code ****
+05:03:40 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../ControladorConsultas.cpp
+Building file: ../Medico.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ControladorConsultas.d" -MT"ControladorConsultas.d" -o "ControladorConsultas.o" "../ControladorConsultas.cpp"
-../ControladorConsultas.cpp: In member function ‘void ControladorConsultas::seleccionarCriterio(int)’:
-../ControladorConsultas.cpp:135:23: warning: unused variable ‘cu’ [-Wunused-variable]
-  ControladorUsuarios* cu = ControladorUsuarios::getInstance();
-                       ^
-Finished building: ../ControladorConsultas.cpp
- 
-Building file: ../Sistema.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-../Sistema.cpp: In function ‘void registroConsulta()’:
-../Sistema.cpp:398:27: warning: unused variable ‘ci_doc’ [-Wunused-variable]
-   int criterio, cantidad, ci_doc;
-                           ^
-../Sistema.cpp: In function ‘void agregarDatosDePrueba()’:
-../Sistema.cpp:825:24: warning: unused variable ‘cc’ [-Wunused-variable]
-  ControladorConsultas* cc = ControladorConsultas::getInstance();
-                        ^
-Finished building: ../Sistema.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medico.d" -MT"Medico.d" -o "Medico.o" "../Medico.cpp"
+../Medico.cpp: In member function ‘DataMedico* Medico::obtenerHistorial(int)’:
+../Medico.cpp:60:19: warning: unused variable ‘ms’ [-Wunused-variable]
+  ManejadorSocios* ms = ManejadorSocios::getInstance();
+                   ^
+Finished building: ../Medico.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
-g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
+g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsultas.o ./ControladorDiagnosticos.o ./ControladorTratamientos.o ./ControladorUsuarios.o ./DataAltaReactivacion.o ./DataConReserva.o ./DataConsulta.o ./DataDiagnostico.o ./DataEmergencia.o ./DataEstado.o ./DataHistorial.o ./DataMedico.o ./DataRep.o ./DataTratamiento.o ./DataUsuario.o ./Diagnostico.o ./Emergencia.o ./Farmacologico.o ./Fecha.o ./HistorialNotificaciones.o ./IObserver.o ./ManejadorAdministradores.o ./ManejadorMedicamentos.o ./ManejadorMedicos.o ./ManejadorRepresentaciones.o ./ManejadorSocios.o ./Medicamento.o ./Medico.o ./MedicosDelPaciente.o ./MedicosLibres.o ./Notificacion.o ./Prog4.o ./Quirurjico.o ./RelojSistema.o ./Rol.o ./Sistema.o ./Socio.o ./Strategy.o ./Stretegy.o ./Tratamiento.o ./Usuario.o ./testConsulta.o ./testDiagnostico.o ./testMMedicamentos.o ./testMMedicos.o ./testMSocios.o ./testObservadores.o ./testTratamiento.o   
 Finished building target: Code
  
 
-02:45:39 Build Finished (took 2s.322ms)
+05:03:41 Build Finished (took 1s.224ms)
 

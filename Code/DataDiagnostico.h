@@ -2,6 +2,7 @@
 #define DATADIAGNOSTICO_H_
 
 #include <set>
+#include <iostream>
 #include "DataRep.h"
 #include "DataTratamiento.h"
 
@@ -20,6 +21,7 @@ class DataDiagnostico {
 		DataRep* getDataRep();
 		string getDescripcion();
 		set<DataTratamiento*> getTratamientos();
+		void show();
 };
 
 #endif /* DATADIAGNOSTICO_H_ */

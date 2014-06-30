@@ -58,8 +58,7 @@ DataMedico* Medico::getDataMedico(){
 DataMedico* Medico::obtenerHistorial(int ci_socio){
 	bool encontre = false;
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
-	DataUsuario* du = ms->find(ci_socio)->getUsuario()->getDataUsuario();
-	DataMedico* dm = new DataMedico(du);
+	DataMedico* dm = this->getDataMedico();
 	for(set<Consulta*>::iterator it = this->atiende.begin();it != this->atiende.end();++it){
 		if((*it)->perteneceASocio(ci_socio)){
 			encontre = true;

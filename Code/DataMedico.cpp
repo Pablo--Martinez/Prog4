@@ -25,3 +25,13 @@ DataUsuario* DataMedico::getUsuario(){
 set<DataConsulta*> DataMedico::getConsultas(){
 	return this->consultas;
 }
+
+void DataMedico::show(){
+	if(this != NULL){
+		cout << "\tNombre medico: " << this->usuario->getNombre() << endl;
+		cout << "\tCI: " << this->usuario->getCI() << endl;
+		for(set<DataConsulta*>::iterator it = this->consultas.begin();it!=this->consultas.end();++it){
+			(*it)->show();
+		}
+	}
+}

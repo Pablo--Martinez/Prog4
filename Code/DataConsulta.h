@@ -15,11 +15,13 @@ class DataConsulta{
 		set<DataDiagnostico*> diagnosticos;
 	public:
 		DataConsulta();
-		DataConsulta(Fecha/*, int*/);
+		DataConsulta(Fecha);
 		virtual ~DataConsulta();
 		Fecha getFechaConsulta();
 		int getCI();
 		void agregarDiagnostico(DataDiagnostico*);
+		set<DataDiagnostico*> getDiagnosticos();
+		virtual void show()=0;
 };
 
 #endif /* DATACONSULTA_H_ */

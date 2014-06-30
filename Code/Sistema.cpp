@@ -302,6 +302,7 @@ void reservaConsulta(){
 	ControladorConsultas* cc = ControladorConsultas::getInstance();
 
 	cc->ingresarFechaConsulta(f);
+	cc->ingresarFechaReserva(rs->getFechaSistema());
 
 	try{
 		set<DataUsuario*> medicos_disponibles = cc->obtenerMedicos();
@@ -699,7 +700,34 @@ void listarRepresentacionesEstandarizadas(){
 
 }
 
-void obtenerHistorialPaciente(){}
+void obtenerHistorialPaciente(){
+	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
+	ManejadorSocios* ms = ManejadorSocios::getInstance();
+	ControladorUsuarios* cu = ControladorUsuarios::getInstance();
+
+	if(!cu->usuarioLogueado())
+		throw std::invalid_argument("No hay usuario logueado");
+
+	if(mm->find(cu->getUsuarioLogueado()->getCI()) == NULL)
+		throw std::invalid_argument("Se deben tener privilegios de medico");
+
+	int ci_soc;
+	cout << "Ingrese la cedula del socio: "; cin >> ci_soc;
+	while(ms->find(ci_soc) == NULL){
+		cout << "Cedula incorrecta, ingrese nuevamente: "; cin >> ci_soc;
+	}
+
+	DataHistorial* historial = new DataHistorial();
+	map<int,Medico*> medicos = mm->getMedicos();
+	for(map<int,Medico*>::iterator it = medicos.begin();it!=medicos.end();++it){
+		historial->agregarMedico(mm->find(it->first)->obtenerHistorial(ci_soc));
+	}
+
+	historial->show();
+
+
+
+}
 
 void suscribirseAPaciente(){
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
@@ -861,29 +889,45 @@ void agregarDatosDePrueba() {
 	cu->ingresarCategoria(Med);
 	cu->confirmarInscripcion();
 
+	cu->cerrarSesion();
+
 	// RESERVAS COMUNES
 
-	/*cc->ingresarFechaConsulta(Fecha(21,6,2014));
+	cu->iniciarSesion(34562345);
+	cu->asignarSesion();
+	cc->ingresarFechaConsulta(Fecha(21,6,2014));
+	cc->ingresarFechaReserva(Fecha(23,6,2014));
 	cc->ingresarConsulta(65436667);
-	cc->registroReserva(34562345,65436667,Fecha(21,6,2014),Fecha(23,6,2014));
 
 	cc->ingresarFechaConsulta(Fecha(22,5,2014));
+	cc->ingresarFechaReserva(Fecha(22,6,2014));
 	cc->ingresarConsulta(43521343);
-	cc->registroReserva(34562345,43521343,Fecha(22,5,2014),Fecha(22,6,2014));
 
+	cu->cerrarSesion();
+
+	cu->iniciarSesion(65436667);
+	cu->asignarSesion();
 	cc->ingresarFechaConsulta(Fecha(15,3,2014));
+	cc->ingresarFechaReserva(Fecha(16,3,2014));
 	cc->ingresarConsulta(43521343);
-	cc->registroReserva(65436667,43521343,Fecha(15,3,2014),Fecha(16,3,2014));
 
+	cu->cerrarSesion();
+
+	cu->iniciarSesion(12345435);
+	cu->asignarSesion();
 	cc->ingresarFechaConsulta(Fecha(28,2,2014));
+	cc->ingresarFechaReserva(Fecha(1,3,2014));
 	cc->ingresarConsulta(98056743);
-	cc->registroReserva(12345435,98056743,Fecha(28,2,2014),Fecha(1,3,2014));*/
+
+	cu->cerrarSesion();
 
 	// RESERVAS DE EMERGENCIA
 
-	/*cc->registroEmergencia(34562345,65436667,"Fiebre alta",Fecha(23,5,2014));
+	cu->iniciarSesion(34567645);
+	cu->asignarSesion();
+	cc->registroEmergencia(34562345,65436667,"Fiebre alta",Fecha(23,5,2014));
 	cc->registroEmergencia(65436667,43521343,"Asma",Fecha(24,5,2014));
-	cc->registroEmergencia(65436667,98056743,"Mareos",Fecha(3,3,2014));*/
+	cc->registroEmergencia(65436667,98056743,"Mareos",Fecha(3,3,2014));
 
 	// REPRESENTACIONES ESTANDARIZADAS
 

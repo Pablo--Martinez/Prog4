@@ -21,3 +21,10 @@ string DataRep::getCodigo(){
 string DataRep::getEtiqueta(){
 	return this->etiqueta;
 }
+
+void DataRep::show(){
+	if(this != NULL){
+		cout << "\t\t\t\tCodigo: " << this->codigo << endl;
+		cout << "\t\t\t\tEtiqueta: " << this->etiqueta << endl;
+	}
+}

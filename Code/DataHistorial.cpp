@@ -25,3 +25,11 @@ DataUsuario* DataHistorial::getUsuario(){
 set<DataMedico*> DataHistorial::getMedicos(){
 	return this->medico;
 }
+
+void DataHistorial::show(){
+	if(this != NULL){
+		for(set<DataMedico*>::iterator it = this->medico.begin();it != this->medico.end();++it){
+			(*it)->show();
+		}
+	}
+}

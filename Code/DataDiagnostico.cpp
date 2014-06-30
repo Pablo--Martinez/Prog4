@@ -30,3 +30,13 @@ string DataDiagnostico::getDescripcion(){
 set<DataTratamiento*> DataDiagnostico::getTratamientos(){
 	return this->tratamientos;
 }
+
+void DataDiagnostico::show(){
+	if(this != NULL){
+		cout << "\t\t\tDescripcion: " << this->descripicon << endl;
+		this->representacion->show();
+		for(set<DataTratamiento*>::iterator it = this->tratamientos.begin(); it!=this->tratamientos.end();++it){
+			(*it)->show();
+		}
+	}
+}

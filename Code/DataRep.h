@@ -2,6 +2,7 @@
 #define DATAREP_H_
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class DataRep {
 		//string getLetra();
 		string getCodigo();
 		string getEtiqueta();
+		void show();
 };
 
 #endif /* DATAREP_H_ */

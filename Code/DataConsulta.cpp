@@ -22,6 +22,10 @@ int DataConsulta::getCI(){
 	return this->ci;
 }
 
+set<DataDiagnostico*> DataConsulta::getDiagnosticos(){
+	return this->diagnosticos;
+}
+
 void DataConsulta::agregarDiagnostico(DataDiagnostico* dd){
 	this->diagnosticos.insert(dd);
 }

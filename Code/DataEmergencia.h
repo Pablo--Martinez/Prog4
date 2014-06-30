@@ -14,6 +14,7 @@ class DataEmergencia: public DataConsulta{
 		DataEmergencia(Fecha,string);
 		virtual ~DataEmergencia();
 		string getMotivo();
+		void show();
 };
 
 

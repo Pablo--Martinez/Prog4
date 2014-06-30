@@ -15,6 +15,7 @@ class DataConReserva: public DataConsulta {
 		virtual ~DataConReserva();
 		Fecha getFechaReserva();
 		bool getAsiste();
+		void show();
 };
 
 #endif /* DATACONRESERVA_H_ */
