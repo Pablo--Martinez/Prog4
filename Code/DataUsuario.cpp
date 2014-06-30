@@ -2,7 +2,7 @@
 
 DataUsuario::DataUsuario() {}
 
-DataUsuario::DataUsuario(int ci,string pass,string nombre,string apellido,Sexo sexo,int edad,bool activo, set<Rol*> roles){
+/*DataUsuario::DataUsuario(int ci,string pass,string nombre,string apellido,Sexo sexo,int edad,bool activo, set<DataRol*> roles){
 	this->ci = ci;
 	this->pass = pass;
 	this->nombre = nombre;
@@ -11,14 +11,27 @@ DataUsuario::DataUsuario(int ci,string pass,string nombre,string apellido,Sexo s
 	this->edad = edad;
 	this->activo = activo;
 	this->roles = roles;
+}*/
+
+DataUsuario::DataUsuario(int ci,string pass,string nombre,string apellido,Sexo sexo,int edad,bool activo,bool esadmin,bool esmedico,bool essocio){
+	this->ci = ci;
+	this->pass = pass;
+	this->nombre = nombre;
+	this->apellido = apellido;
+	this->sexo = sexo;
+	this->edad = edad;
+	this->activo = activo;
+	this->esadmin = esadmin;
+	this->esmedico = esmedico;
+	this->essocio = essocio;
 }
 
 
 DataUsuario::~DataUsuario() {
-	for(set<Rol*>::iterator it = this->roles.begin();it != this->roles.end();++it){
+	/*for(set<DataRol>::iterator it = this->roles.begin();it != this->roles.end();++it){
 		delete (*it);
 	}
-	this->roles.clear();
+	this->roles.clear();*/
 }
 
 int DataUsuario::getCI(){
@@ -37,7 +50,17 @@ string DataUsuario::getApellido(){
 	return this->apellido;
 }
 
-set<Rol*> DataUsuario::getRoles(){
+bool DataUsuario::esAdmin(){
+	return this->esadmin;
+}
+bool DataUsuario::esMedico(){
+	return this->esmedico;
+}
+bool DataUsuario::esSocio(){
+	return this->essocio;
+}
+
+set<DataRol*> DataUsuario::getRoles(){
 	return this->roles;
 }
 

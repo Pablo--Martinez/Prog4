@@ -11,23 +11,30 @@
 #include <set>
 #include "Usuario.h"
 #include "Rol.h"
+#include "DataRol.h"
 
 using namespace std;
 
 class Usuario;
+class DataRol;
 
 class DataUsuario {
 	private:
 		int ci;
-		string pass, nombre,apellido;
+		string pass;
+		string nombre;
+		string apellido;
 		Sexo sexo;
 		int edad;
 		bool activo;
-		set<Rol*> roles;
+		bool esadmin;
+		bool esmedico;
+		bool essocio;
+		set<DataRol*> roles;
 	public:
 		DataUsuario();
 		//DataUsuario(Usuario*);
-		DataUsuario(int,string,string,string,Sexo,int,bool,set<Rol*>);
+		DataUsuario(int,string,string,string,Sexo,int,bool,bool,bool,bool);//set<DataRol*>
 		virtual ~DataUsuario();
 		int getCI();
 		string getPass();
@@ -36,7 +43,10 @@ class DataUsuario {
 		int getEdad();
 		Sexo getSexo();
 		bool getActivo();
-		set<Rol*> getRoles();
+		bool esAdmin();
+		bool esMedico();
+		bool esSocio();
+		set<DataRol*> getRoles();
 };
 
 //#include "Usuario.h"

@@ -170,15 +170,13 @@ void altaReactivacionUsuario(){
 		}
 		cout << "\t-Edad: " << du->getEdad() << "\n";
 		cout << "\t-Roles: \n";
-		for(set<Rol*>::iterator r = du->getRoles().begin();r != du->getRoles().end();++r) {
-				tipoRol tipoRol = (*r)->getTipoRol();
-				if (tipoRol == administrador)
-					cout << "\t\t-Administrador \n";
-				else if (tipoRol == medico)
-					cout << "\t\t-Medico \n";
-				else
-					cout << "\t\t-Socio \n";
-		}
+
+		if (du->esAdmin())
+			cout << "\t\t-Administrador \n";
+		if (du->esMedico())
+			cout << "\t\t-Medico \n";
+		if (du->esSocio())
+			cout << "\t\t-Socio \n";
 
 		if (du->getActivo()) {
 			cout << "\t-Estado: activo \n" << endl;
@@ -742,9 +740,8 @@ void suscribirseAPaciente(){
 
 	cout << "Usuarios del sistema: " << endl;
 	for(map<int,Socio*>::iterator it = ms->getSocios().begin();it != ms->getSocios().end();++it){
-		DataUsuario du;
-		du = *(it->second->getUsuario()->getDataUsuario());
-		cout << "\t- " << du.getCI() << ": " << du.getNombre() << " " << du.getApellido() << endl;
+		DataUsuario* du = it->second->getUsuario()->getDataUsuario();
+		cout << " - " << du->getCI() << ": " << du->getNombre() << " " << du->getApellido() << endl;
 	}
 	int ci_soc;
 	cout << "Ingrese la CI: "; cin >> ci_soc;
@@ -778,9 +775,9 @@ void verNotificaciones(){
 	map<int,set<Notificacion*> > notificaciones = mm->find(cu->getUsuarioLogueado()->getCI())->getNotificaciones();
 
 	if(notificaciones.empty())
-		cout << "No hay socios suscriptos" << endl << endl;
+		cout << "No hay notificaciones" << endl << endl;
 	else{
-		cout << "Socios a los que esta subscirpto: " << endl;
+		cout << "Notificaciones recibidas: " << endl;
 		for(map<int,set<Notificacion*> >::iterator it = notificaciones.begin();	it!=notificaciones.end();++it){
 			DataUsuario du;
 			du = *(ms->find(it->first)->getUsuario()->getDataUsuario());
@@ -960,9 +957,9 @@ int main(){
 	cout << "BIENVENIDO" << endl;
 	while(true){
 		if(!cu->usuarioLogueado()){
-			cout << "- iniciarSesion" << endl
-				 << "- agregarDatosDePrueba" << endl
-				 << "- salir" << endl;
+			cout << "A- iniciarSesion" << endl
+				 << "B- agregarDatosDePrueba" << endl
+				 << "C- salir" << endl;
 
 		}
 		else{
@@ -994,7 +991,7 @@ int main(){
 
 		cout << ">> "; cin >> opcion;
 
-		if(opcion == "iniciarSesion"){
+		if(opcion == "iniciarSesion" || opcion == "A"){
 			try{
 				iniciarSesion();
 			}
@@ -1165,7 +1162,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "agregarDatosDePrueba"){
+		else if(opcion == "agregarDatosDePrueba" || opcion == "B"){
 			try{
 				agregarDatosDePrueba();
 			}
@@ -1183,7 +1180,7 @@ int main(){
 			}
 		}
 
-		else if(opcion == "salir" || opcion == "20"){
+		else if(opcion == "salir" || opcion == "20" || opcion == "C"){
 			if(cu->usuarioLogueado()){
 				cerrarSesion();
 			}
