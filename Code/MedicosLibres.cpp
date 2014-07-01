@@ -11,12 +11,10 @@ MedicosLibres::~MedicosLibres() {
 set<DataMedico*> MedicosLibres::algoritmoDeSeleccion(){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	set<DataMedico*> medicosSeleccionados;
-	map<int,Medico*> medicos = mm->getMedicos();
-	for (map<int,Medico*>::iterator it=medicos.begin(); it!=medicos.end();++it){
+	for (map<int,Medico*>::iterator it=mm->getMedicos().begin(); it!=mm->getMedicos().end(); ++it){
 		bool sirve = it->second->libreHoraYConsultas(this->cantConsultas);
-		if (sirve) {
-			DataMedico* dm = it->second->getDataMedico();
-			medicosSeleccionados.insert(dm);
+		if (sirve) {//sirve
+			medicosSeleccionados.insert(it->second->getDataMedico());
 		}
 	}
 	return medicosSeleccionados;
