@@ -1,9 +1,9 @@
-20:21:47 **** Incremental Build of configuration Debug for project Code ****
+20:39:01 **** Incremental Build of configuration Debug for project Code ****
 make all 
-Building file: ../Sistema.cpp
+Building file: ../MedicosLibres.cpp
 Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Sistema.d" -MT"Sistema.d" -o "Sistema.o" "../Sistema.cpp"
-Finished building: ../Sistema.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"MedicosLibres.d" -MT"MedicosLibres.d" -o "MedicosLibres.o" "../MedicosLibres.cpp"
+Finished building: ../MedicosLibres.cpp
  
 Building target: Code
 Invoking: Cross G++ Linker
@@ -11,5 +11,5 @@ g++  -o "Code"  ./Administrador.o ./ConReserva.o ./Consulta.o ./ControladorConsu
 Finished building target: Code
  
 
-20:21:49 Build Finished (took 1s.803ms)
+20:39:02 Build Finished (took 1s.29ms)
 
