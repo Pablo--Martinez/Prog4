@@ -394,7 +394,10 @@ void registroConsulta(){
 		}
 
 		try{
-			cc->registroReserva(ci_socio,ci_doc,fecha_consulta);
+			ConReserva* consulta = cc->registroReserva(ci_socio,ci_doc,fecha_consulta);
+			/*if (consulta != NULL) {
+				consulta->getSocioSolicitante()->notifyall(consulta->getMedico(),consulta->getFechaConsulta(),consulta->getSeAgregaronDiagnosticos());
+			}*/
 			cout << "Reserva registrada correctamente! " << endl;
 		}
 		catch (const std::invalid_argument& e) {
@@ -545,6 +548,15 @@ void altaDiagnosticosConsulta(){
 		ControladorDiagnosticos* cd = ControladorDiagnosticos::getInstance();
 		Diagnostico* diag = cd->altaDiagnostico(rep->getCodigo(), rep->getEtiqueta(), descripcion, consulta);
 		consulta->agregarDiagnostico(diag);
+		consulta->getSocioSolicitante()->notifyall(consulta->getMedico(),consulta->getFechaConsulta(),true);
+		/*if(typeid(consulta) == typeid(ConReserva)){
+			// En los con reserva dejo la notificación para el registroConsulta();
+			ConReserva* r = dynamic_cast<ConReserva*>(consulta);
+			r->setSeAgregaronDiagnosticos(true);
+		} else {
+			// En los de emergencia notifico ahora.
+			consulta->getSocioSolicitante()->notifyall(consulta->getMedico(),consulta->getFechaConsulta(),true);
+		}*/
 		cout << "Diagnostico agregado.\n";
 
 		string agregarTratamientos = "S";

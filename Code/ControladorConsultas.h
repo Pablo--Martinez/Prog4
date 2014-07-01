@@ -38,7 +38,7 @@ class ControladorConsultas{
 		void ingresarCITratante(int);
 		int getCITratante();
 		void agregarConsulta(Consulta*);
-		void registroReserva(int,int,Fecha);
+		ConReserva* registroReserva(int,int,Fecha);
 		void registroEmergencia(int,int,string,Fecha);
 		set<DataConsulta*> consultasActivasXUsuario();
 		void devolverConsulta(Fecha);

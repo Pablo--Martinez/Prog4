@@ -5,6 +5,7 @@
 ConReserva::ConReserva(Fecha fecha_consulta,Fecha fecha_reserva, Medico* medico, Socio* socio):Consulta(fecha_consulta, medico,socio){
 	this->fecha_reserva = fecha_reserva;
 	this->asiste = false;
+	this->seAgregaronDiagnosticos = false;
 }
 
 ConReserva::~ConReserva(){}
@@ -15,6 +16,14 @@ Fecha ConReserva::getFechaReserva(){
 
 void ConReserva::registrar(){
 	this->asiste = true;
+}
+
+void ConReserva::setSeAgregaronDiagnosticos(bool seAgregaronDiagnosticos){
+	this->seAgregaronDiagnosticos = seAgregaronDiagnosticos;
+}
+
+bool ConReserva::getSeAgregaronDiagnosticos(){
+	return this->seAgregaronDiagnosticos;
 }
 
 bool ConReserva::getAsiste(){

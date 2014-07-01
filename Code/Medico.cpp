@@ -36,6 +36,9 @@ void Medico::seguir(Socio* s){
 }
 
 void Medico::notify(int ci_socio, Medico* medico ,Fecha fecha ,bool seAgregoDiag){
+	cout << "Agrega Notificacion: \n";
+	cout << "A medico: " << medico->getUsuario()->getCI() << "\n";
+	cout << "Socio: " << ci_socio << "\n";
 	Notificacion* note = new Notificacion(medico,fecha,seAgregoDiag);
 	this->notificaciones[ci_socio].insert(note);
 }
