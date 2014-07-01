@@ -13,7 +13,7 @@ class Notificacion;
 
 class Medico: public IObserver{
 	private:
-		set<Consulta*> atiende;
+		set<Consulta*> consultas;
 		map<int,set<Notificacion*> > notificaciones;
 	public:
 		Medico();
