@@ -31,15 +31,11 @@ void Medico::devolverConsulta(Consulta* c){
 }
 
 void Medico::seguir(Socio* s){
-	cout << "Llama a attach Medico: " << this->getUsuario()->getCI() << " Socio: " << s->getUsuario()->getCI() << "\n";
 	s->attach(this);
 
 }
 
 void Medico::notify(int ci_socio, Medico* medico ,Fecha fecha ,bool seAgregoDiag){
-	//cout << "Agrega Notificacion: \n";
-	//cout << "A medico: " << this->getUsuario()->getCI() << "\n";
-	//cout << "Socio: " << ci_socio << "\n";
 	Notificacion* note = new Notificacion(medico,fecha,seAgregoDiag);
 	this->notificaciones[ci_socio].insert(note);
 }
@@ -98,11 +94,6 @@ void Medico::show(){
 	if(this != NULL){
 		cout << "Usuario:" << endl;
 		this->getUsuario()->show();
-		/*cout << "Consultas que atiende:" << endl;
-		for (set<Consulta*>::iterator it=this->atiende.begin(); it!=this->atiende.end(); ++it){
-			(*it)->show();
-			cout << "----------------" << endl;
-		}*/
 	}
 }
 

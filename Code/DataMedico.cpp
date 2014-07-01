@@ -28,8 +28,8 @@ set<DataConsulta*> DataMedico::getConsultas(){
 
 void DataMedico::show(){
 	if(this != NULL){
-		cout << "\tNombre medico: " << this->usuario->getNombre() << " " << this->usuario->getApellido() << endl;
 		cout << "\tCI: " << this->usuario->getCI() << endl;
+		cout << "\tNombre medico: " << this->usuario->getNombre() << " " << this->usuario->getApellido() << endl;
 		for(set<DataConsulta*>::iterator it = this->consultas.begin();it!=this->consultas.end();++it){
 			(*it)->show();
 		}

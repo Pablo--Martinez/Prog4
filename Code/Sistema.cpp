@@ -394,10 +394,7 @@ void registroConsulta(){
 		}
 
 		try{
-			ConReserva* consulta = cc->registroReserva(ci_socio,ci_doc,fecha_consulta);
-			/*if (consulta != NULL) {
-				consulta->getSocioSolicitante()->notifyall(consulta->getMedico(),consulta->getFechaConsulta(),consulta->getSeAgregaronDiagnosticos());
-			}*/
+			cc->registroReserva(ci_socio,ci_doc,fecha_consulta);
 			cout << "Reserva registrada correctamente! " << endl;
 		}
 		catch (const std::invalid_argument& e) {
@@ -483,6 +480,9 @@ void altaDiagnosticosConsulta(){
 
 	//Muestro todas las consultas del dia
 	set<DataConsulta*> consultasDelDia = cc->consultasDelDia(rs->getFechaSistema());
+	if(consultasDelDia.empty())
+		throw std::invalid_argument("No hay consultas para el dia de hoy");
+
 	set<int> listadoCedulas;
 
 	cout << "Consultas del dia" << endl;
@@ -550,14 +550,6 @@ void altaDiagnosticosConsulta(){
 		Diagnostico* diag = cd->altaDiagnostico(rep->getCodigo(), rep->getEtiqueta(), descripcion, consulta);
 		consulta->agregarDiagnostico(diag);
 		consulta->getSocioSolicitante()->notifyall(consulta->getMedico(),consulta->getFechaConsulta(),true);
-		/*if(typeid(consulta) == typeid(ConReserva)){
-			// En los con reserva dejo la notificaci�n para el registroConsulta();
-			ConReserva* r = dynamic_cast<ConReserva*>(consulta);
-			r->setSeAgregaronDiagnosticos(true);
-		} else {
-			// En los de emergencia notifico ahora.
-			consulta->getSocioSolicitante()->notifyall(consulta->getMedico(),consulta->getFechaConsulta(),true);
-		}*/
 		cout << "Diagnostico agregado.\n";
 
 		string agregarTratamientos = "S";
@@ -583,12 +575,13 @@ void altaDiagnosticosConsulta(){
 				cin >> cedulaMedico;
 				ct->agregarTratamientoQuirurjico(cedulaMedico,desc,fechaOper,diag);
 			} else if (tipoTratamiento == "F") {
+				Farmacologico* tfarm = new Farmacologico(desc);
 				string medicamento, opcionMedicamento;
 				cout << "Ingrese los medicamentos correspondientes al Tratamiento \n";	//(*it)->show();
 				opcionMedicamento = "S";
 				while(opcionMedicamento == "S") {
 
-					Farmacologico* tfarm = new Farmacologico();
+					//Farmacologico* tfarm = new Farmacologico();
 
 					ManejadorMedicamentos* mmed = ManejadorMedicamentos::getInstance();
 					mmed->show();
@@ -597,10 +590,11 @@ void altaDiagnosticosConsulta(){
 					cin >> medicamento;
 					tfarm->agregarMedicamento(mmed->find(medicamento));
 
-					diag->agregarTratamiento(tfarm);
+					//diag->agregarTratamiento(tfarm);
 
 					cout << "Desea agregar otro medicamento? (S/N): "; cin >> opcionMedicamento;
 				}
+				diag->agregarTratamiento(tfarm);
 			}
 			cout << "Desea agregar otro tratamiento? (S/N): "; cin >> agregarTratamientos;
 		}

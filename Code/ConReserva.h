@@ -10,14 +10,14 @@ class ConReserva: public Consulta{
 	private:
 		Fecha fecha_reserva;
 		bool asiste;
-		bool seAgregaronDiagnosticos;
+		//bool seAgregaronDiagnosticos;
 	public:
 		ConReserva();
 		ConReserva(Fecha,Fecha,Medico*,Socio*);
 		~ConReserva();
 		Fecha getFechaReserva();
-		bool getSeAgregaronDiagnosticos();
-		void setSeAgregaronDiagnosticos(bool);
+		//bool getSeAgregaronDiagnosticos();
+		//void setSeAgregaronDiagnosticos(bool);
 		void registrar();
 		bool getAsiste();
 		DataConsulta* getDataConsulta();

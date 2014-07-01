@@ -35,18 +35,8 @@ set<Consulta*> Socio::getConsultasSolicitadas(){
 	return this->solicita;
 }
 
-/*set<DataAltaReactivacion*> Socio::obtenerUsuariosAltaReactivacion() {
-	set<DataAltaReactivacion*> setVacio;
-	return setVacio;
-}*/
-
 void Socio::attach(IObserver* o){
 	this->observadores.insert(o);
-	cout << "Observadores de Socio: " << this->getUsuario()->getCI() << " \n";
-
-	for(set<IObserver*>::iterator it = this->observadores.begin();it != this->observadores.end();++it){
-		cout << "Medico Observador: " << (*it)->getUsuario()->getCI() << " \n";
-	}
 }
 
 void Socio::unattach(IObserver* o){

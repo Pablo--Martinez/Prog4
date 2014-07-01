@@ -38,17 +38,9 @@ Consulta* ControladorConsultas::getConsulta(int ci_soc,Fecha fecha){
 			return *it;
 	}
 	return NULL;
-	/*for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
-		//if(typeid(**it) == typeid(ConReserva)){
-			//ConReserva* r = dynamic_cast<ConReserva*>(*it);
-			if((*it)->getFechaConsulta() == fecha && (*it)->perteneceASocio(ci_soc))
-				return *it;
-			//}
-	}
-	return NULL;*/
 }
 
-ConReserva* ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_consulta){
+void ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha fecha_consulta){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
 	ManejadorSocios* ms = ManejadorSocios::getInstance();
 
@@ -64,15 +56,13 @@ ConReserva* ControladorConsultas::registroReserva(int ci_user,int ci_doc,Fecha f
 			ConReserva* r = dynamic_cast<ConReserva*>(*it);
 			if(r->perteneceASocio(ci_user) && r->perteneceAMedico(ci_doc) && r->getFechaConsulta() == fecha_consulta){
 				r->registrar();
-				return r;
-				//break;
+				break;
 			}
 		}
 		++it;
 	}
 	if(it == consultas_socio.end())
 		throw std::invalid_argument("No existe la reserva");
-	return NULL;
 }
 
 void ControladorConsultas::registroEmergencia(int ci_user,int ci_doc,string motivo,Fecha fecha_consulta){
