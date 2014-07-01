@@ -30,7 +30,7 @@ class DataUsuario {
 		bool esadmin;
 		bool esmedico;
 		bool essocio;
-		set<DataRol*> roles;
+		//set<DataRol*> roles;
 	public:
 		DataUsuario();
 		//DataUsuario(Usuario*);
@@ -46,10 +46,8 @@ class DataUsuario {
 		bool esAdmin();
 		bool esMedico();
 		bool esSocio();
-		set<DataRol*> getRoles();
+		//set<DataRol*> getRoles();
 		void show();
 };
-
-//#include "Usuario.h"
 
 #endif /* DATAUSUARIO_H_ */

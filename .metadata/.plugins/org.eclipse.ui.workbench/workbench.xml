@@ -36,29 +36,30 @@
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorConsultas.h" partName="ControladorConsultas.h" path="/home/pablo/Escritorio/Fing/Prog4/Code/ControladorConsultas.h" title="ControladorConsultas.h" tooltip="Code/ControladorConsultas.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/ControladorConsultas.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1515" selectionTopPixel="525"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="Sistema.cpp" partName="Sistema.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/Sistema.cpp" title="Sistema.cpp" tooltip="Code/Sistema.cpp" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Sistema.cpp" partName="Sistema.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/Sistema.cpp" title="Sistema.cpp" tooltip="Code/Sistema.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/Sistema.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="24" selectionOffset="14315" selectionTopPixel="9736"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="12896" selectionTopPixel="7174"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="MedicosLibres.cpp" partName="MedicosLibres.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/MedicosLibres.cpp" title="MedicosLibres.cpp" tooltip="Code/MedicosLibres.cpp" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorConsultas.cpp" partName="ControladorConsultas.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/ControladorConsultas.cpp" title="ControladorConsultas.cpp" tooltip="Code/ControladorConsultas.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/ControladorConsultas.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5298" selectionTopPixel="2567"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Strategy.h" partName="Strategy.h" path="/home/pablo/Escritorio/Fing/Prog4/Code/Strategy.h" title="Strategy.h" tooltip="Code/Strategy.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/Strategy.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="206" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="MedicosDelPaciente.cpp" partName="MedicosDelPaciente.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/MedicosDelPaciente.cpp" title="MedicosDelPaciente.cpp" tooltip="Code/MedicosDelPaciente.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/MedicosDelPaciente.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="283" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="MedicosLibres.cpp" partName="MedicosLibres.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/MedicosLibres.cpp" title="MedicosLibres.cpp" tooltip="Code/MedicosLibres.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/MedicosLibres.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="359" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Medico.cpp" partName="Medico.cpp" path="/home/pablo/Escritorio/Fing/Prog4/Code/Medico.cpp" title="Medico.cpp" tooltip="Code/Medico.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/Medico.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="846" selectionTopPixel="408"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Medico.h" partName="Medico.h" path="/home/pablo/Escritorio/Fing/Prog4/Code/Medico.h" title="Medico.h" tooltip="Code/Medico.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Code/Medico.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="268"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="656" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -110,7 +111,9 @@
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
 <viewState/>
 </view>
-<view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<viewState/>
+</view>
 <view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target">
 <viewState/>
 </view>
@@ -120,9 +123,9 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (31 items)"/>
-<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings (34 items)"/>
 <category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="261" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="577"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -294,7 +297,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24980666" ratioLeft="323" ratioRight="970" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottom" ratio="0.7252252" ratioLeft="483" ratioRight="183" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
@@ -442,7 +445,7 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="628" ratioRight="628" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="Registers"/>
 <page content="org.eclipse.debug.ui.ModuleView" label="Modules"/>
@@ -466,163 +469,45 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Sistema.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ControladorConsultas.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ConReserva.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Medico.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Socio.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Rol.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Rol.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Socio.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Notificacion.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/DataHistorial.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/DataUsuario.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/DataMedico.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ControladorTratamientos.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ControladorConsultas.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/MedicosDelPaciente.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/MedicosLibres.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Medico.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Medico.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ControladorConsultas.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ControladorUsuarios.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Sistema.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Administrador.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/DataUsuario.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/DataUsuario.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Medico.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ManejadorSocios.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Socio.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/DataConReserva.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Socio.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Sistema.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/ControladorConsultas.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/Strategy.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/MedicosDelPaciente.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Code/MedicosLibres.cpp"/>
 </editors>
-<item historyLabel="Medico.cpp" index="3">
-<position info="not_deleted" x="840" y="0"/>
-</item>
-<item historyLabel="ConReserva.cpp" index="2">
-<position info="not_deleted" x="302" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="ControladorConsultas.cpp" index="1">
-<position info="not_deleted" x="1088" y="0"/>
-</item>
-<item historyLabel="Medico.cpp" index="3">
-<position info="not_deleted" x="2395" y="0"/>
-</item>
-<item historyLabel="Socio.cpp" index="4">
-<position info="not_deleted" x="633" y="0"/>
-</item>
-<item historyLabel="Medico.cpp" index="3">
-<position info="not_deleted" x="2395" y="0"/>
-</item>
-<item historyLabel="Rol.h" index="5">
-<position info="not_deleted" x="357" y="0"/>
-</item>
-<item historyLabel="Rol.cpp" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Rol.h" index="5">
-<position info="not_deleted" x="357" y="0"/>
-</item>
-<item historyLabel="Socio.cpp" index="4">
-<position info="not_deleted" x="633" y="0"/>
-</item>
-<item historyLabel="Rol.h" index="5">
-<position info="not_deleted" x="357" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="Socio.cpp" index="7">
-<position info="not_deleted" x="58" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="Notificacion.cpp" index="8">
-<position info="not_deleted" x="714" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="DataHistorial.cpp" index="9">
-<position info="not_deleted" x="640" y="0"/>
-</item>
-<item historyLabel="DataUsuario.cpp" index="10">
-<position info="not_deleted" x="1615" y="4"/>
-</item>
-<item historyLabel="DataHistorial.cpp" index="9">
-<position info="not_deleted" x="752" y="0"/>
-</item>
-<item historyLabel="DataMedico.cpp" index="11">
-<position info="not_deleted" x="458" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position info="not_deleted" x="18599" y="0"/>
-</item>
-<item historyLabel="ControladorTratamientos.cpp" index="12">
-<position info="not_deleted" x="725" y="28"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position info="not_deleted" x="39192" y="0"/>
-</item>
-<item historyLabel="ControladorTratamientos.cpp" index="12">
-<position info="not_deleted" x="725" y="28"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position info="not_deleted" x="35475" y="0"/>
-</item>
-<item historyLabel="ControladorTratamientos.cpp" index="12">
-<position info="not_deleted" x="725" y="28"/>
-</item>
-<item historyLabel="ControladorConsultas.h" index="13">
-<position info="not_deleted" x="1515" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Sistema.cpp" index="0">
-<position info="not_deleted" x="33801" y="0"/>
-</item>
-<item historyLabel="ControladorConsultas.h" index="13">
-<position info="not_deleted" x="1515" y="0"/>
-</item>
-<item historyLabel="MedicosDelPaciente.cpp" index="14">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MedicosLibres.cpp" index="15">
-<position info="not_deleted" x="701" y="0"/>
-</item>
-<item historyLabel="MedicosLibres.cpp" index="15">
-<position/>
-</item>
-<item historyLabel="Medico.cpp" index="16">
-<position info="not_deleted" x="2911" y="0"/>
-</item>
-<item historyLabel="Medico.cpp" index="16">
+<item historyLabel="Medico.cpp" index="2">
 <position info="not_deleted" x="846" y="0"/>
 </item>
-<item historyLabel="MedicosLibres.cpp" index="15">
+<item historyLabel="MedicosLibres.cpp" index="1">
 <position info="not_deleted" x="359" y="0"/>
 </item>
-<item historyLabel="Medico.cpp" index="16">
+<item historyLabel="Medico.cpp" index="2">
 <position/>
 </item>
-<item historyLabel="Medico.h" index="17">
+<item historyLabel="Medico.h" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Medico.h" index="17">
+<item historyLabel="Medico.h" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Medico.cpp" index="16">
+<item historyLabel="Medico.cpp" index="2">
 <position info="not_deleted" x="846" y="0"/>
 </item>
-<item historyLabel="Medico.h" index="17">
+<item historyLabel="Medico.h" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="Sistema.cpp" index="0">
@@ -631,8 +516,125 @@
 <item historyLabel="Sistema.cpp" index="0">
 <position info="not_deleted" x="42547" y="0"/>
 </item>
-<item active="true" historyLabel="Sistema.cpp" index="0">
+<item historyLabel="Sistema.cpp" index="0">
 <position info="not_deleted" x="14315" y="24"/>
+</item>
+<item historyLabel="ControladorConsultas.h" index="4">
+<position info="not_deleted" x="1515" y="0"/>
+</item>
+<item historyLabel="ControladorUsuarios.cpp" index="5">
+<position/>
+</item>
+<item historyLabel="Sistema.cpp" index="6">
+<position info="not_deleted" x="3438" y="0"/>
+</item>
+<item historyLabel="ControladorUsuarios.cpp" index="5">
+<position/>
+</item>
+<item historyLabel="Sistema.cpp" index="6">
+<position info="not_deleted" x="3438" y="0"/>
+</item>
+<item historyLabel="Administrador.cpp" index="7">
+<position info="not_deleted" x="135" y="1"/>
+</item>
+<item historyLabel="DataUsuario.cpp" index="8">
+<position info="not_deleted" x="971" y="0"/>
+</item>
+<item historyLabel="DataUsuario.h" index="9">
+<position info="not_deleted" x="935" y="0"/>
+</item>
+<item historyLabel="Medico.cpp" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ManejadorSocios.cpp" index="11">
+<position info="not_deleted" x="448" y="0"/>
+</item>
+<item historyLabel="Socio.cpp" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ManejadorSocios.cpp" index="11">
+<position info="not_deleted" x="448" y="0"/>
+</item>
+<item historyLabel="Socio.cpp" index="12">
+<position info="not_deleted" x="1151" y="0"/>
+</item>
+<item historyLabel="DataConReserva.cpp" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Socio.cpp" index="14">
+<position info="not_deleted" x="1174" y="0"/>
+</item>
+<item historyLabel="Sistema.cpp" index="15">
+<position info="not_deleted" x="39638" y="0"/>
+</item>
+<item historyLabel="Sistema.cpp" index="15">
+<position info="not_deleted" x="42118" y="0"/>
+</item>
+<item historyLabel="Sistema.cpp" index="15">
+<position info="not_deleted" x="12947" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="16">
+<position info="not_deleted" x="5333" y="0"/>
+</item>
+<item historyLabel="Strategy.h" index="17">
+<position info="not_deleted" x="206" y="20"/>
+</item>
+<item historyLabel="MedicosDelPaciente.cpp" index="18">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MedicosLibres.cpp" index="19">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MedicosDelPaciente.cpp" index="18">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Sistema.cpp" index="15">
+<position info="not_deleted" x="12896" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="16">
+<position info="not_deleted" x="5298" y="0"/>
+</item>
+<item historyLabel="MedicosLibres.cpp" index="19">
+<position info="not_deleted" x="742" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="16">
+<position info="not_deleted" x="5349" y="0"/>
+</item>
+<item historyLabel="Sistema.cpp" index="15">
+<position info="not_deleted" x="13459" y="0"/>
+</item>
+<item historyLabel="MedicosLibres.cpp" index="19">
+<position info="not_deleted" x="742" y="0"/>
+</item>
+<item historyLabel="Sistema.cpp" index="15">
+<position info="not_deleted" x="13459" y="0"/>
+</item>
+<item historyLabel="Sistema.cpp" index="15">
+<position info="not_deleted" x="12896" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="16">
+<position info="not_deleted" x="5298" y="0"/>
+</item>
+<item historyLabel="MedicosLibres.cpp" index="19">
+<position info="not_deleted" x="742" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="16">
+<position info="not_deleted" x="5349" y="0"/>
+</item>
+<item historyLabel="Sistema.cpp" index="15">
+<position info="not_deleted" x="12896" y="0"/>
+</item>
+<item historyLabel="ControladorConsultas.cpp" index="16">
+<position info="not_deleted" x="5298" y="0"/>
+</item>
+<item historyLabel="MedicosDelPaciente.cpp" index="18">
+<position info="not_deleted" x="283" y="0"/>
+</item>
+<item historyLabel="MedicosLibres.cpp" index="19">
+<position info="not_deleted" x="742" y="0"/>
+</item>
+<item active="true" historyLabel="MedicosLibres.cpp" index="19">
+<position info="not_deleted" x="662" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -654,20 +656,41 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Medico.h" tooltip="Code/Medico.h">
-<persistable path="/Code/Medico.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Medico.cpp" tooltip="Code/Medico.cpp">
-<persistable path="/Code/Medico.cpp"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="MedicosLibres.cpp" tooltip="Code/MedicosLibres.cpp">
 <persistable path="/Code/MedicosLibres.cpp"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="MedicosDelPaciente.cpp" tooltip="Code/MedicosDelPaciente.cpp">
 <persistable path="/Code/MedicosDelPaciente.cpp"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Strategy.h" tooltip="Code/Strategy.h">
+<persistable path="/Code/Strategy.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorConsultas.cpp" tooltip="Code/ControladorConsultas.cpp">
+<persistable path="/Code/ControladorConsultas.cpp"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Sistema.cpp" tooltip="Code/Sistema.cpp">
 <persistable path="/Code/Sistema.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataConReserva.cpp" tooltip="Code/DataConReserva.cpp">
+<persistable path="/Code/DataConReserva.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Socio.cpp" tooltip="Code/Socio.cpp">
+<persistable path="/Code/Socio.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Medico.cpp" tooltip="Code/Medico.cpp">
+<persistable path="/Code/Medico.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataUsuario.cpp" tooltip="Code/DataUsuario.cpp">
+<persistable path="/Code/DataUsuario.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Administrador.cpp" tooltip="Code/Administrador.cpp">
+<persistable path="/Code/Administrador.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorUsuarios.cpp" tooltip="Code/ControladorUsuarios.cpp">
+<persistable path="/Code/ControladorUsuarios.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Medico.h" tooltip="Code/Medico.h">
+<persistable path="/Code/Medico.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ControladorConsultas.h" tooltip="Code/ControladorConsultas.h">
 <persistable path="/Code/ControladorConsultas.h"/>
@@ -677,27 +700,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataMedico.cpp" tooltip="Code/DataMedico.cpp">
 <persistable path="/Code/DataMedico.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataUsuario.cpp" tooltip="Code/DataUsuario.cpp">
-<persistable path="/Code/DataUsuario.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DataHistorial.cpp" tooltip="Code/DataHistorial.cpp">
-<persistable path="/Code/DataHistorial.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Notificacion.cpp" tooltip="Code/Notificacion.cpp">
-<persistable path="/Code/Notificacion.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Socio.cpp" tooltip="Code/Socio.cpp">
-<persistable path="/Code/Socio.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Rol.cpp" tooltip="Code/Rol.cpp">
-<persistable path="/Code/Rol.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Rol.h" tooltip="Code/Rol.h">
-<persistable path="/Code/Rol.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ConReserva.h" tooltip="Code/ConReserva.h">
-<persistable path="/Code/ConReserva.h"/>
 </file>
 </mruList>
 </workbench>

@@ -24,15 +24,13 @@ void DataConReserva::show(){
 		cout << endl;
 		cout << "\t\tFecha de reserva: "; this->getFechaReserva().show();
 		cout << endl;
-		set<DataDiagnostico*>::iterator pos;
-		pos = this->getDiagnosticos().begin();
-			int i=0;
-			while(pos != this->getDiagnosticos().end()){
-				cout << "\t\tDiagnostico" << i << ": " << endl;
-				(*pos)->show();
-				pos++;
-				i++;
-			}
+		set<DataDiagnostico*> diags = this->getDiagnosticos();
+		int i=0;
+		for(set<DataDiagnostico*>::iterator it = diags.begin();it!=diags.end();++it){
+		        cout << "\t\tDiagnostico" << i << ": " << endl;
+			(*it)->show();
+			i++;
+		}		  
 	}
 }
 

@@ -8,14 +8,12 @@ using namespace std;
 
 class DataRep {
 	private:
-		//string letra;
 		string codigo;
 		string etiqueta;
 	public:
 		DataRep();
 		DataRep(string,string);
 		virtual ~DataRep();
-		//string getLetra();
 		string getCodigo();
 		string getEtiqueta();
 		void show();

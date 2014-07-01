@@ -2,9 +2,8 @@
 
 DataConsulta::DataConsulta(){}
 
-DataConsulta::DataConsulta(Fecha fecha_consulta/*, int ci*/){
+DataConsulta::DataConsulta(Fecha fecha_consulta){
 	this->fecha_consulta = fecha_consulta;
-	//this->ci = ci;
 }
 
 DataConsulta::~DataConsulta(){

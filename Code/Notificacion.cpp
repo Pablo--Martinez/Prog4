@@ -24,7 +24,7 @@ Medico* Notificacion::getQuienDiagnostico(){
 }
 
 void Notificacion::show(){
-	cout << "Medico tratante: ";
+	cout << "Medico tratante: " << endl;
 	cout <<  "\t" <<this->diagnostico->getUsuario()->getCI() << ": " << this->diagnostico->getUsuario()->getNombre() << endl;
 	cout << "\tFecha: "; this->fecha.show(); cout << endl;
 	cout << "\tSe diagnostico: ";

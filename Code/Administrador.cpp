@@ -10,14 +10,6 @@ Administrador::~Administrador(){
 	}
 	this->deAltaReactivados.clear();
 }
-/*
-set<Usuario*> Administrador::getUsuariosAlta(){
-	return this->daDeAlta;
-}
-
-set<Usuario*> Administrador::getUsuariosReactivados(){
-	return this->reactiva;
-}*/
 
 tipoRol Administrador::getTipoRol() {
 	return administrador;
@@ -37,9 +29,5 @@ void Administrador::show(){
 		cout << "Usuario:" << endl;
 		this->getUsuario()->show();
 		cout << "Usuarios dados de alta:" << endl;
-		/*for (set<Usuario*>::iterator it=this->daDeAlta.begin(); it!=this->daDeAlta.end(); ++it){
-			(*it)->show();
-			cout << "----------------" << endl;
-		}*/
 	}
 }

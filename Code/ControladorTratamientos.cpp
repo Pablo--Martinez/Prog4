@@ -22,10 +22,8 @@ ControladorTratamientos* ControladorTratamientos::getInstance(){
 
 void ControladorTratamientos::agregarTratamientoQuirurjico(int ci_medico,string desc,Fecha fecha,Diagnostico* diag){
 	ManejadorMedicos* mm = ManejadorMedicos::getInstance();
-	//ControladorDiagnosticos* cd = ControladorDiagnosticos::getInstance();
 	Medico* m = mm->find(ci_medico);
 	Quirurjico* q = new Quirurjico(desc,fecha,m);
-	//cd->getDiagnostico()->agregarTratamiento(q);
 	diag->agregarTratamiento(q);
 }
 

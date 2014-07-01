@@ -18,13 +18,11 @@ void DataEmergencia::show(){
 		cout << "\t\tFecha de consulta: "; this->getFechaConsulta().show();
 		cout << endl;
 		cout << "\t\tMotivo: " << this->motivo << endl;
-		set<DataDiagnostico*>::iterator pos;
-		pos = this->getDiagnosticos().begin();
+		set<DataDiagnostico*> diags = this->getDiagnosticos();
 		int i=0;
-		while(pos != this->getDiagnosticos().end()){
-			cout << "\t\tDiagnostico" << i << ": " << endl;
-			(*pos)->show();
-			pos++;
+		for(set<DataDiagnostico*>::iterator it = diags.begin();it!=diags.end();++it){
+		        cout << "\t\tDiagnostico" << i << ": " << endl;
+			(*it)->show();
 			i++;
 		}
 	}

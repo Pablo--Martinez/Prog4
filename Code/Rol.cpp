@@ -1,8 +1,6 @@
 #include "Rol.h"
 
-Rol::Rol(){
-	//this->usuario = NULL;
-}
+Rol::Rol(){}
 
 Rol::Rol(Usuario* u){
 	this->usuario = u;

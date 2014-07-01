@@ -2,17 +2,6 @@
 
 DataUsuario::DataUsuario() {}
 
-/*DataUsuario::DataUsuario(int ci,string pass,string nombre,string apellido,Sexo sexo,int edad,bool activo, set<DataRol*> roles){
-	this->ci = ci;
-	this->pass = pass;
-	this->nombre = nombre;
-	this->apellido = apellido;
-	this->sexo = sexo;
-	this->edad = edad;
-	this->activo = activo;
-	this->roles = roles;
-}*/
-
 DataUsuario::DataUsuario(int ci,string pass,string nombre,string apellido,Sexo sexo,int edad,bool activo,bool esadmin,bool esmedico,bool essocio){
 	this->ci = ci;
 	this->pass = pass;
@@ -27,12 +16,7 @@ DataUsuario::DataUsuario(int ci,string pass,string nombre,string apellido,Sexo s
 }
 
 
-DataUsuario::~DataUsuario() {
-	/*for(set<DataRol>::iterator it = this->roles.begin();it != this->roles.end();++it){
-		delete (*it);
-	}
-	this->roles.clear();*/
-}
+DataUsuario::~DataUsuario() {}
 
 int DataUsuario::getCI(){
 	return this->ci;
@@ -60,9 +44,9 @@ bool DataUsuario::esSocio(){
 	return this->essocio;
 }
 
-set<DataRol*> DataUsuario::getRoles(){
+/*set<DataRol*> DataUsuario::getRoles(){
 	return this->roles;
-}
+}*/
 
 int DataUsuario::getEdad(){
 	return this->edad;
@@ -81,7 +65,5 @@ void DataUsuario::show(){
 	cout << "Nombe completo: " << this->nombre << " " << this->apellido << endl;
 	cout << "Edad: " << this->edad << endl;
 }
-
-
 
 #include "DataUsuario.h"

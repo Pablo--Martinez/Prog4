@@ -17,8 +17,6 @@ ManejadorSocios* ManejadorSocios::getInstance(){
 	return instancia;
 }
 
-//~ManejadorSocios();
-
 void ManejadorSocios::agregarSocio(Socio* s){
 	if(this->socios.find(s->getUsuario()->getCI()) != this->socios.end())
 		throw std::invalid_argument("Socio ya existente");

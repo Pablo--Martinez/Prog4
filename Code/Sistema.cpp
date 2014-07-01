@@ -429,13 +429,15 @@ void registroConsulta(){
 		if(!medicos_disponibles.empty()){ //El strategy dio resultados
 			cout << "Medicos disponibles: " << endl;
 			for(set<DataMedico*>::iterator it = medicos_disponibles.begin();it!=medicos_disponibles.end();++it){
-				cout << "\t- " << (*it)->getUsuario()->getCI() << ": " << (*it)->getUsuario()->getNombre() << endl;
+				cout << "\t- " << (*it)->getUsuario()->getCI() << ": " << (*it)->getUsuario()->getNombre() << " "
+					 << (*it)->getUsuario()->getApellido() << endl;
 			}
 		}
 
 		else{// El strategy no dio resultados
 			cout << "No hay medicos disponibles, se listaran todos: " << endl;
-			for(map<int,Medico*>::iterator it = mm->getMedicos().begin();it!=mm->getMedicos().end();++it){
+			map<int,Medico*> medicos = mm->getMedicos();
+			for(map<int,Medico*>::iterator it = medicos.begin();it!=medicos.end();++it){
 				cout << "\t- " << it->first << ": "<< it->second->getDataMedico()->getUsuario()->getNombre() << " "
 					 << it->second->getDataMedico()->getUsuario()->getApellido() << endl;
 			}
@@ -627,9 +629,15 @@ void altaMedicamento(){
 	cin >> nombre;
 	bool existe_medicamento = mm->existeMedicamento(nombre);
 	while(existe_medicamento){
-		cout << "Medicamento existente, ingrese nuevamente: ";
-		cin >> nombre;
-		existe_medicamento = mm->existeMedicamento(nombre);
+		string continuar;
+		cout << "Medicamento existente, reintentar?(S/N): "; cin >> continuar;
+		if(continuar == "S"){
+			cout << "Nombre nuevo medicamento: ";cin >> nombre;
+			existe_medicamento = mm->existeMedicamento(nombre);
+		}
+		else
+			return;
+
 	}
 	mm->ingresarMedicamento();
 	cout << "Medicamento ingresado correctamente!" << endl << endl;
@@ -1062,9 +1070,7 @@ void agregarDatosDePrueba() {
 	cc->ingresarFechaReserva(Fecha(21,6,2014));
 	cc->ingresarConsulta(65436667);
 
-	//cc->ingresarFechaConsulta(Fecha(22,6,2014));
-	//cc->ingresarFechaReserva(Fecha(22,5,2014));
-	cc->ingresarFechaConsulta(Fecha(23,6,2014));
+	cc->ingresarFechaConsulta(Fecha(22,6,2014));
 	cc->ingresarFechaReserva(Fecha(22,5,2014));
 	cc->ingresarConsulta(43521343);
 
@@ -1090,8 +1096,7 @@ void agregarDatosDePrueba() {
 
 	cu->iniciarSesion(34567645);
 	cu->asignarSesion();
-	//cc->registroEmergencia(34562345,65436667,"Fiebre alta",Fecha(23,5,2014));
-	cc->registroEmergencia(34562345,98056743,"Fiebre alta",Fecha(23,5,2014));
+	cc->registroEmergencia(34562345,65436667,"Fiebre alta",Fecha(23,5,2014));
 	cc->registroEmergencia(65436667,43521343,"Asma",Fecha(24,5,2014));
 	cc->registroEmergencia(65436667,98056743,"Mareos",Fecha(3,3,2014));
 

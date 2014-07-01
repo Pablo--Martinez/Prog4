@@ -53,10 +53,6 @@ Usuario* ControladorUsuarios::getUsuarioLogueado(){
 	return this->logueado;
 }
 
-/*set<DataAltaReactivacion*> ControladorUsuarios::obtenerDaDeAltaReactiva() {
-	return this->logueado->obtenerUsuariosAltaReactivacion();
-}*/
-
 TSesion ControladorUsuarios::iniciarSesion(int ci){
 	this->a_tratar = this->usuarios[ci];
 	if(this->a_tratar == NULL)

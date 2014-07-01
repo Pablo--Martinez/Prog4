@@ -14,16 +14,11 @@ class Usuario;
 
 class Administrador: public Rol{
 	private:
-		//set<Usuario*> daDeAlta;
-		//set<Usuario*> reactiva;
-		//Strategy* criterio;
 		set<DataAltaReactivacion*> deAltaReactivados;
 	public:
 		Administrador();
 		Administrador(Usuario*);
 		~Administrador();
-		//set<Usuario*> getUsuariosAlta();
-		//set<Usuario*> getUsuariosReactivados();
 		tipoRol getTipoRol();
 		void agregarUsuarioAltaReactivacion(DataUsuario*, Fecha, bool);
 		set<DataAltaReactivacion*> obtenerUsuariosAltaReactivacion();
