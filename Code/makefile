@@ -7,7 +7,7 @@ all: Medicamento.o Diagnostico.o Tratamiento.o Farmacologico.o Quirurjico.o Rol.
      RelojSistema.o ControladorTratamientos.o MedicosDelPaciente.o MedicosLibres.o Strategy.o Usuario.o \
      DataEstado.o
      
-	g++ -Wall -Werror -o Sistema Sistema.cpp Medicamento.o Diagnostico.o Tratamiento.o Farmacologico.o Quirurjico.o Rol.o \
+	g++ -o Sistema Sistema.cpp Medicamento.o Diagnostico.o Tratamiento.o Farmacologico.o Quirurjico.o Rol.o \
      IObserver.o Medico.o Socio.o Administrador.o Consulta.o Emergencia.o ConReserva.o \
      ManejadorMedicamentos.o ManejadorAdministradores.o ManejadorMedicos.o ManejadorSocios.o \
      ControladorConsultas.o ControladorDiagnosticos.o Fecha.o DataAltaReactivacion.o DataConReserva.o \
