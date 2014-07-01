@@ -1086,7 +1086,8 @@ void agregarDatosDePrueba() {
 
 	cu->iniciarSesion(34567645);
 	cu->asignarSesion();
-	cc->registroEmergencia(34562345,65436667,"Fiebre alta",Fecha(23,5,2014));
+	//cc->registroEmergencia(34562345,65436667,"Fiebre alta",Fecha(23,5,2014));
+	cc->registroEmergencia(34562345,98056743,"Fiebre alta",Fecha(23,5,2014));
 	cc->registroEmergencia(65436667,43521343,"Asma",Fecha(24,5,2014));
 	cc->registroEmergencia(65436667,98056743,"Mareos",Fecha(3,3,2014));
 

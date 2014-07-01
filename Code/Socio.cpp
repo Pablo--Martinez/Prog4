@@ -42,6 +42,11 @@ set<Consulta*> Socio::getConsultasSolicitadas(){
 
 void Socio::attach(IObserver* o){
 	this->observadores.insert(o);
+	cout << "Observadores de Socio: " << this->getUsuario()->getCI() << " \n";
+
+	for(set<IObserver*>::iterator it = this->observadores.begin();it != this->observadores.end();++it){
+		cout << "Medico Observador: " << (*it)->getUsuario()->getCI() << " \n";
+	}
 }
 
 void Socio::unattach(IObserver* o){
@@ -56,12 +61,16 @@ void Socio::unattach(IObserver* o){
 }
 
 void Socio::notifyall(Medico* medico,Fecha fecha,bool nuevoDiag){
-	set<IObserver*>::iterator it = this->observadores.begin();
+	for(set<IObserver*>::iterator it = this->observadores.begin();it != this->observadores.end();++it){
+		if(*it != medico)
+			(*it)->notify(this->getUsuario()->getCI(),medico,fecha,nuevoDiag);
+	}
+	/*set<IObserver*>::iterator it = this->observadores.begin();
 	while(it != this->observadores.end()){
 		//if(*it != medico)
 			(*it)->notify(this->getUsuario()->getCI(),medico,fecha,nuevoDiag);
 		it++;
-	}
+	}*/
 }
 
 set<DataMedico*> Socio::obtenerMedicosDelPaciente(){
