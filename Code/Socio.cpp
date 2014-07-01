@@ -52,7 +52,8 @@ void Socio::unattach(IObserver* o){
 
 void Socio::notifyall(Medico* medico,Fecha fecha,bool nuevoDiag){
 	for(set<IObserver*>::iterator it = this->observadores.begin();it != this->observadores.end();++it){
-		if(*it != medico)
+		cout << "Notifyall. Medico Observador: " << (*it)->getUsuario()->getCI() << " Medico Original: " << medico->getUsuario()->getCI();
+		if((*it)->getUsuario()->getCI() != medico->getUsuario()->getCI())
 			(*it)->notify(this->getUsuario()->getCI(),medico,fecha,nuevoDiag);
 	}
 	/*set<IObserver*>::iterator it = this->observadores.begin();

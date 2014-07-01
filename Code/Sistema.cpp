@@ -491,13 +491,20 @@ void altaDiagnosticosConsulta(){
 		cout << "\t-" << (*it)->getCI() << endl;
 	}
 
+	if (listadoCedulas.size() == 0) {
+		throw std::invalid_argument("No hay consultas en el dia \n");
+	}
+
 	//El usuario elige la consulta
 	int ciSeleccionada;
 	cout << "Ingrese la cedula seleccionada del listado anterior: ";
 	cin >> ciSeleccionada;
 	while(listadoCedulas.count(ciSeleccionada) == 0){
-		cout << "Seleccion incorrecta, ingrese nuevamente: ";
+		cout << "Seleccion incorrecta, ingrese nuevamente (0 para cancelar): ";
 		cin >> ciSeleccionada;
+		if (ciSeleccionada == 0) {
+			throw std::invalid_argument("Se cancelo caso de uso \n");
+		}
 	}
 
 	Consulta* consulta = cc->getConsulta(ciSeleccionada,rs->getFechaSistema());
@@ -1055,7 +1062,9 @@ void agregarDatosDePrueba() {
 	cc->ingresarFechaReserva(Fecha(21,6,2014));
 	cc->ingresarConsulta(65436667);
 
-	cc->ingresarFechaConsulta(Fecha(22,6,2014));
+	//cc->ingresarFechaConsulta(Fecha(22,6,2014));
+	//cc->ingresarFechaReserva(Fecha(22,5,2014));
+	cc->ingresarFechaConsulta(Fecha(23,6,2014));
 	cc->ingresarFechaReserva(Fecha(22,5,2014));
 	cc->ingresarConsulta(43521343);
 

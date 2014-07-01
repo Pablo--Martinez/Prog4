@@ -19,15 +19,15 @@ tipoRol Medico::getTipoRol() {
 }
 
 set<Consulta*> Medico::getConsultasAtiende(){
-	return this->atiende;
+	return this->consultas;
 }
 
 void Medico::agregarConsulta(Consulta* c){
-	this->atiende.insert(c);
+	this->consultas.insert(c);
 }
 
 void Medico::devolverConsulta(Consulta* c){
-	this->atiende.erase(c);
+	this->consultas.erase(c);
 }
 
 void Medico::seguir(Socio* s){
@@ -49,7 +49,7 @@ DataMedico* Medico::getDataMedico(){
 DataMedico* Medico::obtenerHistorial(int ci_socio){
 	bool encontre = false;
 	DataMedico* dm = this->getDataMedico();
-	for(set<Consulta*>::iterator it = this->atiende.begin();it != this->atiende.end();++it){
+	for(set<Consulta*>::iterator it = this->consultas.begin();it != this->consultas.end();++it){
 		if((*it)->perteneceASocio(ci_socio)){
 			encontre = true;
 			DataConsulta* dc = (*it)->getDataConsulta();
@@ -64,10 +64,10 @@ DataMedico* Medico::obtenerHistorial(int ci_socio){
 
 bool Medico::libreHoraYConsultas(int cantConsultas) {
 	RelojSistema* rs = RelojSistema::getInstance();
-	set<Consulta*> consultas = this->getConsultasAtiende();
+	//set<Consulta*> consultas = this->consultas;
 	int cant = 0;
 	Fecha fecha_sist = rs->getFechaSistema();
-	for(set<Consulta*>::iterator consulta = consultas.begin();consulta != consultas.end();++consulta) {
+	for(set<Consulta*>::iterator consulta = this->consultas.begin();consulta != this->consultas.end();++consulta) {
 		Fecha f = (*consulta)->getFechaConsulta();
 		if (f == fecha_sist) {
 			return false;
@@ -80,8 +80,8 @@ bool Medico::libreHoraYConsultas(int cantConsultas) {
 }
 
 bool Medico::libreParaFecha(Fecha fecha_consulta){
-	set<Consulta*>::iterator consulta = this->atiende.begin();
-	while(consulta != this->atiende.end()){
+	set<Consulta*>::iterator consulta = this->consultas.begin();
+	while(consulta != this->consultas.end()){
 		if((*consulta)->getFechaConsulta() == fecha_consulta){
 			return false;
 		}
