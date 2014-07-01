@@ -439,7 +439,8 @@ void registroConsulta(){
 		else{// El strategy no dio resultados
 			cout << "No hay medicos disponibles, se listaran todos: " << endl;
 			for(map<int,Medico*>::iterator it = mm->getMedicos().begin();it!=mm->getMedicos().end();++it){
-				cout << "\t- " << it->first << ": "<< it->second->getDataMedico()->getUsuario()->getNombre() << endl;
+				cout << "\t- " << it->first << ": "<< it->second->getDataMedico()->getUsuario()->getNombre() << " "
+					 << it->second->getDataMedico()->getUsuario()->getApellido() << endl;
 			}
 
 		}
@@ -550,7 +551,7 @@ void altaDiagnosticosConsulta(){
 		consulta->agregarDiagnostico(diag);
 		consulta->getSocioSolicitante()->notifyall(consulta->getMedico(),consulta->getFechaConsulta(),true);
 		/*if(typeid(consulta) == typeid(ConReserva)){
-			// En los con reserva dejo la notificación para el registroConsulta();
+			// En los con reserva dejo la notificaciï¿½n para el registroConsulta();
 			ConReserva* r = dynamic_cast<ConReserva*>(consulta);
 			r->setSeAgregaronDiagnosticos(true);
 		} else {
